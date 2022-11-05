@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+ /*    font-size: 14px;
+    color: #222;
+    letter-spacing: -.5px;
+    list-style: none;
+    -webkit-text-size-adjust: none;
+    font-family: -apple-system,BlinkMacSystemFont,helvetica,"Apple SD Gothic Neo",sans-serif;
+    position: relative;
+    min-height: 34px;
+    margin: 24px 0 -22px;
+    padding-right: 40px;
+    display: none; */
+    
+    .login_error_wrap {
+    position: relative;
+    min-height: 34px;
+    margin: 24px 0 -22px;
+    padding-right: 40px;
+}
+
+
