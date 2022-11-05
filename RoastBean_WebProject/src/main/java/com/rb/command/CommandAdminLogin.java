@@ -22,7 +22,7 @@ public class CommandAdminLogin implements Command {
 		
 		if(checkAdmin == 1) {
 			request.setAttribute("admin_id", admin_id);
-			page = "login_success_admin.rb";
+			page = "login_success_admin.do";
 			System.out.println("Asdasd");
 		}else {
 			page = "index.jsp";

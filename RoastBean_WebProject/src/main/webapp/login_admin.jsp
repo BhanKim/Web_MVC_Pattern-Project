@@ -124,7 +124,7 @@
 				<div class="col align-items-center">
 					<div class="col"
 						style="border-style: solid; border-radius: 12px; border-width: thin; border-color: #CFD4D9; padding: 40px;">
-						<form action="login_admin.rb" method="post">
+						<form action="login_admin.do" method="post">
 							<div style="width: 380px;">
 								<div class="mb-3">
 									<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->

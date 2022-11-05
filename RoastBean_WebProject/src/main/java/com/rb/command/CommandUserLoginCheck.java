@@ -26,7 +26,7 @@ public class CommandUserLoginCheck implements Command {
 		checkUser = dao.loginCheck(user_id, user_pw);
 
 		if (checkUser == 1) {
-			page = "login_success.rb";
+			page = "login_success.do";
 			request.setAttribute("user_id", user_id);
 		} else {
 			page = "index.jsp";

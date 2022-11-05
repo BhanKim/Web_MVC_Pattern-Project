@@ -18,7 +18,7 @@ import com.rb.command.CommandUserLoginCheck;
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("*.rb")
+@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -62,27 +62,27 @@ public class FrontController extends HttpServlet {
 		switch(com) {
 		// --------------------- 상원 Controller Start ---------------------
 		// 로그인 실행
-		case ("/login.rb"):
+		case ("/login.do"):
 			command = new CommandUserLoginCheck();
 			command.execute(request, response);
 			break;
 		// 관리자 로그인 실행
-		case ("/login_admin.rb"):
+		case ("/login_admin.do"):
 			command = new CommandAdminLogin();
 			command.execute(request, response);
 		break;
-		// 로그인 성공, *** user_id 세션값부여 ***
-		case ("/login_success.rb"):
-			session.setAttribute("user_id", request.getAttribute("user_id"));
+		// 유저 로그인 성공 *** id 세션값부여 ***
+		case ("/login_success.do"):
+			session.setAttribute("id", request.getAttribute("user_id"));
 			viewPage = "index.jsp";
 			break;
-		// 관리자 로그인 성공
-		case ("/login_success_admin.rb"):
-			session.setAttribute("user_id", request.getAttribute("admin_id"));
-		viewPage = "index.jsp";
+		// 관리자 로그인 성공 *** id 세션값부여 ***
+		case ("/login_success_admin.do"):
+			session.setAttribute("id", request.getAttribute("admin_id"));
+			viewPage = "index.jsp";
 		break;
-
-		case ("/logout.rb"):
+		// 로그아웃 실행
+		case ("/logout.do"):
 			System.out.println("logout");
 			session.invalidate();
 			viewPage = "index.jsp";

@@ -51,7 +51,7 @@
               </li> -->
 
 					</ul> <%
-			if (session.getAttribute("cId")==null) {
+			if (session.getAttribute("id")==null) {
 %>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li></li>
@@ -64,8 +64,7 @@
 %>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li><a class="nav-link scrollto" href="mypage_main.rb"><font
-						color="#F2BCBB" style="font-size: 0.9em">Welcome
-							${user_id}!</font></a></li>
+						color="#F2BCBB" style="font-size: 0.9em">{id}</font></a></li>
 				<li><a class="nav-link scrollto" href="cart.rb"><font
 						style="font-size: 0.9em">Cart</font></a></li>
 				<li><a class="nav-link scrollto" href="logout.rb"><font
