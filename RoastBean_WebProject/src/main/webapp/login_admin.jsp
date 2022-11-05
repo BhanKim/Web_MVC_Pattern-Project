@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Roast Bean : Login</title>
+<title>Roast Bean : Admin Login</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -124,43 +124,26 @@
 				<div class="col align-items-center">
 					<div class="col"
 						style="border-style: solid; border-radius: 12px; border-width: thin; border-color: #CFD4D9; padding: 40px;">
-						<form action="login.rb" method="post">
+						<form action="login_admin.rb" method="post">
 							<div style="width: 380px;">
-								<!-- API 로그인 Start -->
-								<div class="mb-3">
-									<input type="text" class="form-control"
-										value="Continue with Google" style="height: 48px;">
-								</div>
-								<div class="mb-3">
-									<input type="text" class="form-control"
-										value="Continue with Naver" style="height: 48px;">
-								</div>
-								<div class="mb-3">
-									<input type="text" class="form-control"
-										value="Continue with Kakao" style="height: 48px;">
-								</div>
-								<!-- API 로그인 End -->
-								<div class="mb-3">
-									<font style="color: #6E757C;">or</font>
-								</div>
 								<div class="mb-3">
 									<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
-									<input type="text" class="form-control" id="user_id"
-										name="user_id" placeholder="ID" maxlength="41"
+									<input type="text" class="form-control" id="admin_id"
+										name="admin_id" placeholder="ID" maxlength="41"
 										aria-describedby="idHelp" style="height: 48px;">
 									<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
 								</div>
 								<div class="mb-3">
 									<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
-									<input type="email" class="form-control" id="user_email"
-										name="user_email" placeholder="Email : not use now"
+									<input type="email" class="form-control" id="admin_email"
+										name="admin_email" placeholder="Email : not use now"
 										aria-describedby="emailHelp" style="height: 48px;">
 									<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
 								</div>
 								<div class="mb-3">
 									<!-- <label for="inputPassword5" class="form-label">Password</label>  -->
-									<input type="password" class="form-control" id="user_pw"
-										name="user_pw" placeholder="Password" maxlength="16"
+									<input type="password" class="form-control" id="admin_pw"
+										name="admin_pw" placeholder="Password" maxlength="16"
 										aria-describedby="passwordHelpBlock" style="height: 48px;">
 									<!-- <div id="passwordHelpBlock" class="form-text">Your password
 							must be 8-20 characters long, contain letters and numbers, and

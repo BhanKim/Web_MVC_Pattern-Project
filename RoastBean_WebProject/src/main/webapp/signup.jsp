@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Roast Bean : Login</title>
+<title>Roast Bean : Sign Up</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -35,12 +35,6 @@
 <link href="assets/css/style.css" rel="stylesheet">
 <link href="assets/css/style_rb.css" rel="stylesheet">
 
-<!-- =======================================================
-  * Template Name: Delicious - v4.9.1
-  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -124,89 +118,85 @@
 				<div class="col align-items-center">
 					<div class="col"
 						style="border-style: solid; border-radius: 12px; border-width: thin; border-color: #CFD4D9; padding: 40px;">
-						<form action="login.rb" method="post">
-							<div style="width: 380px;">
-								<!-- API 로그인 Start -->
-								<div class="mb-3">
-									<input type="text" class="form-control"
-										value="Continue with Google" style="height: 48px;">
-								</div>
-								<div class="mb-3">
-									<input type="text" class="form-control"
-										value="Continue with Naver" style="height: 48px;">
-								</div>
-								<div class="mb-3">
-									<input type="text" class="form-control"
-										value="Continue with Kakao" style="height: 48px;">
-								</div>
-								<!-- API 로그인 End -->
-								<div class="mb-3">
-									<font style="color: #6E757C;">or</font>
-								</div>
-								<div class="mb-3">
-									<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
-									<input type="text" class="form-control" id="user_id"
-										name="user_id" placeholder="ID" maxlength="41"
-										aria-describedby="idHelp" style="height: 48px;">
-									<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-								</div>
-								<div class="mb-3">
-									<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
-									<input type="email" class="form-control" id="user_email"
-										name="user_email" placeholder="Email : not use now"
-										aria-describedby="emailHelp" style="height: 48px;">
-									<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-								</div>
-								<div class="mb-3">
-									<!-- <label for="inputPassword5" class="form-label">Password</label>  -->
-									<input type="password" class="form-control" id="user_pw"
-										name="user_pw" placeholder="Password" maxlength="16"
-										aria-describedby="passwordHelpBlock" style="height: 48px;">
-									<!-- <div id="passwordHelpBlock" class="form-text">Your password
+						<div style="width: 380px;">
+							<div class="mb-3">
+								<input type="text" class="form-control"
+									value="Continue with Google" style="height: 48px;">
+							</div>
+							<div class="mb-3">
+								<input type="text" class="form-control"
+									value="Continue with Naver" style="height: 48px;">
+							</div>
+							<div class="mb-3">
+								<input type="text" class="form-control"
+									value="Continue with Kakao" style="height: 48px;">
+							</div>
+							<div class="mb-3">
+								<font style="color: #6E757C;">or</font>
+							</div>
+							<div class="mb-3">
+								<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
+								<input type="text" class="form-control" id="id" name="id"
+									placeholder="ID" maxlength="41" aria-describedby="idHelp"
+									style="height: 48px;">
+								<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+							</div>
+							<div class="mb-3">
+								<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
+								<input type="email" class="form-control" id="email" name="email"
+									placeholder="Email : not use now" aria-describedby="emailHelp"
+									style="height: 48px;">
+								<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+							</div>
+							<div class="mb-3">
+								<!-- <label for="inputPassword5" class="form-label">Password</label>  -->
+								<input type="password" class="form-control" id="pw" name="pw"
+									placeholder="Password" maxlength="16"
+									aria-describedby="passwordHelpBlock" style="height: 48px;">
+								<!-- <div id="passwordHelpBlock" class="form-text">Your password
 							must be 8-20 characters long, contain letters and numbers, and
 							must not contain spaces, special characters, or emoji.</div> -->
-								</div>
-								
-								
-								<div class="login_error_wrap" id="err_capslock"
-									style="display: none;">
-									<div class="error_message">
-										<strong>CapsLock</strong>이 켜져 있습니다.
-									</div>
-								</div>
-								<div class="login_error_wrap" id="err_empty_id"
-									style="display: none;">
-									<div class="error_message">
-										<strong>아이디</strong>를 입력해 주세요.
-									</div>
-								</div>
-								<div class="login_error_wrap" id="err_empty_pw"
-									style="display: none;">
-									<div class="error_message">
-										<strong>비밀번호</strong>를 입력해 주세요.
-									</div>
-								</div>
-								<div class="login_error_wrap" id="err_common"
-									style="display: none;">
-									<div class="error_message" style="width: 90%"></div>
-								</div>
-								
-								
-								<div class="mb-3">
-									<button type="submit" class="btn "
-										style="width: 380px; color: #fff; background-color: #F2BCBB; height: 48px; font-weight: normal; font-size: large;">Login</button>
+							</div>
+							<div class="login_error_wrap" id="err_capslock"
+								style="display: none;">
+								<div class="error_message">
+									<strong>CapsLock</strong>이 켜져 있습니다.
 								</div>
 							</div>
-						</form>
-						<div class="mb-3">
-							<a a href="find_pw.jsp" tabindex="-1" style="color: #5464F9;">Forgot
-								password?</a>
+							<div class="login_error_wrap" id="err_empty_id"
+								style="display: none;">
+								<div class="error_message">
+									<strong>아이디</strong>를 입력해 주세요.
+								</div>
+							</div>
+							<div class="login_error_wrap" id="err_empty_pw"
+								style="display: none;">
+								<div class="error_message">
+									<strong>비밀번호</strong>를 입력해 주세요.
+								</div>
+							</div>
+							<div class="login_error_wrap" id="err_common"
+								style="display: none;">
+								<div class="error_message" style="width: 90%"></div>
+							</div>
+							<div class="mb-3">
+								<button type="submit" class="btn "
+									style="width: 380px; color: #fff; background-color: #F2BCBB; height: 48px; font-weight: normal; font-size: large;">Log
+									in</button>
+							</div>
 						</div>
 						<div class="mb-3">
 							<div>
-								No account? <a a href="signup.jsp" tabindex="-1"
-									style="color: #5464F9;">Create one</a>
+								Already have an account? <a href="login.jsp" tabindex="-1"
+									style="color: #5464F9;">Login</a>
 							</div>
+						</div>
+						<div class="mb-3">
+							<span style="font-size: small;">By clicking "Create account", I agree to
+								Roast Bean's <a target="_blank" rel="noopener" tabindex="-1"
+								href="/summary-of-policy" style="color: #5464F9;">TOS</a> and <a target="_blank"
+								rel="noopener" tabindex="-1" href="/privacy" style="color: #5464F9;">Privacy Policy</a>.
+							</span>
 						</div>
 					</div>
 				</div>
