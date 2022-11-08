@@ -1,4 +1,4 @@
-package com.rb.dao.login;
+package com.rb.dao.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

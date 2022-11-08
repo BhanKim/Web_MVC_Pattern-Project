@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.rb.command.Command;
-import com.rb.command.CommandAdminLogin;
-import com.rb.command.CommandUserLogin;
-import com.rb.command.CommandUserLoginApi;
+import com.rb.command.user.CommandAdminLogin;
+import com.rb.command.user.CommandUserLogin;
+import com.rb.command.user.CommandUserLoginApi;
+import com.rb.command.user.CommandUserSignup;
 
 
 /**
@@ -66,8 +67,7 @@ public class FrontController extends HttpServlet {
 		case ("/login.do"):
 			command = new CommandUserLogin();
 			command.execute(request, response);
-			request.getAttribute("page");
-			viewPage = "page";
+			viewPage = "index.jsp";
 			break;
 			// 로그인 실행
 		case ("/loginApi.do"):
@@ -79,14 +79,17 @@ public class FrontController extends HttpServlet {
 		case ("/login_admin.do"):
 			command = new CommandAdminLogin();
 			command.execute(request, response);
-			request.getAttribute("page");
-			viewPage = "page";
+			viewPage = "index.jsp";
 		break;
 		// 로그아웃 실행
 		case ("/logout.do"):
-			command = new CommandAdminLogin();
-			command.execute(request, response);
 			session.invalidate();
+			viewPage = "index.jsp";
+			break;
+			// 로그아웃 실행
+		case ("/signup.do"):
+			command = new CommandUserSignup();
+			command.execute(request, response);
 			viewPage = "index.jsp";
 			break;
 		// --------------------- 상원 Controller End -----------------------

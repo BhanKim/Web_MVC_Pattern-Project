@@ -9,15 +9,12 @@
 <title>Roast Bean : Login</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
-
 <!-- Favicons -->
 <link href="assets/img/favicon.png" rel="icon">
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-
 <!-- Vendor CSS Files -->
 <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +22,6 @@
 <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
 <!-- 추가한 CSS File -->
@@ -34,12 +30,8 @@
 </head>
 
 <body>
-	<!-- ======= Header ======= -->
 	<%-- <%@include file="header_innerpage.jsp"%> --%>
-	<!-- End Header -->
-
 	<main id="main">
-
 		<div class="container text-center">
 			<div style="height: 100px;"></div>
 			<div align="center">
@@ -139,61 +131,13 @@
 			<div class="row align-items-end"></div>
 			<div style="height: 100px;"></div>
 		</div>
-		<!-- </div> -->
 	</main>
-	<!-- End #main -->
-
 	<!-- ======= Footer ======= -->
 	<%-- <%@include file="footer.jsp"%> --%>
 	<!-- End Footer -->
-
-	<!-- Google API Start -->
-	<script>
-        var googleButton = document.getElementById('google-button');
-
-        // function to get response
-        function handleCredentialResponse(response) {
-            const responsePayload = decodeJwtResponse(response.credential);
-            
-            // 이메일값 넘겨주기
-    		document.location = "loginApi.do?api_email="+ responsePayload.email;
-
-        }
-
-        window.onload = function () {
-            google.accounts.id.initialize({
-                // replace your client id below
-                client_id: "267053146082-icvrt0ks03smmhl1lkbiqa4c5f7i91q3.apps.googleusercontent.com",
-                callback: handleCredentialResponse,
-                auto_select: true,
-                auto: true
-            });
-            google.accounts.id.renderButton(
-                document.getElementById("google-button"),
-                { theme: "filled_blue", size: "large", width: '380' }  // customization attributes
-            );
-            // also display the One Tap dialog on right side
-            // important for auto login
-            google.accounts.id.prompt(); 
-        }
-
-        // function to decode the response.credential
-        function decodeJwtResponse(token) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-            return JSON.parse(jsonPayload);
-        }
-
-        function signOut() {
-            google.accounts.id.disableAutoSelect();
-            // do anything on logout
-            location.reload();
-        }
-    </script>
     <button onClick="signOut()">Sign Out</button>
+	<!-- Google API Start -->
+	<script src="assets/js/login.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <!-- Google API End -->
 

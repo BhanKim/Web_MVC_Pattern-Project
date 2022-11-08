@@ -8,7 +8,7 @@
 </head>
 <body>
 
-
+>>>카카오 주소찾기<<<
 
 <input type="text" id="sample4_postcode" readonly="true" placeholder="우편번호">
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -49,8 +49,6 @@
                 document.getElementById("sample4_roadAddress").value = roadAddr;
                 document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
                 
- 
-
                 var guideTextBox = document.getElementById("guide");
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
             }
@@ -79,10 +77,6 @@ jsp
             <input type="button" class="btn btn-outline-primary" value="로그인" onclick="javascript:window.location='login.jsp'">
             <!-- login.jsp로 넘어가겠다고 선언 -->
          </form><br>
-         <img src="./img/Eclipse-luna.png" alt="이클립스" width="100">&nbsp;
-         <img src="./img/1_zKnKunxf74dpaMMtcKrB9g.png" alt="jsp/servlet" width="170">&nbsp;
-         <img src="./img/1508213062.563510_.png" alt="오라클" width="170">&nbsp;
-         <img src="./img/sql-developer.png" alt="오라클" width="220">
        </div>
     </div>
 </div>
