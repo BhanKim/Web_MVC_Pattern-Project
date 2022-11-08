@@ -1,4 +1,4 @@
-package com.rb.dao;
+package com.rb.dao.beaninfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.rb.dto.DtoBeanInfo;
+import com.rb.dto.beaninfo.DtoBeanInfo;
 
 
 public class DaoBeanInfo {

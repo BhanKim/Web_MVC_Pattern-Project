@@ -18,7 +18,7 @@ public class DaoProductList {
 		// TODO Auto-generated constructor stub
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/testproject");// 여기까지선언을 다 완료시켜주면 DB가 연결된 것
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/roastbean");// 여기까지선언을 다 완료시켜주면 DB가 연결된 것
 			// 위에 customer 공간에 스키마 이름을 작성해줘야함
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -150,7 +150,7 @@ public class DaoProductList {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "insert into product (product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price, product_updatedate) values(?,?,?,?,?,?,?, now())";
+			String query = "insert into product (product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price, product_initdate) values(?,?,?,?,?,?,?, now())";
 			preparedStatement = connection.prepareStatement(query);
 
 			preparedStatement.setString(1, product_name);
