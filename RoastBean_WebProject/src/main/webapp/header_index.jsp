@@ -17,8 +17,8 @@
 
       <div >
         <!-- Uncomment below if you prefer to use an image logo -->
-        <h1><a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid" width="110" ></a>
-        <a href="index.html"><font color="#ffffff" style="vertical-align: bottom;">Roast Bean</font></a></h1>
+        <h1><a href="index.jsp"><img src="assets/img/logo.png" alt="" class="img-fluid" width="110" ></a>
+        <a href="index.jsp"><font color="#ffffff" style="vertical-align: bottom;">Roast Bean</font></a></h1>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -26,7 +26,7 @@
           <li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
           <li><a class="nav-link scrollto" href="#community">COMMUNITY</a></li>
           <li><a class="nav-link2 scrollto" href="#coffee_information">COFFEE INFORMATION</a></li>
-          <li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE SHOP</a></li>
+          <li><a class="nav-link2 scrollto" href="productList.do">COFFEE SHOP</a></li>
           <li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
             <ul>
               <li><a href="#notice">NOTICE</a></li>

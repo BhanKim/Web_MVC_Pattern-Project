@@ -842,12 +842,10 @@
           </div>
           <div class="text-center"><button type="submit">Send Message</button></div>
         </form>
-
       </div>
     </section><!-- End Contact Section -->
-
   </main><!-- End #main -->
-
+	
   <!-- ======= Footer ======= -->
 	<%@include file = "footer.jsp" %>
   <!-- End Footer -->

@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.rb.command.Command;
+import com.rb.command.CommandCartDelete;
+import com.rb.command.CommandCartInsert;
+import com.rb.command.CommandCartList;
+import com.rb.command.CommandOrder;
+import com.rb.command.CommandProductDetail;
+import com.rb.command.CommandProductList;
 
 
 /**
@@ -59,9 +65,43 @@ public class FrontController extends HttpServlet {
 		
 		switch(com) {
 		// 전체 내용 검색
-
+		case ("/productList.do"):
+			command = new CommandProductList();
+			command.execute(request, response);
+			viewPage = "productList.jsp";
+			break;
+		case ("/productDetail.do"):
+			command = new CommandProductDetail();
+			command.execute(request, response);
+			viewPage = "productDetail.jsp";
+			break;
+		case ("/cartOrderInsert.do"):
+			command = new CommandCartInsert();
+			command.execute(request, response);
+			viewPage = "cartOrder.do";
+			break;
+		case ("/cartOrder.do"):
+			command = new CommandCartList();
+			command.execute(request, response);
+			viewPage = "cartOrder.jsp";
+			break;
+		case ("/insertCart.do"):
+			command = new CommandCartInsert();
+			command.execute(request, response);
+			viewPage = "productDetail.do";
+			break;
+		case ("/deleteCart.do"):
+			command = new CommandCartDelete();
+			command.execute(request, response);
+			viewPage = "cartOrder.do";
+			break;
+		case ("/order.do"):
+			command = new CommandOrder();
+			command.execute(request, response);
+			viewPage = "index.jsp";
+			break;
 		} //switch
-		
+		System.out.println(viewPage);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 	}
