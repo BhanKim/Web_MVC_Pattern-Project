@@ -1,11 +1,11 @@
-package com.rb.command;
+package com.rb.command.product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.DaoProductList;
+import com.rb.dao.product.DaoProductList;
 
-public class CommmandProductInsert implements Command {
+public class CommandProductUpdate implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -17,10 +17,13 @@ public class CommmandProductInsert implements Command {
 		String product_stock = request.getParameter("product_stock");
 		String product_weight = request.getParameter("product_weight");
 		String product_price = request.getParameter("product_price");
-		
-		
+		String sproduct_id = request.getParameter("product_id");
+
 		DaoProductList dao = new DaoProductList();
-		dao.insert(product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price);
+		System.out.println(sproduct_id+"commandproductupdate");
+		dao.update(product_name,product_nation,product_image, product_info, product_stock, product_weight, product_price,sproduct_id);
+		
+
 	}
 
 }

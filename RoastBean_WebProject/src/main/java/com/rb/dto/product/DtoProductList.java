@@ -1,4 +1,4 @@
-package com.rb.dto;
+package com.rb.dto.product;
 
 import java.sql.Timestamp;
 
@@ -47,6 +47,7 @@ public class DtoProductList {
 
 
 	
+
 
 	public int getProduct_id() {
 		return product_id;

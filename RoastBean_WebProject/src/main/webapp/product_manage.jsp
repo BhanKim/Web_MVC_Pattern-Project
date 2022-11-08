@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body link="black" vlink="black" alink="navy">
 <div style="text-align: center;">
 		<br>
 		<br> &nbsp;&nbsp;&nbsp;
@@ -45,17 +45,18 @@
 		      <td>${dto.product_id }</td>
 		      <td>${dto.product_name }</td>
 		      <td>${dto.product_nation }</td>
-		      <td><img src="assets/img/product/${dto.product_image }" width="300px" height="200px"></td>
+		      <td><img src="assets/img/product/${dto.product_image }" width="200px" height="300px"></td>
 		      <td>${dto.product_info }</td>
 		      <td>${dto.product_stock }</td>
 		      <td>${dto.product_weight }</td>
 		      <td>${dto.product_price }</td>		    
-		      <td><a href="product_update.do?product_id=${dto.product_id }">수정</a></td>		    
-		      <td><a href="product_delete.do?product_id=${dto.product_id }">삭제</a></td>		    	    
+		      <td><a href="product_select_update.do?product_id=${dto.product_id }" style="text-decoration:none">수정</a></td>		    
+		      <td><a href="product_delete.do?product_id=${dto.product_id }" style="text-decoration:none">삭제</a></td>		    	    
 		   </tr>
 		</c:forEach>
 		</table>
-		<a href="product_insert.do">상품등록하기</a>
+		<a href="product_insert.do" style="text-decoration:none">상품등록하기</a><br>
+	    <a href="###.jsp" style="text-decoration:none">홈으로 돌아가기</a>
 </div>
 
 </body>

@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body link="black" vlink="black" alink="navy">
 	<div style="text-align: center;">
 		<br>
 		<br> &nbsp;&nbsp;&nbsp;
@@ -54,10 +54,16 @@
 	         <td><input type="text" name="product_price" size="40"></td>
 	      </tr>
 	      <tr>
+	         <td></td>
 	         <td><input type="submit" value="저장하기"></td>
+	      </tr>
+	      <tr>
+	         <td></td>
+	         <td><a href="product_manage.jsp " style="text-decoration:none">상품리스트로 돌아가기</a></td>
 	      </tr>
 	   </table>
 	</form>
-	<a href="product_manage.jsp "></a>
+	
+	
 </body>
 </html>

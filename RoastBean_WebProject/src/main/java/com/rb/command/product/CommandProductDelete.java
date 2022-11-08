@@ -1,9 +1,9 @@
-package com.rb.command;
+package com.rb.command.product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.DaoProductList;
+import com.rb.dao.product.DaoProductList;
 
 public class CommandProductDelete implements Command {
 

@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.command.Command;
-import com.rb.command.CommandProductDelete;
-import com.rb.command.CommandProductUpdate;
-import com.rb.command.CommandUserList;
-import com.rb.command.CommmandProductInsert;
-import com.rb.command.CommmandProductList;
+import com.rb.command.product.Command;
+import com.rb.command.product.CommandProductDelete;
+import com.rb.command.product.CommandProductSearch;
+import com.rb.command.product.CommandProductSeen;
+import com.rb.command.product.CommandProductUpdate;
+import com.rb.command.product.CommandUserList;
+import com.rb.command.product.CommmandProductInsert;
+import com.rb.command.product.CommmandProductList;
 
 /**
  * Servlet implementation class FrontController
@@ -88,17 +90,30 @@ public class FrontController extends HttpServlet {
 			command = new CommmandProductInsert();
 			command.execute(request, response);
 			viewPage = "product_manage.jsp";
-		case ("/product_delete.do"):
+		case ("/product_delete.do"): // 관리자 상품 삭제
 			System.out.println("product_delete.do");
 			command = new CommandProductDelete();
 			command.execute(request, response);// 넣음
 			viewPage = "product_manage.do";// 보여주기
 			break;
-		case ("/product_update.do"):
+		case ("/product_update.do"): // 관리자 상품 수정
 			System.out.println("product_update.do");
+			System.out.println(request.getParameter("product_id") + "product_update.do");
 			command = new CommandProductUpdate();
 			command.execute(request, response);// 넣음
 			viewPage = "product_manage.do";// 보여주기
+			break;
+		case ("/product_select_update.do"): // 수정하기
+			System.out.println("product_select_update.do");
+			command = new CommandProductSeen();
+			command.execute(request, response);// 넣음
+			viewPage = "product_update.jsp"; // 수정하는 jsp로 이동
+			break;
+		case ("/product_manage_search.do"): //입력으로 검색
+			System.out.println("product_manage_search.do");
+			command = new CommandProductSearch();
+			command.execute(request, response);
+			viewPage = "product_manage.jsp";
 			break;
 		} // switch
 
