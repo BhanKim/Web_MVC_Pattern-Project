@@ -29,8 +29,8 @@
 		<nav id="navbar" class="navbar order-last order-lg-0">
 			<ul>
 				<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
-				<li><a class="nav-link scrollto" href="#community">COMMUNITY</a></li>
-				<li><a class="nav-link2 scrollto" href="#coffee_information">COFFEE
+				<li><a class="nav-link scrollto" href="#events">EVENTS</a></li>
+				<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN 
 						INFORMATION</a></li>
 				<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE
 						SHOP</a></li>

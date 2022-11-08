@@ -1,6 +1,7 @@
 package com.rb.homecontroller;
 
 import java.io.IOException;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,7 +56,8 @@ public class FrontController extends HttpServlet {
 		actionDo(request, response);
 	}
 
-	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void actionDo(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 
 		String viewPage = null;
@@ -67,8 +69,7 @@ public class FrontController extends HttpServlet {
 		HttpSession session = request.getSession(); // *******session
 		System.out.println(com);
 
-		
-		switch(com) {
+		switch (com) {
 		// --------------------- 상원 Controller Start ---------------------
 		// 로그인 실행
 		case ("/login.do"):
@@ -134,6 +135,21 @@ public class FrontController extends HttpServlet {
 			break;
 		// --------------------- 수빈 Controller Start -----------------------
 			
+		} // switch
+
+		// --------------------- 성진 Controller Start -----------------------
+
+		// 원두 정보 페이지
+		case ("/beaninfo.do"):
+			System.out.println("beaninfo");
+			request.setAttribute("nav_beaninfo", "#f2bcbb");
+			command = new CommandBeanInfo();
+			command.execute(request, response);
+			viewPage = "beaninfo.jsp";
+			break;
+
+		// --------------------- 성진 Controller End -----------------------
+
 		} // switch
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
