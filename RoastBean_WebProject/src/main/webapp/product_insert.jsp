@@ -25,7 +25,7 @@
 	         <td>원산지</td>
 	         <td>
 	           <select name="product_nation">
-	               <option value="선택하시오." selected="selected">선택하시오</option>
+	               <option value="선택하시오." selected="selected">미선택</option>
 	               <option value="케냐">케냐</option>
 	               <option value="에티오피아">에티오피아</option>
 	               <option value="멕시코">멕시코</option>

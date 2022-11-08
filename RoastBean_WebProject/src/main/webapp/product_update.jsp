@@ -29,7 +29,7 @@
 	         <td>원산지</td>
 	         <td>
 	           <select name="product_nation">
-	               <option value="선택하시오." selected="selected" value="${product_select.product_nation }">${product_select.product_nation }</option>
+	               <option value="미선택" selected="selected" value="${product_select.product_nation }">${product_select.product_nation }</option>
 	               <option value="케냐">케냐</option>
 	               <option value="에티오피아">에티오피아</option>
 	               <option value="멕시코">멕시코</option>
