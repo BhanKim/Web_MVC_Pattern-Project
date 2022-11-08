@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.user.DaoAdminLogin;
+import com.rb.dao.DaoAdminLogin;
 
 public class CommandAdminLogin implements Command {
 

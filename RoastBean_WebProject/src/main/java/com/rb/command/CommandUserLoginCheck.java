@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.user.DaoUserLogin;
+import com.rb.dao.DaoUserLogin;
 
 public class CommandUserLoginCheck implements Command {
 

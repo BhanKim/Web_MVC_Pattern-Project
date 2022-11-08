@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.user.DaoBeanInfo;
-import com.rb.dto.user.DtoBeanInfo;
+import com.rb.dao.DaoBeanInfo;
+import com.rb.dto.DtoBeanInfo;
 
 public class CommandBeanInfo implements Command {
 

@@ -97,13 +97,13 @@ public class FrontController extends HttpServlet {
 		// --------------------- 성진 Controller Start -----------------------
 
 		// 원두 정보 페이지
-//		case ("/beaninfo.do"):
-//			System.out.println("beaninfo");
-//			request.setAttribute("nav_beaninfo", "#f2bcbb");
-//			command = new CommandBeanInfo();
-//			command.execute(request, response);
-//			viewPage = "beaninfo.jsp";
-//			break;
+		case ("/beaninfo.do"):
+			System.out.println("beaninfo");
+			request.setAttribute("nav_beaninfo", "#f2bcbb");
+			command = new CommandBeanInfo();
+			command.execute(request, response);
+			viewPage = "beaninfo.jsp";
+			break;
 
 		// --------------------- 성진 Controller End -----------------------
 
