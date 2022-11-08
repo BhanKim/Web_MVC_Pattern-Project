@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
+
 <!-- ======= Top Bar ======= -->
 <section id="topbar" class="d-flex align-items-center fixed-top ">
 	<div
@@ -26,13 +27,16 @@
 		</div>
 		<nav id="navbar" class="navbar order-last order-lg-0">
 			<ul>
-				<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
-				<li><a class="nav-link scrollto" href="#community">COMMUNITY</a></li>
-				<li><a class="nav-link2 scrollto" href="#coffee_information">COFFEE
+				<li><a class="nav-link scrollto" href="index.jsp#about"
+					style="color: ${nav_about}">ABOUT</a></li>
+				<li><a class="nav-link scrollto" href="index.jsp#events"
+					style="color: ${nav_community}">EVENTS</a></li>
+				<li><a href="beaninfo.do" style="color: ${nav_beaninfo}">BEAN
 						INFORMATION</a></li>
-				<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE
-						SHOP</a></li>
-				<li class="dropdown"><a href="#customer_service"><span>CUSTOMER
+				<li><a class="nav-link2 scrollto" href="#coffee_shop"
+					style="color: ${nav_coffeeshop}">COFFEE SHOP</a></li>
+				<li class="dropdown"><a href="#customer_service"
+					style="color: ${nav_customerservice}"><span>CUSTOMER
 							SERVICE</span></a>
 					<ul>
 						<li><a href="#notice">NOTICE</a></li>
@@ -51,8 +55,8 @@
               </li> -->
 
 					</ul> <%
-			if (session.getAttribute("id")==null) {
-%>
+ if (session.getAttribute("id") == null) {
+ %>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li></li>
 				<li><a class="nav-link scrollto" href="login.jsp"><font
@@ -60,8 +64,8 @@
 				<li><a class="nav-link scrollto" href="signup.jsp"><font
 						style="font-size: 0.9em">Sign Up</font></a></li>
 				<%
-          	} else {
-%>
+				} else {
+				%>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li><a class="nav-link scrollto" href="mypage_main.rb"><font
 						color="#F2BCBB" style="font-size: 0.9em">{id}</font></a></li>
@@ -70,8 +74,8 @@
 				<li><a class="nav-link scrollto" href="logout.rb"><font
 						style="font-size: 0.9em">Log Out</font></a></li>
 				<%
-           	}
-%>
+				}
+				%>
 			</ul>
 			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav>

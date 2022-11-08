@@ -19,15 +19,15 @@ public class CommandAdminLogin implements Command {
 		DaoAdminLogin dao = new DaoAdminLogin();
 		int checkAdmin = dao.loginCheckAdmin(admin_id, admin_pw);
 		String page;
-		
-		if(checkAdmin == 1) {
+
+		if (checkAdmin == 1) {
 			request.setAttribute("admin_id", admin_id);
 			page = "login_success_admin.do";
 			System.out.println("Asdasd");
-		}else {
+		} else {
 			page = "index.jsp";
 		}
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 		try {
 			dispatcher.forward(request, response);
@@ -38,8 +38,7 @@ public class CommandAdminLogin implements Command {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
 }
