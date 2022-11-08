@@ -51,7 +51,7 @@
               </li> -->
 
 					</ul> <%
-			if (session.getAttribute("id")==null) {
+			if (session.getAttribute("ID")==null) {
 %>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li></li>

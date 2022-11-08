@@ -53,7 +53,7 @@
               </li> -->
 
 					</ul> <%
-			if (session.getAttribute("id")==null) {
+			if (session.getAttribute("ID")==null) {
 %>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li></li>
@@ -66,12 +66,21 @@
 %>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li><a class="nav-link scrollto" href="mypage_main.do"><font
-						color="#F2BCBB" style="font-size: 0.9em">${id}</font></a></li>
+						color="#F2BCBB" style="font-size: 0.9em">${ID}</font></a></li>
 				<li><a class="nav-link scrollto" href="cart.do"><font
 						style="font-size: 0.9em">Cart</font></a></li>
-				<li><a class="nav-link scrollto" href="logout.do"><font
-						style="font-size: 0.9em">Log Out</font></a></li>
-				<%
+<%
+				if(session.getAttribute("API")==null){
+%>
+					<li><a class="nav-link scrollto" href="logout.do"><font
+							style="font-size: 0.9em">Log Out</font></a></li>
+<%					
+					}else{
+%>						
+					<li><a class="nav-link scrollto" href="logout.do"><font
+							style="font-size: 0.9em">Log Out</font></a></li>
+<%
+					}
            	}
 %>
 			</ul>
@@ -79,5 +88,16 @@
 		</nav>
 		<!-- .navbar -->
 	</div>
+	<!-- Google Login API -->
+	<script>
+	    function signOut() {
+	        google.accounts.id.disableAutoSelect();
+	        // do anything on logout
+	        location.reload();
+    		//document.location = "index.jsp";
+	    }
+	</script>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+    
 </header>
 <!-- End Header -->

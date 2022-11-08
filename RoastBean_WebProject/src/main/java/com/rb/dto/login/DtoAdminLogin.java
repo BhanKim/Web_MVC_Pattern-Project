@@ -1,4 +1,4 @@
-package com.rb.dto.user;
+package com.rb.dto.login;
 
 public class DtoAdminLogin {
 	

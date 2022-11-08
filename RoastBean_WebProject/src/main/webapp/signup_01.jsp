@@ -56,45 +56,42 @@
 				<div class="col align-items-center">
 					<div class="col"
 						style="border-style: solid; border-radius: 12px; border-width: thin; border-color: #CFD4D9; padding: 40px;">
-						<div style="width: 380px;">
-							<div class="mb-3">
-								<input type="text" class="form-control"
-									value="Continue with Google" style="height: 48px;">
-							</div>
-							<div class="mb-3">
-								<input type="text" class="form-control"
-									value="Continue with Naver" style="height: 48px;">
-							</div>
-							<div class="mb-3">
-								<input type="text" class="form-control"
-									value="Continue with Kakao" style="height: 48px;">
-							</div>
-							<div class="mb-3">
-								<font style="color: #6E757C;">or</font>
-							</div>
-							<div class="mb-3">
+						<div style="width: 480px;">
+						<table class="col">
+							<tr class="mb-3">
 								<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
-								<input type="text" class="form-control" id="id" name="id"
+								<td align="left">ID</td>
+								<td><input type="text" class="form-control" id="id" name="id"
 									placeholder="ID" maxlength="41" aria-describedby="idHelp"
-									style="height: 48px;">
+									style="height: 32px; width: 400px"></td>
 								<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-							</div>
-							<div class="mb-3">
+							</tr>
+							<tr class="mb-6">
 								<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
-								<input type="email" class="form-control" id="email" name="email"
+								<td align="left">ID :</td>
+								<td><input type="password" class="form-control" id="email" name="email"
 									placeholder="Email : not use now" aria-describedby="emailHelp"
-									style="height: 48px;">
+									style="height: 32px;"></td>
 								<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-							</div>
-							<div class="mb-3">
+							</tr>
+							<tr class="mb-10">
 								<!-- <label for="inputPassword5" class="form-label">Password</label>  -->
-								<input type="password" class="form-control" id="pw" name="pw"
-									placeholder="Password" maxlength="16"
-									aria-describedby="passwordHelpBlock" style="height: 48px;">
+								<td>Password :</td>
+								<td><input type="password" class="form-control" id="user_pw" name="pw"
+									placeholder="Your password must be 8-20 characters long, contain letters and numbers" maxlength="16"
+									aria-describedby="passwordHelpBlock" style="height: 32px;"></td>
 								<!-- <div id="passwordHelpBlock" class="form-text">Your password
 							must be 8-20 characters long, contain letters and numbers, and
 							must not contain spaces, special characters, or emoji.</div> -->
-							</div>
+							</tr>
+							<tr class="mb-3">
+								<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
+								<td>Email : </td>
+								<td><input type="email" class="form-control" id="email" name="email"
+									placeholder="Email : not use now" aria-describedby="emailHelp"
+									style="height: 32px;"></td>
+								<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+							</tr>
 							<div class="login_error_wrap" id="err_capslock"
 								style="display: none;">
 								<div class="error_message">
@@ -117,10 +114,10 @@
 								style="display: none;">
 								<div class="error_message" style="width: 90%"></div>
 							</div>
+						</table>	
 							<div class="mb-3">
 								<button type="submit" class="btn "
-									style="width: 380px; color: #fff; background-color: #F2BCBB; height: 48px; font-weight: normal; font-size: large;">Log
-									in</button>
+									style="width: 380px; color: #fff; background-color: #F2BCBB; height: 48px; font-weight: normal; font-size: large;">Sign up</button>
 							</div>
 						</div>
 						<div class="mb-3">
@@ -141,6 +138,7 @@
 				<div class="col align-items-end"></div>
 			</div>
 			<div class="row align-items-end"></div>
+			<div style="height: 100px;"></div>
 		</div>
 		<!-- </div> -->
 	</main>

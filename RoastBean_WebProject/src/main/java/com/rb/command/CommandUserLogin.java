@@ -6,30 +6,30 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.rb.dao.user.DaoUserLogin;
+import com.rb.dao.login.DaoUserLogin;
 
-public class CommandUserLoginCheck implements Command {
+public class CommandUserLogin implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
+		HttpSession session = request.getSession(); // *******session
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
 		String page;
-		
 		int checkUser;
-
-		DaoUserLogin dao = new DaoUserLogin();
 		
+		DaoUserLogin dao = new DaoUserLogin();
 		checkUser = dao.loginCheck(user_id, user_pw);
 
 		if (checkUser == 1) {
-			page = "login_success.do";
-			request.setAttribute("user_id", user_id);
-		} else {
+			session.setAttribute("ID", user_id);
 			page = "index.jsp";
+		}else {
+			page = "login.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
@@ -42,6 +42,7 @@ public class CommandUserLoginCheck implements Command {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 
 	}
 
