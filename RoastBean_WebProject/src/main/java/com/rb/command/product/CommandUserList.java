@@ -1,12 +1,12 @@
-package com.rb.command;
+package com.rb.command.product;
 
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.DaoUserList;
-import com.rb.dto.DtoUserList;
+import com.rb.dao.product.DaoUserList;
+import com.rb.dto.product.DtoUserList;
 
 
 

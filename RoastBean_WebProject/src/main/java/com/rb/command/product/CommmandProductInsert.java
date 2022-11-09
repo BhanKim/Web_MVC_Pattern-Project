@@ -1,9 +1,9 @@
-package com.rb.command;
+package com.rb.command.product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.DaoProductList;
+import com.rb.dao.product.DaoProductManageList;
 
 public class CommmandProductInsert implements Command {
 
@@ -19,7 +19,7 @@ public class CommmandProductInsert implements Command {
 		String product_price = request.getParameter("product_price");
 		
 		
-		DaoProductList dao = new DaoProductList();
+		DaoProductManageList dao = new DaoProductManageList();
 		dao.insert(product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price);
 	}
 

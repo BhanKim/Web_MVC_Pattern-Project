@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body link="black" vlink="black" alink="navy">
 	<div style="text-align: center;">
 	   <br>
 	   <br> 
@@ -24,7 +24,7 @@
 		        <td>이메일</td>
 		        <td>전화번호</td>
 		     </tr>
-		     <c:forEach items="${list}" var="dto">
+		     <c:forEach items="${userlist}" var="dto">
 		      <tr>
 		         <td>${dto.user_id }</td>
 		         <td>${dto.user_pw }</td>
@@ -36,6 +36,9 @@
 		      </tr>
 		      </c:forEach>
 	      </table>
+	      <br>
+	      <br>
+	      <a href="product_main.jsp" style="text-decoration:none">홈으로 돌아가기</a>
 	</div>
 </body>
 </html>

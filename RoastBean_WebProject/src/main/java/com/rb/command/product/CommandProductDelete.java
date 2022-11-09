@@ -1,9 +1,9 @@
-package com.rb.command;
+package com.rb.command.product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.DaoProductList;
+import com.rb.dao.product.DaoProductManageList;
 
 public class CommandProductDelete implements Command {
 
@@ -13,7 +13,7 @@ public class CommandProductDelete implements Command {
 		
 		String product_id = request.getParameter("product_id");
 		System.out.println("product_id : "+product_id+"입니다.");
-		DaoProductList dao = new DaoProductList();
+		DaoProductManageList dao = new DaoProductManageList();
 		dao.delete(product_id);
 
 	}
