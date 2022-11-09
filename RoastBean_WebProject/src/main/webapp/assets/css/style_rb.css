@@ -1,25 +1,7 @@
 @charset "UTF-8";
 
 
-/* 네이버 방식의 로그인 정규화검사 */
- /*    font-size: 14px;
-    color: #222;
-    letter-spacing: -.5px;
-    list-style: none;
-    -webkit-text-size-adjust: none;
-    font-family: -apple-system,BlinkMacSystemFont,helvetica,"Apple SD Gothic Neo",sans-serif;
-    position: relative;
-    min-height: 34px;
-    margin: 24px 0 -22px;
-    padding-right: 40px;
-    display: none; */
-    
-    .login_error_wrap {
-    position: relative;
-    min-height: 34px;
-    margin: 24px 0 -22px;
-    padding-right: 40px;
-}
+
 
 
 /*********** 구글 로그인 버튼 스타일 ************/
