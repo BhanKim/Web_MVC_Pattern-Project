@@ -80,42 +80,34 @@
 									<tr>
 										<td align="left" width="40">ID&emsp;&emsp;&emsp;&emsp;</td>
 										<td class="col" align="left">
-											<input type="text" class="form-control2" name="user_id"
-											placeholder="4글자 이상 입력해주세요." maxlength="41" aria-describedby="idHelp"
-											style="height: 32px;">
+											<input type="text" class="form-control2" name="user_id"	placeholder="4글자 이상 입력해주세요." maxlength="41"	style="height: 32px;">
 											<input class="form-control3" type="button" onclick="location='check_id.do'" value="중복체크">
 										</td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Name</td>
-										<td><input type="text" class="form-control" name="user_name"
-											placeholder="한글로 입력해주세요." aria-describedby="emailHelp"
-											style="height: 32px;"></td>
+										<td><input type="text" class="form-control" name="user_name" placeholder="한글로 입력해주세요." style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr>
 										<td align="left">Nick Name</td>
 										<td class="col" align="left">
-											<input class="form-control2" type="text" name="user_nick"
-											placeholder="필수사항입니다." maxlength="41" aria-describedby="idHelp"
-											style="height: 32px;">
-											<input class="form-control3" type="button" onclick="location='check_nick.do'" value="중복체크"">
+											<input class="form-control2" type="text" name="user_nick" placeholder="필수사항입니다." maxlength="41" style="height: 32px;">
+											<input class="form-control3" type="button" onclick="location='check_nick.do'" value="중복체크">
 										</td>
 									</tr>
 									<tr height="10"></tr>
 									<tr >
 										<td align="left">Password</td>
-										<td><input type="password" class="form-control" name="user_pw"
-											placeholder="문자와 숫자로 입력해주세요.(4~20)" maxlength="16"
-											aria-describedby="passwordHelpBlock" style="height: 32px;"></td>
+										<td><input type="password" class="form-control" name="user_pw" placeholder="문자와 숫자로 입력해주세요.(4~20)" maxlength="16" style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr >
 										<td align="left">Check PW</td>
 										<td><input type="password" class="form-control" name="user_pw_check"
 											placeholder="다시 한번 입력해주세요." maxlength="16"
-											aria-describedby="passwordHelpBlock" style="height: 32px;"></td>
+											style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
@@ -129,11 +121,9 @@
 												<option value="019">019</option>
 											</select>
 											-
-											<input class="form-control2" size="10" type="tel" name="user_telno2" aria-describedby="telHelp"
-											style="height: 32px;">
+											<input class="form-control2" size="10" type="tel" name="user_telno2" style="height: 32px;">
 											-
-											<input class="form-control2" size="10" type="tel" name="user_telno3" aria-describedby="telHelp"
-											style="height: 32px;">
+											<input class="form-control2" size="10" type="tel" name="user_telno3" style="height: 32px;">
 										</td>
 									</tr>
 									<tr height="10"></tr>

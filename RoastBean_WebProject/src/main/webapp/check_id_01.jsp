@@ -8,27 +8,27 @@
 </head>
 <body>
 
-<form action = "JoinService" method = "post">
+<form action = "" method = "post">
 	<table>
 		<tr>
 		<td>ID</td>
 		<td>
-			<input type = "text" name = "id" class = "input_id">
+			<input type = "text" name = "user_id" class = "input_id">
 			<font id = "checkId" size = "2"></font>
 		</td>
 		</tr>		
 	</table>
 </form>
 
-<script src = "js/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
 	$('.input_id').focusout(function(){
-		let userId = $('.input_id').val(); // input_id에 입력되는 값
+		let user_id = $('.input_id').val(); // input_id에 입력되는 값
 		
 		$.ajax({
-			url : "IdCheckService",
+			url : "checkId.do",
 			type : "post",
-			data : {userId: userId},
+			data : {user_id: user_id},
 			dataType : 'json',
 			success : function(result){
 				if(result == 0){

@@ -14,16 +14,14 @@ public class CommandUserLoginApi implements Command {
 		
 		HttpSession session = request.getSession(); // *******session
 		String api_email = request.getParameter("api_email");
-		String page;
-		int checkUserApi;
+		String user_nick = null;
 		
 		DaoUserLogin dao = new DaoUserLogin();
-		checkUserApi = dao.loginCheckApi(api_email);
+		user_nick = dao.loginCheckApi(api_email);
 
-		if (checkUserApi == 1) {
-			session.setAttribute("ID", api_email);
-			session.setAttribute("API", "1");
-		} 
+		session.setAttribute("ID", api_email);
+		session.setAttribute("NICK", user_nick);
+		session.setAttribute("API", "1");
 
 	}
 

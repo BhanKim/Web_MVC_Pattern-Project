@@ -17,6 +17,7 @@ import com.rb.command.CommandCartDelete;
 import com.rb.command.CommandCartInsert;
 import com.rb.command.CommandCartList;
 import com.rb.command.CommandOrder;
+import com.rb.command.CommandUserCheckId;
 import com.rb.command.CommandUserLogin;
 import com.rb.command.CommandUserLoginApi;
 
@@ -87,8 +88,7 @@ public class FrontController extends HttpServlet {
 		case ("/login_admin.do"):
 			command = new CommandAdminLogin();
 			command.execute(request, response);
-			request.getAttribute("page");
-			viewPage = "page";
+			viewPage = "index.jsp";
 		break;
 		// 로그아웃 실행
 		case ("/logout.do"):
@@ -97,6 +97,10 @@ public class FrontController extends HttpServlet {
 			session.invalidate();
 			viewPage = "index.jsp";
 			break;
+//		case ("/checkId.do"):
+//			command = new CommandUserCheckId();
+//			command.execute(request, response);
+//			break;
 		// --------------------- 상원 Controller End -----------------------
 			
 
