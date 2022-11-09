@@ -47,67 +47,28 @@
 							<div class="col" style="width: 380px;">
 								<!-- API 로그인 Start -->
 								<div class="col mb-3" id="google-button"></div><!-- ***** -->
-								<div class="mb-3">
+								<!-- <div class="mb-3">
 									<input type="text" class="form-control"
 										value="Continue with Naver" style="height: 48px;">
 								</div>
 								<div class="mb-3">
 									<input type="text" class="form-control"
 										value="Continue with Kakao" style="height: 48px;">
-								</div>
+								</div> -->
 								<!-- API 로그인 End -->
 								<div class="mb-3">
 									<font style="color: #6E757C;">or</font>
 								</div>
 								<div class="mb-3">
-									<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
 									<input type="text" class="form-control" id="user_id"
 										name="user_id" placeholder="ID" maxlength="41"
 										aria-describedby="idHelp" style="height: 48px;">
-									<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
 								</div>
 								<div class="mb-3">
-									<!-- <label for="exampleInputEmail1" class="form-label">Email</label>  -->
-									<input type="email" class="form-control" id="user_email"
-										name="user_email" placeholder="Email : not use now"
-										aria-describedby="emailHelp" style="height: 48px;">
-									<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-								</div>
-								<div class="mb-3">
-									<!-- <label for="inputPassword5" class="form-label">Password</label>  -->
 									<input type="password" class="form-control" id="user_pw"
 										name="user_pw" placeholder="Password" maxlength="16"
 										aria-describedby="passwordHelpBlock" style="height: 48px;">
-									<!-- <div id="passwordHelpBlock" class="form-text">Your password
-							must be 8-20 characters long, contain letters and numbers, and
-							must not contain spaces, special characters, or emoji.</div> -->
 								</div>
-
-
-								<div class="login_error_wrap" id="err_capslock"
-									style="display: none;">
-									<div class="error_message">
-										<strong>CapsLock</strong>이 켜져 있습니다.
-									</div>
-								</div>
-								<div class="login_error_wrap" id="err_empty_id"
-									style="display: none;">
-									<div class="error_message">
-										<strong>아이디</strong>를 입력해 주세요.
-									</div>
-								</div>
-								<div class="login_error_wrap" id="err_empty_pw"
-									style="display: none;">
-									<div class="error_message">
-										<strong>비밀번호</strong>를 입력해 주세요.
-									</div>
-								</div>
-								<div class="login_error_wrap" id="err_common"
-									style="display: none;">
-									<div class="error_message" style="width: 90%"></div>
-								</div>
-
-
 								<div class="mb-3">
 									<button type="submit" class="btn "
 										style="width: 380px; color: #fff; background-color: #F2BCBB; height: 48px; font-weight: normal; font-size: large;">Login</button>
@@ -135,7 +96,7 @@
 	<!-- ======= Footer ======= -->
 	<%-- <%@include file="footer.jsp"%> --%>
 	<!-- End Footer -->
-    <button onClick="signOut()">Sign Out</button>
+    <!-- <button onClick="signOut()">Sign Out</button> -->
 	<!-- Google API Start -->
 	<script src="assets/js/login.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>

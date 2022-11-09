@@ -2,6 +2,7 @@ package com.rb.dao.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -59,6 +60,70 @@ public class DaoUserSignup {
 			}
 		}
 	} // takeInsertTake
+	
+	// checkId
+	public int checkId(String user_id) {	// 유저가 입력한 값을 매개변수로 한다
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		int idCheck = 0;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select * from user where user_id = ?";	// 입력값이 테이블에 있는지 확인	
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, user_id);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next() || user_id.equals("")) {
+				idCheck = 0;	// 이미 존재하는 경우, 생성 불가능
+			}else {
+				idCheck = 1;	// 존재하지 않는 경우, 생성 가능
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return idCheck;
+
+	} // checkId
+	
+//	public int checkId(String id) {  // 유저가 입력한 값을 매개변수로 한다
+//		conn();
+//		String sql = "select * from user_info where user_id = ?"; // 입력값이 테이블에 있는지 확인
+//		int idCheck = 0;
+//	    try {
+//			psmt = conn.prepareStatement(sql);
+//			psmt.setString(1, id);
+//			
+//			rs = psmt.executeQuery();
+//					
+//			if(rs.next() || id.equals("")) {
+//				idCheck = 0;  // 이미 존재하는 경우, 생성 불가능
+//			} else {
+//				idCheck = 1;  // 존재하지 않는 경우, 생성 가능
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		
+//		return idCheck;
+//	}
 
 
 }
