@@ -1,4 +1,4 @@
-package com.rb.dto.beaninfo;
+package com.rb.dto;
 
 public class DtoBeanInfo {
 	
