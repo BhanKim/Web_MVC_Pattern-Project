@@ -11,11 +11,11 @@ import javax.sql.DataSource;
 
 import com.rb.dto.DtoProductList;
 
-public class DaoProductList {
+public class DaoProductDetail {
 	
 	DataSource dataSource;
 
-    public DaoProductList() {
+    public DaoProductDetail() {
         // TODO Auto-generated constructor stub
         try {
             Context context = new InitialContext();
@@ -23,11 +23,11 @@ public class DaoProductList {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    } 
-
+    }
+    
     // 전체 검색
-    public ArrayList<DtoProductList> list() {
-        ArrayList<DtoProductList> dtos = new ArrayList<DtoProductList>();
+    public DtoProductList list(int pproduct_id) {
+        DtoProductList dtos = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -36,11 +36,11 @@ public class DaoProductList {
             
             connection = dataSource.getConnection();
 
-            String query = "select product_id, product_name, product_weight, product_info, product_price, product_stock from product";
+            String query = "select product_id, product_name, product_weight, product_info, product_price, product_stock from product where product_id = " + pproduct_id;
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 int product_id = resultSet.getInt("product_id");
                 String product_name = resultSet.getString("product_name");
                 int product_weight = resultSet.getInt("product_weight");
@@ -48,8 +48,7 @@ public class DaoProductList {
                 int product_price = resultSet.getInt("product_price");
                 int product_stock = resultSet.getInt("product_stock");
 
-                DtoProductList dto = new DtoProductList(product_id, product_name, product_weight, product_info, product_price, product_stock);
-                dtos.add(dto);
+                dtos = new DtoProductList(product_id, product_name, product_weight, product_info, product_price, product_stock);
             }
 
         } catch (Exception e) {
@@ -68,5 +67,4 @@ public class DaoProductList {
         }
         return dtos;
     } 
-
 }

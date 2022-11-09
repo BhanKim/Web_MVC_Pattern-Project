@@ -12,14 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.rb.command.Command;
-import com.rb.command.CommandAdminLogin;
-import com.rb.command.CommandUserLogin;
-import com.rb.command.CommandUserLoginApi;
-import com.rb.command.CommandProductDelete;
-import com.rb.command.CommandProductUpdate;
-import com.rb.command.CommandUserList;
-import com.rb.command.CommmandProductInsert;
-import com.rb.command.CommmandProductList;
+import com.rb.command.CommandCartDelete;
+import com.rb.command.CommandCartInsert;
+import com.rb.command.CommandCartList;
+import com.rb.command.CommandOrder;
+import com.rb.command.CommandProductDetail;
+import com.rb.command.CommandProductList;
 
 /**
  * Servlet implementation class FrontController
@@ -66,6 +64,7 @@ public class FrontController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
 		String com = uri.substring(conPath.length());
+		
 		HttpSession session = request.getSession(); // *******session
 		System.out.println(com);
 
@@ -99,43 +98,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "index.jsp";
 			break;
 		// --------------------- 상원 Controller End -----------------------
-		// --------------------- 수빈 Controller Start -----------------------
-		// 전체 내용 검색
-		case ("/UserListSelect.do"): // 홈에서 관리자가 고객리스트 보기 버튼을 클릭시 do가 실행
-			System.out.println("user_list_select.do");
-			command = new CommandUserList();
-			command.execute(request, response);
-			viewPage = "user_list.jsp";
-			break;
-		case ("/product_manage.do"): // 상품 리스트 select
-			System.out.println("product_manage.do");
-			command = new CommmandProductList();
-			command.execute(request, response);
-			viewPage = "product_manage.jsp";
-			break;
-		case ("/product_insert.do"):
-			viewPage = "product_insert.jsp";
-			break;
-		case ("/product_manage_insert.do"): // 관리자 상품 등록 글 작성
-			System.out.println("product_manage_insert.do");
-			command = new CommmandProductInsert();
-			command.execute(request, response);
-			viewPage = "product_manage.jsp";
-		case ("/product_delete.do"):
-			System.out.println("product_delete.do");
-			command = new CommandProductDelete();
-			command.execute(request, response);// 넣음
-			viewPage = "product_manage.do";// 보여주기
-			break;
-		case ("/product_update.do"):
-			System.out.println("product_update.do");
-			command = new CommandProductUpdate();
-			command.execute(request, response);// 넣음
-			viewPage = "product_manage.do";// 보여주기
-			break;
-		// --------------------- 수빈 Controller Start -----------------------
 			
-		} // switch
 
 		// --------------------- 성진 Controller Start -----------------------
 
@@ -149,7 +112,44 @@ public class FrontController extends HttpServlet {
 			break;
 
 		// --------------------- 성진 Controller End -----------------------
-
+    
+    // --------------------- 윤현 Controller Start ---------------------
+    case ("/productList.do"):
+			command = new CommandProductList();
+			command.execute(request, response);
+			viewPage = "productList.jsp";
+			break;
+		case ("/productDetail.do"):
+			command = new CommandProductDetail();
+			command.execute(request, response);
+			viewPage = "productDetail.jsp";
+			break;
+		case ("/cartOrderInsert.do"):
+			command = new CommandCartInsert();
+			command.execute(request, response);
+			viewPage = "cartOrder.do";
+			break;
+		case ("/cartOrder.do"):
+			command = new CommandCartList();
+			command.execute(request, response);
+			viewPage = "cartOrder.jsp";
+			break;
+		case ("/insertCart.do"):
+			command = new CommandCartInsert();
+			command.execute(request, response);
+			viewPage = "productDetail.do";
+			break;
+		case ("/deleteCart.do"):
+			command = new CommandCartDelete();
+			command.execute(request, response);
+			viewPage = "cartOrder.do";
+			break;
+		case ("/order.do"):
+			command = new CommandOrder();
+			command.execute(request, response);
+			viewPage = "index.jsp";
+			break;
+    // --------------------- 윤현 Controller End -----------------------
 		} // switch
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
