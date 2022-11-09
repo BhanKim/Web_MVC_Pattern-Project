@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
 <!-- ======= Top Bar ======= -->
 <section id="topbar" class="d-flex align-items-center fixed-top ">
 	<div
@@ -12,12 +11,10 @@
 				10:00 AM - 18:00 PM</span></i>
 	</div>
 </section>
-
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center ">
 	<div
 		class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
 		<div class="col-lg-4">
 			<h1>
 				<a href="index.jsp"><img src="assets/img/logo.png" alt=""
@@ -38,20 +35,8 @@
 						<li><a href="#notice">NOTICE</a></li>
 						<li><a href="#faq">FAQ</a></li>
 						<li><a href="#qna">QnA</a></li>
-
-						<!-- <li><a href="#">Drop Down 4</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li> -->
-
 					</ul> <%
-			if (session.getAttribute("ID")==null) {
+					if (session.getAttribute("ID")==null) {
 %>
 				<li>&emsp;&emsp;&emsp;</li>
 				<li></li>
@@ -63,13 +48,22 @@
           	} else {
 %>
 				<li>&emsp;&emsp;&emsp;</li>
-				<li><a class="nav-link scrollto" href="mypage_main.rb"><font
-						color="#F2BCBB" style="font-size: 0.9em">{id}</font></a></li>
-				<li><a class="nav-link scrollto" href="cart.rb"><font
+				<li><a class="nav-link scrollto" href="mypage_main.do"><font
+						color="#F2BCBB" style="font-size: 0.9em">${ID}</font></a></li>
+				<li><a class="nav-link scrollto" href="cart.do"><font
 						style="font-size: 0.9em">Cart</font></a></li>
-				<li><a class="nav-link scrollto" href="logout.rb"><font
-						style="font-size: 0.9em">Log Out</font></a></li>
-				<%
+<%
+				if(session.getAttribute("API")==null){
+%>
+					<li><a class="nav-link scrollto" href="logout.do"><font
+							style="font-size: 0.9em">Log Out</font></a></li>
+<%					
+					}else{
+%>						
+					<li><a class="nav-link scrollto" href="logoutApi.do"><font
+							style="font-size: 0.9em">Log Out</font></a></li>
+<%
+					}
            	}
 %>
 			</ul>

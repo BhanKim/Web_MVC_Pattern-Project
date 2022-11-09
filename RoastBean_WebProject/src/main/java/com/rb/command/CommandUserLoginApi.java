@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.rb.dao.login.DaoUserLogin;
+import com.rb.dao.DaoUserLogin;
 
 public class CommandUserLoginApi implements Command {
 

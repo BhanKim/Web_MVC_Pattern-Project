@@ -1,4 +1,4 @@
-package com.rb.dao.community;
+package com.rb.dao;
 
 public class PageInfo {
 	
