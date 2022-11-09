@@ -24,7 +24,7 @@
 		        <td>이메일</td>
 		        <td>전화번호</td>
 		     </tr>
-		     <c:forEach items="${list}" var="dto">
+		     <c:forEach items="${userlist}" var="dto">
 		      <tr>
 		         <td>${dto.user_id }</td>
 		         <td>${dto.user_pw }</td>
