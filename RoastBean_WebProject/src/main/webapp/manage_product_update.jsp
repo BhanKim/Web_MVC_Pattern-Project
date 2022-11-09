@@ -14,7 +14,7 @@
 		&nbsp;&nbsp;&nbsp;
 	</div>
 	
-	<form action="product_update.do" method="post">
+	<form action="ManageProductUpdate.do" method="post">
 	   
 	   <table style="margin-left: auto; margin-right: auto;">
 	      <tr>

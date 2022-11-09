@@ -13,10 +13,14 @@ import javax.servlet.http.HttpSession;
 import com.rb.command.Command;
 import com.rb.command.CommandAdminLogin;
 import com.rb.command.CommandBeanInfo;
-import com.rb.command.CommandCartDelete;
-import com.rb.command.CommandCartInsert;
-import com.rb.command.CommandCartList;
-import com.rb.command.CommandOrder;
+import com.rb.command.CommandManageProductDelete;
+import com.rb.command.CommandManageProductInsert;
+import com.rb.command.CommandManageProductList;
+import com.rb.command.CommandManageProductSearch;
+import com.rb.command.CommandManageProductSeen;
+import com.rb.command.CommandManageProductUpdate;
+import com.rb.command.CommandManageUserList;
+
 import com.rb.command.CommandUserLogin;
 import com.rb.command.CommandUserLoginApi;
 
@@ -65,7 +69,7 @@ public class FrontController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
 		String com = uri.substring(conPath.length());
-		
+
 		HttpSession session = request.getSession(); // *******session
 		System.out.println(com);
 
@@ -78,7 +82,7 @@ public class FrontController extends HttpServlet {
 			request.getAttribute("page");
 			viewPage = "page";
 			break;
-			// 로그인 실행
+		// 로그인 실행
 		case ("/loginApi.do"):
 			command = new CommandUserLoginApi();
 			command.execute(request, response);
@@ -90,7 +94,7 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			request.getAttribute("page");
 			viewPage = "page";
-		break;
+			break;
 		// 로그아웃 실행
 		case ("/logout.do"):
 			command = new CommandAdminLogin();
@@ -99,7 +103,6 @@ public class FrontController extends HttpServlet {
 			viewPage = "index.jsp";
 			break;
 		// --------------------- 상원 Controller End -----------------------
-			
 
 		// --------------------- 성진 Controller Start -----------------------
 
@@ -113,17 +116,65 @@ public class FrontController extends HttpServlet {
 			break;
 
 		// --------------------- 성진 Controller End -----------------------
-    
+
 		// --------------------- 윤현 Controller Start ---------------------
 
 		// --------------------- 윤현 Controller End -----------------------
-			
-		// --------------------- 수빈 Controller Start -----------------------
-			
+
+		// --------------------- 수빈 Controller Start ---------------------
+		case ("/UserListSelect.do"): // 홈에서 관리자가 고객리스트 보기 버튼을 클릭시 do가 실행
+			System.out.println("user_list_select.do");
+			command = new CommandManageUserList();
+			command.execute(request, response);
+			viewPage = "user_list.jsp";
+			break;
+
+		case ("/ManageProductList.do"): // 상품 리스트 select
+			System.out.println("ManageProductList.do");
+			command = new CommandManageProductList();
+			command.execute(request, response);
+			viewPage = "manage_product_list.jsp";
+			break;
+
+		case ("/ManageProductInsert.do"):
+			viewPage = "manage_product_insert.jsp";
+			break;
+
+		case ("/ManageProductListInsert.do"): // 관리자 상품 등록 글 작성
+			System.out.println("ManageProductListInsert.do");
+			command = new CommandManageProductInsert();
+			command.execute(request, response);
+			viewPage = "manage_product_list.jsp";
+			break;
+
+		case ("/ManageProductDelete.do"): // 관리자 상품 삭제
+			System.out.println("product_delete.do");
+			command = new CommandManageProductDelete();
+			command.execute(request, response);// 넣음
+			viewPage = "ManageProductList.do";
+			break;
+
+		case ("/ManageProductUpdateSelete.do"): // 수정하기
+			System.out.println("ManageProductUpdateSelete.do");
+			command = new CommandManageProductSeen();
+			command.execute(request, response);// 넣음
+			viewPage = "manage_product_update.jsp";
+			break;
+		case ("/ManageProductUpdate.do"):// 관리자 상품 수정
+			System.out.println("ManageProductUpdate.do");
+			command = new CommandManageProductUpdate();
+			command.execute(request, response);// 넣음
+			viewPage = "ManageProductList.do";
+			break;
+		case ("/ManageProductSearch.do"):// 입력으로 검색
+			System.out.println("ManageProductSearch.do");
+			command = new CommandManageProductSearch();
+			command.execute(request, response);
+			viewPage = "manage_product_list.jsp";
+			break;
+
 		// --------------------- 수빈 Controller End -----------------------
-			
-			
-			
+
 		} // switch
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

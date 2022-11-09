@@ -15,7 +15,7 @@
 		<h2>제품 등록하기</h2>
 		&nbsp;&nbsp;&nbsp;
 	</div>
-	<form action="product_manage_insert.do" method="post" name="Member">
+	<form action="ManageProductListInsert.do" method="post" name="Member">
 	   <table style="margin-left: auto; margin-right: auto;">
 	      <tr>
 	         <td>제품명</td>
