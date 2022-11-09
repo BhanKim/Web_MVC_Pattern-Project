@@ -45,7 +45,7 @@
 		      <td>${dto.product_id }</td>
 		      <td>${dto.product_name }</td>
 		      <td>${dto.product_nation }</td>
-		      <td><img src="assets/img/product/${dto.product_image }" width="200px" height="300px"></td>
+		      <td><img src="assets/img/product/${dto.product_image }" width="180px" height="200px"></td>
 		      <td>${dto.product_info }</td>
 		      <td>${dto.product_stock }</td>
 		      <td>${dto.product_weight }</td>
