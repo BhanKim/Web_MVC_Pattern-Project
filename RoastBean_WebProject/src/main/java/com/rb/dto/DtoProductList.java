@@ -1,6 +1,5 @@
 package com.rb.dto;
 
-
 public class DtoProductList {
 	
 	int product_id;
