@@ -13,13 +13,12 @@ import javax.servlet.http.HttpSession;
 import com.rb.command.Command;
 import com.rb.command.CommandAdminLogin;
 import com.rb.command.CommandBeanInfo;
-import com.rb.command.CommandCartDelete;
-import com.rb.command.CommandCartInsert;
-import com.rb.command.CommandCartList;
-import com.rb.command.CommandOrder;
 import com.rb.command.CommandUserCheckId;
+import com.rb.command.CommandUserCheckNick;
 import com.rb.command.CommandUserLogin;
 import com.rb.command.CommandUserLoginApi;
+import com.rb.command.CommandUserSignup;
+import com.rb.command.CommandUserSignupApi;
 
 /**
  * Servlet implementation class FrontController
@@ -78,31 +77,51 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "index.jsp";
 			break;
-			// 로그인 실행
-		case ("/loginApi.do"):
+		// API 로그인 실행
+		case ("/login_api.do"):
 			command = new CommandUserLoginApi();
 			command.execute(request, response);
-			viewPage = "index.jsp";
+			int check = (int) request.getAttribute("check");
+			if(check == 1) {
+				viewPage = "index.jsp";
+			}else {
+				viewPage = "signup_api.jsp";
+			}
 			break;
 		// 관리자 로그인 실행
 		case ("/login_admin.do"):
 			command = new CommandAdminLogin();
 			command.execute(request, response);
 			viewPage = "index.jsp";
-		break;
+			break;
+		// 아이디 중복 체크
+		case ("/check_id.do"):
+			command = new CommandUserCheckId();
+			command.execute(request, response);
+			break;
+		// 닉네임 중복 체크
+		case ("/check_nick.do"):
+			command = new CommandUserCheckNick();
+			command.execute(request, response);
+			break;
+		// signup 실행
+		case ("/signup.do"):
+			command = new CommandUserSignup();
+			command.execute(request, response);
+			viewPage = "index.jsp";
+			break;
+		// API signup 실행
+		case ("/signup_api.do"):
+			command = new CommandUserSignupApi();
+			command.execute(request, response);
+			viewPage = "index.jsp";
+			break;
 		// 로그아웃 실행
 		case ("/logout.do"):
-			command = new CommandAdminLogin();
-			command.execute(request, response);
 			session.invalidate();
 			viewPage = "index.jsp";
 			break;
-//		case ("/checkId.do"):
-//			command = new CommandUserCheckId();
-//			command.execute(request, response);
-//			break;
 		// --------------------- 상원 Controller End -----------------------
-			
 
 		// --------------------- 성진 Controller Start -----------------------
 

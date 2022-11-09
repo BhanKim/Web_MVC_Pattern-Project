@@ -2,6 +2,7 @@ package com.rb.dto;
 
 public class DtoUserLogin {
 	
+	int check;
 	String user_nick;
 	String user_id;
 	String user_pw;
@@ -35,6 +36,17 @@ public class DtoUserLogin {
 		this.user_deletedate = user_deletedate;
 	}
 	
+	public DtoUserLogin(int check, String user_nick) {
+		super();
+		this.check = check;
+		this.user_nick = user_nick;
+	}
+	public int getCheck() {
+		return check;
+	}
+	public void setCheck(int check) {
+		this.check = check;
+	}
 	public String getUser_nick() {
 		return user_nick;
 	}

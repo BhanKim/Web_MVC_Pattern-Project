@@ -6,18 +6,17 @@ import javax.servlet.http.HttpSession;
 
 import com.rb.dao.DaoUserSignup;
 
-public class CommandUserSignup implements Command {
+public class CommandUserSignupApi implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+
 		HttpSession session = request.getSession(); // *******session
 
-		String user_id = request.getParameter("user_id");
+		String user_id = request.getParameter("user_email");
 		String user_name = request.getParameter("user_name");
 		String user_nick = request.getParameter("user_nick");
-		String user_pw = request.getParameter("user_pw");
 		String user_telno = request.getParameter("user_telno");
 		String user_email = request.getParameter("user_email");
 		String user_birthday = request.getParameter("user_birthday1")+"-"+request.getParameter("user_birthday2")+"-"+request.getParameter("user_birthday3");
@@ -28,10 +27,11 @@ public class CommandUserSignup implements Command {
 		String user_address3 = request.getParameter("user_address3");
 		
 		DaoUserSignup dao = new DaoUserSignup();
-		dao.signupAction(user_id, user_name, user_nick, user_pw, user_telno, user_email, user_birthday, user_gender, user_addresszipcode, user_address1, user_address2, user_address3);
+		dao.signupApiAction(user_id, user_name, user_nick, user_telno, user_email, user_birthday, user_gender, user_addresszipcode, user_address1, user_address2, user_address3);
 		
-		session.setAttribute("ID", user_id);
+		session.setAttribute("ID", user_email);
 		session.setAttribute("NICK", user_nick);
+		session.setAttribute("API", "1");
 
 	}
 

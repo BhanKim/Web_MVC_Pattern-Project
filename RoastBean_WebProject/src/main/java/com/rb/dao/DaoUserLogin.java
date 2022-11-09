@@ -8,6 +8,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.rb.dto.DtoUserLogin;
+
 public class DaoUserLogin {
 
 	DataSource dataSource;
@@ -20,7 +22,7 @@ public class DaoUserLogin {
 			e.printStackTrace();
 		}
 	}
-
+	
 	// loginCheck
 	public String loginCheck(String user_id, String user_pw) {
 		Connection connection = null;
@@ -67,13 +69,11 @@ public class DaoUserLogin {
 	} // loginCheck
 	
 	// loginCheckApi
-	public String loginCheckApi(String user_id) {
+	public DtoUserLogin loginCheckApi(String user_id) {
+		DtoUserLogin dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		int check = 0;
-		String strResult = null;
-		String user_nick = null;
 		
 		try {
 			connection = dataSource.getConnection();
@@ -84,12 +84,10 @@ public class DaoUserLogin {
 			resultSet = preparedStatement.executeQuery();
 			
 			if (resultSet.next()) {
-				check = resultSet.getInt(1);
-				strResult = resultSet.getString(2);
-			}
-			
-			if(check == 1) {
-				user_nick = strResult;
+				int check = resultSet.getInt(1);
+				String user_nick = resultSet.getString(2);
+				
+				dto = new DtoUserLogin(check, user_nick);
 			}
 			
 		} catch (Exception e) {
@@ -106,7 +104,7 @@ public class DaoUserLogin {
 				e.printStackTrace();
 			}
 		}
-		return user_nick;
+		return dto;
 		
 	} // loginCheckApi
 
