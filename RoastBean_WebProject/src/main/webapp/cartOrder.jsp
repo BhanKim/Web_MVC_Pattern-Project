@@ -85,6 +85,13 @@
 			i = document.join.email3.selectedIndex 
 			var email = document.join.email3.options[i].value
 			document.join.email2.value = email
+			
+			if(document.join.email2.value == "etc") {
+				$("#email2").removeAttr("readonly")
+				document.join.email2.value = ""
+			} else {
+				$("#email2").attr("readonly",true)
+			}
 		}
 	</script>
 	<!-- ======= Header ======= -->

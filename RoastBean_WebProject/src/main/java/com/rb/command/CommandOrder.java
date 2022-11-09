@@ -19,11 +19,6 @@ public class CommandOrder implements Command {
 		String order_address3 = request.getParameter("order_address3");
 		String order_email = request.getParameter("order_email1") + "@" + request.getParameter("order_email2");
 		
-		System.out.println(order_telno);
-		System.out.println(order_zipcode);
-		System.out.println(order_address1);
-		System.out.println(order_email);
-		
 		DaoOrder dao = new DaoOrder();
 		dao.insertOrder(user_id);
 		dao.insertOrderUserInfo(order_telno, order_zipcode, order_address1, order_address2, order_address3, order_email, user_id);
