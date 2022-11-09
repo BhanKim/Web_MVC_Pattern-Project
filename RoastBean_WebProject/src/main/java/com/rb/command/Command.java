@@ -1,4 +1,4 @@
-package com.rb.command.product;
+package com.rb.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

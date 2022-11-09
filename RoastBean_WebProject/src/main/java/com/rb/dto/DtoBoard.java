@@ -1,4 +1,4 @@
-package com.rb.dto.community;
+package com.rb.dto;
 
 import java.security.Timestamp;
 

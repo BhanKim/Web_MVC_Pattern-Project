@@ -1,11 +1,10 @@
-package com.rb.command.user;
+package com.rb.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.rb.command.Command;
-import com.rb.dao.user.DaoUserLogin;
+import com.rb.dao.DaoUserLogin;
 
 public class CommandUserLoginApi implements Command {
 

@@ -1,7 +1,6 @@
 package com.rb.homecontroller;
 
 import java.io.IOException;
-import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,12 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.rb.command.Command;
+import com.rb.command.CommandAdminLogin;
+import com.rb.command.CommandBeanInfo;
 import com.rb.command.CommandCartDelete;
 import com.rb.command.CommandCartInsert;
 import com.rb.command.CommandCartList;
 import com.rb.command.CommandOrder;
-import com.rb.command.CommandProductDetail;
-import com.rb.command.CommandProductList;
+import com.rb.command.CommandUserLogin;
+import com.rb.command.CommandUserLoginApi;
 
 /**
  * Servlet implementation class FrontController
@@ -113,43 +114,16 @@ public class FrontController extends HttpServlet {
 
 		// --------------------- 성진 Controller End -----------------------
     
-    // --------------------- 윤현 Controller Start ---------------------
-    case ("/productList.do"):
-			command = new CommandProductList();
-			command.execute(request, response);
-			viewPage = "productList.jsp";
-			break;
-		case ("/productDetail.do"):
-			command = new CommandProductDetail();
-			command.execute(request, response);
-			viewPage = "productDetail.jsp";
-			break;
-		case ("/cartOrderInsert.do"):
-			command = new CommandCartInsert();
-			command.execute(request, response);
-			viewPage = "cartOrder.do";
-			break;
-		case ("/cartOrder.do"):
-			command = new CommandCartList();
-			command.execute(request, response);
-			viewPage = "cartOrder.jsp";
-			break;
-		case ("/insertCart.do"):
-			command = new CommandCartInsert();
-			command.execute(request, response);
-			viewPage = "productDetail.do";
-			break;
-		case ("/deleteCart.do"):
-			command = new CommandCartDelete();
-			command.execute(request, response);
-			viewPage = "cartOrder.do";
-			break;
-		case ("/order.do"):
-			command = new CommandOrder();
-			command.execute(request, response);
-			viewPage = "index.jsp";
-			break;
-    // --------------------- 윤현 Controller End -----------------------
+		// --------------------- 윤현 Controller Start ---------------------
+
+		// --------------------- 윤현 Controller End -----------------------
+			
+		// --------------------- 수빈 Controller Start -----------------------
+			
+		// --------------------- 수빈 Controller End -----------------------
+			
+			
+			
 		} // switch
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

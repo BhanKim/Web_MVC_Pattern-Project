@@ -1,4 +1,4 @@
-package com.rb.dao.community;
+package com.rb.dao;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

@@ -1,4 +1,4 @@
-package com.rb.dto.product;
+package com.rb.dto;
 
 public class DtoUserList {
 	String user_id;
