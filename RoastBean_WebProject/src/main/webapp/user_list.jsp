@@ -38,7 +38,7 @@
 	      </table>
 	      <br>
 	      <br>
-	      <a href="###.jsp" style="text-decoration:none">홈으로 돌아가기</a>
+	      <a href="product_main.jsp" style="text-decoration:none">홈으로 돌아가기</a>
 	</div>
 </body>
 </html>

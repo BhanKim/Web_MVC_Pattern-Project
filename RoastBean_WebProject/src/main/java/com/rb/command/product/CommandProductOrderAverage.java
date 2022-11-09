@@ -10,8 +10,8 @@ public class CommandProductOrderAverage implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		DaoProductManageList dao = new DaoProductManageList();
 		System.out.println("user_order.command");
+		DaoProductManageList dao = new DaoProductManageList();
 		
 	}
 
