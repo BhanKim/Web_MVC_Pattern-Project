@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	String cId = (String)session.getAttribute("ID");
+	String Id = (String)session.getAttribute("ID");
 %>
 <!DOCTYPE html>
 <html>
@@ -56,7 +56,7 @@
           <h2>Community</h2>
           <ol>
             <li><a href="index.jsp">Home</a></li>
-            <li>Inner Page</li>
+            <li>Community</li>
           </ol>
         </div>
 
@@ -113,7 +113,7 @@
 						<tr>
 							<td id="left" colspan="6">&nbsp;
 							<c:choose>
-								<c:when test="${cId != null }">
+								<c:when test="${Id != null }">
 									<a href="write_view.do" class="btn btn-success" style="padding:2px 10px">글쓰기</a>
 								</c:when>
 								<c:otherwise>
@@ -122,6 +122,8 @@
 							</c:choose>
 							</td>
 						</tr>
+						
+						
 						
 						<tr>
 						<td align="center" colspan="6">

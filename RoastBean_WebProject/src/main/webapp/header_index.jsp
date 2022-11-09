@@ -53,6 +53,7 @@
 						color="#F2BCBB" style="font-size: 0.9em">Login</font></a></li>
 				<li><a class="nav-link scrollto" href="signup.jsp"><font
 						style="font-size: 0.9em">Sign Up</font></a></li>
+				</ul>		
 			</c:if>	
 			
 						<!-- success login -->
@@ -87,6 +88,7 @@
 						color="#F2BCBB" style="font-size: 0.9em">Logout</font></a></li>
 				<li><a class="nav-link scrollto" href="#event"><font
 						style="font-size: 0.9em">My Page</font></a></li>
+				</ul>		
 			</c:if>	
 
 						<!-- <li><a href="#">Drop Down 4</a></li>
@@ -100,7 +102,7 @@
                 </ul>
               </li> -->
 
-			</ul>
+			
 			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav>
 		<!-- .navbar -->
