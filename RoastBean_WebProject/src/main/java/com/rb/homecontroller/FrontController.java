@@ -17,6 +17,8 @@ import com.rb.command.CommandCartDelete;
 import com.rb.command.CommandCartInsert;
 import com.rb.command.CommandCartList;
 import com.rb.command.CommandOrder;
+import com.rb.command.CommandProductDetail;
+import com.rb.command.CommandProductList;
 import com.rb.command.CommandUserLogin;
 import com.rb.command.CommandUserLoginApi;
 
@@ -39,8 +41,7 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		actionDo(request, response);
 	}
@@ -49,14 +50,12 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		actionDo(request, response);
 	}
 
-	private void actionDo(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 
 		String viewPage = null;
@@ -67,7 +66,6 @@ public class FrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		HttpSession session = request.getSession(); // *******session
-		System.out.println(com);
 
 		switch (com) {
 		// --------------------- 상원 Controller Start ---------------------
@@ -115,6 +113,44 @@ public class FrontController extends HttpServlet {
 		// --------------------- 성진 Controller End -----------------------
     
 		// --------------------- 윤현 Controller Start ---------------------
+		
+		// 상품 리스트 페이
+		case ("/productList.do"):
+			command = new CommandProductList();
+			command.execute(request, response);
+			viewPage = "productList.jsp";
+			break;
+		// 상품 상세 페이지
+		case ("/productDetail.do"):
+			command = new CommandProductDetail();
+			command.execute(request, response);
+			viewPage = "productDetail.jsp";
+			break;
+		case ("/cartOrderInsert.do"):
+			command = new CommandCartInsert();
+			command.execute(request, response);
+			viewPage = "cartOrder.do";
+			break;
+		case ("/cartOrder.do"):
+			command = new CommandCartList();
+			command.execute(request, response);
+			viewPage = "cartOrder.jsp";
+			break;
+		case ("/insertCart.do"):
+			command = new CommandCartInsert();
+			command.execute(request, response);
+			viewPage = "productDetail.do";
+			break;
+		case ("/deleteCart.do"):
+			command = new CommandCartDelete();
+			command.execute(request, response);
+			viewPage = "cartOrder.do";
+			break;
+		case ("/order.do"):
+			command = new CommandOrder();
+			command.execute(request, response);
+			viewPage = "index.jsp";
+			break;
 
 		// --------------------- 윤현 Controller End -----------------------
 			
@@ -125,7 +161,7 @@ public class FrontController extends HttpServlet {
 			
 			
 		} // switch
-
+		System.out.println(viewPage);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 	}
