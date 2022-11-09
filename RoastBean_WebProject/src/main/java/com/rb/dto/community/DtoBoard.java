@@ -5,6 +5,7 @@ import java.security.Timestamp;
 public class DtoBoard {
 	
 	// F
+	int rownum;
 	int community_id;
 	String community_name;
 	String community_title;
@@ -22,7 +23,45 @@ public class DtoBoard {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public DtoBoard(int rownum, int community_id, String community_name, String community_title,
+			String community_content, Timestamp community_initdate, Timestamp community_updatedate,
+			Timestamp community_deletedate, int community_hit, int community_group, int community_step,
+			int community_indent, int community_cnt) {
+		super();
+		this.rownum = rownum;
+		this.community_id = community_id;
+		this.community_name = community_name;
+		this.community_title = community_title;
+		this.community_content = community_content;
+		this.community_initdate = community_initdate;
+		this.community_updatedate = community_updatedate;
+		this.community_deletedate = community_deletedate;
+		this.community_hit = community_hit;
+		this.community_group = community_group;
+		this.community_step = community_step;
+		this.community_indent = community_indent;
+		this.community_cnt = community_cnt;
+	}
 	
+
+	public DtoBoard(int community_id, String community_name, String community_title, String community_content,
+			Timestamp community_initdate, Timestamp community_updatedate, Timestamp community_deletedate,
+			int community_hit, int community_group, int community_step, int community_indent, int community_cnt) {
+		super();
+		this.community_id = community_id;
+		this.community_name = community_name;
+		this.community_title = community_title;
+		this.community_content = community_content;
+		this.community_initdate = community_initdate;
+		this.community_updatedate = community_updatedate;
+		this.community_deletedate = community_deletedate;
+		this.community_hit = community_hit;
+		this.community_group = community_group;
+		this.community_step = community_step;
+		this.community_indent = community_indent;
+		this.community_cnt = community_cnt;
+	}
+
 	// G&S
 	public int getCommunity_id() {
 		return community_id;
@@ -118,6 +157,15 @@ public class DtoBoard {
 
 	public void setCommunity_cnt(int community_cnt) {
 		this.community_cnt = community_cnt;
+	}
+
+	public int getRownum() {
+		return rownum;
+	}
+
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
 	}
 	
 	

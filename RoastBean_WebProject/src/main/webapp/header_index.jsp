@@ -27,19 +27,67 @@
 			</h1>
 		</div>
 		<nav id="navbar" class="navbar order-last order-lg-0">
-			<ul>
+			<c:if test="${ID == null }">
+				<ul>
+			
 				<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
-				<li><a class="nav-link scrollto" href="#events">EVENTS</a></li>
+				
+				<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
+				
 				<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN 
 						INFORMATION</a></li>
+						
 				<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE
 						SHOP</a></li>
+						
 				<li class="dropdown"><a href="#customer_service"><span>CUSTOMER
 							SERVICE</span></a>
 					<ul>
 						<li><a href="#notice">NOTICE</a></li>
 						<li><a href="#faq">FAQ</a></li>
 						<li><a href="#qna">QnA</a></li>
+				</ul>
+				<li>&emsp;&emsp;&emsp;</li>
+				<li></li>
+				<li><a class="nav-link scrollto" href="login.jsp"><font
+						color="#F2BCBB" style="font-size: 0.9em">Login</font></a></li>
+				<li><a class="nav-link scrollto" href="signup.jsp"><font
+						style="font-size: 0.9em">Sign Up</font></a></li>
+			</c:if>	
+			
+						<!-- success login -->
+			<c:if test="${ID != null }">
+				<ul>
+			
+				<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
+				
+				<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
+				
+				<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN 
+						INFORMATION</a></li>
+						
+				<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE
+						SHOP</a></li>
+						
+				<li class="dropdown"><a href="#customer_service"><span>CUSTOMER
+							SERVICE</span></a>
+					<ul>
+						<li><a href="#notice">NOTICE</a></li>
+						<li><a href="#faq">FAQ</a></li>
+						<li><a href="#qna">QnA</a></li>
+				</ul>
+				<li>&emsp;&emsp;&emsp;</li>
+				
+				<li><font color="#F2BCBB" style="font-size: 0.9em">${ID } 님</font></li>
+					<c:if test="${ID == 'admin' }">
+				<li><a class="nav-link scrollto" href="admin.do"><font
+						color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
+					</c:if>
+				<li><a class="nav-link scrollto" href="logout.do"><font
+						color="#F2BCBB" style="font-size: 0.9em">Logout</font></a></li>
+				<li><a class="nav-link scrollto" href="#event"><font
+						style="font-size: 0.9em">My Page</font></a></li>
+			</c:if>	
 
 						<!-- <li><a href="#">Drop Down 4</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -52,37 +100,6 @@
                 </ul>
               </li> -->
 
-					</ul> <%
-			if (session.getAttribute("ID")==null) {
-%>
-				<li>&emsp;&emsp;&emsp;</li>
-				<li></li>
-				<li><a class="nav-link scrollto" href="login.jsp"><font
-						color="#F2BCBB" style="font-size: 0.9em">Login</font></a></li>
-				<li><a class="nav-link scrollto" href="signup.jsp"><font
-						style="font-size: 0.9em">Sign Up</font></a></li>
-				<%
-          	} else {
-%>
-				<li>&emsp;&emsp;&emsp;</li>
-				<li><a class="nav-link scrollto" href="mypage_main.do"><font
-						color="#F2BCBB" style="font-size: 0.9em">${ID}</font></a></li>
-				<li><a class="nav-link scrollto" href="cart.do"><font
-						style="font-size: 0.9em">Cart</font></a></li>
-<%
-				if(session.getAttribute("API")==null){
-%>
-					<li><a class="nav-link scrollto" href="logout.do"><font
-							style="font-size: 0.9em">Log Out</font></a></li>
-<%					
-					}else{
-%>						
-					<li><a class="nav-link scrollto" href="logout.do"><font
-							style="font-size: 0.9em">Log Out</font></a></li>
-<%
-					}
-           	}
-%>
 			</ul>
 			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav>
