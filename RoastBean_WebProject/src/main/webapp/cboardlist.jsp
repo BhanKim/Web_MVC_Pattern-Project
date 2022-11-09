@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	String Id = (String)session.getAttribute("ID");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,31 +78,41 @@
 						</tr>
 					</thead>
 					<tbody>
+						
 						<c:forEach items="${nList }" var="dto">
 						<tr>
 							<td id="left" colspan="2">&nbsp;
 								<span class="badge badge badge-danger">&nbsp;&nbsp;공지&nbsp;&nbsp;</span>
-								<a href="content_view.do?bId=${dto.bId }">&nbsp;&nbsp;${dto.bTitle }</a>
+								<a href="content_view.do?bId=${dto.community_id }">&nbsp;&nbsp;${dto.community_title }</a>
 							</td>
-							<td id="left">${dto.bName }</td>
-							<td>${dto.bDate }</td>
-							<td>${dto.bHit }</td>
-							<td>${dto.bCnt }</td>
+							<td id="left">${dto.community_name }</td>
+							<td>${dto.community_initdate }</td>
+							<td>${dto.community_hit }</td>
+							<td>${dto.community_cnt }</td>
 						</tr>
 						</c:forEach>
 						
 						
 						<c:forEach items="${list }" var="dto">				
 						<tr>
-							<c:if test="${dto.bName != 'admin' }">
-								<td width=70>${dto.bId }</td>				
+							<c:if test="${dto.community_name != 'admin' }">
+								<td width=70>${dto.community_id }</td>				
 								<td id="left">
-									<c:forEach begin="1" end="${dto.bIndent}">&nbsp;└ </c:forEach>
-									<a href="content_view.do?bId=${dto.bId }">${dto.bTitle }</a></td>
-								<td id="left">${dto.bName }</td>
-								<td>${dto.bDate }</td>
-								<td>${dto.bHit }</td>
-								<td>${dto.bCnt }</td>
+									<c:forEach begin="1" end="${dto.community_indent}">&nbsp;└ </c:forEach>
+									<a href="content_view.do?bId=${dto.community_id }">${dto.community_title }</a></td>
+								<td id="left">${dto.community_name }</td>
+								
+								<c:choose>
+								<c:when test ="${dto.community_updatedate == null} }">
+								<td>${dto.community_initdate }</td>
+								</c:when>
+								<c:otherwise>
+								<td>${dto.community_initdate }
+								</c:otherwise>
+								</c:choose>
+								
+								<td>${dto.community_hit }</td>
+								<td>${dto.community_cnt }</td>
 							</c:if>
 						</tr>
 						</c:forEach>
@@ -113,7 +121,7 @@
 						<tr>
 							<td id="left" colspan="6">&nbsp;
 							<c:choose>
-								<c:when test="${Id != null }">
+								<c:when test="${ID != null }">
 									<a href="write_view.do" class="btn btn-success" style="padding:2px 10px">글쓰기</a>
 								</c:when>
 								<c:otherwise>
