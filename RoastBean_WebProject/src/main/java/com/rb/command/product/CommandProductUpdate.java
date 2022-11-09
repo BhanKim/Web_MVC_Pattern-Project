@@ -3,7 +3,7 @@ package com.rb.command.product;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.rb.dao.product.DaoProductList;
+import com.rb.dao.product.DaoProductManageList;
 
 public class CommandProductUpdate implements Command {
 
@@ -19,7 +19,7 @@ public class CommandProductUpdate implements Command {
 		String product_price = request.getParameter("product_price");
 		String sproduct_id = request.getParameter("product_id");
 
-		DaoProductList dao = new DaoProductList();
+		DaoProductManageList dao = new DaoProductManageList();
 		System.out.println(sproduct_id+"commandproductupdate");
 		dao.update(product_name,product_nation,product_image, product_info, product_stock, product_weight, product_price,sproduct_id);
 		

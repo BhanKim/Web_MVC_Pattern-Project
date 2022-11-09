@@ -10,9 +10,13 @@
       <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 10:00 AM - 18:00 PM</span></i>
     </div>
   </section>
-
+<style>
+header{
+background-color:#ced4da;
+}
+</style>
  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" >
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div >

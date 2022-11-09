@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.rb.command.product.Command;
 import com.rb.command.product.CommandProductDelete;
+import com.rb.command.product.CommandProductOrderAverage;
 import com.rb.command.product.CommandProductSearch;
 import com.rb.command.product.CommandProductSeen;
 import com.rb.command.product.CommandProductUpdate;
@@ -109,11 +110,17 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);// 넣음
 			viewPage = "product_update.jsp"; // 수정하는 jsp로 이동
 			break;
-		case ("/product_manage_search.do"): //입력으로 검색
+		case ("/product_manage_search.do"): // 입력으로 검색
 			System.out.println("product_manage_search.do");
 			command = new CommandProductSearch();
 			command.execute(request, response);
 			viewPage = "product_manage.jsp";
+			break;
+		case ("/user_order.do"):
+			System.out.println("user_order.front");
+			command = new CommandProductOrderAverage();
+			command.execute(request, response);
+			viewPage="product_main.jsp";
 			break;
 		} // switch
 

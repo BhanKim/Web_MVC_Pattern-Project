@@ -9,12 +9,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.rb.dto.product.DtoProductList;
+import com.rb.dto.product.DtoProductManageList;
 
-public class DaoProductList {
+public class DaoProductManageList {
 	DataSource dataSource;
 
-	public DaoProductList() {
+	public DaoProductManageList() {
 		// TODO Auto-generated constructor stub
 		try {
 			Context context = new InitialContext();
@@ -25,8 +25,8 @@ public class DaoProductList {
 		}
 	}
 
-	public ArrayList<DtoProductList> productList() {
-		ArrayList<DtoProductList> dtos = new ArrayList<DtoProductList>();
+	public ArrayList<DtoProductManageList> productList() {
+		ArrayList<DtoProductManageList> dtos = new ArrayList<DtoProductManageList>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;// 검색
@@ -48,7 +48,7 @@ public class DaoProductList {
 				String product_weight = resultSet.getString("product_weight");
 				String product_price = resultSet.getString("product_price");
 
-				DtoProductList dto = new DtoProductList(product_id, product_name, product_nation, product_image,
+				DtoProductManageList dto = new DtoProductManageList(product_id, product_name, product_nation, product_image,
 						product_info, product_stock, product_weight, product_price);
 				dtos.add(dto);
 			}
@@ -180,8 +180,8 @@ public class DaoProductList {
 		}
 	}
 
-	public DtoProductList updatelist(String sproduct_id) {
-		DtoProductList dto = null;
+	public DtoProductManageList updatelist(String sproduct_id) {
+		DtoProductManageList dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -207,7 +207,7 @@ public class DaoProductList {
 				String product_weight = resultSet.getString("product_weight");
 				String product_price = resultSet.getString("product_price");
 
-				dto = new DtoProductList(product_id, product_name, product_nation, product_image, product_info,
+				dto = new DtoProductManageList(product_id, product_name, product_nation, product_image, product_info,
 						product_stock, product_weight, product_price);
 			}
 
@@ -228,8 +228,8 @@ public class DaoProductList {
 		return dto;
 	} // seen
 
-	public ArrayList<DtoProductList> productsearch(String queryname, String querycontent) {
-		ArrayList<DtoProductList> dtos = new ArrayList<DtoProductList>();
+	public ArrayList<DtoProductManageList> productsearch(String queryname, String querycontent) {
+		ArrayList<DtoProductManageList> dtos = new ArrayList<DtoProductManageList>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -251,7 +251,7 @@ public class DaoProductList {
 				String product_weight = resultSet.getString("product_weight");
 				String product_price = resultSet.getString("product_price");
 
-				DtoProductList dto = new DtoProductList(product_id, product_name, product_nation, product_image,
+				DtoProductManageList dto = new DtoProductManageList(product_id, product_name, product_nation, product_image,
 						product_info, product_stock, product_weight, product_price);
 				dtos.add(dto);
 			}

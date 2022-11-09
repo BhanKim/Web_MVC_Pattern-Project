@@ -2,7 +2,7 @@ package com.rb.dto.product;
 
 import java.sql.Timestamp;
 
-public class DtoProductList {
+public class DtoProductManageList {
 	int product_id;
 	String product_name;
 	String product_nation;
@@ -16,7 +16,7 @@ public class DtoProductList {
 	Timestamp product_deletedate;
 	
 	
-	public DtoProductList(int product_id, String product_name, String product_nation, String product_image,
+	public DtoProductManageList(int product_id, String product_name, String product_nation, String product_image,
 			String product_info, String product_stock, String product_weight, String product_price,
 			Timestamp product_initdate) {
 		super();
@@ -31,7 +31,7 @@ public class DtoProductList {
 		this.product_initdate = product_initdate;
 	}
 
-	public DtoProductList(int product_id, String product_name, String product_nation, String product_image,
+	public DtoProductManageList(int product_id, String product_name, String product_nation, String product_image,
 			String product_info, String product_stock, String product_weight, String product_price) {
 		super();
 		this.product_id = product_id;
