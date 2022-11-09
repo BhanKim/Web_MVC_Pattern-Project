@@ -75,8 +75,7 @@ public class FrontController extends HttpServlet {
 		case ("/login.do"):
 			command = new CommandUserLogin();
 			command.execute(request, response);
-			request.getAttribute("page");
-			viewPage = "page";
+			viewPage = "index.jsp";
 			break;
 			// 로그인 실행
 		case ("/loginApi.do"):

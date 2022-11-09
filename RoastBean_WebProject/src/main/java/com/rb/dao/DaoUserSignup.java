@@ -66,7 +66,7 @@ public class DaoUserSignup {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		int idCheck = 0;
+		int checkId = 0;
 
 		try {
 			connection = dataSource.getConnection();
@@ -77,9 +77,9 @@ public class DaoUserSignup {
 			resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next() || user_id.equals("")) {
-				idCheck = 0;	// 이미 존재하는 경우, 생성 불가능
+				checkId = 0;	// 이미 존재하는 경우, 생성 불가능
 			}else {
-				idCheck = 1;	// 존재하지 않는 경우, 생성 가능
+				checkId = 1;	// 존재하지 않는 경우, 생성 가능
 			}
 
 		} catch (Exception e) {
@@ -96,7 +96,7 @@ public class DaoUserSignup {
 				e.printStackTrace();
 			}
 		}
-		return idCheck;
+		return checkId;
 
 	} // checkId
 	
