@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +36,7 @@
   ======================================================== -->
 </head>
 <body link="black" vlink="black" alink="navy">
-<!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
 	<%@include file = "header_manage.jsp" %>
   <!-- End Header -->
 
@@ -60,37 +58,72 @@
     </section><!-- End Breadcrumbs Section -->
 
 <!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
-	<div style="text-align: center;">
-	   <br>
-	   <br> 
-	      &nbsp;&nbsp;&nbsp;<h2>회원정보 리스트</h2>&nbsp;&nbsp;&nbsp;
-	      
-	      <table style="margin-left: auto; margin-right: auto;" border="1">
-	         <tr>
-		        <td>아이디</td>
-		        <td>비밀번호</td>
-		        <td>이름</td>
-		        <td>생년월일</td>
-		        <td>성별</td>
-		        <td>이메일</td>
-		        <td>전화번호</td>
-		     </tr>
-		     <c:forEach items="${manageuserlist}" var="dto">
-		      <tr>
-		         <td>${dto.user_id }</td>
-		         <td>${dto.user_pw }</td>
-		         <td>${dto.user_name }</td>
-		         <td>${dto.user_birthdate }</td>
-		         <td>${dto.user_gender }</td>
-		         <td>${dto.user_email }</td>
-		         <td>${dto.user_telno }</td>		      
-		      </tr>
-		      </c:forEach>
-	      </table>
-	      <br>
-	      <br>
-	      
+	
+<div style="text-align: center;">
+		<br>
+		<br> &nbsp;&nbsp;&nbsp;
+		<h2>상품 수정하기</h2>
+		&nbsp;&nbsp;&nbsp;
 	</div>
+	
+	<form action="ManageProductUpdate.do" method="post">
+	   
+	   <table style="margin-left: auto; margin-right: auto;">
+	      <tr>
+	         <td>상품번호</td>
+	         <td><input type="text" name="product_id" size="40" value="${product_select.product_id }" readonly="readonly"></td>
+	      </tr>
+	      <tr>
+	         <td>제품명</td>
+	         <td><input type="text" name="product_name" size="40" value="${product_select.product_name }"></td>
+	      </tr>
+	      <tr>
+	         <td>원산지</td>
+	         <td>
+	           <select name="product_nation">
+	               <option value="미선택" selected="selected" value="${product_select.product_nation }">${product_select.product_nation }</option>
+	               <option value="케냐">케냐</option>
+	               <option value="에티오피아">에티오피아</option>
+	               <option value="멕시코">멕시코</option>
+	               <option value="콜롬비아">콜롬비아</option>
+	            </select>
+	         </td>
+	      </tr> 
+	      <tr>
+	         <td>제품 이미지</td>
+	         <td><img src="assets/img/product/${product_select.product_image }" width="300px" height="200px"></td>
+	      </tr>
+	      <tr>
+	         <td></td>
+	         <td><input type="file" name="product_image" size="40"></td>
+	      </tr>
+	      <tr>
+	         <td>제품 설명</td>
+	         <td><textarea rows="10" cols="32" name="product_info" value = "${product_select.product_info}"></textarea></td>
+	      </tr>
+	      <tr>
+	         <td>제품 수량</td>
+	         <td><input type="text" name="product_stock" size="40" value="${product_select.product_stock }"></td>
+	      </tr>
+	      <tr>
+	         <td>제품 중량</td>
+	         <td><input type="text" name="product_weight" size="40" value="${product_select.product_weight }"></td>
+	      </tr>
+	      <tr>
+	         <td>제품 가격</td>
+	         <td><input type="text" name="product_price" size="40" value="${product_select.product_price }"></td>
+	      </tr>
+	     
+	      <tr>
+	         <td></td>
+	         <td>
+	            <input type="submit" value="저장하기"><br>
+	            <a href="ManageProductList.do" style="text-decoration:none">상품리스트로 돌아가기</a><br>
+	            <a href="manage_main.jsp" style="text-decoration: none;">관리자 홈으로 돌아가기</a>
+	         </td>
+	      </tr>
+	   </table>
+	</form>
 	<!--  ---------------------------------- 정보 쓰기란 종료 ----------------------------------  -->
 
 
@@ -111,5 +144,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+	
 </body>
 </html>

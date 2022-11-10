@@ -18,7 +18,7 @@ public class DaoManageUserList {
 		// TODO Auto-generated constructor stub
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/testproject"); //수정 필수 부분
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/roastbean"); //수정 필수 부분
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

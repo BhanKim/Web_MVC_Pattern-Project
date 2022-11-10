@@ -11,7 +11,7 @@ public class CommandManageProductSeen implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String product_id = request.getParameter("product_id");
+		int product_id = Integer.parseInt(request.getParameter("product_id"));
 		System.out.println("ManageProductUpdateSelete.command");
 		DaoManageProductList dao = new DaoManageProductList();
 		DtoManageProductList dto = dao.manageptoductupdateselect(product_id);
