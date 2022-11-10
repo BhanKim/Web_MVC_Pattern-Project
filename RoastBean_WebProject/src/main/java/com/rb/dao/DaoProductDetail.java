@@ -35,7 +35,7 @@ public class DaoProductDetail {
             
             connection = dataSource.getConnection();
 
-            String query = "select product_id, product_name, product_weight, product_info, product_price, product_stock from product where product_id = " + pproduct_id;
+            String query = "select product_id, product_name, product_weight, product_info, product_price, product_stock, product_image from product where product_id = " + pproduct_id;
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -46,8 +46,9 @@ public class DaoProductDetail {
                 String product_info = resultSet.getString("product_info");
                 int product_price = resultSet.getInt("product_price");
                 int product_stock = resultSet.getInt("product_stock");
+                String product_image = resultSet.getString("product_image");
 
-                dtos = new DtoProductList(product_id, product_name, product_weight, product_info, product_price, product_stock);
+                dtos = new DtoProductList(product_id, product_name, product_weight, product_info, product_price, product_stock, product_image);
             }
 
         } catch (Exception e) {

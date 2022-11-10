@@ -9,9 +9,15 @@ public class DtoProductList {
 	String product_info;
 	int product_price;
 	int product_stock;
+	String product_image;
+	String category_type;
+	String category_acidity;
+	String category_aroma;
+	String category_body;
+	String category_sweet;
 	
 	public DtoProductList(int product_id, String product_name, int product_weight, String product_info,
-			int product_price, int product_stock) {
+			int product_price, int product_stock, String product_image, String category_type, String category_acidity, String category_aroma, String category_body, String category_sweet) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -19,6 +25,24 @@ public class DtoProductList {
 		this.product_info = product_info;
 		this.product_price = product_price;
 		this.product_stock = product_stock;
+		this.product_image = product_image;
+		this.category_type = category_type;
+		this.category_acidity = category_acidity;
+		this.category_aroma = category_aroma;
+		this.category_body = category_body;
+		this.category_sweet = category_sweet;
+	}
+	
+	public DtoProductList(int product_id, String product_name, int product_weight, String product_info,
+			int product_price, int product_stock, String product_image) {
+		super();
+		this.product_id = product_id;
+		this.product_name = product_name;
+		this.product_weight = product_weight;
+		this.product_info = product_info;
+		this.product_price = product_price;
+		this.product_stock = product_stock;
+		this.product_image = product_image;
 	}
 
 	public int getProduct_id() {
@@ -67,6 +91,54 @@ public class DtoProductList {
 
 	public void setProduct_stock(int product_stock) {
 		this.product_stock = product_stock;
+	}
+
+	public String getProduct_image() {
+		return product_image;
+	}
+
+	public void setProduct_image(String product_image) {
+		this.product_image = product_image;
+	}
+
+	public String getCategory_type() {
+		return category_type;
+	}
+
+	public void setCategory_type(String category_type) {
+		this.category_type = category_type;
+	}
+
+	public String getCategory_acidity() {
+		return category_acidity;
+	}
+
+	public void setCategory_acidity(String category_acidity) {
+		this.category_acidity = category_acidity;
+	}
+
+	public String getCategory_aroma() {
+		return category_aroma;
+	}
+
+	public void setCategory_aroma(String category_aroma) {
+		this.category_aroma = category_aroma;
+	}
+
+	public String getCategory_body() {
+		return category_body;
+	}
+
+	public void setCategory_body(String category_body) {
+		this.category_body = category_body;
+	}
+
+	public String getCategory_sweet() {
+		return category_sweet;
+	}
+
+	public void setCategory_sweet(String category_sweet) {
+		this.category_sweet = category_sweet;
 	}
 	
 }

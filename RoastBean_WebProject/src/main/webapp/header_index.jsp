@@ -27,7 +27,7 @@
 					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
 					<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
-					<li><a class="nav-link2 scrollto" href="productList.do">COFFEE SHOP</a></li>
+					<li><a class="nav-link2 scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
 					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 						<ul>
 							<li><a href="#notice">NOTICE</a></li>
