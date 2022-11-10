@@ -47,47 +47,47 @@ import com.rb.command.CommandUserSignupApi;
  */
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public FrontController() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+   /**
+    * @see HttpServlet#HttpServlet()
+    */
+   public FrontController() {
+      super();
+      // TODO Auto-generated constructor stub
+   }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		actionDo(request, response);
-	}
+   /**
+    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+    *      response)
+    */
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      actionDo(request, response);
+   }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		actionDo(request, response);
-	}
+   /**
+    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+    *      response)
+    */
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      actionDo(request, response);
+   }
 
-	private void actionDo(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+   private void actionDo(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      request.setCharacterEncoding("utf-8");
 
-		String viewPage = null;
-		Command command = null;
+      String viewPage = null;
+      Command command = null;
 
-		String uri = request.getRequestURI();
-		String conPath = request.getContextPath();
-		String com = uri.substring(conPath.length());
-		
+      String uri = request.getRequestURI();
+      String conPath = request.getContextPath();
+      String com = uri.substring(conPath.length());
+
 		// Paging
 		HttpSession session = null;
 		session = request.getSession();
@@ -174,7 +174,7 @@ public class FrontController extends HttpServlet {
 		
 
 		// --------------------- 성진 Controller End -----------------------
-    
+  
 		// --------------------- 윤현 Controller Start ---------------------
 		case ("/productList.do"):
 			command = new CommandProductList();
@@ -330,11 +330,12 @@ public class FrontController extends HttpServlet {
 			viewPage = "content_view.do";
 			break;
 		// --------------------- 혁&티뱃 Controller End -----------------------
-			
-		} // switch
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);
-	}
+
+      } // switch
+
+      RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+      dispatcher.forward(request, response);
+   }
 
 } // End
