@@ -13,6 +13,7 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -49,36 +50,52 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
+          <h2>Write</h2>
           <ol>
             <li><a href="index.jsp">Home</a></li>
-            <li>Inner Page</li>
+            <li>Write</li>
           </ol>
         </div>
 
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-<!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
+
 	<section class="inner-page">
 	  <div class="container">
-	  	
-		 test
-		 <form action="user_order.do" method="post">
-		 <table>
-		 <tr>
-		    <td>금일 매출</td>
-		    <td><input type="text" readonly="readonly" value="###" size="40" name="order_sum"></td>
-		 </tr>
-		 </table>
-		</form>
+		<form action="boardwrite.do" method="get">
+			<table width="1100" border="1" class="table table-sm table-hover">
+					<tr>
+						<th width="100" height="40">제목</th>
+						<td> <input type="text" name="bTitle" size="140"> </td>
+					</tr>
+					<tr>
+						<th width="100" height="40">작성자</th>
+						<td> &nbsp;&nbsp;${ID} </td>
+					</tr>
+					<tr>
+						<th width="100" height="320">내용</th>
+						<td>
+						<textarea name="bContent" id="bContent"></textarea>
+						<script>CKEDITOR.replace('bContent');</script>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" height="40">
+							&nbsp;&nbsp;<input type="submit" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;" value="등록">&nbsp;
+							<a href="list.do?page=<%= session.getAttribute("cpage") %>" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">취소</a>&nbsp;						
+						</td>
+					</tr>
+			</table>
+		</form>	
 	  </div>
 	</section>
 	
-<h3>jsp 파일 새로 복사해서 작업해주세요!</h3><br>
-정보는 이 공간에 넣어서 실험해보시면 됩니다!<br>
-자유롭게 작성해주세요.<br>
-cf. 기존의 부트스트랩을 사용하여 디자인 하실 분은 해당 부트스트랩 링크 위에 추가 하시면 되겠습니다.
+    
+    
+    
+    
+    
     
     <section class="inner-page">
       <div class="container">
@@ -87,7 +104,6 @@ cf. 기존의 부트스트랩을 사용하여 디자인 하실 분은 해당 부
         </p>
       </div>
     </section>
----------------------------------- 정보 쓰기란 종료 ----------------------------------
 
   </main><!-- End #main -->
 

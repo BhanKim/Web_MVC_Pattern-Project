@@ -13,63 +13,73 @@
 </section>
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center ">
-	<div
-		class="container-fluid container-xl d-flex align-items-center justify-content-between">
+	<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 		<div class="col-lg-4">
 			<h1>
-				<a href="index.jsp"><img src="assets/img/logo.png" alt=""
-					class="img-fluid" width="320" height="72"></a>
+				<a href="index.jsp"><img src="assets/img/logo.png" alt="" class="img-fluid" width="320" height="72"></a>
 			</h1>
 		</div>
 		<nav id="navbar" class="navbar order-last order-lg-0">
-			<ul>
-				<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
-				<li><a class="nav-link scrollto" href="#community">COMMUNITY</a></li>
-				<li><a class="nav-link2 scrollto" href="#coffee_information">COFFEE
-						INFORMATION</a></li>
-				<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE
-						SHOP</a></li>
-				<li class="dropdown"><a href="#customer_service"><span>CUSTOMER
-							SERVICE</span></a>
-					<ul>
-						<li><a href="#notice">NOTICE</a></li>
-						<li><a href="#faq">FAQ</a></li>
-						<li><a href="#qna">QnA</a></li>
-					</ul> <%
-					if (session.getAttribute("ID")==null) {
-%>
-				<li>&emsp;&emsp;&emsp;</li>
-				<li></li>
-				<li><a class="nav-link scrollto" href="login.jsp"><font
-						color="#F2BCBB" style="font-size: 0.9em">Login</font></a></li>
-				<li><a class="nav-link scrollto" href="signup.jsp"><font
-						style="font-size: 0.9em">Sign Up</font></a></li>
-				<%
-          	} else {
-%>
-				<li>&emsp;&emsp;&emsp;</li>
-				<li><a class="nav-link scrollto" href="mypage_main.do"><font
-						color="#F2BCBB" style="font-size: 0.9em">${ID}</font></a></li>
-				<li><a class="nav-link scrollto" href="cart.do"><font
-						style="font-size: 0.9em">Cart</font></a></li>
-<%
-				if(session.getAttribute("API")==null){
-%>
-					<li><a class="nav-link scrollto" href="logout.do"><font
-							style="font-size: 0.9em">Log Out</font></a></li>
-<%					
-					}else{
-%>						
-					<li><a class="nav-link scrollto" href="logoutApi.do"><font
-							style="font-size: 0.9em">Log Out</font></a></li>
-<%
-					}
-           	}
-%>
-			</ul>
+			<c:if test="${ID == null }">
+				<ul>
+					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
+					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
+					<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
+					<li><a class="nav-link2 scrollto" href="productList.do">COFFEE SHOP</a></li>
+					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
+						<ul>
+							<li><a href="#notice">NOTICE</a></li>
+							<li><a href="#faq">FAQ</a></li>
+							<li><a href="#qna">QnA</a></li>
+						</ul>
+					<li>&emsp;&emsp;&emsp;</li>
+					<li></li>
+					<li><a class="nav-link scrollto" href="login.jsp"><font color="#F2BCBB" style="font-size: 1.1em">Get Started</font></a></li>
+				</ul>
+			</c:if>	
+			
+			<!-- success login -->
+			<c:if test="${ID != null }">
+				<ul>
+					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
+					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
+					<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
+					<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE SHOP</a></li>
+					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
+						<ul>
+							<li><a href="#notice">NOTICE</a></li>
+							<li><a href="#faq">FAQ</a></li>
+							<li><a href="#qna">QnA</a></li>
+						</ul>
+					</li>
+					<li>&emsp;&emsp;&emsp;</li>
+					<li><a class="nav-link scrollto" href="mypage_main.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
+					<c:if test="${ADMIN != null}">
+						<li><a class="nav-link scrollto" href="admin.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
+					</c:if>
+				<c:choose>
+					<c:when test="${API eq null}">
+						<li><a class="nav-link scrollto" href="logout.do"><font style="font-size: 0.9em">Logout</font></a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a class="nav-link scrollto" href="logout.do" onclick="signOut()"><font style="font-size: 0.9em">Logout</font></a></li>
+					</c:otherwise>
+				</c:choose>
+				</ul>
+			</c:if>	
 			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav>
-		<!-- .navbar -->
 	</div>
+	
+	<!-- Google Login API -->
+	<script>
+	    function signOut() {
+	        google.accounts.id.disableAutoSelect();
+	        // do anything on logout
+	        location.reload();
+    		//document.location = "index.jsp";
+	    }
+	</script>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+    
 </header>
-<!-- End Header -->

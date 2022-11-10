@@ -74,20 +74,11 @@
 				<div class="col align-items-center">
 					<div class="col"
 						style="border-style: solid; border-radius: 12px; border-width: thin; border-color: #CFD4D9; padding: 40px;">
-						<form action="signup.do" method="post" name="Member">
-							<div style="width: 380px;">
+						<form action="signup_api.do" method="post" name="Member">
+							<div style="width: 400px;">
 								<table class="col">
-									<tr>
-										<td align="left" width="40">ID&emsp;&emsp;&emsp;&emsp;</td>
-										<td class="col" align="left">
-											<input type="text" class="form-control2" name="user_id"	placeholder="4글자 이상 입력해주세요." maxlength="41"	style="height: 32px;">
-											<input class="form-control3" type="button" onclick="location='check_id.do'" value="중복체크">
-											<!-- <button class="form-control3" onclick="location=windows.open('check_id.do','check')">중복체크</button> -->
-										</td>
-									</tr>
-									<tr height="10"></tr>
 									<tr class="mb-3">
-										<td align="left">Name</td>
+										<td align="left">Name&emsp;&emsp;&emsp;
 										<td><input type="text" class="form-control" name="user_name" placeholder="한글로 입력해주세요." style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
@@ -95,20 +86,8 @@
 										<td align="left">Nick Name</td>
 										<td class="col" align="left">
 											<input class="form-control2" type="text" name="user_nick" placeholder="필수사항입니다." maxlength="41" style="height: 32px;">
-											<input class="form-control3" type="button" onclick="location='check_nick.do'" value="중복체크">
+											<!-- <input class="form-control3" type="button" onclick="location='check_nick.do'" value="중복체크"> -->
 										</td>
-									</tr>
-									<tr height="10"></tr>
-									<tr >
-										<td align="left">Password</td>
-										<td><input type="password" class="form-control" name="user_pw" placeholder="문자와 숫자로 입력해주세요.(4~20)" maxlength="16" style="height: 32px;"></td>
-									</tr>
-									<tr height="10"></tr>
-									<tr >
-										<td align="left">Check PW</td>
-										<td><input type="password" class="form-control" name="user_pw_check"
-											placeholder="다시 한번 입력해주세요." maxlength="16"
-											style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
@@ -130,9 +109,8 @@
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Email</td>
-										<td><input type="email" class="form-control" name="user_email"
-											placeholder="We'll never share your email." aria-describedby="emailHelp"
-											style="height: 32px;"></td>
+										<td><input type="email" class="form-control" name="user_email" value="${api_email }" readonly="readonly"
+											placeholder="We'll never share your email."	style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
@@ -202,7 +180,7 @@
 	<!-- 카카오 주소찾기 API -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<!-- 정규화 검사 -->
-	<script src="assets/js/signup.js"></script>
+	<script src="assets/js/signup_api.js"></script>
 	<!-- Vendor JS Files -->
 	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
