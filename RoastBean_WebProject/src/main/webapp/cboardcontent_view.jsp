@@ -75,25 +75,25 @@
 						<tr>
 							<td id="left" style="padding: 10px"><c:choose>
 									<c:when test="${ID != null }">
-										<a href="write_view.do" class="btn btn-success"style="background: #F2BCBB; border: 0; padding:3px 12px; color: #fff; transition: 0.4s; border-radius: 50px;">글쓰기</a>
-										
+										<a href="write_view.do" class="btn btn-success"
+											style="padding: 2px 10px">글쓰기</a>
 										<a
 											href="reply_view.do?community_id=${content_view.community_id }"
-											class="btn btn-secondary" style="background: #F2BCBB; border: 0; padding:3px 12px; color: #fff; transition: 0.4s; border-radius: 50px;"> 답글</a>
+											class="btn btn-secondary" style="padding: 2px 10px"> 답글</a>
 									</c:when>
 									<c:otherwise>
 										<a href="login.jsp" class="btn btn-success"
-											style="background: #F2BCBB; border: 0; padding:3px 12px; color: #fff; transition: 0.4s; border-radius: 50px;">로그인하고 글쓰기</a>
+											style="padding: 2px 10px">로그인하고 글쓰기</a>
 									</c:otherwise>
 								</c:choose> <c:if test="${ID == content_view.community_name }">
 									<a
 										href="modify_view.do?community_id=${content_view.community_id }"
-										class="btn btn-secondary" style="background: #F2BCBB; border: 0; padding:3px 12px; color: #fff; transition: 0.4s; border-radius: 50px;"> 수정</a>
+										class="btn btn-secondary" style="padding: 2px 10px"> 수정</a>
 									<a
 										href="communitydelete.do?community_id=${content_view.community_id }"
 										class="btn btn-secondary" style="padding: 2px 10px"> 삭제</a>
 								</c:if> <a href="list.do?page=<%=session.getAttribute("cpage")%>"
-								class="btn btn-secondary" style="background: #F2BCBB; border: 0; padding:3px 12px; color: #fff; transition: 0.4s; border-radius: 50px;"> 목록</a>
+								class="btn btn-secondary" style="padding: 2px 10px"> 목록</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <c:if test="${ID == 'admin' }">
 									<a
 										href="communitydelete.do?community_id=${content_view.community_id }"

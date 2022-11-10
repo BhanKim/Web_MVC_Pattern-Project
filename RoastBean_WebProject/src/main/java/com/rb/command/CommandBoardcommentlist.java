@@ -13,7 +13,9 @@ public class CommandBoardcommentlist implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("in to comment");
 		String community_id = request.getParameter("community_id");
+		System.out.println(community_id);
 		
 		DaoComment dao = DaoComment.getInstance();
 		ArrayList<DtoComment> dtos = dao.commentList(community_id);

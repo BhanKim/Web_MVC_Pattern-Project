@@ -11,6 +11,7 @@ public class CommandBoardwrite implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 //    	request.setCharacterEncoding("UTF-8");
+		System.out.println("write command 왔음");
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("ID");
 //		DaoCustomer mdao = DaoCustomer.getInstance();

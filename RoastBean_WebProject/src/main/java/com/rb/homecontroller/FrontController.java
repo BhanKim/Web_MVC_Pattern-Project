@@ -13,14 +13,9 @@
 //import com.rb.command.Command;
 //import com.rb.command.CommandAdminLogin;
 //import com.rb.command.CommandBeanInfo;
-//import com.rb.command.CommandBoardcommentlist;
-//import com.rb.command.CommandBoardcontent;
-//import com.rb.command.CommandBoarddeleteboard;
-//import com.rb.command.CommandBoardlikeboard;
 //import com.rb.command.CommandBoardlist;
 //import com.rb.command.CommandBoardnoticelist;
 //import com.rb.command.CommandBoardsearch;
-//import com.rb.command.CommandBoardupdatecomment;
 //import com.rb.command.CommandBoardwrite;
 //import com.rb.command.CommandCartDelete;
 //import com.rb.command.CommandCartInsert;
@@ -191,6 +186,7 @@
 //
 //		// 댓글수정
 //		case ("/communitymodify.do"):
+//			System.out.println("coModify.do에 들어왔습니다.");
 //			command = new CommandBoardupdatecomment();
 //			command.execute(request, response);
 //			viewPage = "content_view.do";
