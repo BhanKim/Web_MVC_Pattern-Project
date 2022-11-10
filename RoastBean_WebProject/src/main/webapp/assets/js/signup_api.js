@@ -40,33 +40,18 @@ function sample4_execDaumPostcode() {
 
 function checkMember(){
 	
-	var regExpUser_id = /^[a-z0-9]{4,20}$/
 	var regExpUser_name = /^[가-힣]{2,10}$/
 	var regExpUser_nick = /^[a-z|A-Z|가-힣|0-9]{2,10}$/
-	var regExpUser_pw = /^[a-z0-9]{6,20}$/
 	var regExpUser_telno = /^\d{3}-\d{3,4}-\d{4}$/
 	var regExpUser_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
 	
 	var form = document.Member
 	
-	var user_id = form.user_id.value
 	var user_name = form.user_name.value
 	var user_nick = form.user_nick.value
-	var user_pw = form.user_pw.value
 	var user_telno = form.user_telno1.value + "-" + form.user_telno2.value + "-" + form.user_telno3.value
 	var user_email = form.user_email.value
 	
-	// ID
-	if(form.user_id.value.length == 0) {
-	    alert("아이디는 필수사항입니다.");
-	    form.user_id.focus();
-	    return;
-	}
-	if(!regExpUser_id.test(user_id)){
-		alert("아이디는 문자와 숫자로 입력해주세요.(4글자 이상, 20글자 이하)")
-		form.user_id.select()
-		return
-	}
 	
 	// Name
 	if(form.user_name.value.length == 0) {
@@ -92,22 +77,6 @@ function checkMember(){
 		return
 	}
 	
-	// Pw
-	if(form.user_pw.value.length == 0) {
-	    alert("비밀번호는 필수사항입니다.");
-	    form.focus();
-	    return;
-	}
-	if(!regExpUser_pw.test(user_pw)){
-		alert("비밀번호는 숫자만으로 입력해주세요.(6글자 이상, 20글자 이하)")
-		form.user_pw.select()
-		return
-	}
-	if(form.user_pw.value != document.Member.user_pw_check.value) {
-	    alert("비밀번호가 일치하지 않습니다. 확인해주세요.");
-	    form.focus();
-	    return;
-	}
 
 	// Telno
 	if(!regExpUser_telno.test(user_telno)){
