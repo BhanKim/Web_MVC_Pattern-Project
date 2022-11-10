@@ -18,18 +18,18 @@ public class CommandUserLoginApi implements Command {
 		String api_email = request.getParameter("api_email");
 		DaoUserLogin dao = new DaoUserLogin();
 		DtoUserLogin dto = dao.loginCheckApi(api_email);
-		int check = dto.getCheck();
+		int checkLoginApi = dto.getCheck();
 
-		if(check == 1) {
+		if(checkLoginApi == 1) {
 			session.setAttribute("ID", api_email);
 			session.setAttribute("NICK", dto.getUser_nick());
 			session.setAttribute("API", "1");
-			check = 1;
+			checkLoginApi = 1;
 		}else {
-			check = 0;
+			checkLoginApi = 0;
 			request.setAttribute("api_email", api_email);
 		}
-		request.setAttribute("check", check);
+		request.setAttribute("checkLoginApi", checkLoginApi);
 	}
 	
 	// check가 1이면 > ID,NICK에 세션 / index로

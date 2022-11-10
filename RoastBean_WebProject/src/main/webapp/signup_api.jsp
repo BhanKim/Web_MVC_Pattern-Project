@@ -86,7 +86,7 @@
 										<td align="left">Nick Name</td>
 										<td class="col" align="left">
 											<input class="form-control2" type="text" name="user_nick" placeholder="필수사항입니다." maxlength="41" style="height: 32px;">
-											<input class="form-control3" type="button" onclick="location='check_nick.do'" value="중복체크">
+											<!-- <input class="form-control3" type="button" onclick="location='check_nick.do'" value="중복체크"> -->
 										</td>
 									</tr>
 									<tr height="10"></tr>

@@ -25,7 +25,16 @@ import com.rb.command.CommandBoardwrite;
 import com.rb.command.CommandCartDelete;
 import com.rb.command.CommandCartInsert;
 import com.rb.command.CommandCartList;
+import com.rb.command.CommandManageProductDelete;
+import com.rb.command.CommandManageProductInsert;
+import com.rb.command.CommandManageProductList;
+import com.rb.command.CommandManageProductSearch;
+import com.rb.command.CommandManageProductSeen;
+import com.rb.command.CommandManageProductUpdate;
+import com.rb.command.CommandManageUserList;
 import com.rb.command.CommandOrder;
+import com.rb.command.CommandProductDetail;
+import com.rb.command.CommandProductList;
 import com.rb.command.CommandUserCheckId;
 import com.rb.command.CommandUserCheckNick;
 import com.rb.command.CommandUserLogin;
@@ -93,14 +102,19 @@ public class FrontController extends HttpServlet {
 		case ("/login.do"):
 			command = new CommandUserLogin();
 			command.execute(request, response);
-			viewPage = "index.jsp";
+			int checkLogin = (int) request.getAttribute("checkLogin");
+			if(checkLogin == 1) {
+				viewPage = "index.jsp";
+			}else {
+				viewPage = "login.jsp";
+			}
 			break;
 		// API 로그인 실행
 		case ("/login_api.do"):
 			command = new CommandUserLoginApi();
 			command.execute(request, response);
-			int check = (int) request.getAttribute("check");
-			if(check == 1) {
+			int checkLoginApi = (int) request.getAttribute("checkLoginApi");
+			if(checkLoginApi == 1) {
 				viewPage = "index.jsp";
 			}else {
 				viewPage = "signup_api.jsp";
@@ -110,7 +124,12 @@ public class FrontController extends HttpServlet {
 		case ("/login_admin.do"):
 			command = new CommandAdminLogin();
 			command.execute(request, response);
-			viewPage = "index.jsp";
+			int checkLoginAdmin = (int) request.getAttribute("checkLogin");
+			if(checkLoginAdmin == 1) {
+				viewPage = "index.jsp";
+			}else {
+				viewPage = "login.jsp";
+			}
 			break;
 		// 아이디 중복 체크
 		case ("/check_id.do"):
@@ -195,7 +214,51 @@ public class FrontController extends HttpServlet {
 		// --------------------- 윤현 Controller End -----------------------
 			
 		// --------------------- 수빈 Controller Start ---------------------
+		case ("/UserListSelect.do"): // 홈에서 관리자가 고객리스트 보기 버튼을 클릭시 do가 실행
+			command = new CommandManageUserList();
+			command.execute(request, response);
+			viewPage = "manage_user_list.jsp";
+			break;
+
+		case ("/ManageProductList.do"): // 상품 리스트 select
+			command = new CommandManageProductList();
+			command.execute(request, response);
+			viewPage = "manage_product_list.jsp";
+			break;
+
+		case ("/ManageProductInsert.do"):
+			viewPage = "manage_product_insert.jsp";
+			break;
 			
+		case ("/ManageProductListInsert.do"): // 관리자 상품 등록 글 작성
+			command = new CommandManageProductInsert();
+			command.execute(request, response);
+			viewPage = "ManageProductList.do";
+			break;
+
+		case ("/ManageProductDelete.do"): // 관리자 상품 삭제
+			command = new CommandManageProductDelete();
+			command.execute(request, response);// 넣음
+			viewPage = "ManageProductList.do";
+			break;
+
+		case ("/ManageProductUpdateSelete.do"): // 수정하기
+			command = new CommandManageProductSeen();
+			command.execute(request, response);// 넣음
+			viewPage = "manage_product_update.jsp";
+			break;
+
+		case ("/ManageProductUpdate.do"):// 관리자 상품 수정
+			command = new CommandManageProductUpdate();
+			command.execute(request, response);// 넣음
+			viewPage = "ManageProductList.do";
+			break;
+
+		case ("/ManageProductSearch.do"):// 입력으로 검색
+			command = new CommandManageProductSearch();
+			command.execute(request, response);
+			viewPage = "manage_product_list.jsp";
+			break;			
 		// --------------------- 수빈 Controller End -----------------------
 			
 		// --------------------- 혁&티뱃 Controller Start -------------------
@@ -267,8 +330,6 @@ public class FrontController extends HttpServlet {
 			viewPage = "content_view.do";
 			break;
 		// --------------------- 혁&티뱃 Controller End -----------------------
-			
-			
 			
 		} // switch
 

@@ -82,7 +82,7 @@
 										<td class="col" align="left">
 											<input type="text" class="form-control2" name="user_id"	placeholder="4글자 이상 입력해주세요." maxlength="41"	style="height: 32px;">
 											<input class="form-control3" type="button" onclick="location='check_id.do'" value="중복체크">
-											<button class="form-control3" onclick="location=windows.open('check_id.do','check')">중복체크</button>
+											<!-- <button class="form-control3" onclick="location=windows.open('check_id.do','check')">중복체크</button> -->
 										</td>
 									</tr>
 									<tr height="10"></tr>

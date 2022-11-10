@@ -13,12 +13,10 @@
 </section>
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center ">
-	<div
-		class="container-fluid container-xl d-flex align-items-center justify-content-between">
+	<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 		<div class="col-lg-4">
 			<h1>
-				<a href="index.jsp"><img src="assets/img/logo.png" alt=""
-					class="img-fluid" width="320" height="72"></a>
+				<a href="index.jsp"><img src="assets/img/logo.png" alt="" class="img-fluid" width="320" height="72"></a>
 			</h1>
 		</div>
 		<nav id="navbar" class="navbar order-last order-lg-0">
@@ -53,17 +51,20 @@
 							<li><a href="#faq">FAQ</a></li>
 							<li><a href="#qna">QnA</a></li>
 						</ul>
+					</li>
 					<li>&emsp;&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="mypage_main.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
 					<c:if test="${ADMIN != null}">
 						<li><a class="nav-link scrollto" href="admin.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>
-					<c:if test="${API == null}">
+				<c:choose>
+					<c:when test="${API eq null}">
 						<li><a class="nav-link scrollto" href="logout.do"><font style="font-size: 0.9em">Logout</font></a></li>
-					</c:if>
-					<c:if test="${API != null}">
+					</c:when>
+					<c:otherwise>
 						<li><a class="nav-link scrollto" href="logout.do" onclick="signOut()"><font style="font-size: 0.9em">Logout</font></a></li>
-					</c:if>
+					</c:otherwise>
+				</c:choose>
 				</ul>
 			</c:if>	
 			<i class="bi bi-list mobile-nav-toggle"></i>

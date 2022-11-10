@@ -24,13 +24,11 @@ public class DaoUserLogin {
 	}
 	
 	// loginCheck
-	public String loginCheck(String user_id, String user_pw) {
+	public DtoUserLogin loginCheck(String user_id, String user_pw) {
+		DtoUserLogin dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		int check = 0;
-		String strResult = null;
-		String user_nick = null;
 
 		try {
 			connection = dataSource.getConnection();
@@ -42,14 +40,12 @@ public class DaoUserLogin {
 			resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next()) {
-				check = resultSet.getInt(1);
-				strResult = resultSet.getString(2);
+				int check = resultSet.getInt(1);
+				String user_nick = resultSet.getString(2);
+				
+				dto = new DtoUserLogin(check, user_nick);
 			}
 			
-			if(check == 1) {
-				user_nick = strResult;
-			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -64,7 +60,7 @@ public class DaoUserLogin {
 				e.printStackTrace();
 			}
 		}
-		return user_nick;
+		return dto;
 
 	} // loginCheck
 	
