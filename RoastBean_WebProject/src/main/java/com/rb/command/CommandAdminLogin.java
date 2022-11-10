@@ -21,7 +21,7 @@ public class CommandAdminLogin implements Command {
 		checkLoginAdmin = dao.loginCheckAdmin(admin_id, admin_pw);
 
 		if (checkLoginAdmin == 1) {
-			System.out.println("asdasd");
+			session.setAttribute("ID", admin_id);
 			session.setAttribute("ADMIN", admin_id);
 			session.setAttribute("NICK", "관리자");
 			checkLoginAdmin =1;

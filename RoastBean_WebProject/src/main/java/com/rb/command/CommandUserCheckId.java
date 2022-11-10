@@ -14,23 +14,15 @@ public class CommandUserCheckId implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		int check = 0;
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter writer = response.getWriter();
+		
+		String user_name = request.getParameter("user_name");
+		request.setAttribute("user_name", user_name);
+		
 		String user_id = request.getParameter("user_id");
 		DaoUserSignup dao = new DaoUserSignup();
-		check = dao.checkId(user_id);
-		
-		if(check == 1) {
-			writer.println("<html><head></head><body>");
-			writer.println("<script language=\"javascript\">");
-			writer.println("		alert(\"이미 있는 아이디 입니다.\");");
-			writer.println("		history.back();");
-			writer.println("</script>");
-			writer.println("</body></html>");
-			writer.close();
-		}
-		
+		int checkIdDuplication = dao.checkId(user_id);
+		request.setAttribute("user_id", user_id);
+		request.setAttribute("checkIdDuplication", checkIdDuplication);
 		
 	}
 
