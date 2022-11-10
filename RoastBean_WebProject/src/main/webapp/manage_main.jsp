@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page 샘플입니다. 관련 제목을 입력해주세요.</title>
+  <title>manege_main</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 

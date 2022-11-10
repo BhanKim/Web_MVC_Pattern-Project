@@ -24,7 +24,7 @@
 		        <td>이메일</td>
 		        <td>전화번호</td>
 		     </tr>
-		     <c:forEach items="${userlist}" var="dto">
+		     <c:forEach items="${manageuserlist}" var="dto">
 		      <tr>
 		         <td>${dto.user_id }</td>
 		         <td>${dto.user_pw }</td>
@@ -38,7 +38,7 @@
 	      </table>
 	      <br>
 	      <br>
-	      <a href="product_main.jsp" style="text-decoration:none">홈으로 돌아가기</a>
+	      <a href="manage_main.jsp" style="text-decoration:none">홈으로 돌아가기</a>
 	</div>
 </body>
 </html>

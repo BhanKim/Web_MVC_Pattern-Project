@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body link="black" vlink="black" alink="navy">
 <div style="text-align: center;">
 		<br>
 		<br> &nbsp;&nbsp;&nbsp;
@@ -14,7 +14,7 @@
 		&nbsp;&nbsp;&nbsp;
 	</div>
 	
-	<form action="product_update.do" method="post">
+	<form action="ManageProductUpdate.do" method="post">
 	   
 	   <table style="margin-left: auto; margin-right: auto;">
 	      <tr>
@@ -64,7 +64,11 @@
 	     
 	      <tr>
 	         <td></td>
-	         <td><input type="submit" value="저장하기"></td>
+	         <td>
+	            <input type="submit" value="저장하기"><br>
+	            <a href="ManageProductList.do" style="text-decoration:none">상품리스트로 돌아가기</a><br>
+	            <a href="manage_main.jsp" style="text-decoration: none;">관리자 홈으로 돌아가기</a>
+	         </td>
 	      </tr>
 	   </table>
 	</form>
