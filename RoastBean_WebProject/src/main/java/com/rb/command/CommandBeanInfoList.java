@@ -1,20 +1,25 @@
 package com.rb.command;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.rb.dao.BeanInfo;
+import com.rb.dao.DaoBeanInfo;
 import com.rb.dao.DaoBoard;
 import com.rb.dao.PageInfo;
+import com.rb.dto.DtoBeanInfo;
 import com.rb.dto.DtoBoard;
 
-public class CommandBoardlist implements Command {
+public class CommandBeanInfoList implements Command {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("command boardlist enter");
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		System.out.println("beaninfo boardlist enter");
 		int nPage = 1;
 		try {
 			String sPage = request.getParameter("page");
@@ -24,22 +29,19 @@ public class CommandBoardlist implements Command {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		DaoBoard dao = new DaoBoard();
-		dao = DaoBoard.getInstance();
-		PageInfo pinfo = dao.articlePage(nPage);
-		request.setAttribute("page", pinfo);
+		DaoBeanInfo dao = new DaoBeanInfo();
+		dao = DaoBeanInfo.getInstance();
+		BeanInfo binfo = dao.articlePage(nPage);
+		request.setAttribute("page", binfo);
 
-		nPage = pinfo.getCurPage();
+		nPage = binfo.getCurPage();
 
 		HttpSession session = null;
 		session = request.getSession();
 		session.setAttribute("cpage", nPage);
 
-		ArrayList<DtoBoard> dtos = dao.list(nPage);
+		ArrayList<DtoBeanInfo> dtos = dao.list(nPage);
 		request.setAttribute("list", dtos);
-
-		dtos = dao.noticeList();
-		request.setAttribute("nList", dtos);
 
 	} // Method
 

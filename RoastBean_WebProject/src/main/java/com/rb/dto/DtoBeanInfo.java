@@ -1,18 +1,37 @@
 package com.rb.dto;
 
 public class DtoBeanInfo {
-	
-    int beaninfo_id;
-    String beaninfo_name;
-    String beaninfo_content;
-    String beaninfo_url;
-    
+
+	int rownum;
+	int beaninfo_id;
+	String beaninfo_name;
+	String beaninfo_content;
+	String beaninfo_url;
+
 	public DtoBeanInfo(int beaninfo_id, String beaninfo_name, String beaninfo_content, String beaninfo_url) {
 		super();
 		this.beaninfo_id = beaninfo_id;
 		this.beaninfo_name = beaninfo_name;
 		this.beaninfo_content = beaninfo_content;
 		this.beaninfo_url = beaninfo_url;
+	}
+
+	public DtoBeanInfo(int rownum, int beaninfo_id, String beaninfo_name, String beaninfo_content,
+			String beaninfo_url) {
+		super();
+		this.rownum = rownum;
+		this.beaninfo_id = beaninfo_id;
+		this.beaninfo_name = beaninfo_name;
+		this.beaninfo_content = beaninfo_content;
+		this.beaninfo_url = beaninfo_url;
+	}
+
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
 	}
 
 	public int getBeaninfo_id() {
@@ -46,10 +65,5 @@ public class DtoBeanInfo {
 	public void setBeaninfo_url(String beaninfo_url) {
 		this.beaninfo_url = beaninfo_url;
 	}
-    
-	
-    
-	
-	
 
 }
