@@ -41,6 +41,7 @@ import com.rb.command.CommandUserLogin;
 import com.rb.command.CommandUserLoginApi;
 import com.rb.command.CommandUserSignup;
 import com.rb.command.CommandUserSignupApi;
+import com.rb.command.CommandUserSignupList;
 
 /**
  * Servlet implementation class FrontController
@@ -123,9 +124,10 @@ public class FrontController extends HttpServlet {
 			break;
 		// 관리자 로그인 실행
 		case ("/login_admin.do"):
+			System.out.println("admin controller");
 			command = new CommandAdminLogin();
 			command.execute(request, response);
-			int checkLoginAdmin = (int) request.getAttribute("checkLogin");
+			int checkLoginAdmin = (int) request.getAttribute("checkLoginAdmin");
 			if(checkLoginAdmin == 1) {
 				viewPage = "index.jsp";
 			}else {
@@ -136,11 +138,19 @@ public class FrontController extends HttpServlet {
 		case ("/check_id.do"):
 			command = new CommandUserCheckId();
 			command.execute(request, response);
+			viewPage = "signup_list.do";
 			break;
 		// 닉네임 중복 체크
 		case ("/check_nick.do"):
 			command = new CommandUserCheckNick();
 			command.execute(request, response);
+			viewPage = "signup_list.do";
+			break;
+		// signup정보 불러오기 // Ajax사용하면 삭제예정
+		case ("/signup_list.do"):
+			command = new CommandUserSignupList();
+			command.execute(request, response);
+			viewPage = "signup.jsp";
 			break;
 		// signup 실행
 		case ("/signup.do"):
