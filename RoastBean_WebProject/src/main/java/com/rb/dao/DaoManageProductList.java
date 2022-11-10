@@ -234,11 +234,12 @@ public class DaoManageProductList {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
+		System.out.println("ManageProductSearch.dao");
 
 		try {
 			connection = dataSource.getConnection();
-			String query = "select product_id, product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price from product where "
-					+ queryname + " like '%" + querycontent + "%'";
+			String query = "select product_id, product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price from product where " + queryname + " like '%" + querycontent + "%'";
+			
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
@@ -254,6 +255,8 @@ public class DaoManageProductList {
 
 				DtoManageProductList dto = new DtoManageProductList(product_id, product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price);
 				dtos.add(dto);
+				
+				System.out.println("ManageProductSearch.dao_try");
 			}
 			
 		}catch (Exception e) {

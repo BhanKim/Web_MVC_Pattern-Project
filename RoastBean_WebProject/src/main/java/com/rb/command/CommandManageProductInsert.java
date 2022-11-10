@@ -17,7 +17,7 @@ public class CommandManageProductInsert implements Command {
 		String product_stock = request.getParameter("product_stock");
 		String product_weight = request.getParameter("product_weight");
 		String product_price = request.getParameter("product_price");
-		
+		System.out.println("ManageProductList.command");
 		DaoManageProductList dao = new DaoManageProductList();
 		dao.manageproductinsert(product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price);
 	}

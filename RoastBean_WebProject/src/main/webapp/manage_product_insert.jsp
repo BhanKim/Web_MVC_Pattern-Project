@@ -25,7 +25,7 @@
 	         <td>원산지</td>
 	         <td>
 	           <select name="product_nation">
-	               <option value="선택하시오." selected="selected">미선택</option>
+	               <option value="미선택" selected="selected">미선택</option>
 	               <option value="케냐">케냐</option>
 	               <option value="에티오피아">에티오피아</option>
 	               <option value="멕시코">멕시코</option>
@@ -59,7 +59,10 @@
 	      </tr>
 	      <tr>
 	         <td></td>
-	         <td><a href="product_manage.jsp " style="text-decoration:none">상품리스트로 돌아가기</a></td>
+	         <td>
+	            <a href="ManageProductList.do" style="text-decoration:none">상품리스트로 돌아가기</a><br>
+	            <a href="manage_main.jsp" style="text-decoration: none;">관리자 홈으로 돌아가기</a>
+	         </td>
 	      </tr>
 	   </table>
 	</form>

@@ -126,7 +126,7 @@ public class FrontController extends HttpServlet {
 			System.out.println("user_list_select.do");
 			command = new CommandManageUserList();
 			command.execute(request, response);
-			viewPage = "user_list.jsp";
+			viewPage = "manage_user_list.jsp";
 			break;
 
 		case ("/ManageProductList.do"): // 상품 리스트 select
@@ -136,7 +136,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "manage_product_list.jsp";
 			break;
 
-		case ("/ManageProductInsert.do"):
+		case ("/ManageProductInsert.do"): 
 			viewPage = "manage_product_insert.jsp";
 			break;
 
@@ -144,7 +144,7 @@ public class FrontController extends HttpServlet {
 			System.out.println("ManageProductListInsert.do");
 			command = new CommandManageProductInsert();
 			command.execute(request, response);
-			viewPage = "manage_product_list.jsp";
+			viewPage = "ManageProductList.do";
 			break;
 
 		case ("/ManageProductDelete.do"): // 관리자 상품 삭제

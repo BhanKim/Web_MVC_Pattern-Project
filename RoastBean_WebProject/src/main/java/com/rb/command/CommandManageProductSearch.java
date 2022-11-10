@@ -16,9 +16,10 @@ public class CommandManageProductSearch implements Command {
 		String queryname = request.getParameter("query");
 		String querycontent = request.getParameter("content");
 		
+		System.out.println("ManageProductSearch.command");
 		DaoManageProductList dao = new DaoManageProductList();
 		ArrayList<DtoManageProductList> dtos = dao.manageproductsearch(queryname, querycontent);
-		request.setAttribute("product_manage", dtos);
+		request.setAttribute("manage_product_list", dtos);
 	}
 
 }

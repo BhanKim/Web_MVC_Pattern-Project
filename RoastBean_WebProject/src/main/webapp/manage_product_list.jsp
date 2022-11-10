@@ -56,7 +56,7 @@
 		</c:forEach>
 		</table>
 		<a href="ManageProductInsert.do" style="text-decoration:none">상품등록하기</a><br>
-	    <a href="###.jsp" style="text-decoration:none">홈으로 돌아가기</a>
+	    <a href="manage_main.jsp" style="text-decoration:none">홈으로 돌아가기</a>
 </div>
 
 </body>
