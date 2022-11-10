@@ -15,6 +15,8 @@
 //import com.rb.command.CommandBeanInfo;
 //import com.rb.command.CommandBoardlist;
 //import com.rb.command.CommandBoardnoticelist;
+//import com.rb.command.CommandBoardsearch;
+//import com.rb.command.CommandBoardwrite;
 //import com.rb.command.CommandCartDelete;
 //import com.rb.command.CommandCartInsert;
 //import com.rb.command.CommandCartList;
@@ -133,13 +135,70 @@
 //		case("/list.do"):
 //	      	 command = new CommandBoardlist();
 //	      	 command.execute(request, response);
-//	      	 System.out.println("list.do에 입장하셨습니다.");
 //	      	  
 //	      	 command = new CommandBoardnoticelist();
 //	      	 command.execute(request, response);
 //	      	 viewPage = "cboardlist.jsp";
 //	      	 break;
+//	      	 
+//	    // 글쓰기 페이지로 이동  	 
+//		case("/boardwrite_view.do"):
+//			 viewPage = "cboardwrite_view.jsp";
+//			 break;
+//		
+//		// 글쓰기	 
+//		case("/boardwrite.do"):
+//			command = new CommandBoardwrite();
+//			command.execute(request, response);
+//			viewPage = "list.do?page=" + curPage;
+//			break;
 //			
+//			// 검색기능
+//		case ("/bSearch.do"):
+//			command  = new CommandBoardsearch();
+//			command.execute(request, response);
+//			viewPage = "cboardsearch.jsp";
+//			break;	
+//			
+//		// Detail Page
+//		case ("/content_view.do"):
+//			command = new CommandBoardcontent();
+//			command.execute(request, response);
+//
+//			command = new CommandBoardcommentlist();
+//			command.execute(request, response);
+//			viewPage = "cboardcontent_view.jsp";
+//			break;
+//
+//		// 수정하기 page
+//		case ("/modify_view.do"):
+//			command = new CommandBoardcontent();
+//			command.execute(request, response);
+//			viewPage = "modify_view.jsp";
+//			break;
+//
+//		// 삭제 page
+//		case ("/communitydelete.do"):
+//			command = new CommandBoarddeleteboard();
+//			command.execute(request, response);
+//			viewPage = "list.do?page=" + curPage;
+//			break;
+//
+//		// 댓글수정
+//		case ("/communitymodify.do"):
+//			System.out.println("coModify.do에 들어왔습니다.");
+//			command = new CommandBoardupdatecomment();
+//			command.execute(request, response);
+//			viewPage = "content_view.do";
+//			break;
+//
+//		// 좋아요기능
+//		case ("/boardlike.do"):
+//			command = new CommandBoardlikeboard();
+//			command.execute(request, response);
+//			viewPage = "content_view.do";
+//			break;
+//
 //		// --------------------- 혁&티뱃 Controller End -----------------------
 //			
 //			

@@ -26,7 +26,7 @@
 			<c:if test="${ID == null }">	
 			<ul>
 				<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
-				<li><a class="nav-link scrollto" href="#community">COMMUNITY</a></li>
+				<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
 				<li><a class="nav-link2 scrollto" href="#coffee_information">COFFEE
 						INFORMATION</a></li>
 				<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE

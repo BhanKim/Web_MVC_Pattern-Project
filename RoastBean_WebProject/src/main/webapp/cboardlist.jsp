@@ -7,6 +7,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- test -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
   <title>Community</title>
   <meta content="" name="description">
@@ -70,11 +73,11 @@
 		    	<table class="table table-sm table-hover">
 					<thead>
 						<tr>
-							<th scope="col" colspan="2">제목</th>
-							<th width=150>작성자</th>
-							<th width=200>작성일</th>
-							<th width=70>조회수</th>
-							<th width=70>좋아요</th>
+							<th scope="col" colspan="2" style="text-align: center;">제목</th>
+							<th width=150 style="text-align: center;">작성자</th>
+							<th width=200 style="text-align: center;">작성일</th>
+							<th width=70 style="text-align: center;">조회수</th>
+							<th width=70 style="text-align: center;">좋아요</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -83,12 +86,12 @@
 						<tr>
 							<td id="left" colspan="2">&nbsp;
 								<span class="badge badge badge-danger">&nbsp;&nbsp;공지&nbsp;&nbsp;</span>
-								<a href="content_view.do?bId=${dto.community_id }">&nbsp;&nbsp;${dto.community_title }</a>
+								<a href="content_view.do?bId=${dto.community_id }" style="color: #000000;">&nbsp;&nbsp;${dto.community_title }</a>
 							</td>
-							<td id="left">${dto.community_name }</td>
-							<td>${dto.community_initdate }</td>
-							<td>${dto.community_hit }</td>
-							<td>${dto.community_cnt }</td>
+							<td id="left" style="text-align: center;">${dto.community_name }</td>
+							<td style="text-align: center;">${dto.community_initdate }</td>
+							<td style="text-align: center;">${dto.community_hit }</td>
+							<td style="text-align: center;">${dto.community_cnt }</td>
 						</tr>
 						</c:forEach>
 						
@@ -96,24 +99,27 @@
 						<c:forEach items="${list }" var="dto">				
 						<tr>
 							<c:if test="${dto.community_name != 'admin' }">
-								<td width=70>${dto.community_id }</td>				
+								<td width=70 style="text-align: center;">${dto.community_id }</td>				
 								<td id="left">
 									<c:forEach begin="1" end="${dto.community_indent}">&nbsp;└ </c:forEach>
-									<a href="content_view.do?bId=${dto.community_id }">${dto.community_title }</a></td>
-								<td id="left">${dto.community_name }</td>
+									<a href="content_view.do?community_id=${dto.community_id }" style="color: #000000;">${dto.community_title }</a></td>
+								<td id="left" style="text-align: center;">${dto.community_name }</td>
 								
-								<c:choose>
-								<c:when test ="${dto.community_updatedate == null} }">
-								<td>${dto.community_initdate }</td>
-								</c:when>
-								<c:otherwise>
-								<td>${dto.community_initdate }
-								</c:otherwise>
-								</c:choose>
+								<td style="text-align: center;">
+									<c:choose>
+									<c:when test ="${dto.community_updatedate eq null }">
+										${dto.community_initdate }
+									</c:when>	
+									<c:otherwise>
+										${dto.community_updatedate }
+									</c:otherwise>	
+									</c:choose>
+								</td>
 								
-								<td>${dto.community_hit }</td>
-								<td>${dto.community_cnt }</td>
+								<td style="text-align: center;">${dto.community_hit }</td>
+								<td style="text-align: center;">${dto.community_cnt }</td>
 							</c:if>
+							
 						</tr>
 						</c:forEach>
 						<tr></tr>
@@ -122,10 +128,10 @@
 							<td id="left" colspan="6">&nbsp;
 							<c:choose>
 								<c:when test="${ID != null }">
-									<a href="write_view.do" class="btn btn-success" style="padding:2px 10px">글쓰기</a>
+									<a href="boardwrite_view.do" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">글쓰기</a>
 								</c:when>
 								<c:otherwise>
-									<a href="login.jsp" class="btn btn-success" style="padding:2px 10px">로그인하고 글쓰기</a>
+									<a href="login.jsp" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px; ">로그인하고 글쓰기</a>
 								</c:otherwise>
 							</c:choose>
 							</td>
@@ -196,24 +202,17 @@
 						<option value="4">작성자</option>
 					</select>&nbsp;
 					<input type="text" name="keyword" size="20">&nbsp;
-					<input type="submit" class="btn btn-outline-dark" value="검색" style="padding:3px 12px">
+					<input type="submit" class="btn" value="검색" style="background: #F2BCBB; border: 0; padding:3px 12px; color: #fff; transition: 0.4s; border-radius: 50px;">
 					</form>
 				</div>
 			</div>
 		 </div>
 	</section>
-    
-    <section class="inner-page">
-      <div class="container">
-        <p>
-          Example inner page template
-        </p>
-      </div>
-    </section>
----------------------------------- 정보 쓰기란 종료 ----------------------------------
+
 
   </main><!-- End #main -->
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <!-- ======= Footer ======= -->
 	<%@include file = "footer.jsp" %>
   <!-- End Footer -->

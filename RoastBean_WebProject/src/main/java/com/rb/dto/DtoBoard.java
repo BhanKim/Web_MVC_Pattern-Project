@@ -62,6 +62,22 @@ public class DtoBoard {
 		this.community_cnt = community_cnt;
 	}
 	
+	// Search
+	public DtoBoard(int community_id, String community_name, String community_title, String community_content,
+			String community_initdate, int community_hit, int community_group, int community_step, int community_indent,
+			int community_cnt) {
+		super();
+		this.community_id = community_id;
+		this.community_name = community_name;
+		this.community_title = community_title;
+		this.community_content = community_content;
+		this.community_initdate = community_initdate;
+		this.community_hit = community_hit;
+		this.community_group = community_group;
+		this.community_step = community_step;
+		this.community_indent = community_indent;
+		this.community_cnt = community_cnt;
+	}
 	// G&S
 
 
