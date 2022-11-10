@@ -53,14 +53,14 @@ public class DaoOrder {
 		}
 	} // order table insert
 	
-	public void insertOrderUserInfo(String order_telno, String order_zipcode, String order_address1, String order_address2, String order_address3, String order_email, String user_id) {
+	public void insertOrderUserInfo(String order_telno, String order_zipcode, String order_address1, String order_address2, String order_address3, String order_email, String order_name, String user_id) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
 		try {
 			connection = dataSource.getConnection();
 			
-			String query1 = "update orders set order_telno = ?, order_zipcode = ?, order_address1 = ?, order_address2 = ?, order_address3 = ?, order_email = ? ";
+			String query1 = "update orders set order_telno = ?, order_zipcode = ?, order_address1 = ?, order_address2 = ?, order_address3 = ?, order_email = ?, order_name = ? ";
 			String query2 = "where user_id = ? and order_zipcode is null";
 			
 			preparedStatement = connection.prepareStatement(query1 + query2);
@@ -70,7 +70,8 @@ public class DaoOrder {
 			preparedStatement.setString(4, order_address2);
 			preparedStatement.setString(5, order_address3);
 			preparedStatement.setString(6, order_email);
-			preparedStatement.setString(7, user_id);
+			preparedStatement.setString(7, order_name);
+			preparedStatement.setString(8, user_id);
 			
 			preparedStatement.executeUpdate();
 					

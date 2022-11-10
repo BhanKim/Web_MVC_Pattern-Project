@@ -17,6 +17,9 @@ public class CommandProductDetail implements Command {
 		DaoProductDetail dao = new DaoProductDetail();
         DtoProductList dtos = dao.list(product_id);
         request.setAttribute("productDetail", dtos);
+        
+		
+
 	}
 
 }

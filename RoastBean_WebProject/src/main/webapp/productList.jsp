@@ -68,19 +68,84 @@
 						<span class="tit_n1" style="font-weight: bold;">원두전체</span>
 					</h2>
 					<p class="banner"></p>
+					<ul id="type" style="display:inline-block; list-style:none;">
+						<li style="float: left; padding: 10px;"><a class="active" href="productList.do?page=1">원두전체</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미강한&page=1">약배전(산미강한)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미중간">중배전(산미중간)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미약간">중강배전(산미약간)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미없는">강배전(산미없는)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=G블렌딩">G블렌딩</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=싱글오리진">싱글오리진</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=디카페인">디카페인</a></li>
+            		</ul>
 				</div>
 				<c:forEach items="${list}" var="dto">
 				<div class="col-lg-4">
-				 <div class="card mb-4 product-wap rounded-0">
-					<div class="box" align="center"><a href="productDetail.do?product_id=${dto.product_id}">
-						<img class="card-img rounded-0 img-fluid" src="assets/img/product/${dto.product_name}.png"></a>
+				 <div class="card mb-4 product-wap rounded-0" style="border: 0;">
+					<div class="box" align="center" style="padding: 40px 30px;"><a href="productDetail.do?product_id=${dto.product_id}">
+						<img class="card-img rounded-0 img-fluid" src="assets/img/product/${dto.product_image}"></a>
 						<h5>${dto.product_name}</h5>
 						<p>${dto.product_info}</p>
+						<p>산미 ${dto.category_acidity} | 바디감 ${dto.category_body} | 단맛 ${dto.category_sweet} | 아로마 ${dto.category_aroma}</p>
 						<h6><fmt:formatNumber value="${dto.product_price}" groupingUsed="true" /> 원</h6>
 					</div>
-					</div>
+				 </div>
 				</div>
 				</c:forEach>
+				<table>
+					<tr>
+						<td align="center" colspan="6">
+						<c:choose>
+							<c:when test="${(page.curPage - 1) < 1 }">
+								[ 처음 ]
+							</c:when>
+							<c:otherwise>
+								<a href="productList.do?page=1">[ 처음 ]</a>
+							</c:otherwise>
+							</c:choose>
+							<!-- 이전 -->
+							<c:choose>
+							<c:when test="${(page.curPage - 1) < 1 }">
+								[ 이전 ]
+							</c:when>
+							<c:otherwise>
+								<a href="productList.do?page=${page.curPage - 1 }">[ 이전 ]</a>
+							</c:otherwise>
+							</c:choose>
+							
+							<!-- 개별 페이지 -->
+							<c:forEach var="fEach" begin="${page.startPage }" end="${page.endPage }" step="1">
+								<c:choose>
+								<c:when test="${page.curPage == fEach}">
+									[ ${fEach } ] &nbsp;
+								</c:when>
+								<c:otherwise>
+									<a href="productList.do?page=${fEach }">[ ${fEach } ]</a>&nbsp;
+								</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							
+							<!-- 다음 -->
+							<c:choose>
+							<c:when test="${(page.curPage + 1) > page.totalPage }">
+								[ 다음 ]
+							</c:when>
+							<c:otherwise>
+								<a href="productList.do?page=${page.curPage + 1 }">[ 다음 ]</a>
+							</c:otherwise>
+							</c:choose>
+							<!-- 끝 -->
+							<c:choose>
+							<c:when test="${page.curPage == page.totalPage }">
+								[ 마지막 ]
+							</c:when>
+							<c:otherwise>
+								<a href="productList.do?page=${page.totalPage }">[ 마지막 ]</a>
+							</c:otherwise>
+							</c:choose>
+							</td>
+						</tr>
+					</table>
 			</div>
 		</div>
 	</section>

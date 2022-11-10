@@ -66,6 +66,11 @@ public class FrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		HttpSession session = request.getSession(); // *******session
+		// Paging
+		int curPage = 1;
+		if(session.getAttribute("cpage") != null) {
+			curPage = (int)session.getAttribute("cpage");
+		}
 
 		switch (com) {
 		// --------------------- 상원 Controller Start ---------------------

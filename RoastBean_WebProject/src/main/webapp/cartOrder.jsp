@@ -133,7 +133,7 @@
 					</thead>
 					<c:forEach items="${cartlist}" var="dto">
 						<tr align="center" valign="middle">
-							<td><img width="100" height="100" src="assets/img/product/${dto.product_name}.png"></td>
+							<td><img width="100" height="100" src="assets/img/product/${dto.product_image}"></td>
 							<td>${dto.product_name}</td>
 							<td>${dto.cart_qty}</td>
 							<td><fmt:formatNumber value="${dto.product_price * dto.cart_qty}" groupingUsed="true" /> 원</td>
