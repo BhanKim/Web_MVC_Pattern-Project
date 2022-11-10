@@ -16,7 +16,7 @@ public class DaoOrder {
 		// TODO Auto-generated constructor stub
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mvc");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/roastbean");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

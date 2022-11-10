@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.rb.dto.DtoCartList;
@@ -18,7 +19,7 @@ public class DaoCart {
 		// TODO Auto-generated constructor stub
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mvc");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/roastbean");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -53,7 +54,7 @@ public class DaoCart {
 		}
 	} // cart table insert
 
-	public ArrayList<DtoCartList> cartlist() {
+	public ArrayList<DtoCartList> cartlist(String uuser_id) {
 		ArrayList<DtoCartList> dtos = new ArrayList<DtoCartList>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -64,7 +65,7 @@ public class DaoCart {
 
 			String query1 = "select u.user_id, p.product_id, sum(c.cart_qty), p.product_name, sum(p.product_price), p.product_price, p.product_weight ";
 			String query2 = "from product as p, user as u, cart as c ";
-			String query3 = "where p.product_id = c.product_id and c.user_id = u.user_id and u.user_id = 'hosix' ";
+			String query3 = "where p.product_id = c.product_id and c.user_id = u.user_id and u.user_id = '" + uuser_id + "'";
 			String query4 = "group by u.user_id, p.product_id, p.product_name, p.product_price, p.product_weight";
 
 			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
