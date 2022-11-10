@@ -51,6 +51,7 @@ function checkMember(){
 	
 	var user_id = form.user_id.value
 	var user_name = form.user_name.value
+	var user_nick = form.user_nick.value
 	var user_pw = form.user_pw.value
 	var user_telno = form.user_telno1.value + "-" + form.user_telno2.value + "-" + form.user_telno3.value
 	var user_email = form.user_email.value
@@ -86,7 +87,7 @@ function checkMember(){
 	    return;
 	}
 	if(!regExpUser_name.test(user_name)){
-		alert("닉네임은 한글만으로 입력해주세요.(2글자 이상, 10글자 이하)")
+		alert("닉네임은 문자, 한글, 숫자로 입력해주세요.(2글자 이상, 10글자 이하)")
 		form.user_name.select()
 		return
 	}

@@ -2,6 +2,7 @@ package com.rb.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.rb.dao.DaoOrder;
 
@@ -10,8 +11,8 @@ public class CommandOrder implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-//		String user_id = request.getParameter("user_id");
-		String user_id = "hosix";
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("ID");
 		String order_telno = request.getParameter("order_telno1") + request.getParameter("order_telno2") + request.getParameter("order_telno3");
 		String order_zipcode = request.getParameter("order_zipcode");
 		String order_address1 = request.getParameter("order_address1");
