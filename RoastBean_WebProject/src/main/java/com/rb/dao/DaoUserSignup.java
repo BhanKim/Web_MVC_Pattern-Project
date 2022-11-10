@@ -34,15 +34,16 @@ public class DaoUserSignup {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select count(*) from user where user_id = ? and user_deletedate is null ";
+			String query = "select count(*) from user where user_id = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, user_id);
 			resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next()) {
+				
 				check = resultSet.getInt(1);
 			}
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -57,7 +58,11 @@ public class DaoUserSignup {
 				e.printStackTrace();
 			}
 		}
-		return check;
+		if(check == 1) {
+			return 1;
+		}else {
+			return 0;
+		}
 
 	} // checkId
 	
@@ -67,16 +72,17 @@ public class DaoUserSignup {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		int check = 0;
-		
+
 		try {
 			connection = dataSource.getConnection();
-			
-			String query = "select count(*) from user where user_nick = ? and user_deletedate is null ";
+
+			String query = "select count(*) from user where user_nick = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, user_nick);
 			resultSet = preparedStatement.executeQuery();
-			
+
 			if (resultSet.next()) {
+				
 				check = resultSet.getInt(1);
 			}
 			
@@ -94,9 +100,13 @@ public class DaoUserSignup {
 				e.printStackTrace();
 			}
 		}
-		return check;
-		
-	} // checkId
+		if(check == 1) {
+			return 1;
+		}else {
+			return 0;
+		}
+
+	} // checkNick
 	
 	// Sign up
 	public void signupAction(String user_id, String user_name, String user_nick, String user_pw, String user_telno, String user_email, String user_birthday, String user_gender, String user_addresszipcode, String user_address1, String user_address2, String user_address3) {
