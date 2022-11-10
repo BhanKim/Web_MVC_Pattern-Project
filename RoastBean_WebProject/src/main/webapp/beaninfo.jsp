@@ -52,18 +52,19 @@
 
 		<!-- ======= Breadcrumbs Section ======= -->
 		<!--  -->
-    <section class="breadcrumbs">
-      <div class="container">
+		<section class="breadcrumbs">
+			<div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Bean Information</h2>
-          <ol>
-            <li></li>
-          </ol>
-        </div>
+				<div class="d-flex justify-content-between align-items-center">
+					<h2>Bean Information</h2>
+					<ol>
+						<li></li>
+					</ol>
+				</div>
 
-      </div>
-    </section><!-- End Breadcrumbs Section -->
+			</div>
+		</section>
+		<!-- End Breadcrumbs Section -->
 		<!-- End Breadcrumbs Section -->
 
 		<section id="why-us" class="why-us">
@@ -74,7 +75,8 @@
 					<c:forEach items="${list}" var="dto">
 						<div class="col-lg-4 mb-4" align="center">
 							<div class="box">
-								<a href="${dto.beaninfo_url}" target="_blank"><img class="card-img rounded-50 img-fluid"
+								<a href="${dto.beaninfo_url}" target="_blank"><img
+									class="card-img rounded-50 img-fluid"
 									src="assets/img/beaninfo/${dto.beaninfo_id}.png"></a>
 								<h4>${dto.beaninfo_name}</h4>
 								<p>${dto.beaninfo_content}</p>
@@ -86,6 +88,60 @@
 
 			</div>
 		</section>
+
+		<div align="center">
+			<c:choose>
+				<c:when test="${(page.curPage - 1) < 1 }">
+								[ 처음 ]
+							</c:when>
+				<c:otherwise>
+					<a href="beaninfo.do?page=1">[ 처음 ]</a>
+				</c:otherwise>
+			</c:choose>
+			<!-- 이전 -->
+			<c:choose>
+				<c:when test="${(page.curPage - 1) < 1 }">
+								[ 이전 ]
+							</c:when>
+				<c:otherwise>
+					<a href="beaninfo.do?page=${page.curPage - 1 }">[ 이전 ]</a>
+				</c:otherwise>
+			</c:choose>
+
+			<!-- 개별 페이지 -->
+			<c:forEach var="fEach" begin="${page.startPage }"
+				end="${page.endPage }" step="1">
+				<c:choose>
+					<c:when test="${page.curPage == fEach}">
+									[ ${fEach } ] &nbsp;
+								</c:when>
+					<c:otherwise>
+						<a href="beaninfo.do?page=${fEach }">[ ${fEach } ]</a>&nbsp;
+								</c:otherwise>
+				</c:choose>
+			</c:forEach>
+
+			<!-- 다음 -->
+			<c:choose>
+				<c:when test="${(page.curPage + 1) > page.totalPage }">
+								[ 다음 ]
+							</c:when>
+				<c:otherwise>
+					<a href="beaninfo.do?page=${page.curPage + 1 }">[ 다음 ]</a>
+				</c:otherwise>
+			</c:choose>
+			<!-- 끝 -->
+			<c:choose>
+				<c:when test="${page.curPage == page.totalPage }">
+								[ 마지막 ]
+							</c:when>
+				<c:otherwise>
+					<a href="beaninfo.do?page=${page.totalPage }">[ 마지막 ]</a>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<hr>
+		<br>
 
 	</main>
 	<!-- End #main -->
