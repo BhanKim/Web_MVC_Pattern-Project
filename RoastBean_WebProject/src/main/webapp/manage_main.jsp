@@ -39,7 +39,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-	<%@include file = "header_innerpage.jsp" %>
+	<%@include file = "header_manage.jsp" %>
   <!-- End Header -->
 
   <main id="main">
@@ -51,7 +51,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Inner Page</h2>
           <ol>
-            <li><a href="index.jsp">Home</a></li>
+            <li><a href="manage_main.jsp">Home</a></li>
             <li>Inner Page</li>
           </ol>
         </div>
@@ -87,7 +87,8 @@ cf. 기존의 부트스트랩을 사용하여 디자인 하실 분은 해당 부
         </p>
       </div>
     </section>
----------------------------------- 정보 쓰기란 종료 ----------------------------------
+<!--  ---------------------------------- 정보 쓰기란 종료 ----------------------------------  -->
+
 
   </main><!-- End #main -->
 
