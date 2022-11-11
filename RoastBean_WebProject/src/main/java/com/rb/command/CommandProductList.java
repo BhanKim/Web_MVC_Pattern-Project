@@ -18,9 +18,14 @@ public class CommandProductList implements Command {
 		
 		DaoProductList dao = new DaoProductList();
         
-        int nPage = 1;
+		int nPage = 1;
+		String sPage = null;
 		try {
-			String sPage = request.getParameter("page");
+			if(request.getParameter("page") == null) {
+				sPage = "1";
+			} else {
+				sPage = request.getParameter("page");
+			}
 			nPage = Integer.parseInt(sPage);
 			
 		} catch(Exception e) {

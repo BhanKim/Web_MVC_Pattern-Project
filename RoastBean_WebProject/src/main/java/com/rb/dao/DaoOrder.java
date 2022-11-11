@@ -32,11 +32,12 @@ public class DaoOrder {
 			String query2 = "select p.product_id, ?, sum(c.cart_qty), (p.product_price * sum(c.cart_qty)), now() ";
 			String query3 = "from product as p, cart as c ";
 			String query4 = "where p.product_id = c.product_id and c.user_id = ? ";
-			String query5 = "group by p.product_id, p.product_name, p.product_price, c.cart_qty";
+			String query5 = "group by p.product_id, p.product_name, p.product_price, c.cart_qty, ?";
 			
 			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4 + query5);
 			preparedStatement.setString(1, user_id);
 			preparedStatement.setString(2, user_id);
+			preparedStatement.setString(3, user_id);
 			preparedStatement.executeUpdate();
 
 		} catch (Exception e) {

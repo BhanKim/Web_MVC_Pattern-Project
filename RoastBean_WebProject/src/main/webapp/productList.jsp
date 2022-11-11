@@ -65,18 +65,22 @@
 			<div class="row">
 				<div class="xans-element- xans-product xans-product-headcategory title" align="center">
 					<h2>
-						<span class="tit_n1" style="font-weight: bold;">원두전체</span>
+						<% if(request.getParameter("type") == null) { %>
+							<span class="tit_n1" style="font-weight: bold;">원두전체</span>
+						<% } else { %>
+							<span class="tit_n1" style="font-weight: bold;"><%=request.getParameter("type")%></span>
+						<% } %>
 					</h2>
 					<p class="banner"></p>
 					<ul id="type" style="display:inline-block; list-style:none;">
 						<li style="float: left; padding: 10px;"><a class="active" href="productList.do?page=1">원두전체</a></li>
-		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미강한&page=1">약배전(산미강한)</a></li>
-		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미중간">중배전(산미중간)</a></li>
-		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미약간">중강배전(산미약간)</a></li>
-		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미없는">강배전(산미없는)</a></li>
-		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=G블렌딩">G블렌딩</a></li>
-		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=싱글오리진">싱글오리진</a></li>
-		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=디카페인">디카페인</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미강한&type=약배전(산미강한)">약배전(산미강한)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미중간&type=중배전(산미중간)">중배전(산미중간)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미약간&type=중강배전(산미약간)">중강배전(산미약간)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=산미없는&type=강배전(산미없는)">강배전(산미없는)</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=G블렌딩&type=G블렌딩">G블렌딩</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=싱글오리진&type=싱글오리진">싱글오리진</a></li>
+		                <li style="float: left; padding: 10px;"><a href="productList.do?category_type=디카페인&type=디카페인">디카페인</a></li>
             		</ul>
 				</div>
 				<c:forEach items="${list}" var="dto">
@@ -117,7 +121,7 @@
 							<c:forEach var="fEach" begin="${page.startPage }" end="${page.endPage }" step="1">
 								<c:choose>
 								<c:when test="${page.curPage == fEach}">
-									[ ${fEach } ] &nbsp;
+									&nbsp;[ ${fEach } ] &nbsp;
 								</c:when>
 								<c:otherwise>
 									<a href="productList.do?page=${fEach }">[ ${fEach } ]</a>&nbsp;

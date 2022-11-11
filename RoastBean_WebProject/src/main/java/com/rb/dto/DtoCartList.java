@@ -12,9 +12,10 @@ public class DtoCartList {
 	int product_price;
 	int product_weight;
 	int product_priceSum;
+	String product_image;
 	
 	public DtoCartList(String user_id, int product_id, int cart_qty, String product_name,
-			int product_price, int product_weight, int product_priceSum) {
+			int product_price, int product_weight, int product_priceSum, String product_image) {
 		super();
 		this.user_id = user_id;
 		this.product_id = product_id;
@@ -23,6 +24,7 @@ public class DtoCartList {
 		this.product_price = product_price;
 		this.product_weight = product_weight;
 		this.product_priceSum = product_priceSum;
+		this.product_image = product_image;
 	}
 	
 	public String getUser_id() {
@@ -72,6 +74,14 @@ public class DtoCartList {
 	}
 	public void setProduct_priceSum(int product_priceSum) {
 		this.product_priceSum = product_priceSum;
+	}
+
+	public String getProduct_image() {
+		return product_image;
+	}
+
+	public void setProduct_image(String product_image) {
+		this.product_image = product_image;
 	}
 	
 }
