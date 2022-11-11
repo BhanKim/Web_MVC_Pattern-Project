@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>글쓰기</title>
+  <title>글 수정하기</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -50,52 +50,60 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Write</h2>
-          <ol>
-            <li><a href="index.jsp">Home</a></li>
-            <li>Write</li>
-          </ol>
+<div class="row">
+		<div class="col">
+	    	<h2>&nbsp;&nbsp;글쓰기</h2><br>
+			<table width="1100" border="1">
+				<form name="modify_form" action="modify.do" method="post">
+					<input type="hidden" name="community_id" value="${content_view.community_id }">
+					<tr>
+						<th width="100" height="40">제목</th>
+						<td><input type="text" name="community_title" size="140" value="${content_view.community_title }"></td>
+					</tr>
+					<tr>
+						<th width="100" height="40">작성자</th>
+						<td> &nbsp;&nbsp;${ID } </td>
+					</tr>
+					<tr>
+						<th width="100" height="320">내용</th>
+						<td>
+						<textarea name=community_content id="community_content">${content_view.community_content }</textarea>
+						<script>CKEDITOR.replace('community_content');</script>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" height="40">
+							&nbsp;&nbsp;<input type="submit" class="btn btn-success" style="padding:2px 10px" value="수정">&nbsp;
+							<a href="cboardcontent_view.do?community_id=${content_view.community_id }" class="btn btn-secondary" style="padding:2px 10px">취소</a>&nbsp;
+							<a href="list.do?page=<%= session.getAttribute("cpage") %>" class="btn btn-secondary" style="padding:2px 10px">목록</a>&nbsp;
+						</td>
+					</tr>
+				</form>	
+			</table>
+		</div>
+	</div>
         </div>
 
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-
+---------------------------------- 정보 쓰기란 시작 ----------------------------------
 	<section class="inner-page">
 	  <div class="container">
-		<form action="boardwrite.do" method="get">
-			<table width="1100" border="1" class="table table-sm table-hover">
-					<tr>
-						<th width="100" height="40">제목</th>
-						<td> <input type="text" name="bTitle" size="140"> </td>
-					</tr>
-					<tr>
-						<th width="100" height="40">작성자</th>
-						<td> &nbsp;&nbsp;${ID} </td>
-					</tr>
-					<tr>
-						<th width="100" height="320">내용</th>
-						<td>
-						<textarea name="bContent" id="bContent"></textarea>
-						<script>CKEDITOR.replace('bContent');</script>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" height="40">
-							&nbsp;&nbsp;<input type="submit" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;" value="등록">&nbsp;
-							<a href="list.do?page=<%= session.getAttribute("cpage") %>" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">취소</a>&nbsp;						
-						</td>
-					</tr>
-			</table>
-		</form>	
+	  	<p>
+		  이너 페이지 샘플입니다.<br>
+		  이너 페이지 샘플입니다.
+		  이너 페이지 샘플입니다.<br>
+		  위의 class="inner=page" / class="container" 지워도 상관없습니다.<br>
+		  자유롭게 작성해주세요.
+		</p>
 	  </div>
 	</section>
 	
-    
-    
-    
-    
-    
+<h3>jsp 파일 새로 복사해서 작업해주세요!</h3><br>
+정보는 이 공간에 넣어서 실험해보시면 됩니다!<br>
+자유롭게 작성해주세요.<br>
+cf. 기존의 부트스트랩을 사용하여 디자인 하실 분은 해당 부트스트랩 링크 위에 추가 하시면 되겠습니다.
     
     <section class="inner-page">
       <div class="container">
@@ -104,6 +112,7 @@
         </p>
       </div>
     </section>
+---------------------------------- 정보 쓰기란 종료 ----------------------------------
 
   </main><!-- End #main -->
 

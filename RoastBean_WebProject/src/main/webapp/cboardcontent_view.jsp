@@ -59,13 +59,10 @@
 								<form action="boardlike.do" method="post">
 									<span style="font-size: 17px; font-weight: bold;">${content_view.community_name }</span>&nbsp;&nbsp;
 									${content_view.community_initdate }<br>
-									조회&nbsp;${content_view.community_hit }&nbsp;&nbsp; <input
-										type="hidden" name="community_id"
-										value="${content_view.community_id }"> <input
-										type="hidden" name="community_name" value="${ID }"> <input
-										type="submit" class="btn btn-outline-danger"
-										value="♥ 좋아요 ${content_view.community_hit }"
-										style="padding: 0px 4px; font-size: 13px">
+									조회&nbsp;${content_view.community_hit }&nbsp;&nbsp; 
+									<input type="hidden" name="community_id" value="${content_view.community_id }"> 
+									<input type="hidden" name="community_name" value="${ID }"> 
+									<input type="submit" class="btn btn-outline-danger"	value="♥ 좋아요 ${content_view.community_cnt }" style="padding: 0px 4px; font-size: 13px">
 								</form>
 							</td>
 						</tr>
@@ -75,28 +72,25 @@
 						<tr>
 							<td id="left" style="padding: 10px"><c:choose>
 									<c:when test="${ID != null }">
-										<a href="write_view.do" class="btn btn-success"
-											style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">글쓰기</a>
-											
-											
-											
+										<a href="boardwrite_view.do" class="btn btn-success"
+											style="padding: 2px 10px">글쓰기</a>
 										<a
 											href="reply_view.do?community_id=${content_view.community_id }"
-											class="btn btn-secondary" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;"> 답글</a>
+											class="btn btn-secondary" style="padding: 2px 10px"> 답글</a>
 									</c:when>
 									<c:otherwise>
 										<a href="login.jsp" class="btn btn-success"
-											style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">로그인하고 글쓰기</a>
+											style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px; ">로그인하고 글쓰기</a>
 									</c:otherwise>
 								</c:choose> <c:if test="${ID == content_view.community_name }">
 									<a
 										href="modify_view.do?community_id=${content_view.community_id }"
-										class="btn btn-secondary" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;"> 수정</a>
+										class="btn btn-secondary" style="padding: 2px 10px"> 수정</a>
 									<a
 										href="communitydelete.do?community_id=${content_view.community_id }"
 										class="btn btn-secondary" style="padding: 2px 10px"> 삭제</a>
 								</c:if> <a href="list.do?page=<%=session.getAttribute("cpage")%>"
-								class="btn btn-secondary" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;"> 목록</a>
+								class="btn btn-secondary" style="padding: 2px 10px"> 목록</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <c:if test="${ID == 'admin' }">
 									<a
 										href="communitydelete.do?community_id=${content_view.community_id }"
@@ -123,29 +117,22 @@
 								<td width="100"><c:if
 										test="${ID == dto.community_comment_name }">
 										<form id="coModifySet" style="display: block;">
-											<input type="button" value="수정" onclick="coModifyOn()"
+											<input type="button" class="btn btn-primary mb-1" value="수정" onclick="coModifyOn()"
 												class="btn btn-light" style="padding: 2px 10px">
 										</form>
 										<form action="coModify.do" method="post" id="coModifyDo"
 											style="display: none;">
 											<textarea name="community_comment_content" rows="2" cols="50">${dto.community_comment_content }</textarea>
-											<input type="hidden" name="community_id"
-												value="${content_view.community_id }"> <input
-												type="hidden" name="community_comment_cono"
-												value="${dto.community_comment_cono }"> <input
-												type="submit" value="수정" onclick="coModifyOut()"
-												class="btn btn-light" style="padding: 2px 10px"> <input
-												type="button" value="취소" onclick="coModifyOut()"
-												class="btn btn-light" style="padding: 2px 10px">
+											<input type="hidden" name="community_id" value="${content_view.community_id }"> 
+											<input type="hidden" name="community_comment_cono" value="${dto.community_comment_cono }"> 
+											<input type="submit" value="수정" onclick="coModifyOut()" class="btn btn-success" style="padding: 2px 10px"> 
+											<input type="button" value="취소" onclick="coModifyOut()" class="btn btn-light" style="padding: 2px 10px">
 										</form>
 										<form action="coDelete.do" method="post" id="coModifyDo2"
 											style="display: block;">
-											<input type="hidden" name="community_id"
-												value="${content_view.community_id }"> <input
-												type="hidden" name="community_comment_cono"
-												value="${dto.community_comment_cono }"> <input
-												type="submit" value="삭제" class="btn btn-light"
-												style="padding: 2px 10px">
+											<input type="hidden" name="community_id" value="${content_view.community_id }"> 
+											<input type="hidden" name="community_comment_cono" value="${dto.community_comment_cono }"> 
+											<input type="submit" value="삭제" class="btn btn-danger" style="padding: 2px 10px">
 										</form>
 									</c:if></td>
 								<td width="100" style="font-size: 12px;">${dto.community_comment_codate }</td>
@@ -156,13 +143,10 @@
 				<br>
 				<c:if test="${ID != null }">
 					<form action="coWrite.do" method="post" style="text-align: center;">
-						<input type="hidden" name="community_id"
-							value="${content_view.community_id }"> <input
-							type="hidden" name="community_comment_name" value="${ID } }">
-						<textarea name="community_comment_content" rows="4" cols="120"
-							placeholder="${ID }님 댓글을 작성해주세요"></textarea>
-						&nbsp;<input type="submit" value="등록" class="btn btn-outline-dark"
-							style="padding: 2px 10px"><br>
+						<input type="hidden" name="community_id" value="${content_view.community_id }"> 
+						<input type="hidden" name="community_comment_name" value="${ID } }">
+						<textarea name="community_comment_content" rows="4" cols="120" placeholder="${ID }님 댓글을 작성해주세요"></textarea>
+						&nbsp;<input type="submit" value="등록" class="btn btn-outline-dark"	style="padding: 2px 10px"><br>
 						<br>
 					</form>
 				</c:if>
