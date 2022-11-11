@@ -15,12 +15,10 @@ import com.rb.command.CommandAdminLogin;
 import com.rb.command.CommandBeanInfo;
 import com.rb.command.CommandBoardcommentlist;
 import com.rb.command.CommandBoardcontent;
-import com.rb.command.CommandBoarddeleteboard;
 import com.rb.command.CommandBoardlikeboard;
 import com.rb.command.CommandBoardlist;
 import com.rb.command.CommandBoardnoticelist;
 import com.rb.command.CommandBoardsearch;
-import com.rb.command.CommandBoardupdatecomment;
 import com.rb.command.CommandBoardwrite;
 import com.rb.command.CommandCartDelete;
 import com.rb.command.CommandCartInsert;
@@ -94,7 +92,7 @@ public class FrontController extends HttpServlet {
 		// Paging
 		HttpSession session = request.getSession();
 
-    int curPage = 1;
+		int curPage = 1;
 		if(session.getAttribute("cpage") != null) {
 			curPage = (int)session.getAttribute("cpage");
 		}
@@ -125,7 +123,6 @@ public class FrontController extends HttpServlet {
 			break;
 		// 관리자 로그인 실행
 		case ("/login_admin.do"):
-			System.out.println("admin controller");
 			command = new CommandAdminLogin();
 			command.execute(request, response);
 			int checkLoginAdmin = (int) request.getAttribute("checkLoginAdmin");
@@ -137,7 +134,6 @@ public class FrontController extends HttpServlet {
 			break;
 		// 아이디 중복 체크
 		case ("/check_id.do"):
-			System.out.println("asdasd");
 			command = new CommandUserCheckId();
 			command.execute(request, response);
 			viewPage = "signup.jsp";
@@ -148,7 +144,7 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "signup.jsp";
 			break;
-			// 아이디 중복 체크
+		// 아이디 중복 체크
 		case ("/check_id_info.do"):
 			command = new CommandUserCheckId();
 			command.execute(request, response);
@@ -160,12 +156,6 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_info_update.jsp";
 			break;
-//		// signup정보 불러오기 // Ajax사용하면 삭제예정
-//		case ("/signup_list.do"):
-//			command = new CommandUserSignupList();
-//			command.execute(request, response);
-//			viewPage = "signup.jsp";
-//			break;
 		// signup 실행
 		case ("/signup.do"):
 			command = new CommandUserSignup();
@@ -183,7 +173,6 @@ public class FrontController extends HttpServlet {
 			session.invalidate();
 			viewPage = "index.jsp";
 			break;
-			
 		// 마이페이지/내 정보 보기
 		case ("/mypage_info.do"):
 			command = new CommandUserinfo();
@@ -377,20 +366,20 @@ public class FrontController extends HttpServlet {
 			viewPage = "modify_view.jsp";
 			break;
 
-		// 삭제 page
-		case ("/communitydelete.do"):
-			command = new CommandBoarddeleteboard();
-			command.execute(request, response);
-			viewPage = "list.do?page=" + curPage;
-			break;
-
-		// 댓글수정
-		case ("/communitymodify.do"):
-			System.out.println("coModify.do에 들어왔습니다.");
-			command = new CommandBoardupdatecomment();
-			command.execute(request, response);
-			viewPage = "content_view.do";
-			break;
+//		// 삭제 page
+//		case ("/communitydelete.do"):
+//			command = new CommandBoarddeleteboard();
+//			command.execute(request, response);
+//			viewPage = "list.do?page=" + curPage;
+//			break;
+//
+//		// 댓글수정
+//		case ("/communitymodify.do"):
+//			System.out.println("coModify.do에 들어왔습니다.");
+//			command = new CommandBoardupdatecomment();
+//			command.execute(request, response);
+//			viewPage = "content_view.do";
+//			break;
 
 		// 좋아요기능
 		case ("/boardlike.do"):

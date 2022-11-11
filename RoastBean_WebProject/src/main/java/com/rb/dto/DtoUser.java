@@ -19,6 +19,10 @@ public class DtoUser {
 	String user_updatedate;
 	String user_deletedate;
 	
+	public DtoUser() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public DtoUser(String user_id, String user_nick, String user_pw, String user_email, String user_emailhash,
 			String user_name, String user_address1, String user_address2, String user_address3,
 			String user_addresszipcode, String user_birthday, String user_gender, String user_telno,

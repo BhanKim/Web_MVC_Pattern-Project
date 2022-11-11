@@ -180,27 +180,27 @@
 								<div class="my-2">
 									<!-- Id -->
 									<c:if test="${checkIdDuplication == null}">
-										<input type="hidden" name="idDuplication" value="0">
+										<input type="hidden" name="idDuplication" value="${checkIdDuplication}">
 									</c:if>
 									<c:if test="${checkIdDuplication == 0}">
 										<span style="color: blue;">사용 가능한 ID입니다.</span>
-										<input type="hidden" name="idDuplication" value="1">
+										<input type="hidden" name="idDuplication" value="${checkIdDuplication}">
 									</c:if>
 									<c:if test="${checkIdDuplication == 1}">
 										<span style="color: red;">사용 불가능한 ID입니다.</span>
-										<input type="hidden" name="idDuplication" value="2">
+										<input type="hidden" name="idDuplication" value="${checkIdDuplication}">
 									</c:if>
 									<!-- Nick Name -->
 									<c:if test="${checkNickDuplication == null}">
-										<input type="hidden" name="nickDuplication" value="0">
+										<input type="hidden" name="nickDuplication" value="${checkNickDuplication}">
 									</c:if>
 									<c:if test="${checkNickDuplication == 0}">
 										<span style="color: blue;">사용 가능한 Nick Name입니다.</span>
-										<input type="hidden" name="nickDuplication" value="1">
+										<input type="hidden" name="nickDuplication" value="${checkNickDuplication}">
 									</c:if>
 									<c:if test="${checkNickDuplication == 1}">
 										<span style="color: red;">사용 불가능한 Nick Name입니다.</span>
-										<input type="hidden" name="nickDuplication" value="2">
+										<input type="hidden" name="nickDuplication" value="${checkNickDuplication}">
 									</c:if>
 								</div>
 								<div class="mb-3">
