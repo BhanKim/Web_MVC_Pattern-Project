@@ -8,6 +8,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.rb.dto.DtoUserSignup;
+
 public class DaoUserSignup {
 	
 	// Fields
@@ -124,6 +126,8 @@ public class DaoUserSignup {
 //		
 //		return idCheck;
 //	}
+	
+
 
 
 }

@@ -14,12 +14,10 @@ public class CommandBoardlist implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("command boardlist enter");
 		int nPage = 1;
 		try {
 			String sPage = request.getParameter("page");
 			nPage = Integer.parseInt(sPage);
-			System.out.println(sPage + "spage");
 			
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -13,13 +13,21 @@
 //import com.rb.command.Command;
 //import com.rb.command.CommandAdminLogin;
 //import com.rb.command.CommandBeanInfo;
+//import com.rb.command.CommandBoardcommentlist;
+//import com.rb.command.CommandBoardcontent;
+//import com.rb.command.CommandBoarddelete;
+//import com.rb.command.CommandBoardlikeboard;
 //import com.rb.command.CommandBoardlist;
 //import com.rb.command.CommandBoardnoticelist;
+//import com.rb.command.CommandBoardreply;
 //import com.rb.command.CommandBoardsearch;
+//import com.rb.command.CommandBoardupdate;
+//import com.rb.command.CommandBoardviewreply;
 //import com.rb.command.CommandBoardwrite;
 //import com.rb.command.CommandCartDelete;
 //import com.rb.command.CommandCartInsert;
 //import com.rb.command.CommandCartList;
+//import com.rb.command.CommandCommentwrite;
 //import com.rb.command.CommandOrder;
 //import com.rb.command.CommandUserLogin;
 //import com.rb.command.CommandUserLoginApi;
@@ -174,22 +182,24 @@
 //		case ("/modify_view.do"):
 //			command = new CommandBoardcontent();
 //			command.execute(request, response);
-//			viewPage = "modify_view.jsp";
+//			viewPage = "cboardupdate.jsp";
+//			break;
+//			
+//		// 수정하기
+//		case ("/modify.do"):
+//			command = new CommandBoardupdate();
+//			command.execute(request, response);
+//
+//			command = new CommandBoardcontent();
+//			command.execute(request, response);
+//			viewPage = "cboardcontent_view.jsp";
 //			break;
 //
 //		// 삭제 page
 //		case ("/communitydelete.do"):
-//			command = new CommandBoarddeleteboard();
+//			command = new CommandBoarddelete();
 //			command.execute(request, response);
 //			viewPage = "list.do?page=" + curPage;
-//			break;
-//
-//		// 댓글수정
-//		case ("/communitymodify.do"):
-//			System.out.println("coModify.do에 들어왔습니다.");
-//			command = new CommandBoardupdatecomment();
-//			command.execute(request, response);
-//			viewPage = "content_view.do";
 //			break;
 //
 //		// 좋아요기능
@@ -198,7 +208,28 @@
 //			command.execute(request, response);
 //			viewPage = "content_view.do";
 //			break;
+//		
+//		// 댓글달기
+//		case ("/coWrite.do"):
+//			command = new CommandCommentwrite();
+//			command.execute(request, response);
+//			viewPage = "content_view.do";
+//			break;
 //
+//		// view reply[답글페이지보기] Page
+//		case ("/reply_view.do"):
+//			command = new CommandBoardviewreply();
+//			command.execute(request, response);
+//			viewPage = "cboardreply_view.jsp";
+//			break;
+//
+//		// 답글달기
+//		case ("/reply.do"):
+//			command = new CommandBoardreply();
+//			command.execute(request, response);
+//			viewPage = "list.do?page=" + curPage;
+//			break;
+//			
 //		// --------------------- 혁&티뱃 Controller End -----------------------
 //			
 //			

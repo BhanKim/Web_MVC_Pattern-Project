@@ -8,9 +8,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.rb.dto.DtoUserLogin;
+import com.rb.dto.DtoUserSignup;
+
 public class DaoUserLogin {
 
 	DataSource dataSource;
+	private static DaoUserLogin instance = new DaoUserLogin();
 
 	public DaoUserLogin() {
 		try {
@@ -133,5 +137,6 @@ public class DaoUserLogin {
 		}
 		return check;
 	} // login
+	
 
 } // End

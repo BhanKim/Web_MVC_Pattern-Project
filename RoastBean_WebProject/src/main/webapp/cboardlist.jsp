@@ -86,7 +86,7 @@
 						<tr>
 							<td id="left" colspan="2">&nbsp;
 								<span class="badge badge badge-danger">&nbsp;&nbsp;공지&nbsp;&nbsp;</span>
-								<a href="content_view.do?bId=${dto.community_id }" style="color: #000000;">&nbsp;&nbsp;${dto.community_title }</a>
+								<a href="content_view.do?community_id=${dto.community_id }" style="color: #000000;">&nbsp;&nbsp;${dto.community_title }</a>
 							</td>
 							<td id="left" style="text-align: center;">${dto.community_name }</td>
 							<td style="text-align: center;">${dto.community_initdate }</td>
@@ -99,7 +99,7 @@
 						<c:forEach items="${list }" var="dto">				
 						<tr>
 							<c:if test="${dto.community_name != 'admin' }">
-								<td width=70 style="text-align: center;">${dto.community_id }</td>				
+								<td width=70 style="text-align: center;">${dto.rownum }</td>				
 								<td id="left">
 									<c:forEach begin="1" end="${dto.community_indent}">&nbsp;└ </c:forEach>
 									<a href="content_view.do?community_id=${dto.community_id }" style="color: #000000;">${dto.community_title }</a></td>
