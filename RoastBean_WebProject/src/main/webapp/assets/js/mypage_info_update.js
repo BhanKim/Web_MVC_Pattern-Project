@@ -1,7 +1,8 @@
 /**
  * 
  */
- 
+
+// 카카오 주소 찾기
 function sample4_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -49,9 +50,8 @@ function checkMember(){
 	
 	var user_name = form.user_name.value
 	var user_nick = form.user_nick.value
-	var user_telno = form.user_telno1.value + "-" + form.user_telno2.value + "-" + form.user_telno3.value
+	var user_telno = form.user_telno.value
 	var user_email = form.user_email.value
-	
 	
 	// Name
 	if(form.user_name.value.length == 0) {
@@ -82,11 +82,10 @@ function checkMember(){
 		return
 	}
 	
-
 	// Telno
 	if(!regExpUser_telno.test(user_telno)){
-		alert("연락처 입력을 확인해주세요.")
-		form.user_telno2.select()
+		alert("연락처 입력을 확인해주세요.(예시 : 010-0000-0000)")
+		form.user_telno.select()
 		return
 	}
 

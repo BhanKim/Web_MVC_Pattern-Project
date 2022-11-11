@@ -186,6 +186,8 @@
 			<div class="row align-items-end"></div>
 			<div style="height: 100px;"></div>
 		</div>
+		
+		</main>
 	</main>  
 
   <!-- ======= Footer ======= -->
