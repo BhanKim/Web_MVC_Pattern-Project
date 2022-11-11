@@ -14,7 +14,7 @@
 	  padding: 0.375rem 0.75rem;
 	  font-size: 1rem;
 	  font-weight: 400;
-	  line-height: 1.5;
+	  line-height: 1em;
 	  color: #212529;
 	  background-color: #fff;
 	  background-clip: padding-box;
@@ -29,7 +29,7 @@
 	  padding: 0.375rem 0.75rem;
 	  font-size: 1rem;
 	  font-weight: 400;
-	  line-height: 1.5;
+	  line-height: 1em;
 	  color: #212529;
 	  background-color: #CFD4D9;
 	  background-clip: padding-box;
@@ -75,6 +75,7 @@
 					<div class="col"
 						style="border-style: solid; border-radius: 12px; border-width: thin; border-color: #CFD4D9; padding: 40px;">
 						<form action="signup.do" method="post" name="Member">
+							<input type="hidden" name="currentPage" value="signup.jsp">
 							<div style="width: 400px;">
 								<table class="col">
 									<tr>
@@ -87,7 +88,7 @@
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Name</td>
-										<td><input type="text" class="form-control" name="user_name" placeholder="한글로 입력해주세요." style="height: 32px;"></td>
+										<td><input type="text" class="form-control" name="user_name" value="${user_name}" placeholder="한글로 입력해주세요." style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr>
@@ -100,12 +101,12 @@
 									<tr height="10"></tr>
 									<tr >
 										<td align="left">Password</td>
-										<td><input type="password" class="form-control" name="user_pw" placeholder="문자와 숫자로 입력해주세요.(4~20)" maxlength="16" style="height: 32px;"></td>
+										<td><input type="password" class="form-control" name="user_pw" value="${user_pw}" placeholder="문자와 숫자로 입력해주세요.(4~20)" maxlength="16" style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr >
 										<td align="left">Check PW</td>
-										<td><input type="password" class="form-control" name="user_pw_check"
+										<td><input type="password" class="form-control" name="user_pw_check" value="${user_pw_check}"
 											placeholder="다시 한번 입력해주세요." maxlength="16"
 											style="height: 32px;"></td>
 									</tr>
@@ -113,7 +114,8 @@
 									<tr class="mb-3">
 										<td align="left">Tel</td>
 										<td align="left">
-											<select class="form-control2" name="user_telno1" style="height: 32px; vertical-align: middle;">
+											<select class="form-control2" name="user_telno1" style="height: 32px; line-height: 1em; text-align-center; ">
+												<option>선택</option>
 												<option value="010">010</option>
 												<option value="011">011</option>
 												<option value="016">016</option>
@@ -121,15 +123,15 @@
 												<option value="019">019</option>
 											</select>
 											-
-											<input class="form-control2" size="10" type="tel" name="user_telno2" style="height: 32px;">
+											<input class="form-control2" size="8" type="tel" name="user_telno2" value="${user_telno2}" style="height: 32px;">
 											-
-											<input class="form-control2" size="10" type="tel" name="user_telno3" style="height: 32px;">
+											<input class="form-control2" size="8" type="tel" name="user_telno3" value="${user_telno3}" style="height: 32px;">
 										</td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Email</td>
-										<td><input type="email" class="form-control" name="user_email"
+										<td><input type="email" class="form-control" name="user_email" value="${user_email}"
 											placeholder="We'll never share your email." aria-describedby="emailHelp"
 											style="height: 32px;"></td>
 									</tr>
@@ -137,17 +139,18 @@
 									<tr class="mb-3">
 										<td align="left">Birthday</td>
 										<td align="left">
-											<select class="form-control2" name="user_birthday1" style="height: 32px;">
+											<select class="form-control2" name="user_birthday1" style="height: 32px;line-height: 1em; text-align-center; ">
+												<option selected="selected">선택</option>
 												<c:forEach var="cnt" begin="1950" end="2022">
-												<option value="${cnt}" selected="selected">${cnt}</option>
+												<option value="${cnt}">${cnt}</option>
 												</c:forEach>
 											</select> 년&emsp;
-											<select class="form-control2" name="user_birthday2" style="height: 32px;">
+											<select class="form-control2" name="user_birthday2" style="height: 32px;line-height: 1em; text-align-center; ">
 												<c:forEach var="cnt" begin="1" end="12">
 												<option value="${cnt}">${cnt}</option>
 												</c:forEach>
 											</select> 월&emsp;
-											<select class="form-control2" name="user_birthday3" style="height: 32px;">
+											<select class="form-control2" name="user_birthday3" style="height: 32px; line-height: 1em; text-align-center; ">
 												<c:forEach var="cnt" begin="1" end="31">
 												<option value="${cnt}">${cnt}</option>
 												</c:forEach>
@@ -165,12 +168,12 @@
 									<tr>
 										<td align="left" valign="top">Address</td>
 										<td align="left">
-											<input class="form-control2 mb-1" style="height: 32px;" type="text" id="sample4_postcode" name="user_addresszipcode" readonly="readonly" placeholder="우편번호">
+											<input class="form-control2 mb-1" style="height: 32px;" type="text" id="sample4_postcode" name="user_addresszipcode" value="${user_addresszipcode}" readonly="readonly" placeholder="우편번호">
 											<input class="form-control3" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-											<input class="form-control2 mb-1" size="36" style="height: 32px;" class="mb-1" type="text" id="sample4_roadAddress" name="user_address1" readonly="readonly" placeholder="도로명주소">
-											<input class="form-control2 mb-1" size="36" style="height: 32px;" class="mb-1" type="text" id="sample4_jibunAddress" name="user_address2" readonly="readonly" placeholder="지번주소">
+											<input class="form-control2 mb-1" size="36" style="height: 32px;" class="mb-1" type="text" id="sample4_roadAddress" value="${user_address1}" name="user_address1" readonly="readonly" placeholder="도로명주소">
+											<input class="form-control2 mb-1" size="36" style="height: 32px;" class="mb-1" type="text" id="sample4_jibunAddress" value="${user_address2}" name="user_address2" readonly="readonly" placeholder="지번주소">
 											<span id="guide" style="color:#999;display:none"></span><br>
-											<input class="form-control2" size="36" type="text" name="user_address3" placeholder="상세주소">
+											<input class="form-control2" size="36" style="height: 32px;" type="text" name="user_address3" value="${user_address3}" placeholder="상세주소">
 										</td>
 									</tr>
 								</table>

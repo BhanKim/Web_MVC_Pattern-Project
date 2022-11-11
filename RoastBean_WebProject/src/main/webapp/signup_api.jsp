@@ -86,7 +86,7 @@
 										<td align="left">Nick Name</td>
 										<td class="col" align="left">
 											<input class="form-control2" type="text" name="user_nick" placeholder="필수사항입니다." maxlength="41" style="height: 32px;">
-											<!-- <input class="form-control3" type="button" onclick="location='check_nick.do'" value="중복체크"> -->
+											<input class="form-control3" type="button" onclick="checkNick()" value="중복체크">
 										</td>
 									</tr>
 									<tr height="10"></tr>
@@ -117,6 +117,7 @@
 										<td align="left">Birthday</td>
 										<td align="left">
 											<select class="form-control2" name="user_birthday1" style="height: 32px;">
+												<option selected="selected">선택</option>
 												<c:forEach var="cnt" begin="1950" end="2022">
 												<option value="${cnt}" selected="selected">${cnt}</option>
 												</c:forEach>
@@ -135,9 +136,10 @@
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Gender</td>
-										<td><input type="text" class="form-control" name="user_gender"
-											placeholder="성별기반으로 상품추천을 받을 수 있습니다." aria-describedby="emailHelp"
-											style="height: 32px;"></td>
+										<td align="left">
+											<input type="radio" name="user_gender" value="남자"> 남자
+											&emsp;<input type="radio" name="user_gender" value="여자"> 여자
+										</td>
 									</tr>
 									<tr height="10"></tr>
 									<tr>
@@ -177,6 +179,22 @@
 		</div>
 	</main>
 
+	<script type="text/javascript">
+	function checkId() {
+		var Member = document.Member;
+		
+		Member.action = "check_id.do";
+		Member.submit();
+	}
+	
+	function checkNick() {
+		var Member = document.Member;
+		
+		Member.action = "check_nick.do";
+		Member.submit();
+	}
+	</script>
+	
 	<!-- 카카오 주소찾기 API -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<!-- 정규화 검사 -->

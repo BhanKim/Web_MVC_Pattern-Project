@@ -26,8 +26,8 @@
 				<ul>
 					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
-					<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
-					<li><a class="nav-link2 scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
+					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
+					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
 					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 						<ul>
 							<li><a href="#notice">NOTICE</a></li>
@@ -45,8 +45,8 @@
 				<ul>
 					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
-					<li><a class="nav-link2 scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
-					<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE SHOP</a></li>
+					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
+					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
 					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 						<ul>
 							<li><a href="#notice">NOTICE</a></li>
@@ -55,7 +55,7 @@
 						</ul>
 					</li>
 					<li>&emsp;&emsp;&emsp;</li>
-					<li><a class="nav-link scrollto" href="mypage_main.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
+					<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
 					<c:if test="${ADMIN != null}">
 						<li><a class="nav-link scrollto" href="admin.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>

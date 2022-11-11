@@ -42,7 +42,7 @@ function checkMember(){
 	
 	var regExpUser_id = /^[a-z0-9]{4,20}$/
 	var regExpUser_name = /^[가-힣]{2,10}$/
-	var regExpUser_nick = /^[a-z|A-Z|가-힣|0-9]{2,10}$/
+	var regExpUser_nick = /^[a-z|A-Z|가-힣|0-9]{2,20}$/
 	var regExpUser_pw = /^[a-z0-9]{6,20}$/
 	var regExpUser_telno = /^\d{3}-\d{3,4}-\d{4}$/
 	var regExpUser_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
@@ -67,6 +67,11 @@ function checkMember(){
 		form.user_id.select()
 		return
 	}
+	if(form.idDuplication.value != 1){ /**************************/
+		alert("이름 중복체크를 해주세요.")
+	    form.focus();
+		return
+	}
 	
 	// Name
 	if(form.user_name.value.length == 0) {
@@ -75,8 +80,8 @@ function checkMember(){
 	    return;
 	}
 	if(!regExpUser_name.test(user_name)){
-		alert("이름은 한글만으로 입력해주세요.(2글자 이상, 10글자 이하)")
-		form.user_name.select()
+		alert("이름은 한글만으로 입력해주세요.(2글자 이상, 20글자 이하)")
+		form.user_nick.select()
 		return
 	}
 
@@ -89,6 +94,11 @@ function checkMember(){
 	if(!regExpUser_name.test(user_name)){
 		alert("닉네임은 문자, 한글, 숫자로 입력해주세요.(2글자 이상, 10글자 이하)")
 		form.user_name.select()
+		return
+	}
+	if(form.nickDuplication.value != 1){ /**************************/
+		alert("닉네임 중복체크를 해주세요.")
+	    form.focus();
 		return
 	}
 	
