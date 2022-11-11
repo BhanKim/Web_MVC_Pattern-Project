@@ -63,10 +63,10 @@ public class DaoCart {
 		try {
 			connection = dataSource.getConnection();
 
-			String query1 = "select u.user_id, p.product_id, sum(c.cart_qty), p.product_name, sum(p.product_price), p.product_price, p.product_weight ";
+			String query1 = "select u.user_id, p.product_id, sum(c.cart_qty), p.product_name, sum(p.product_price), p.product_price, p.product_weight, p.product_image ";
 			String query2 = "from product as p, user as u, cart as c ";
 			String query3 = "where p.product_id = c.product_id and c.user_id = u.user_id and u.user_id = '" + uuser_id + "'";
-			String query4 = "group by u.user_id, p.product_id, p.product_name, p.product_price, p.product_weight";
+			String query4 = "group by u.user_id, p.product_id, p.product_name, p.product_price, p.product_weight, p.product_image";
 
 			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
 			resultSet = preparedStatement.executeQuery();
@@ -79,8 +79,9 @@ public class DaoCart {
 				int product_price = resultSet.getInt("p.product_price");
 				int product_weight = resultSet.getInt("p.product_weight");
 				int product_priceSum = resultSet.getInt("sum(p.product_price)");
+				String product_image = resultSet.getString("p.product_image");
 
-				DtoCartList dto = new DtoCartList(user_id, product_id, cart_qty, product_name, product_price, product_weight, product_priceSum);
+				DtoCartList dto = new DtoCartList(user_id, product_id, cart_qty, product_name, product_price, product_weight, product_priceSum, product_image);
 				dtos.add(dto);
 			}
 

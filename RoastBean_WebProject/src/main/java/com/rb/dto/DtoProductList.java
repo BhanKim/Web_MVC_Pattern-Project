@@ -1,5 +1,6 @@
 package com.rb.dto;
 
+import java.sql.Timestamp;
 
 public class DtoProductList {
 	

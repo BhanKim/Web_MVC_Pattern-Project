@@ -12,9 +12,10 @@ public class DtoOrder {
 	String address2;
 	String address3;
 	String order_email;
+	String order_name;
 	
 	public DtoOrder(int product_id, String user_id, String order_telno, int order_qty, int order_price,
-			String order_zipcode, String address1, String address2, String address3, String order_email) {
+			String order_zipcode, String address1, String address2, String address3, String order_email, String order_name) {
 		super();
 		this.product_id = product_id;
 		this.user_id = user_id;
@@ -26,6 +27,7 @@ public class DtoOrder {
 		this.address2 = address2;
 		this.address3 = address3;
 		this.order_email = order_email;
+		this.order_name = order_name;
 	}
 
 	public int getProduct_id() {
@@ -107,5 +109,14 @@ public class DtoOrder {
 	public void setOrder_email(String order_email) {
 		this.order_email = order_email;
 	}
+
+	public String getOrder_name() {
+		return order_name;
+	}
+
+	public void setOrder_name(String order_name) {
+		this.order_name = order_name;
+	}
+	
 	
 }

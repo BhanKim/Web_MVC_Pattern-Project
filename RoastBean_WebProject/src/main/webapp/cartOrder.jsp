@@ -120,6 +120,7 @@
 	
 	<div class="container py-5" align="center">
 			<div class="col-lg-10">
+				<h4>장바구니</h4><hr style="border: solid 2px red;"><br>
 				<form id="join" name="join" action="order.do" method="post">
 				<table class="table table-hover">
 					<thead>
@@ -153,15 +154,14 @@
 							<fmt:formatNumber value="${total}" groupingUsed="true" /> 원
 						</td>
 					</tr>
-				</table><br><br>
+				</table><br><hr style="border: solid 2px red;"><br><br><br><br>
 				<div class="container">
-					<h5>배송지 정보</h5>
-					<hr><br>
-					
+					<h4>배송지 정보</h4>
+					<hr style="border: solid 2px red;"><br>
 					<table class="table" style="vertical-align:middle;">
 						<tr>
 							<td align="center" style="background: #FBFAFA" width="150">주문하시는 분</td>
-							<td align="left"><input type="text" size="20" name="user_name"></td>
+							<td align="left"><input type="text" size="20" name="order_name"></td>
 						</tr>
 						<tr>
 							<td align="center" style="background: #FBFAFA" >주소</td>
@@ -210,7 +210,7 @@
 							이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요.
 							</td>
 						</tr>
-					</table><br><hr>
+					</table><br><hr style="border: solid 2px red;">
 				</div>
 				<div align="center">
 				<button type="button" style="background: #F2BCBB; border: 0; padding: 10px 24px; color: #fff; transition: 0.4s; border-radius: 50px;" onclick="location.href='productList.do'">취소</button>&nbsp;&nbsp;&nbsp;&nbsp;
