@@ -367,18 +367,20 @@ public class DaoManageProductList {
 	}
 
 	public int manageptoductupdate(String product_name, String product_nation, String product_image,
-			String product_info, int product_stock, int product_weight, int product_price, 
-			String category_type, String category_acidity, String category_aroma, String category_body, String category_sweet, int sproduct_id) {
+			String product_info, int product_stock, int product_weight, int product_price, String category_type,
+			String category_acidity, String category_body, String category_sweet, String category_aroma,
+			int sproduct_id) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		int returnValue = 0;
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "update product as p, categoty as c set "
-					+ "product_name = ?, product_nation = ?, product_image = ?, product_info = ?, product_stock = ?, product_weight = ?, product_price = ?, product_updatedate = now() "
-					+ "c.category_type = ?, c.category_acidity = ?, c.category_aroma = ?, c.category_body = ?, c.category_sweet = ? "
-					+ "where product_id = ?";
+			String query = "update product as p, category as c set "
+					+ "p.product_name = ?, p.product_nation = ?, p.product_image = ?, p.product_info = ?, p.product_stock = ?, p.product_weight = ?, "
+					+ "p.product_price = ?, p.product_updatedate = now(), "
+					+ "c.category_type = ?, c.category_acidity = ?, c.category_body = ?, c.category_sweet = ?, c.category_aroma = ? "
+					+ "where p.product_id = ? and c.product_id = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, product_name);
 			preparedStatement.setString(2, product_nation);
@@ -387,12 +389,15 @@ public class DaoManageProductList {
 			preparedStatement.setInt(5, product_stock);
 			preparedStatement.setInt(6, product_weight);
 			preparedStatement.setInt(7, product_price);
+
 			preparedStatement.setString(8, category_type);
 			preparedStatement.setString(9, category_acidity);
-			preparedStatement.setString(10, category_aroma);
-			preparedStatement.setString(11, category_body);
-			preparedStatement.setString(12, category_sweet);
+			preparedStatement.setString(10, category_body);
+			preparedStatement.setString(11, category_sweet);
+			preparedStatement.setString(12, category_aroma);
+
 			preparedStatement.setInt(13, sproduct_id);
+			preparedStatement.setInt(14, sproduct_id);
 
 			System.out.println(sproduct_id + "DaoUpdate");
 			returnValue = preparedStatement.executeUpdate();
@@ -416,6 +421,45 @@ public class DaoManageProductList {
 		return returnValue;
 
 	}
+//	public int manageptoductupdate1(String category_type, String category_acidity, String category_body, String category_sweet, String category_aroma, int sproduct_id) {
+//		Connection connection = null;
+//		PreparedStatement preparedStatement = null;
+//		int returnValue = 0;
+//		try {
+//			connection = dataSource.getConnection();
+//
+//			String query = "update category set category_type = ?, category_acidity = ?, category_body = ?, category_sweet = ?, category_aroma, where product_id = ?";
+//			preparedStatement = connection.prepareStatement(query);
+//			preparedStatement.setString(1, category_type);
+//			preparedStatement.setString(2, category_acidity);
+//			preparedStatement.setString(3, category_body);
+//			preparedStatement.setString(4, category_sweet);
+//			preparedStatement.setString(5, category_aroma);
+//			preparedStatement.setInt(6, sproduct_id);
+//
+//			System.out.println(category_type + "DaoUpdate");
+//			returnValue = preparedStatement.executeUpdate();
+//			System.out.println("query");
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//
+//		} finally {
+//			try {
+//				if (preparedStatement != null)
+//					preparedStatement.close();
+//				if (connection != null)
+//					connection.close();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//
+//		}
+//		System.out.println(returnValue);
+//		
+//		
+//		return returnValue;
+//	}
 
 	public ArrayList<DtoManageProductList> manageproductsearch(String queryname, String querycontent) {
 		ArrayList<DtoManageProductList> dtos = new ArrayList<DtoManageProductList>();

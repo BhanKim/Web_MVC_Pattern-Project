@@ -20,15 +20,14 @@ public class CommandManageProductUpdate implements Command {
 		int sproduct_id = Integer.parseInt(request.getParameter("product_id"));
 		String category_type = request.getParameter("category_type");
 		String category_acidity = request.getParameter("category_acidity");
-		String category_aroma = request.getParameter("category_aroma");
 		String category_body = request.getParameter("category_body");
 		String category_sweet = request.getParameter("category_sweet");
+		String category_aroma = request.getParameter("category_aroma");
 
 		DaoManageProductList dao = new DaoManageProductList();
 		System.out.println(sproduct_id + "commandproductupdate");
 		dao.manageptoductupdate(product_name, product_nation, product_image, product_info, product_stock,
-				product_weight, product_price, sproduct_id, category_type, category_acidity, category_aroma, category_body, category_sweet);
-
+				product_weight, product_price, category_type, category_acidity, category_body, category_sweet, category_aroma, sproduct_id);
 	}
 
 }

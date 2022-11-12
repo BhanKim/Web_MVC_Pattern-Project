@@ -62,7 +62,7 @@
 <div style="text-align: center;">
 		<br>
 		<br> &nbsp;&nbsp;&nbsp;
-		<h2>상품정보 리스트</h2>
+		<h2>제품정보 리스트</h2>
 		&nbsp;&nbsp;&nbsp;
 		
 		<form action="ManageProductSearch.do">

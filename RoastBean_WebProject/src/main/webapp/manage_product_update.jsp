@@ -62,7 +62,7 @@
 <div style="text-align: center;">
 		<br>
 		<br> &nbsp;&nbsp;&nbsp;
-		<h2>상품 수정하기</h2>
+		<h2>제품 수정하기</h2>
 		&nbsp;&nbsp;&nbsp;
 	</div>
 	
@@ -81,7 +81,7 @@
 	         <td>원산지</td>
 	         <td>
 	           <select name="product_nation" style="WIDTH: 240pt; HEIGHT: 24pt">
-	               <option value="미선택" selected="selected" value="${product_select.product_nation }">${product_select.product_nation }</option>
+	               <option selected="selected" value="${product_select.product_nation }">${product_select.product_nation }</option>
 	               <option value="케냐">케냐</option>
 	               <option value="에티오피아">에티오피아</option>
 	               <option value="멕시코">멕시코</option>
@@ -95,7 +95,7 @@
 	      </tr>
 	      <tr>
 	         <td></td>
-	         <td><input type="file" name="product_image"></td>
+	         <td><input type="file" name="product_image"value="${product_select.product_image }"></td>
 	      </tr>
 	      <tr>
 	         <td>제품 설명</td>
@@ -121,7 +121,7 @@
 	        <td align=center>산미</td>
 	        <td>
 	        <select name="category_acidity" style="WIDTH: 240pt; HEIGHT: 24pt">
-	           <option value="미선택" selected="selected" value="${product_select.category_acidity }">${product_select.category_acidity }</option>
+	           <option selected="selected" value="${product_select.category_acidity }">${product_select.category_acidity }</option>
 	           <option value="1">1</option>
 	           <option value="1.5">1.5</option>
 	           <option value="2">2</option>
@@ -138,7 +138,7 @@
 	        <td align=center>바디감</td>
 	        <td>
 	        <select name="category_body" style="WIDTH: 240pt; HEIGHT: 24pt">
-	           <option value="미선택" selected="selected" value="${product_select.category_body }">${product_select.category_body }</option>
+	           <option selected="selected" value="${product_select.category_body }">${product_select.category_body }</option>
 	           <option value="1">1</option>
 	           <option value="1.5">1.5</option>
 	           <option value="2">2</option>
@@ -155,7 +155,7 @@
 	        <td align=center>단맛</td>
 	        <td>
 	        <select name="category_sweet" style="WIDTH: 240pt; HEIGHT: 24pt">
-	           <option value="미선택" selected="selected" value="${product_select.category_sweet }">${product_select.category_sweet }</option>
+	           <option selected="selected" value="${product_select.category_sweet }">${product_select.category_sweet }</option>
 	           <option value="1">1</option>
 	           <option value="1.5">1.5</option>
 	           <option value="2">2</option>
@@ -172,7 +172,7 @@
 	        <td align=center>아로마</td>
 	        <td>
 	        <select name="category_aroma" style="WIDTH: 240pt; HEIGHT: 24pt">
-	           <option value="미선택" selected="selected" value="${product_select.category_aroma }">${product_select.category_aroma }</option>
+	           <option selected="selected" value="${product_select.category_aroma }">${product_select.category_aroma }</option>
 	           <option value="1">1</option>
 	           <option value="1.5">1.5</option>
 	           <option value="2">2</option>
