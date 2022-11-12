@@ -18,7 +18,7 @@ public class CommandBoardlist implements Command {
 		try {
 			String sPage = request.getParameter("page");
 			nPage = Integer.parseInt(sPage);
-			
+			//int nPage = Integer.parseInt(request.getParameter("page"));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}		

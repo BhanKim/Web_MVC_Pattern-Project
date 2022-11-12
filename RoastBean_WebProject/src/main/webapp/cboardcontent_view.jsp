@@ -16,9 +16,7 @@
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
 <!-- Vendor CSS Files -->
 <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -57,7 +55,7 @@
 						<tr>
 							<td id="left" style="font-size: 14px; padding: 10px;">
 								<form action="boardlike.do" method="post">
-									<span style="font-size: 17px; font-weight: bold;">${content_view.community_name }</span>&nbsp;&nbsp;
+									<span style="font-size: 17px; font-weight: bold;">${NICK }</span>&nbsp;&nbsp;
 									${content_view.community_initdate }<br>
 									조회&nbsp;${content_view.community_hit }&nbsp;&nbsp; 
 									<input type="hidden" name="community_id" value="${content_view.community_id }"> 
@@ -117,19 +115,16 @@
 								<td width="100"><c:if
 										test="${ID == dto.community_comment_name }">
 										<form id="coModifySet" style="display: block;">
-											<input type="button" class="btn btn-primary mb-1" value="수정" onclick="coModifyOn()"
-												class="btn btn-light" style="padding: 2px 10px">
+											<input type="button" class="btn btn-primary mb-1" value="수정" onclick="coModifyOn()" class="btn btn-light" style="padding: 2px 10px">
 										</form>
-										<form action="coModify.do" method="post" id="coModifyDo"
-											style="display: none;">
+										<form action="coModify.do" method="post" id="coModifyDo" style="display: none;">
 											<textarea name="community_comment_content" rows="2" cols="50">${dto.community_comment_content }</textarea>
 											<input type="hidden" name="community_id" value="${content_view.community_id }"> 
 											<input type="hidden" name="community_comment_cono" value="${dto.community_comment_cono }"> 
 											<input type="submit" value="수정" onclick="coModifyOut()" class="btn btn-success" style="padding: 2px 10px"> 
 											<input type="button" value="취소" onclick="coModifyOut()" class="btn btn-light" style="padding: 2px 10px">
 										</form>
-										<form action="coDelete.do" method="post" id="coModifyDo2"
-											style="display: block;">
+										<form action="coDelete.do" method="post" id="coModifyDo2" style="display: block;">
 											<input type="hidden" name="community_id" value="${content_view.community_id }"> 
 											<input type="hidden" name="community_comment_cono" value="${dto.community_comment_cono }"> 
 											<input type="submit" value="삭제" class="btn btn-danger" style="padding: 2px 10px">
@@ -187,6 +182,7 @@
 
 	<!-- Template Main JS File -->
 	<script src="assets/js/main.js"></script>
+	 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 </body>
 </html>
