@@ -47,13 +47,12 @@ public class DaoBoard {
 	        int totalCount = 0;
 	        try {
 	           con = dataSource.getConnection();
-	          String query = "select count(*) as total from community where community_deletedate is null ";
+	          String query = "select count(*) as total from community where community_deletedate is null and community_name != 'admin' ";
 	          //총 게시물의 수를 구해주고 이걸 페이지마다 나눠서 보여주는 역할을 함
 	          pstmt = con.prepareStatement(query);
 	          resultSet = pstmt.executeQuery();
 	          if(resultSet.next()) {
 	             totalCount = resultSet.getInt("total");
-	             System.out.println(totalCount);
 	          }
 	        } catch(Exception e) {
 	           e.printStackTrace();
@@ -69,16 +68,14 @@ public class DaoBoard {
 	       //크기 지정을 해줘서 뽑히려는 게시물의 번호를 지정해준다.
 	       
 	       int nEnd = (totalCount-(curPage-1)*10);
-	       System.out.println(nEnd);
 	       int nStart = (nEnd-9);
-	       System.out.println(nStart);
 
 	       try {
 	          con = dataSource.getConnection();
 	          
 	          String query = "select * from (select row_number() over(order by community_group, community_indent desc)"
-	                + "as rownum, community_id, community_name, community_title, community_content, community_initdate, community_updatedate, community_deletedate, community_hit, community_group, community_step, community_indent, community_cnt "
-	                + "from community where community_deletedate is null order by community_group desc, community_indent)A where rownum <= ? and rownum >= ? " ;
+	                + "as rownum, community_id, u.user_nick, community_title, community_content, community_initdate, community_updatedate, community_deletedate, community_hit, community_group, community_step, community_indent, community_cnt "
+	                + "from community as c, `user` as u  where community_deletedate is null and u.user_id != 'admin' and u.user_id = c.community_name order by community_group desc, community_indent)A where rownum <= ? and rownum >= ? " ;
 	          pstmt = con.prepareStatement(query);
 	          pstmt.setInt(1, nEnd);//끝나는 범위를 먼저
 	          pstmt.setInt(2, nStart);
@@ -87,7 +84,7 @@ public class DaoBoard {
 	          while(resultSet.next()) {
 	             int rownum=resultSet.getInt("rownum");
 	             int community_id = resultSet.getInt("community_id");
-	             String community_name = resultSet.getString("community_name");
+	             String community_name = resultSet.getString("user_nick");
 	             String community_title = resultSet.getString("community_title");
 	             String community_content = resultSet.getString("community_content");
 	             String community_initdate = resultSet.getString("community_initdate");
@@ -179,7 +176,7 @@ public class DaoBoard {
         try {
         	con = dataSource.getConnection();
         	
-    		String query = "select count(*) as total from community where community_deletedate is null ";
+    		String query = "select count(*) as total from community where community_deletedate is null and community_name != 'admin' ";
     		pstmt = con.prepareStatement(query);
     		resultSet = pstmt.executeQuery();
     		
@@ -468,7 +465,7 @@ public class DaoBoard {
 	}
 	// 조회수-------------------------- END
 
-	// Delete Board
+	// Delete Board(일반기능)nomal board delete
 	public void delete(String community_id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
