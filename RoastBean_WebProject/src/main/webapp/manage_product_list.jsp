@@ -62,7 +62,7 @@
 <div style="text-align: center;">
 		<br>
 		<br> &nbsp;&nbsp;&nbsp;
-		<h2>상품정보 리스트</h2>
+		<h2>제품정보 리스트</h2>
 		&nbsp;&nbsp;&nbsp;
 		
 		<form action="ManageProductSearch.do">
@@ -82,22 +82,23 @@
 		<tr>
 		   <!-- product -->
 		   <th>numder</th>
-		   <th>name</th>
-		   <th>nation</th>
-		   <th>image</th>
-		   <th>info</th>
-		   <th>stock</th>
-		   <th>weight</th>
-		   <th>price</th>
+		   <th>제품명</th>
+		   <th>원산지</th>
+		   <th>제품사진</th>
+		   <th>제품설명</th>
+		   <th>제품수량</th>
+		   <th>제품무게</th>
+		   <th>금액</th>
 		   <!-- category -->
-		   <th>type</th>
-		   <th>acidity</th>
-		   <th>aroma</th>
-		   <th>body</th>
-		   <th>sweet</th>
+		   <th>타입</th>
+		   <th>산미</th>
+		   <th>아로마</th>
+		   <th>바디감</th>
+		   <th>단맛</th>
 		   <!-- product -->
 		   <th>수정</th>
 		   <th>삭제</th>
+		
 		</tr>
 		<c:forEach items="${manage_product_list}" var="dto">
 		   <tr>
@@ -109,9 +110,15 @@
 		      <td>${dto.product_stock }</td>
 		      <td>${dto.product_weight }</td>
 		      <td>${dto.product_price }</td>		    
+		      <td>${dto.category_type }</td>		    
+		      <td>${dto.category_acidity }</td>		    
+		      <td>${dto.category_aroma }</td>		    
+		      <td>${dto.category_body }</td>		    
+		      <td>${dto.category_sweet }</td>		    
 		      <td><a href="ManageProductUpdateSelete.do?product_id=${dto.product_id }" style="text-decoration:none">수정</a></td>		    
 		      <td><a href="ManageProductDelete.do?product_id=${dto.product_id }" style="text-decoration:none">삭제</a></td>		    	    
-		   </tr>
+		
+	       </tr>
 		</c:forEach>
 		</table>
 		<a href="ManageProductInsert.do" style="text-decoration:none">상품등록하기</a><br>

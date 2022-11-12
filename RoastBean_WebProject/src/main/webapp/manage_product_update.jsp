@@ -36,10 +36,33 @@
   ======================================================== -->
 </head>
 <body link="black" vlink="black" alink="navy">
+<!-- ======= Header ======= -->
+	<%@include file = "header_manage.jsp" %>
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Inner Page</h2>
+          <ol>
+            <li><a href="manage_main.jsp">Home</a></li>
+            <li>Inner Page</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+<!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
+	
 <div style="text-align: center;">
 		<br>
 		<br> &nbsp;&nbsp;&nbsp;
-		<h2>상품 수정하기</h2>
+		<h2>제품 수정하기</h2>
 		&nbsp;&nbsp;&nbsp;
 	</div>
 	
@@ -57,8 +80,8 @@
 	      <tr>
 	         <td>원산지</td>
 	         <td>
-	           <select name="product_nation">
-	               <option value="미선택" selected="selected" value="${product_select.product_nation }">${product_select.product_nation }</option>
+	           <select name="product_nation" style="WIDTH: 240pt; HEIGHT: 24pt">
+	               <option selected="selected" value="${product_select.product_nation }">${product_select.product_nation }</option>
 	               <option value="케냐">케냐</option>
 	               <option value="에티오피아">에티오피아</option>
 	               <option value="멕시코">멕시코</option>
@@ -68,15 +91,15 @@
 	      </tr> 
 	      <tr>
 	         <td>제품 이미지</td>
-	         <td><img src="assets/img/product/${product_select.product_image }" width="300px" height="200px"></td>
+	         <td><img src="assets/img/product/${product_select.product_image }" width="320px" height="150px"></td>
 	      </tr>
 	      <tr>
 	         <td></td>
-	         <td><input type="file" name="product_image" size="40"></td>
+	         <td><input type="file" name="product_image"value="${product_select.product_image }"></td>
 	      </tr>
 	      <tr>
 	         <td>제품 설명</td>
-	         <td><textarea rows="10" cols="32" name="product_info" value = "${product_select.product_info}"></textarea></td>
+	         <td><textarea style="WIDTH: 240pt; HEIGHT: 50pt" name="product_info" value = "${product_select.product_info}"></textarea></td>
 	      </tr>
 	      <tr>
 	         <td>제품 수량</td>
@@ -90,7 +113,78 @@
 	         <td>제품 가격</td>
 	         <td><input type="text" name="product_price" size="40" value="${product_select.product_price }"></td>
 	      </tr>
-	     
+	     <tr>
+	        <td>원두 설명</td>
+	        <td><input type="text" name="category_type" size="40" value="${product_select. category_type}"></td>
+	     </tr>
+	     <tr>
+	        <td align=center>산미</td>
+	        <td>
+	        <select name="category_acidity" style="WIDTH: 240pt; HEIGHT: 24pt">
+	           <option selected="selected" value="${product_select.category_acidity }">${product_select.category_acidity }</option>
+	           <option value="1">1</option>
+	           <option value="1.5">1.5</option>
+	           <option value="2">2</option>
+	           <option value="2.5">2.5</option>
+	           <option value="3">3</option>
+	           <option value="3.5">3.5</option>
+	           <option value="4">4</option>
+	           <option value="4.5">4.5</option>
+	           <option value="5">5</option>
+	        </select>
+	        </td>	        
+	     </tr>
+	     <tr>
+	        <td align=center>바디감</td>
+	        <td>
+	        <select name="category_body" style="WIDTH: 240pt; HEIGHT: 24pt">
+	           <option selected="selected" value="${product_select.category_body }">${product_select.category_body }</option>
+	           <option value="1">1</option>
+	           <option value="1.5">1.5</option>
+	           <option value="2">2</option>
+	           <option value="2.5">2.5</option>
+	           <option value="3">3</option>
+	           <option value="3.5">3.5</option>
+	           <option value="4">4</option>
+	           <option value="4.5">4.5</option>
+	           <option value="5">5</option>
+	        </select>
+	        </td>	        
+	     </tr>
+	     <tr>
+	        <td align=center>단맛</td>
+	        <td>
+	        <select name="category_sweet" style="WIDTH: 240pt; HEIGHT: 24pt">
+	           <option selected="selected" value="${product_select.category_sweet }">${product_select.category_sweet }</option>
+	           <option value="1">1</option>
+	           <option value="1.5">1.5</option>
+	           <option value="2">2</option>
+	           <option value="2.5">2.5</option>
+	           <option value="3">3</option>
+	           <option value="3.5">3.5</option>
+	           <option value="4">4</option>
+	           <option value="4.5">4.5</option>
+	           <option value="5">5</option>
+	        </select>
+	        </td>	        
+	     </tr>
+	     <tr>
+	        <td align=center>아로마</td>
+	        <td>
+	        <select name="category_aroma" style="WIDTH: 240pt; HEIGHT: 24pt">
+	           <option selected="selected" value="${product_select.category_aroma }">${product_select.category_aroma }</option>
+	           <option value="1">1</option>
+	           <option value="1.5">1.5</option>
+	           <option value="2">2</option>
+	           <option value="2.5">2.5</option>
+	           <option value="3">3</option>
+	           <option value="3.5">3.5</option>
+	           <option value="4">4</option>
+	           <option value="4.5">4.5</option>
+	           <option value="5">5</option>
+	        </select>
+	        </td>	        
+	     </tr>
 	      <tr>
 	         <td></td>
 	         <td>
@@ -98,6 +192,10 @@
 	            <a href="ManageProductList.do" style="text-decoration:none">상품리스트로 돌아가기</a><br>
 	            <a href="manage_main.jsp" style="text-decoration: none;">관리자 홈으로 돌아가기</a>
 	         </td>
+	      </tr>
+	      <tr>
+	         <td></td>
+	         <td><br><br></td>
 	      </tr>
 	   </table>
 	</form>
