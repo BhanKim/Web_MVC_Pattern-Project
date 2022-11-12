@@ -73,28 +73,48 @@
     
 	<section class="inner-page">
 		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;Order List</h3>
+				<h3>&nbsp;&nbsp;&nbsp;&nbsp;My QnA List</h3>
 				<hr style="border: solid 2px red;">
 				<br>
 				<table class="table table-hover" style="vertical-align: middle;">
 					<thead>
 						<tr align="center">
-							<th style="width: 30%;">상품정보</th>
-							<th style="width: 15%;">주문일자</th>
+							<th style="width: 15%;">문의유형</th>
+							<th style="width: 40%;">내용</th>
 							<th style="width: 15%;">주문번호</th>
-							<th style="width: 15%;">주문금액(수량)</th>
-							<th style="width: 15%;">주문상태</th>
+							<th style="width: 15%;">작성일</th>
+							<th style="width: 15%;">처리상태</th>
 						</tr>
 					</thead>
-					<c:forEach items="${myOrderList}" var="dto">
+					<c:forEach items="${myQnaList}" var="dto">
 						<tr align="center">
-							<td align="left"><a href="productDetail.do?product_id=${dto.product_id}"><img width="100" height="100" alt="" src="assets/img/product/${dto.product_image}">${dto.product_name}</a></td>
-							<td>${dto.order_date}</td>
-							<td>${dto.order_seq}</td>
-							<td><fmt:formatNumber value="${dto.order_price * dto.order_qty}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
-							<td><a href="productReview.do?order_seq=${dto.order_seq}">후기작성</a></td>
-							<%--****************** 11/12 상원 to 윤현 : 링크 변경 요****************** --%>
+							<td>${dto.qna_write_category}</td>
+							<td align="left">${dto.qna_write_title}</td>
+							<td>${dto.qna_write_seq}</td>
+							<td>${dto.qna_write_initdate}</td>
+							<c:when test="${dto.qna_write_comment_content == null }">
+							<td>답변예정</td>
+							</c:when><c:otherwise>
+							<td>답변완료</td>
+							</c:otherwise>
 						</tr>
+						<tr style="background-color: gray;">
+							<td></td>
+							<td align="left">${dto.qna_write_content}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<c:if test="${dto.qna_write_comment_content != null}">
+						<tr align="center" style="background-color: gray;">
+							<td>관리자</td>
+							<td align="left">${dto.qna_write_comment_content}</td>
+							<td></td>
+							<td>${dto.qna_write_comment_initdate}</td>
+							<td></td>
+						</tr>
+						<tr height="10px"></tr>
+						</c:if>
 					</c:forEach>
 				</table>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>

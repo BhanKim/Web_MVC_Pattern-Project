@@ -30,6 +30,7 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
+import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
 import com.rb.command.CommandOrder;
 import com.rb.command.CommandProductDetail;
@@ -211,11 +212,11 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_info.jsp";
 			break;
-		// 마이페이지:내 질문 Select********************
+		// 마이페이지:My QnA List 가져오기********************진행중 22.11.13.2:20.SangwonKim
 		case ("/mypage_qna_list.do"):
-			command = new CommandUserinfo();
+			command = new CommandMyQnaList();
 			command.execute(request, response);
-			viewPage = "mypage_info.jsp";
+			viewPage = "mypage_qna_list.jsp";
 			break;
 		// QnA:유저:질문하기 Insert********************
 		case ("/qna_question_user.do"):
