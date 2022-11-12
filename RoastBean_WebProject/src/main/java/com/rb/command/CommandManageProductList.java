@@ -17,7 +17,9 @@ public class CommandManageProductList implements Command {
 		DaoManageProductList dao = new DaoManageProductList();
 		System.out.println("ManageProductList.command");
 		ArrayList<DtoManageProductList> dtos = dao.manageproductlist();
+		
 		request.setAttribute("manage_product_list", dtos);
+	
 	}
 
 }

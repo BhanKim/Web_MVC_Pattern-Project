@@ -73,6 +73,25 @@ public class DtoManageProductList {
 	}
 	
 	
+
+	public DtoManageProductList(int product_id, String product_name, String product_nation, String product_image,
+			String product_info, int product_stock, int product_weight, int product_price, String category_type,
+			String category_acidity, String category_aroma, String category_body, String category_sweet) {
+		super();
+		this.product_id = product_id;
+		this.product_name = product_name;
+		this.product_nation = product_nation;
+		this.product_image = product_image;
+		this.product_info = product_info;
+		this.product_stock = product_stock;
+		this.product_weight = product_weight;
+		this.product_price = product_price;
+		this.category_type = category_type;
+		this.category_acidity = category_acidity;
+		this.category_aroma = category_aroma;
+		this.category_body = category_body;
+		this.category_sweet = category_sweet;
+	}
 	public DtoManageProductList(int product_id) {
 		// TODO Auto-generated constructor stub
 		super();

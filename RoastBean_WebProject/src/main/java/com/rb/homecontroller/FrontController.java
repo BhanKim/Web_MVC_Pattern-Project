@@ -21,7 +21,7 @@
 //import com.rb.command.CommandManageProductSeen;
 //import com.rb.command.CommandManageProductUpdate;
 //import com.rb.command.CommandManageUserList;
-//
+//import com.rb.command.CommandManageUserOrderSum;
 //import com.rb.command.CommandUserLogin;
 //import com.rb.command.CommandUserLoginApi;
 //
@@ -171,7 +171,12 @@
 //			command.execute(request, response);
 //			viewPage = "manage_product_list.jsp";
 //			break;
-//
+//		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
+//			System.out.println("ManageUserOrderSum.controller");
+//			command = new CommandManageUserOrderSum();
+//			command.execute(request, response);
+//			viewPage = "manage_main.jsp";
+//			break;
 //		// --------------------- 수빈 Controller End -----------------------
 //
 //		} // switch
