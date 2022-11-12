@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Roast Bean : My Order List</title>
+  <title>Roast Bean : QnA</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <style type="text/css">
@@ -58,14 +58,13 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-			<a class="nav-link scrollto" href="mypage_info.do">My Information</a>
-			<a class="nav-link scrollto" href="mypage_order_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">My Order List</font></a>
-			<a class="nav-link scrollto" href="mypage_write_list.do">My Write</a>
-			<a class="nav-link scrollto" href="mypage_qna_list.do">My QnA</a>
+			<a class="nav-link scrollto" href="cs_notice_list.do">Notice</a>
+			<a class="nav-link scrollto" href="cs_faq_list.do">FAQ</a>
+			<a class="nav-link scrollto" href="cs_qna_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">QnA</font></a>
 			&emsp;&emsp;&emsp;
 			<ol>
 				<li><a href="index.jsp">Home</a></li>
-				<li>My page</li>
+				<li>Customer Service</li>
 			</ol>
         </div>
       </div>
@@ -73,7 +72,7 @@
     
 	<section class="inner-page">
 		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;Order List</h3>
+				<h3>&nbsp;&nbsp;&nbsp;&nbsp;QnA List</h3>
 				<hr style="border: solid 2px red;">
 				<br>
 				<table class="table table-hover" style="vertical-align: middle;">
@@ -93,12 +92,11 @@
 							<td>${dto.order_seq}</td>
 							<td><fmt:formatNumber value="${dto.order_price * dto.order_qty}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
 							<td><a href="productReview.do?order_seq=${dto.order_seq}">후기작성</a></td>
-							<%--****************** 11/12 상원 to 윤현 : 링크 변경 요****************** --%>
 						</tr>
 					</c:forEach>
 				</table>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
-			 	<%-- <div class="container" align="center">
+			 	<div class="container" align="center">
 				<table>
 					<tr>
 						<td align="center" colspan="6">
@@ -153,7 +151,7 @@
 						</td>
 					</tr>
 				</table>
-				</div> --%>
+				</div>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
 			</div>
 	</section>

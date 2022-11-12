@@ -32,9 +32,9 @@
 					<li><a class="nav-link scrollto" href="productList.do">COFFEE SHOP</a></li>
 					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="#notice">NOTICE</a></li>
-							<li><a href="#faq">FAQ</a></li>
-							<li><a href="#qna">QnA</a></li>
+							<li><a href="cs_notice_list.do">NOTICE</a></li>
+							<li><a href="cs_faq_list.do">FAQ</a></li>
+							<li><a href="cs_qna_list.do">QnA</a></li>
 						</ul>
 					<li>&emsp;&emsp;&emsp;</li>
 					<li></li>
@@ -51,9 +51,9 @@
 					<li><a class="nav-link scrollto" href="productList.do">COFFEE SHOP</a></li>
 					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="#notice">NOTICE</a></li>
-							<li><a href="#faq">FAQ</a></li>
-							<li><a href="#qna">QnA</a></li>
+							<li><a href="cs_notice_list.do">NOTICE</a></li>
+							<li><a href="cs_faq_list.do">FAQ</a></li>
+							<li><a href="cs_qna_list.do">QnA</a></li>
 						</ul>
 					</li>
 					<li>&emsp;&emsp;&emsp;</li>

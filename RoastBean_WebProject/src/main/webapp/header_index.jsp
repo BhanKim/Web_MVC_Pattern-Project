@@ -34,9 +34,9 @@
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
 					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="#notice">NOTICE</a></li>
-							<li><a href="#faq">FAQ</a></li>
-							<li><a href="#qna">QnA</a></li>
+							<li><a href="cs_notice_list.do">NOTICE</a></li>
+							<li><a href="cs_faq_list.do">FAQ</a></li>
+							<li><a href="cs_qna_list.do">QnA</a></li>
 						</ul>
 					<li>&emsp;&emsp;&emsp;</li>
 					<li></li>
@@ -53,13 +53,14 @@
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
 					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="#notice">NOTICE</a></li>
-							<li><a href="#faq">FAQ</a></li>
-							<li><a href="#qna">QnA</a></li>
+							<li><a href="cs_notice_list.do">NOTICE</a></li>
+							<li><a href="cs_faq_list.do">FAQ</a></li>
+							<li><a href="cs_qna_list.do">QnA</a></li>
 						</ul>
 					</li>
 					<li>&emsp;&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
+					<li><a class="nav-link scrollto" href="cartOrder.do"><font style="font-size: 0.9em">Cart</font></a></li>
 					<c:if test="${ADMIN != null}">
 						<li><a class="nav-link scrollto" href="UserListSelect.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>
