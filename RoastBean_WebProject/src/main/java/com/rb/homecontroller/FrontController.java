@@ -30,6 +30,7 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
+import com.rb.command.CommandMyorderlist;
 import com.rb.command.CommandOrder;
 import com.rb.command.CommandProductDetail;
 import com.rb.command.CommandProductList;
@@ -198,29 +199,45 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_info.do";
 			break;
-		// 마이페이지/내 구매 목록 보기***
+		// 마이페이지: 내 구매 목록 보기 / 완료(22.11.12)SangwonKim
 		case ("/mypage_order_list.do"):
-			command = new CommandUserinfo();
+			command = new CommandMyorderlist();
 			command.execute(request, response);
-			viewPage = "mypage_info.jsp";
+			viewPage = "mypage_order_list.jsp";
 			break;
-		// 마이페이지/내가 쓴 글 보기***
+		// 마이페이지:내가 쓴 글 보기******************** 삭제예정 / 버튼 클릭시바로 링크로 고
 		case ("/mypage_write_list.do"):
 			command = new CommandUserinfo();
 			command.execute(request, response);
 			viewPage = "mypage_info.jsp";
 			break;
-		// 마이페이지/내 질문 보기***
+		// 마이페이지:내 질문 Select********************
 		case ("/mypage_qna_list.do"):
 			command = new CommandUserinfo();
 			command.execute(request, response);
 			viewPage = "mypage_info.jsp";
 			break;
+		// QnA:유저:질문하기 Insert********************
+		case ("/qna_question_user.do"):
+			command = new CommandUserinfo();
+			command.execute(request, response);
+			viewPage = "mypage_info.jsp";
+			break;
+		// QnA:관리자:전체리스트 불러오기 Insert********************
+		case ("/qna_list_admin.do"):
+			command = new CommandUserinfo();
+			command.execute(request, response);
+			viewPage = "mypage_info.jsp";
+			break;
+		// QnA:관리자:질문에 답변하기 Insert********************
+		case ("/qna_answer_admin.do"):
+			command = new CommandUserinfo();
+			command.execute(request, response);
+			viewPage = "mypage_info.jsp";
+			break;
 		// --------------------- 상원 Controller End -----------------------
-			
 
 		// --------------------- 성진 Controller Start -----------------------
-
 		// 원두 정보 페이지
 		case ("/beaninfo.do"):
 			System.out.println("beaninfo");
@@ -229,8 +246,6 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "beaninfo.jsp";
 			break;
-		
-
 		// --------------------- 성진 Controller End -----------------------
   
 		// --------------------- 윤현 Controller Start ---------------------
@@ -329,26 +344,22 @@ public class FrontController extends HttpServlet {
 	      	 command.execute(request, response);
 	      	 viewPage = "cboardlist.jsp";
 	      	 break;
-	      	 
 	    // 글쓰기 페이지로 이동  	 
 		case("/boardwrite_view.do"):
 			 viewPage = "cboardwrite_view.jsp";
 			 break;
-		
 		// 글쓰기	 
 		case("/boardwrite.do"):
 			command = new CommandBoardwrite();
 			command.execute(request, response);
 			viewPage = "list.do?page=" + curPage;
 			break;
-			
 		// 검색기능
 		case ("/bSearch.do"):
 			command  = new CommandBoardsearch();
 			command.execute(request, response);
 			viewPage = "cboardsearch.jsp";
 			break;	
-			
 		// Detail Page
 		case ("/content_view.do"):
 			command = new CommandBoardcontent();
@@ -358,7 +369,6 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "cboardcontent_view.jsp";
 			break;
-
 		// 수정하기 page
 		case ("/modify_view.do"):
 			command = new CommandBoardcontent();
@@ -388,7 +398,6 @@ public class FrontController extends HttpServlet {
 			viewPage = "content_view.do";
 			break;
 		// --------------------- 혁&티뱃 Controller End -----------------------
-
 
       } // switch
 

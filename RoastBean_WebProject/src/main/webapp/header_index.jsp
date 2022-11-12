@@ -57,7 +57,7 @@
 					<li>&emsp;&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
 					<c:if test="${ADMIN != null}">
-						<li><a class="nav-link scrollto" href="admin.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
+						<li><a class="nav-link scrollto" href="UserListSelect.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>
 				<c:choose>
 					<c:when test="${API eq null}">
