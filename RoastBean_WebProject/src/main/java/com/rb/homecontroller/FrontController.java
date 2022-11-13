@@ -30,6 +30,7 @@ import com.rb.command.CommandCartList;
 import com.rb.command.CommandCommentdelete;
 import com.rb.command.CommandCommentupdate;
 import com.rb.command.CommandCommentwrite;
+import com.rb.command.CommandCsQnaQuestion;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -227,20 +228,20 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_qna_list.jsp";
 			break;
-		// QnA:유저:질문하기 Insert********************
-		case ("/qna_question_user.do"):
-			command = new CommandUserinfo();
+		// QnA:유저:질문하기 Insert / 진행중
+		case ("/qna_question_by_user.do"):
+			command = new CommandCsQnaQuestion();
 			command.execute(request, response);
-			viewPage = "mypage_info.jsp";
+			viewPage = "cs_qna.jsp";
 			break;
 		// QnA:관리자:전체리스트 불러오기 Insert********************
-		case ("/qna_list_admin.do"):
+		case ("/qna_list_by_admin.do"):
 			command = new CommandUserinfo();
 			command.execute(request, response);
 			viewPage = "mypage_info.jsp";
 			break;
 		// QnA:관리자:질문에 답변하기 Insert********************
-		case ("/qna_answer_admin.do"):
+		case ("/qna_answer_by_admin.do"):
 			command = new CommandUserinfo();
 			command.execute(request, response);
 			viewPage = "mypage_info.jsp";

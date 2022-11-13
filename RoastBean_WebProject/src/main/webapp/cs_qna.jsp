@@ -72,7 +72,7 @@
     
 	<section class="inner-page">
 		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;1:1:Q&A</h3>
+				<h3>&nbsp;&nbsp;&nbsp;&nbsp;1:1 QnA</h3>
 				<br>
 				<div>
 					<span style="text-align: left;">
@@ -88,37 +88,45 @@
 				<br>
 				<br>
 
-				<div>
+				<div class="row">
 					<div class="col-2"></div>
 					<div class="col-8">
-						<h4>문의 작성</h4>
+						<h6>문의 작성</h6>
 						<hr style="border: solid 2px red;">
 						<br>
-						<form action="">
+						<form action="qna_question_by_user.do" method="post">
 						<table class="table table-hover" style="vertical-align: middle;">
-							<thead>
-								<tr align="left">
-									<td align="left" style="width: 20%;">문의유형</td>
-									<td style="width: 80%;">
-										<select>
-											<option value="이용문의">이용문의</option>
-											<option value="상품문의">상품문의</option>
-											<option value="배송문의">배송문의</option>
-											<option value="신고문의">신고문의</option>
-										</select>								
-									</td>
-								</tr>
-							</thead>
-							<c:forEach items="${myOrderList}" var="dto">
-								<tr align="center">
-									<td align="left"><a href="productDetail.do?product_id=${dto.product_id}"><img width="100" height="100" alt="" src="assets/img/product/${dto.product_image}">${dto.product_name}</a></td>
-									<td>${dto.order_date}</td>
-									<td>${dto.order_seq}</td>
-									<td><fmt:formatNumber value="${dto.order_price * dto.order_qty}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
-									<td><a href="productReview.do?order_seq=${dto.order_seq}">후기작성</a></td>
-								</tr>
-							</c:forEach>
+							<tr align="left">
+								<td align="left" style="width: 20%;">문의유형</td>
+								<td style="width: 80%;">
+									<select name="qna_write_category" style="width: 120px">
+										<option value="이용문의">이용문의</option>
+										<option value="상품문의">상품문의</option>
+										<option value="배송문의">배송문의</option>
+										<option value="신고문의">신고문의</option>
+									</select>								
+								</td>
+							</tr>
+							<tr align="left">
+								<td align="left" style="width: 20%;">작성자</td>
+								<td style="width: 80%;">
+									<input type="text" value="${ID }" readonly="readonly">							
+								</td>
+							</tr>
+							<tr align="left">
+								<td align="left" style="width: 20%;">제목</td>
+								<td style="width: 80%;">
+									<input type="text" name="qna_write_title">							
+								</td>
+							</tr>
+							<tr align="left" valign="top">
+								<td align="left" style="width: 20%;">문의내용</td>
+								<td style="width: 80%;">
+									<textarea name="qna_write_content" rows="10" cols="90%"></textarea>
+								</td>
+							</tr>
 						</table>
+						<div align="right"><input type="submit" value="작성하기"></div>
 						</form>
 					</div>
 					<div class="col-2"></div>
