@@ -80,7 +80,7 @@
 				
 				<li><font color="#F2BCBB" style="font-size: 0.9em">${ID } 님</font></li>
 					<c:if test="${ID == 'admin' }">
-				<li><a class="nav-link scrollto" href="admin.do"><font
+				<li><a class="nav-link scrollto" href="ManageMain.do"><font
 						color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>
 				<li><a class="nav-link scrollto" href="logout.do"><font

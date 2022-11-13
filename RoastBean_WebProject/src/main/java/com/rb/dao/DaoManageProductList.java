@@ -520,7 +520,8 @@ public class DaoManageProductList {
 		int result = 0;
 		try {
 			connection = dataSource.getConnection();
-			String query = "select sum(order_price) as order_date_sum from orders WHERE DATE_FORMAT (order_date, '%Y-%m-%d') = '2022-11-11';";
+			String query = "select sum(order_price) as order_date_sum from orders WHERE DATE_FORMAT (order_date, '%Y-%m-%d') = curdate()";
+			//String query = "select sum(order_price) as order_date_sum from orders WHERE DATE_FORMAT (order_date, '%Y-%m-%d') = '2022-11-13';";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
