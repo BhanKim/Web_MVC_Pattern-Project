@@ -52,7 +52,7 @@
 							<li><a href="cs_faq.jsp">FAQ</a></li>
 							<li><a href="cs_qna.jsp">QnA</a></li>
 						</ul>
-					<li></li>
+					<li>&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="login.jsp"><font color="#F2BCBB" style="font-size: 1.1em">Get Started</font></a></li>
 				</ul>
 			</c:if>	
@@ -77,7 +77,7 @@
 								<li><a href="cs_qna.jsp">QnA</a></li>
 							</ul>
 						</li>
-						<li>&emsp;&emsp;&emsp;</li>
+						<li>&emsp;&emsp;</li>
 						<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
 						<li><a class="nav-link scrollto" href="cartOrder.do"><font style="font-size: 0.9em">Cart</font></a></li>
 					</c:if>
@@ -89,7 +89,7 @@
 								<li><a href="qna_list_by_admin.do">QnA</a></li>
 							</ul>
 						</li>
-						<li>&emsp;&emsp;&emsp;</li>
+						<li>&emsp;&emsp;</li>
 						<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
 						<li><a class="nav-link scrollto" href="UserListSelect.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>
