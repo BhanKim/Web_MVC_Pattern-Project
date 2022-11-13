@@ -71,13 +71,14 @@
 	<hr align="center" style="border: solid 3px #F2BCBB; width: 80%;">
 	<div align="left">
 	<h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서울특별시 강남구 강남대로 78길 8 (한국빌딩) 4층</h7><br>
-	<h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2호선,신분당선]강남역 4번출구 90m</h7>
-	<h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tel.010-3684-6726 Fax.02-111-1111</h7>
+	<h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2호선,신분당선]강남역 4번출구 90m</h7><br>
+	<h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tel.010-3684-6726 &nbsp;&nbsp;&nbsp; Fax.02-111-1111</h7>
 	</div>
 	<div align="right">
 	<a href="https://map.kakao.com/link/roadview/37.494753466226925,127.03002602066344" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">Roadview</a>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<hr align="center" style="border: solid 3px #F2BCBB; width: 80%;">
+	<br>
 	</div>
 	<div id="map" style="width:1200px;height:1000px; margin: auto;"></div>
 
@@ -109,7 +110,7 @@
 		
 	</script>
 	
-
+	<br><br><br>
 	
 	
 	

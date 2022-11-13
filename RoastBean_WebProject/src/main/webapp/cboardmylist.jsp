@@ -1,34 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Roast Bean : My Order List</title>
+  <title>Inner Page 샘플입니다. 관련 제목을 입력해주세요.</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <style type="text/css">
-  .form-control3 {
-	  padding: 0.375rem 0.75rem;
-	  font-size: 1rem;
-	  font-weight: 400;
-  	  line-height: 1em;
-  	  text-align-center;
-	  color: #212529;
-	  background-color: #CFD4D9;
-	  background-clip: padding-box;
-	  border: 1px solid #ced4da;
-	  -webkit-appearance: none;
-	  -moz-appearance: none;
-	  appearance: none;
-	  border-radius: 0.375rem;
-	  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-	  height: 32px; 
-	}
-  </style>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -48,66 +28,85 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- =======================================================
+  * Template Name: Delicious - v4.9.1
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
 <body>
+
   <!-- ======= Header ======= -->
 	<%@include file = "header_innerpage.jsp" %>
   <!-- End Header -->
+
   <main id="main">
+
     <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
+
         <div class="d-flex justify-content-between align-items-center">
-			<a class="nav-link scrollto" href="mypage_info.do">My Information</a>
-			<a class="nav-link scrollto" href="mypage_order_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">My Order List</font></a>
-			<a class="nav-link scrollto" href="myboardlist.do?page=1">My Write</a>
-			<a class="nav-link scrollto" href="mypage_qna_list.do">My QnA</a>
-			&emsp;&emsp;&emsp;
-			<ol>
-				<li><a href="index.jsp">Home</a></li>
-				<li>My page</li>
-			</ol>
+          <h2>My Boardlist</h2>
+          <ol>
+            <li><a href="index.jsp">Home</a></li>
+            <li>My Boardlist</li>
+          </ol>
         </div>
+
       </div>
     </section><!-- End Breadcrumbs Section -->
-    
+
 	<section class="inner-page">
-		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;Order List</h3>
-				<hr style="border: solid 2px red;">
-				<br>
-				<table class="table table-hover" style="vertical-align: middle;">
+	  <div class="container">
+	  		<div class="row">
+		    <div class="col">
+		    	<h2>&nbsp;&nbsp;${NICK } Board List</h2><br>
+		    	<table class="table table-sm table-hover">
 					<thead>
-						<tr align="center">
-							<th style="width: 30%;">상품정보</th>
-							<th style="width: 15%;">주문일자</th>
-							<th style="width: 15%;">주문번호</th>
-							<th style="width: 15%;">주문금액(수량)</th>
-							<th style="width: 15%;">주문상태</th>
+						<tr>
+							<th scope="col" colspan="2" style="text-align: center;">제목</th>
+							<th width=200 style="text-align: center;">작성일</th>
+							<th width=70 style="text-align: center;">조회수</th>
+							<th width=70 style="text-align: center;">좋아요</th>
 						</tr>
 					</thead>
-					<c:forEach items="${myOrderList}" var="dto">
-						<tr align="center">
-							<td align="left"><a href="productDetail.do?product_id=${dto.product_id}"><img width="100" height="100" alt="" src="assets/img/product/${dto.product_image}">${dto.product_name}</a></td>
-							<td>${dto.order_date}</td>
-							<td>${dto.order_seq}</td>
-							<td><fmt:formatNumber value="${dto.order_price * dto.order_qty}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
-							<td><a href="productReview.do?order_seq=${dto.order_seq}">후기작성</a></td>
-							<%--****************** 11/12 상원 to 윤현 : 링크 변경 요****************** --%>
+					<tbody>
+						
+						<c:forEach items="${myboardlist }" var="dto">				
+						<tr>
+								<td width=70 style="text-align: center;">${dto.rownum }</td>				
+								<td id="left">
+									<c:forEach begin="1" end="${dto.community_indent}">&nbsp;└ </c:forEach>
+									<a href="content_view.do?community_id=${dto.community_id }" style="color: #000000;">${dto.community_title }</a></td>
+								<td style="text-align: center;">
+									<c:choose>
+									<c:when test ="${dto.community_updatedate eq null }">
+										${dto.community_initdate }
+									</c:when>	
+									<c:otherwise>
+										${dto.community_updatedate }
+									</c:otherwise>	
+									</c:choose>
+								</td>
+								
+								<td style="text-align: center;">${dto.community_hit }</td>
+								<td style="text-align: center;">${dto.community_cnt }</td>
+							
 						</tr>
-					</c:forEach>
-				</table>
-				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
-			 	<%-- <div class="container" align="center">
-				<table>
-					<tr>
+						</c:forEach>
+						<tr></tr>
+						
+						<tr>
 						<td align="center" colspan="6">
 						<c:choose>
 							<c:when test="${(page.curPage - 1) < 1 }">
 								[ 처음 ]
 							</c:when>
 							<c:otherwise>
-								<a href="productDetail.do?page=1&product_id=${productDetail.product_id}">[ 처음 ]</a>
+								<a href="myboardlist.do?page=1">[ 처음 ]</a>
 							</c:otherwise>
 							</c:choose>
 							<!-- 이전 -->
@@ -116,7 +115,7 @@
 								[ 이전 ]
 							</c:when>
 							<c:otherwise>
-								<a href="productDetail.do?page=${page.curPage - 1 }&product_id=${productDetail.product_id}">[ 이전 ]</a>
+								<a href="myboardlist.do?page=${page.curPage - 1 }">[ 이전 ]</a>
 							</c:otherwise>
 							</c:choose>
 							
@@ -124,10 +123,10 @@
 							<c:forEach var="fEach" begin="${page.startPage }" end="${page.endPage }" step="1">
 								<c:choose>
 								<c:when test="${page.curPage == fEach}">
-									&nbsp; [ ${fEach } ] &nbsp;
+									[ ${fEach } ] &nbsp;
 								</c:when>
 								<c:otherwise>
-									<a href="productDetail.do?page=${fEach }&product_id=${productDetail.product_id}">[ ${fEach } ]</a>&nbsp;
+									<a href="myboardlist.do?page=${fEach }">[ ${fEach } ]</a>&nbsp;
 								</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -138,7 +137,7 @@
 								[ 다음 ]
 							</c:when>
 							<c:otherwise>
-								<a href="productDetail.do?page=${page.curPage + 1 }&product_id=${productDetail.product_id}">[ 다음 ]</a>
+								<a href="myboardlist.do?page=${page.curPage + 1 }">[ 다음 ]</a>
 							</c:otherwise>
 							</c:choose>
 							<!-- 끝 -->
@@ -147,16 +146,20 @@
 								[ 마지막 ]
 							</c:when>
 							<c:otherwise>
-								<a href="productDetail.do?page=${page.totalPage }&product_id=${productDetail.product_id}">[ 마지막 ]</a>
+								<a href="myboardlist.do?page=${page.totalPage }">[ 마지막 ]</a>
 							</c:otherwise>
-						</c:choose>
-						</td>
-					</tr>
-				</table>
-				</div> --%>
-				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
+							</c:choose>
+							</td>
+						</tr>
+					</tbody>	
+				</table><br>
+				</div>
 			</div>
+	  
+	  </div>
 	</section>
+	
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

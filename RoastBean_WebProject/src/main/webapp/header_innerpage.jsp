@@ -6,7 +6,7 @@
 <style>
     .badge2:after{
         content:attr(value);
-        font-size:12px;
+        font-size:16px;
         color: #fff;
         background: red;
         border-radius:50%;
@@ -16,7 +16,6 @@
         top:-10px;
         opacity:0.9;
     }
-
 </style>
 <!-- ======= Top Bar ======= -->
 <section id="topbar" class="d-flex align-items-center fixed-top ">
@@ -79,7 +78,7 @@
 						</li>
 						<li>&emsp;&emsp;</li>
 						<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
-						<li><a class="nav-link scrollto" href="cartOrder.do"><font style="font-size: 0.9em">Cart</font></a></li>
+						<li><a href="cartOrder.do"><i class="fa badge2 fa-lg" value="${CARTCOUNT.cartCount}" style="font-size: 1.5em">&#xf07a;</i></a></li>
 					</c:if>
 					<c:if test="${ID == 'admin'}">
 						<li class="dropdown"><a href="cs_notice.jsp"><span>CUSTOMER SERVICE</span></a>
