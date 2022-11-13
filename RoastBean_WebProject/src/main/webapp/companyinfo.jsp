@@ -92,7 +92,7 @@
   				<div class="row">
   				<div class="col-lg-4">
 				 <div class="card mb-4 product-wap rounded-0" style="border: 0;">
-					<div class="box" align="center" style="padding: 40px 30px;"><a href="index.jsp">
+					<div class="box" align="center" style="padding: 40px 30px;"><a href="beans_that_fit_me.jsp">
 						<img class="card-img rounded-0 img-fluid" src="assets/img/companyinfo/webprojectcoffeeimg01.jpeg"></a>
 						<h5><br>나도 이제 커피전문가</h5>
 						<p>커뮤니케이션을 통해 처음 커피를 접하는 사람에게 신뢰있는 정보를 습득 및 공유를 통하여 내가 원하는 커피를 찾을 수 있게 도움을 드립니다.
