@@ -69,4 +69,5 @@ public class DaoManageUserList {
 		}
 		return dtos;
 	}//manageuserlist
+	
 }

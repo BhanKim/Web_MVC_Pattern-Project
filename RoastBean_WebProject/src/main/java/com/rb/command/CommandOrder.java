@@ -22,7 +22,6 @@ public class CommandOrder implements Command {
 		String order_name = request.getParameter("order_name");
 		
 		DaoOrder dao = new DaoOrder();
-		dao.insertOrder(user_id);
 		dao.insertOrderUserInfo(order_telno, order_zipcode, order_address1, order_address2, order_address3, order_email, order_name, user_id);
 		dao.deleteCart(user_id);
 

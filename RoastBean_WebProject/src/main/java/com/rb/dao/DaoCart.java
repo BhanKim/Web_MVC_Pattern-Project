@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.rb.dto.DtoCartList;
+import com.rb.dto.DtoCartUserInfo;
+import com.rb.dto.DtoProductList;
 
 public class DaoCart {
 	DataSource dataSource;
@@ -83,6 +85,56 @@ public class DaoCart {
 
 				DtoCartList dto = new DtoCartList(user_id, product_id, cart_qty, product_name, product_price, product_weight, product_priceSum, product_image);
 				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+	}
+	
+	public DtoCartUserInfo userInfo(String uuser_id) {
+		DtoCartUserInfo dtos = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query1 = "select user_name, user_addresszipcode, user_address1, user_address2, user_address3, ";
+			String query2 = "SUBSTRING_INDEX(user_email, '@', 1) as user_email1, SUBSTRING_INDEX(user_email, '@', -1) as user_email2, ";
+			String query3 = "left(user_telno, 3) as user_telno1, substring(user_telno, 4,4) as user_telno2, right(user_telno, 4) as user_telno3 ";
+			String query4 = "from user where user_id = '" + uuser_id + "'";
+
+			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				String user_name = resultSet.getString("user_name");
+				String user_addresszipcode = resultSet.getString("user_addresszipcode");
+				String user_address1 = resultSet.getString("user_address1");
+				String user_address2 = resultSet.getString("user_address2");
+				String user_address3 = resultSet.getString("user_address3");
+				String user_email1 = resultSet.getString("user_email1");
+				String user_email2 = resultSet.getString("user_email2");
+				String user_telno1 = resultSet.getString("user_telno1");
+				String user_telno2 = resultSet.getString("user_telno2");
+				String user_telno3 = resultSet.getString("user_telno3");
+
+				dtos = new DtoCartUserInfo(user_name, user_addresszipcode, user_address1, user_address2, user_address3, user_email1, 
+						user_email2, user_telno1, user_telno2, user_telno3);
 			}
 
 		} catch (Exception e) {

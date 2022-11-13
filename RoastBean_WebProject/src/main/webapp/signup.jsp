@@ -8,6 +8,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="description">
 <meta content="" name="keywords">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Roast Bean : Sign Up</title>
 <style>
 .form-control2 {
@@ -60,6 +61,29 @@
 <link href="assets/css/style_rb.css" rel="stylesheet">
 </head>
 <body>
+<script type="text/javascript">
+$(document).ready(function() {
+		$('#email_check').click(function(){
+		   
+		       var uemail = $('#uemail').val();
+		        
+		       if(uemail=="") {
+					alert("이메일을 입력해주세요");
+		       } else {
+		           $.ajax({
+		              url:'http://localhost:8080/RoastBean_WebProject/Email',
+		              type:'POST',
+		              data:{uemail : uemail},
+		              success:function(response)
+		              {
+		                $('#email_certify_num').attr('value',response);
+		              }
+		           })
+		       }
+		        
+			})
+})
+</script>
 	<!-- ======= Header ======= -->
 	<%-- <%@include file="header_innerpage.jsp"%> --%>
 	<main id="main">
@@ -131,9 +155,19 @@
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Email</td>
-										<td><input type="email" class="form-control" name="user_email" value="${user_email}"
-											placeholder="We'll never share your email." aria-describedby="emailHelp"
-											style="height: 32px;"></td>
+										<td class="col" align="left">
+										<input type="email" id="uemail" class="form-control2" name="user_email" value="${user_email}" placeholder="We'll never share your email." aria-describedby="emailHelp"
+											style="height: 32px;">
+										<button class="form-control3" type="button" id="email_check">인증</button></td>
+									</tr>
+									<tr class="mb-3">
+										<td class="col" align="left">
+											<label for="exampleFormControlInput1" class="form-label">Certify</label>
+										</td>
+										<td> 
+											<input type="text" class="form-control" name="ucertify_num" id="exampleFormControlInput1" placeholder="인증번호를 입력해 주세요">
+											<input type="hidden" id="email_certify_num">
+										</td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">

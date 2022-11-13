@@ -15,12 +15,10 @@ import com.rb.command.CommandAdminLogin;
 import com.rb.command.CommandBeanInfo;
 import com.rb.command.CommandBoardcommentlist;
 import com.rb.command.CommandBoardcontent;
-import com.rb.command.CommandBoarddeleteboard;
 import com.rb.command.CommandBoardlikeboard;
 import com.rb.command.CommandBoardlist;
 import com.rb.command.CommandBoardnoticelist;
 import com.rb.command.CommandBoardsearch;
-import com.rb.command.CommandBoardupdatecomment;
 import com.rb.command.CommandBoardwrite;
 import com.rb.command.CommandCartDelete;
 import com.rb.command.CommandCartInsert;
@@ -33,6 +31,7 @@ import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
 import com.rb.command.CommandOrder;
+import com.rb.command.CommandOrderInsert;
 import com.rb.command.CommandProductDetail;
 import com.rb.command.CommandProductList;
 import com.rb.command.CommandUserCheckId;
@@ -276,6 +275,11 @@ public class FrontController extends HttpServlet {
 			viewPage = "cartOrder.do";
 			break;
 		case ("/order.do"):
+			command = new CommandOrderInsert();
+			command.execute(request, response);
+			viewPage = "orderUpdate.do";
+			break;
+		case ("/orderUpdate.do"):
 			command = new CommandOrder();
 			command.execute(request, response);
 			viewPage = "index.jsp";
@@ -377,20 +381,20 @@ public class FrontController extends HttpServlet {
 			viewPage = "modify_view.jsp";
 			break;
 
-		// 삭제 page
-		case ("/communitydelete.do"):
-			command = new CommandBoarddeleteboard();
-			command.execute(request, response);
-			viewPage = "list.do?page=" + curPage;
-			break;
-
-		// 댓글수정
-		case ("/communitymodify.do"):
-			System.out.println("coModify.do에 들어왔습니다.");
-			command = new CommandBoardupdatecomment();
-			command.execute(request, response);
-			viewPage = "content_view.do";
-			break;
+//		// 삭제 page
+//		case ("/communitydelete.do"):
+//			command = new CommandBoarddeleteboard();
+//			command.execute(request, response);
+//			viewPage = "list.do?page=" + curPage;
+//			break;
+//
+//		// 댓글수정
+//		case ("/communitymodify.do"):
+//			System.out.println("coModify.do에 들어왔습니다.");
+//			command = new CommandBoardupdatecomment();
+//			command.execute(request, response);
+//			viewPage = "content_view.do";
+//			break;
 
 		// 좋아요기능
 		case ("/boardlike.do"):

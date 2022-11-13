@@ -18,6 +18,7 @@ public class DtoUser {
 	String user_initdate;
 	String user_updatedate;
 	String user_deletedate;
+	int cartCount;
 	
 	public DtoUser(String user_id, String user_nick, String user_pw, String user_email, String user_emailhash,
 			String user_name, String user_address1, String user_address2, String user_address3,
@@ -63,7 +64,10 @@ public class DtoUser {
 		this.user_initdate = user_initdate;
 	}
 
-
+	public DtoUser(int cartCount) {
+		super();
+		this.cartCount = cartCount;
+	}
 
 	public String getUser_id() {
 		return user_id;
@@ -191,6 +195,18 @@ public class DtoUser {
 
 	public void setUser_deletedate(String user_deletedate) {
 		this.user_deletedate = user_deletedate;
+	}
+
+
+
+	public int getCartCount() {
+		return cartCount;
+	}
+
+
+
+	public void setCartCount(int cartCount) {
+		this.cartCount = cartCount;
 	}
 	
 	

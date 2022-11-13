@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
+<link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 <!-- ======= Top Bar ======= -->
 <section id="topbar"
 	class="d-flex align-items-center fixed-top topbar-transparent">
@@ -12,7 +12,21 @@
 		<i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 10:00 AM - 18:00 PM</span></i>
 	</div>
 </section>
+<style>
+    .badge2:after{
+        content:attr(value);
+        font-size:12px;
+        color: #fff;
+        background: red;
+        border-radius:50%;
+        padding: 0 5px;
+        position:relative;
+        left:-8px;
+        top:-10px;
+        opacity:0.9;
+    }
 
+</style>
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center header-transparent">
 	<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -34,7 +48,6 @@
 							<li><a href="#faq">FAQ</a></li>
 							<li><a href="#qna">QnA</a></li>
 						</ul>
-					<li>&emsp;&emsp;&emsp;</li>
 					<li></li>
 					<li><a class="nav-link scrollto" href="login.jsp"><font color="#F2BCBB" style="font-size: 1.1em">Get Started</font></a></li>
 				</ul>
@@ -56,6 +69,7 @@
 					</li>
 					<li>&emsp;&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
+					<li><a href="cartOrder.do"><i class="fa badge2 fa-lg" value="${CARTCOUNT.cartCount}">&#xf07a;</i></a></li>
 					<c:if test="${ADMIN != null}">
 						<li><a class="nav-link scrollto" href="admin.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>

@@ -26,6 +26,7 @@ public class DtoCartList {
 		this.product_priceSum = product_priceSum;
 		this.product_image = product_image;
 	}
+
 	
 	public String getUser_id() {
 		return user_id;
@@ -83,5 +84,5 @@ public class DtoCartList {
 	public void setProduct_image(String product_image) {
 		this.product_image = product_image;
 	}
-	
+
 }
