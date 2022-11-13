@@ -27,7 +27,7 @@ public class DaoQna {
 	}
 	
 	// Method
-	// 나의 QnA 전체 리스트 검색
+	// 유저의 QnA 전체 리스트 검색 / 22.11.12.SangwonKim
 	public ArrayList<DtoQna> qnaList(String user_id){
 		ArrayList<DtoQna> dtos = new ArrayList<DtoQna>();
 		Connection connection = null;
@@ -68,9 +68,56 @@ public class DaoQna {
 			}
 		}
 		return dtos;
-	} // list
+	} // 유저의 QnA 전체 리스트 검색
 	
-	// customer service > QnA Insert
+	// 관리자의 QnA 전체 리스트 검색 / 22.11.13.SangwonKim
+	public ArrayList<DtoQna> qnaListAdmin(){
+		ArrayList<DtoQna> dtos = new ArrayList<DtoQna>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query1 = "select qw.user_id, qw.qna_write_category, qw.qna_write_title, qw.qna_write_seq, qw.qna_write_initdate, qw.qna_write_content, ";
+			String query2 = "qwc.qna_write_comment_content, qwc.qna_write_comment_initdate, qwc.qna_write_comment_updatedate, qwc.qna_write_comment_deletedate ";
+			String query3 = "from qna_write qw left join qna_write_comment qwc on qw.qna_write_seq = qwc.qna_write_comment_seq order by qw.qna_write_seq asc ";
+			preparedStatement = connection.prepareStatement(query1+query2+query3);
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				String user_id = resultSet.getString("qw.user_id");
+				String qna_write_category = resultSet.getString("qw.qna_write_category");
+				String qna_write_title = resultSet.getString("qw.qna_write_title");
+				int qna_write_seq = resultSet.getInt("qw.qna_write_seq");
+				String qna_write_initdate = resultSet.getString("qw.qna_write_initdate");
+				String qna_write_content = resultSet.getString("qw.qna_write_content");
+				String qna_write_comment_content = resultSet.getString("qwc.qna_write_comment_content");
+				String qna_write_comment_initdate = resultSet.getString("qwc.qna_write_comment_initdate");
+				String qna_write_comment_updatedate = resultSet.getString("qwc.qna_write_comment_updatedate");
+				String qna_write_comment_deletedate = resultSet.getString("qwc.qna_write_comment_deletedate");
+				
+				DtoQna dto = new DtoQna(qna_write_seq, user_id, qna_write_category, qna_write_title, qna_write_content, qna_write_initdate, qna_write_comment_content, qna_write_comment_initdate, qna_write_comment_updatedate, qna_write_comment_deletedate);
+				dtos.add(dto);
+			}
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+	} // 관리자의 QnA 전체 리스트 검색
+	
+	
+	// Mypage User의 QnA Question Insert / 22.11.13.SangwonKim
 	public void userQuestionInsert(String user_id, String qna_write_category, String qna_write_title, String qna_write_content) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -97,6 +144,62 @@ public class DaoQna {
 				e.printStackTrace();
 			}
 		}
-	} // customer service > QnA Insert
+	} // Mypage User의 QnA Question Insert
+
+	// Customer Service Admin의 QnA Answer Insert / 22.11.13.SangwonKim
+	public void adminAnswerInsert(String admin_id, String qna_write_seq, String qna_write_comment_content) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into qna_write_comment (admin_id, qna_write_seq, qna_write_comment_content, qna_write_comment_initdate) values (?,?,?,now()) ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, admin_id);
+			preparedStatement.setString(2, qna_write_seq);
+			preparedStatement.setString(3, qna_write_comment_content);
+			
+			preparedStatement.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // Customer Service Admin의 QnA Answer Insert
+	
+	// Customer Service Admin의 QnA Answer Update
+	public void adminAnswerUpdate(String qna_write_seq, String qna_write_comment_content) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "update qna_write_comment set qna_write_comment_content = ?, qna_write_comment_updatedate = now() where qna_write_seq = ? ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, qna_write_comment_content);
+			preparedStatement.setString(2, qna_write_seq);
+			
+			preparedStatement.executeUpdate();
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // Customer Service Admin의 QnA Answer Update
+	
 
 }

@@ -30,6 +30,8 @@ import com.rb.command.CommandCartList;
 import com.rb.command.CommandCommentdelete;
 import com.rb.command.CommandCommentupdate;
 import com.rb.command.CommandCommentwrite;
+import com.rb.command.CommandCsQnaAdminAction;
+import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
@@ -210,41 +212,35 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_info.do";
 			break;
-		// 마이페이지: 내 구매 목록 보기 / 완료(22.11.12)SangwonKim
+		// 마이페이지: 내 구매 목록 보기 / 완료 22.11.12_SangwonKim
 		case ("/mypage_order_list.do"):
 			command = new CommandMyorderlist();
 			command.execute(request, response);
 			viewPage = "mypage_order_list.jsp";
 			break;
-//		// 마이페이지:내가 쓴 글 보기******************** 삭제예정 / 버튼 클릭시바로 링크로 고
-//		case ("/mypage_write_list.do"):
-//			command = new CommandUserinfo();
-//			command.execute(request, response);
-//			viewPage = "mypage_info.jsp";
-//			break;
-		// 마이페이지:My QnA List 가져오기 / 완료 22.11.13.2:20.SangwonKim / 클릭시 질문내용 바꿔주고, 다시 클릭시 내용숨기기 추가하기
-		case ("/mypage_qna_list.do"):
+		// 마이페이지:My QnA List 가져오기 / 완료 22.11.13_2:20_SangwonKim
+		case ("/mypage_qna_list.do"): // 클릭시 질문내용 바꿔주고, 다시 클릭시 내용숨기기 추가하기
 			command = new CommandMyQnaList();
 			command.execute(request, response);
 			viewPage = "mypage_qna_list.jsp";
 			break;
-		// QnA:유저:질문하기 Insert / 진행중
+		// QnA:유저:질문하기 Insert / 완료 22.11.13_18:00_SangwonKim
 		case ("/qna_question_by_user.do"):
 			command = new CommandCsQnaQuestion();
 			command.execute(request, response);
 			viewPage = "cs_qna.jsp";
 			break;
-		// QnA:관리자:전체리스트 불러오기 Insert********************
+		// QnA:관리자:전체리스트 불러오기 Select / 완료 22.11.13_21:50_SangwonKim
 		case ("/qna_list_by_admin.do"):
-			command = new CommandUserinfo();
+			command = new CommandCsQnaList();
 			command.execute(request, response);
-			viewPage = "mypage_info.jsp";
+			viewPage = "cs_qna_admin.jsp";
 			break;
-		// QnA:관리자:질문에 답변하기 Insert********************
+		// QnA:관리자:질문에 답변하기,수정하기 Insert&Update / 완료 22.11.13_11:00_SangwonKim
 		case ("/qna_answer_by_admin.do"):
-			command = new CommandUserinfo();
+			command = new CommandCsQnaAdminAction();
 			command.execute(request, response);
-			viewPage = "mypage_info.jsp";
+			viewPage = "qna_list_by_admin.do";
 			break;
 		// --------------------- 상원 Controller End -----------------------
 

@@ -22,6 +22,7 @@ public class CommandAdminLogin implements Command {
 
 		if (checkLoginAdmin == 1) {
 			session.setAttribute("ID", admin_id);
+			System.out.println(admin_id);
 			session.setAttribute("ADMIN", admin_id);
 			session.setAttribute("NICK", "관리자");
 			checkLoginAdmin =1;
