@@ -59,9 +59,9 @@
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
 			<a class="nav-link scrollto" href="mypage_info.do">My Information</a>
-			<a class="nav-link scrollto" href="mypage_order_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">My Order List</font></a>
+			<a class="nav-link scrollto" href="mypage_order_list.do">My Order List</a>
 			<a class="nav-link scrollto" href="mypage_write_list.do">My Write</a>
-			<a class="nav-link scrollto" href="mypage_qna_list.do">My QnA</a>
+			<a class="nav-link scrollto" href="mypage_qna_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">My QnA</font></a>
 			&emsp;&emsp;&emsp;
 			<ol>
 				<li><a href="index.jsp">Home</a></li>
@@ -87,6 +87,7 @@
 						</tr>
 					</thead>
 					<c:forEach items="${myQnaList}" var="dto">
+					<form action="" method="post">
 						<tr align="center">
 							<td>${dto.qna_write_category}</td>
 							<td align="left">${dto.qna_write_title}</td>
@@ -117,6 +118,7 @@
 						</tr>
 						<tr height="10px"></tr>
 						</c:if>
+						</form>
 					</c:forEach>
 				</table>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
