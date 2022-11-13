@@ -112,7 +112,7 @@ public class DaoProductDetail {
             connection = dataSource.getConnection();
 
             String query1 = "select * from (select row_number() over(order by review_seq asc) ";
-            String query2 = "as rownum, r.review_content, u.user_nick, r.review_date, r.review_star ";
+            String query2 = "as rownum, r.review_seq, r.review_content, u.user_nick, r.review_date, r.review_star ";
             String query3 = "from review as r, user as u where r.user_id = u.user_id and r.product_id = ?) A ";
             String query4 = "where rownum <= ? and rownum >= ? order by rownum desc";
             
@@ -124,12 +124,13 @@ public class DaoProductDetail {
 
             while (resultSet.next()) {
                 int rownum = resultSet.getInt("rownum");
+                int review_seq = resultSet.getInt("review_seq");
                 String review_content = resultSet.getString("review_content");
                 String user_nick = resultSet.getString("user_nick");
                 Timestamp review_date = resultSet.getTimestamp("review_date");
                 int review_star = resultSet.getInt("review_star");
-
-                DtoReview dto = new DtoReview(rownum, review_date, review_content, review_star, user_nick);
+                
+                DtoReview dto = new DtoReview(rownum, review_seq, review_date, review_content, review_star, user_nick);
                 dtos.add(dto);
             }
 

@@ -100,7 +100,27 @@
 	      	<div class="row">
 	      		<h3>&nbsp;&nbsp;&nbsp;&nbsp;후기작성</h3>
 				<hr style="border: solid 2px red;">
-					<form class="mb-3" name="myform" id="myform" method="post">
+				<div class="card mb-3">
+					<table class="table" style="vertical-align: middle;">
+					<thead>
+						<tr align="center">
+							<th style="width: 15%;">상품이미지</th>
+							<th style="width: 15%;">상품이름</th>
+							<th style="width: 15%;">상품수량</th>
+							<th style="width: 15%;">주문금액</th>
+							<th style="width: 15%;">상품무게</th>
+						</tr>
+					</thead>
+						<tr align="center">
+							<td><img width="100" height="100" alt="" src="assets/img/product/${review.product_image}"></td>
+							<td>${review.product_name}</td>
+							<td>${review.order_seq}</td>
+							<td><fmt:formatNumber value="${review.order_price}" groupingUsed="true" />원</td>
+							<td>${review.product_weight}</td>
+						</tr>
+				</table>
+					</div>
+					<form class="mb-3" name="myform" id="myform" action="reviewInsert.do?order_seq=${review.order_seq}&product_id=${review.product_id}" method="post">
 							<table>
 								<tr>
 									<td style="width: 20%;">
@@ -108,11 +128,11 @@
 									</td>
 									<td style="width: 8	0%;">
 									<fieldset>
-										<input type="radio" name="reviewStar" value="5" id="rate1"> <label for="rate1">★</label> 
-										<input type="radio" name="reviewStar" value="4" id="rate2"> <label for="rate2">★</label> 
-										<input type="radio" name="reviewStar" value="3" id="rate3"> <label for="rate3">★</label> 
-										<input type="radio" name="reviewStar" value="2" id="rate4"> <label for="rate4">★</label> 
-										<input type="radio" name="reviewStar" value="1" id="rate5" checked="checked"> <label for="rate5">★</label>
+										<input type="radio" name="review_star" value="5" id="rate1"> <label for="rate1">★</label> 
+										<input type="radio" name="review_star" value="4" id="rate2"> <label for="rate2">★</label> 
+										<input type="radio" name="review_star" value="3" id="rate3"> <label for="rate3">★</label> 
+										<input type="radio" name="review_star" value="2" id="rate4"> <label for="rate4">★</label> 
+										<input type="radio" name="review_star" value="1" id="rate5" checked="checked"> <label for="rate5">★</label>
 									</fieldset>
 									</td>
 								</tr>
@@ -121,7 +141,14 @@
 										<span class="text-bold">후기 내용</span>
 									</td>
 									<td>
-										<textarea class="col-auto form-control" id="reviewContents" placeholder="상품에 대한 평가를 작성해 주세요." cols="100"></textarea>
+										<textarea name="review_content" class="col-auto form-control mb-2" id="review_content" placeholder="상품에 대한 평가를 작성해 주세요." cols="100"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									</td>
+									<td>
+										<input type="submit" value="작성" style="background: #F2BCBB; border: 0; padding: 3px 20px; color: #fff; transition: 0.4s; border-radius: 50px;">
 									</td>
 								</tr>
 							</table>
