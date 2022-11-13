@@ -38,15 +38,19 @@
 		<nav id="navbar" class="navbar order-last order-lg-0">
 			<c:if test="${ID == null }">
 				<ul>
-					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
+					<li class="dropdown"><a href="#about"><span>ABOUT</span></a>
+						<ul>
+							<li><a href="companyinfo.jsp">Information</a></li>
+							<li><a href="companylocation.jsp">Location</a></li>
+						</ul>
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
-					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
+					<li class="dropdown"><a href="cs_notice.jsp"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="#notice">NOTICE</a></li>
-							<li><a href="#faq">FAQ</a></li>
-							<li><a href="#qna">QnA</a></li>
+							<li><a href="cs_notice.jsp">NOTICE</a></li>
+							<li><a href="cs_faq.jsp">FAQ</a></li>
+							<li><a href="cs_qna.jsp">QnA</a></li>
 						</ul>
 					<li></li>
 					<li><a class="nav-link scrollto" href="login.jsp"><font color="#F2BCBB" style="font-size: 1.1em">Get Started</font></a></li>
@@ -56,22 +60,26 @@
 			<!-- success login -->
 			<c:if test="${ID != null }">
 				<ul>
-					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
+					<li class="dropdown"><a href="#about"><span>ABOUT</span></a>
+						<ul>
+							<li><a href="companyinfo.jsp">Information</a></li>
+							<li><a href="companylocation.jsp">Location</a></li>
+						</ul>
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
-					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
+					<li class="dropdown"><a href="cs_notice.jsp"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="#notice">NOTICE</a></li>
-							<li><a href="#faq">FAQ</a></li>
-							<li><a href="#qna">QnA</a></li>
+							<li><a href="cs_notice.jsp">NOTICE</a></li>
+							<li><a href="cs_faq.jsp">FAQ</a></li>
+							<li><a href="cs_qna.jsp">QnA</a></li>
 						</ul>
 					</li>
 					<li>&emsp;&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
 					<li><a href="cartOrder.do"><i class="fa badge2 fa-lg" value="${CARTCOUNT.cartCount}">&#xf07a;</i></a></li>
 					<c:if test="${ADMIN != null}">
-						<li><a class="nav-link scrollto" href="admin.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
+						<li><a class="nav-link scrollto" href="UserListSelect.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>
 				<c:choose>
 					<c:when test="${API eq null}">

@@ -32,7 +32,4 @@ public class CommandUserLoginApi implements Command {
 		request.setAttribute("checkLoginApi", checkLoginApi);
 	}
 	
-	// check가 1이면 > ID,NICK에 세션 / index로
-	// check가 null이면 > signupApi.jsp로 > 작성완료해서 버튼누르면 인서트 & index로
-
 }

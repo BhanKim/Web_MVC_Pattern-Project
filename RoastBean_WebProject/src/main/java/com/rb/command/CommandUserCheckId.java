@@ -32,6 +32,7 @@ public class CommandUserCheckId implements Command {
 		String user_birthday = request.getParameter("user_birthday");
 		String user_gender = request.getParameter("user_gender");
 		String user_initdate = request.getParameter("user_initdate");
+		String checkNickDuplication = request.getParameter("checkNickDuplication");
 		
 		DaoUserSignup dao = new DaoUserSignup();
 		int checkIdDuplication = dao.checkId(user_id);
@@ -54,6 +55,7 @@ public class CommandUserCheckId implements Command {
 		request.setAttribute("user_gender", user_gender);
 		request.setAttribute("user_initdate", user_initdate);
 		request.setAttribute("checkIdDuplication", checkIdDuplication);
+		request.setAttribute("checkNickDuplication", checkNickDuplication);
 		
 	}
 

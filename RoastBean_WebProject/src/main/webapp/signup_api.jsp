@@ -79,13 +79,13 @@
 								<table class="col">
 									<tr class="mb-3">
 										<td align="left">Name&emsp;&emsp;&emsp;
-										<td><input type="text" class="form-control" name="user_name" placeholder="한글로 입력해주세요." style="height: 32px;"></td>
+										<td><input type="text" class="form-control" name="user_name" value="${user_name}" placeholder="한글로 입력해주세요." style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr>
 										<td align="left">Nick Name</td>
 										<td class="col" align="left">
-											<input class="form-control2" type="text" name="user_nick" placeholder="필수사항입니다." maxlength="41" style="height: 32px;">
+											<input class="form-control2" type="text" name="user_nick" value="${user_nick}" placeholder="필수사항입니다." maxlength="41" style="height: 32px;">
 											<input class="form-control3" type="button" onclick="checkNick()" value="중복체크">
 										</td>
 									</tr>
@@ -109,7 +109,7 @@
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Email</td>
-										<td><input type="email" class="form-control" name="user_email" value="${api_email }" readonly="readonly"
+										<td><input type="email" class="form-control" name="user_email" value="${api_email }${user_email}" readonly="readonly"
 											placeholder="We'll never share your email."	style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>

@@ -17,15 +17,15 @@ public class DtoUserLogin {
 	String user_updatedate;
 	String user_deletedate;
 	
-	// C
 	public DtoUserLogin() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public DtoUserLogin(String user_nick, String user_id, String user_pw, String user_email, String user_emailhash,
-			String user_name, String user_address, String user_birthdate, String user_gender, String user_telno,
-			String user_initdate, String user_updatedate, String user_deletedate) {
+	public DtoUserLogin(int check, String user_nick, String user_id, String user_pw, String user_email,
+			String user_emailhash, String user_name, String user_address, String user_birthdate, String user_gender,
+			String user_telno, String user_initdate, String user_updatedate, String user_deletedate) {
 		super();
+		this.check = check;
 		this.user_nick = user_nick;
 		this.user_id = user_id;
 		this.user_pw = user_pw;
@@ -40,12 +40,13 @@ public class DtoUserLogin {
 		this.user_updatedate = user_updatedate;
 		this.user_deletedate = user_deletedate;
 	}
-	
+
 	public DtoUserLogin(int check, String user_nick) {
 		super();
 		this.check = check;
 		this.user_nick = user_nick;
 	}
+	
 	public int getCheck() {
 		return check;
 	}
@@ -55,7 +56,6 @@ public class DtoUserLogin {
 	public String getUser_nick() {
 		return user_nick;
 	}
-
 	public void setUser_nick(String user_nick) {
 		this.user_nick = user_nick;
 	}

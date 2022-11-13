@@ -64,14 +64,15 @@
 	  <div class="container">
 	  	
 		 test
-		 <form action="user_order.do" method="post">
+		 <form action="ManageUserOrderSum.do" method="post">
 		 <table>
 		 <tr>
 		    <td>금일 매출</td>
-		    <td><input type="text" readonly="readonly" value="###" size="40" name="order_sum"></td>
+		    <td><input type="text" readonly="readonly" size="40" value="${order_date_sum }"></td>
 		 </tr>
 		 </table>
 		</form>
+		
 	  </div>
 	</section>
 	

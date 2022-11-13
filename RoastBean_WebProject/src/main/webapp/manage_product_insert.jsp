@@ -107,7 +107,7 @@
 	      </tr>
 	      <tr>
 	         <td></td>
-	         <td><input type="submit" value="다음으" style="WIDTH: 210pt; HEIGHT: 18pt"></td>
+	         <td><input type="submit" value="다음으로" style="WIDTH: 210pt; HEIGHT: 18pt"></td>
 	      </tr>
 	      <tr></tr>
 	      <tr>
