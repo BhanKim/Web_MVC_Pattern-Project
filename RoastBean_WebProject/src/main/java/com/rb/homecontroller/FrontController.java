@@ -215,13 +215,13 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_order_list.jsp";
 			break;
-		// 마이페이지:내가 쓴 글 보기******************** 삭제예정 / 버튼 클릭시바로 링크로 고
-		case ("/mypage_write_list.do"):
-			command = new CommandUserinfo();
-			command.execute(request, response);
-			viewPage = "mypage_info.jsp";
-			break;
-		// 마이페이지:My QnA List 가져오기********************진행중 22.11.13.2:20.SangwonKim
+//		// 마이페이지:내가 쓴 글 보기******************** 삭제예정 / 버튼 클릭시바로 링크로 고
+//		case ("/mypage_write_list.do"):
+//			command = new CommandUserinfo();
+//			command.execute(request, response);
+//			viewPage = "mypage_info.jsp";
+//			break;
+		// 마이페이지:My QnA List 가져오기 / 완료 22.11.13.2:20.SangwonKim / 클릭시 질문내용 바꿔주고, 다시 클릭시 내용숨기기 추가하기
 		case ("/mypage_qna_list.do"):
 			command = new CommandMyQnaList();
 			command.execute(request, response);

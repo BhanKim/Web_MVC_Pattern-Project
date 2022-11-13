@@ -39,7 +39,7 @@ public class DaoQna {
 			
 			String query1 = "select qw.qna_write_category, qw.qna_write_title, qw.qna_write_seq, qw.qna_write_initdate, qw.qna_write_content, ";
 			String query2 = "qwc.qna_write_comment_content, qwc.qna_write_comment_initdate from qna_write qw, qna_write_comment qwc ";
-			String query3 = "where qw.qna_write_seq = qwc.qna_write_comment_seq and qw.user_id = '"+user_id+"' order by qw.qna_write_initdate ";
+			String query3 = "where qw.qna_write_seq = qwc.qna_write_comment_seq and qw.user_id = '"+user_id+"' order by qw.qna_write_initdate asc ";
 			preparedStatement = connection.prepareStatement(query1+query2+query3);
 			resultSet = preparedStatement.executeQuery();
 			

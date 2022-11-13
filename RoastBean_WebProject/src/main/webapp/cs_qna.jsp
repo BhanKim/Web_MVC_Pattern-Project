@@ -72,31 +72,59 @@
     
 	<section class="inner-page">
 		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;QnA List</h3>
-				<hr style="border: solid 2px red;">
+				<h3>&nbsp;&nbsp;&nbsp;&nbsp;1:1:Q&A</h3>
 				<br>
-				<table class="table table-hover" style="vertical-align: middle;">
-					<thead>
-						<tr align="center">
-							<th style="width: 30%;">상품정보</th>
-							<th style="width: 15%;">주문일자</th>
-							<th style="width: 15%;">주문번호</th>
-							<th style="width: 15%;">주문금액(수량)</th>
-							<th style="width: 15%;">주문상태</th>
-						</tr>
-					</thead>
-					<c:forEach items="${myOrderList}" var="dto">
-						<tr align="center">
-							<td align="left"><a href="productDetail.do?product_id=${dto.product_id}"><img width="100" height="100" alt="" src="assets/img/product/${dto.product_image}">${dto.product_name}</a></td>
-							<td>${dto.order_date}</td>
-							<td>${dto.order_seq}</td>
-							<td><fmt:formatNumber value="${dto.order_price * dto.order_qty}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
-							<td><a href="productReview.do?order_seq=${dto.order_seq}">후기작성</a></td>
-						</tr>
-					</c:forEach>
-				</table>
+				<div>
+					<span style="text-align: left;">
+					제품 사용, 오염, 전용 박스 손상, 라벨 제거, 사은품 및 부속 사용/분실 시, 교환/환불이 불가능 합니다.<br>
+					교환을 원하시는 상품(사이즈)의 재고가 부족 시, 교환이 불가합니다.<br>
+					고객님의 주문내역을 선택, 질문이 필요한 상품을 선택하시면 1:1상담이 가능합니다.<br>
+					주문취소/교환/환불은 마이페이지>주문내역에서 신청하실 수 있습니다.<br>
+					1:1문의 처리 내역은 마이페이지>1:1문의를 통해 확인하실 수 있습니다.<br>
+					상품 정보(사이즈, 실측, 예상 배송일 등) 관련 문의는 해당 상품 문의에 남기셔야 빠른 답변이 가능합니다.
+					</span>
+				</div>
+				<br>
+				<br>
+				<br>
+
+				<div>
+					<div class="col-2"></div>
+					<div class="col-8">
+						<h4>문의 작성</h4>
+						<hr style="border: solid 2px red;">
+						<br>
+						<form action="">
+						<table class="table table-hover" style="vertical-align: middle;">
+							<thead>
+								<tr align="left">
+									<td align="left" style="width: 20%;">문의유형</td>
+									<td style="width: 80%;">
+										<select>
+											<option value="이용문의">이용문의</option>
+											<option value="상품문의">상품문의</option>
+											<option value="배송문의">배송문의</option>
+											<option value="신고문의">신고문의</option>
+										</select>								
+									</td>
+								</tr>
+							</thead>
+							<c:forEach items="${myOrderList}" var="dto">
+								<tr align="center">
+									<td align="left"><a href="productDetail.do?product_id=${dto.product_id}"><img width="100" height="100" alt="" src="assets/img/product/${dto.product_image}">${dto.product_name}</a></td>
+									<td>${dto.order_date}</td>
+									<td>${dto.order_seq}</td>
+									<td><fmt:formatNumber value="${dto.order_price * dto.order_qty}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
+									<td><a href="productReview.do?order_seq=${dto.order_seq}">후기작성</a></td>
+								</tr>
+							</c:forEach>
+						</table>
+						</form>
+					</div>
+					<div class="col-2"></div>
+				</div>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
-			 	<div class="container" align="center">
+			 	<%-- <div class="container" align="center">
 				<table>
 					<tr>
 						<td align="center" colspan="6">
@@ -151,7 +179,7 @@
 						</td>
 					</tr>
 				</table>
-				</div>
+				</div> --%>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
 			</div>
 	</section>

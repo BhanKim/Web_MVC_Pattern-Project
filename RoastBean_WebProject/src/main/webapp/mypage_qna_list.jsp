@@ -92,13 +92,15 @@
 							<td align="left">${dto.qna_write_title}</td>
 							<td>${dto.qna_write_seq}</td>
 							<td>${dto.qna_write_initdate}</td>
+							<c:choose>
 							<c:when test="${dto.qna_write_comment_content == null }">
 							<td>답변예정</td>
 							</c:when><c:otherwise>
 							<td>답변완료</td>
 							</c:otherwise>
+							</c:choose>
 						</tr>
-						<tr style="background-color: gray;">
+						<tr style="background-color: #F2F1EF;">
 							<td></td>
 							<td align="left">${dto.qna_write_content}</td>
 							<td></td>
@@ -106,12 +108,12 @@
 							<td></td>
 						</tr>
 						<c:if test="${dto.qna_write_comment_content != null}">
-						<tr align="center" style="background-color: gray;">
+						<tr align="center" style="background-color: #F2F1EF;">
 							<td>관리자</td>
 							<td align="left">${dto.qna_write_comment_content}</td>
 							<td></td>
 							<td>${dto.qna_write_comment_initdate}</td>
-							<td></td>
+							<td>답변완료</td>
 						</tr>
 						<tr height="10px"></tr>
 						</c:if>
