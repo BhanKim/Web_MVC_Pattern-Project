@@ -75,8 +75,8 @@
 						</tr>
 						<tr>
 							<td colspan="2" height="40">
-								&nbsp;&nbsp;<input type="submit" class="btn btn-success" style="padding:2px 10px" value="등록">&nbsp;
-								<a href="list.do?page=<%= session.getAttribute("cpage") %>" class="btn btn-secondary" style="padding:2px 10px">취소</a>&nbsp;
+								&nbsp;&nbsp;<input type="submit" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;" value="등록">&nbsp;
+								<a href="list.do?page=<%= session.getAttribute("cpage") %>" class="btn" style="background: #A3A7AB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">취소</a>&nbsp;
 							</td>
 						</tr>
 					</form>	

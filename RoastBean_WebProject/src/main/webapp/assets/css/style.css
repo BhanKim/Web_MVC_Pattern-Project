@@ -1217,11 +1217,13 @@ section {
   transform: scale(1.1);
 }
 
+
 /*--------------------------------------------------------------
+
 # Chefs
 --------------------------------------------------------------*/
 .chefs {
-  background: url("../img/chefs-bg.jpg") center center no-repeat;
+  background: url("../img/aboutin.jpg") center center no-repeat;
   background-size: cover;
   padding: 60px 0;
   position: relative;
@@ -1322,6 +1324,7 @@ section {
     background-attachment: fixed;
   }
 }
+
 
 /*--------------------------------------------------------------
 # Testimonials
