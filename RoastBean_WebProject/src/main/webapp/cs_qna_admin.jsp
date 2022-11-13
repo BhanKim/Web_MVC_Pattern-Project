@@ -7,29 +7,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Roast Bean : My Order List</title>
+  <title>Roast Bean : QnA</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <style type="text/css">
-  .form-control3 {
-	  padding: 0.375rem 0.75rem;
-	  font-size: 1rem;
-	  font-weight: 400;
-  	  line-height: 1em;
-  	  text-align-center;
-	  color: #212529;
-	  background-color: #CFD4D9;
-	  background-clip: padding-box;
-	  border: 1px solid #ced4da;
-	  -webkit-appearance: none;
-	  -moz-appearance: none;
-	  appearance: none;
-	  border-radius: 0.375rem;
-	  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-	  height: 32px; 
-	}
-  </style>
-
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -58,8 +38,8 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-			<a class="nav-link scrollto" href="mypage_order_list.do">Notice</a>
-			<a class="nav-link scrollto" href="mypage_write_list.do">FAQ</a>
+			<a class="nav-link scrollto" href="notice_list_by_admin.do">Notice</a>
+			<a class="nav-link scrollto" href="faq_list_by_admin.do">FAQ</a>
 			<a class="nav-link scrollto" href="qna_list_by_admin.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">QnA</font></a>
 			&emsp;&emsp;&emsp;
 			<ol>
@@ -81,8 +61,8 @@
 						<thead>
 							<tr align="center">
 								<th style="width: 10%;">아이디</th>
-								<th style="width: 10%;">문의유형</th>
-								<th style="width: 40%;">제목 / 내용</th>
+								<th style="width: 15%;">문의유형</th>
+								<th style="width: 35%;">제목 / 내용</th>
 								<th style="width: 10%;">주문번호</th>
 								<th style="width: 20%;">작성일 / 수정일</th>
 								<th style="width: 10%;">처리상태</th>
@@ -101,7 +81,9 @@
 								<td>${dto.qna_write_seq}<input type="hidden" name="qna_write_seq" value="${dto.qna_write_seq}"></td>
 								<td align="left">
 									작성일 : ${dto.qna_write_initdate}<br>
+									<c:if test="${dto.qna_write_updatedate != null}">
 									수정일 : ${dto.qna_write_updatedate}
+									</c:if>
 								</td>
 								<c:choose>
 									<c:when test="${dto.qna_write_comment_content == null }">
@@ -118,10 +100,10 @@
 									<td></td>
 									<td align="right">ㄴ</td>
 									<td align="left" colspan="2">
-										<textarea name="qna_write_comment_content" rows="4" cols="70%"></textarea>
+										<textarea name="qna_write_comment_content" rows="3" cols="60%" style="background-color: #F2F1EF"></textarea>
 									</td>
 									<td><input type="hidden" name="submit_type" value="insert"></td>
-									<td valign="middle"><input type="submit" value="답변하기" style="background-color: #8784D6"></td>
+									<td valign="middle"><input type="submit" value="답변하기" class="btn" style="background-color: #F2BCBB"></td>
 								</tr>
 							</c:if>
 	
@@ -130,16 +112,17 @@
 									<td></td>
 									<td align="right" valign="top">ㄴ</td>
 									<td align="left" colspan="2">
-										<textarea name="qna_write_comment_content" rows="4" cols="70%">${dto.qna_write_comment_content}</textarea>
+										<textarea name="qna_write_comment_content" rows="3" cols="60%" style="background-color: #F2F1EF">${dto.qna_write_comment_content}</textarea>
 									</td>
 									<td align="left">
 										<input type="hidden" name="submit_type" value="update">
 										작성일 : ${dto.qna_write_comment_initdate}<br>
+										<c:if test="${dto.qna_write_comment_updatedate != null}">
 										수정일 : ${dto.qna_write_comment_updatedate}
+										</c:if>
 									</td>
-									<td valign="middle"><input type="submit" value="수정하기" style="background-color: #A3A7AB"></td>
+									<td valign="middle"><input type="submit" value="수정하기" class="btn" style="background-color: #A3A7AB"></td>
 								</tr>
-								<tr height="10px"></tr>
 							</c:if>
 						</form>
 						</c:forEach>

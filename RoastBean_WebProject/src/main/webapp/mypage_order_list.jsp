@@ -60,7 +60,7 @@
         <div class="d-flex justify-content-between align-items-center">
 			<a class="nav-link scrollto" href="mypage_info.do">My Information</a>
 			<a class="nav-link scrollto" href="mypage_order_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">My Order List</font></a>
-			<a class="nav-link scrollto" href="mypage_write_list.do">My Write</a>
+			<a class="nav-link scrollto" href="myboardlist.do?page=1">My Write</a>
 			<a class="nav-link scrollto" href="mypage_qna_list.do">My QnA</a>
 			&emsp;&emsp;&emsp;
 			<ol>

@@ -39,8 +39,6 @@ public class DtoQna {
 		this.qna_write_comment_deletedate = qna_write_comment_deletedate;
 	}
 
-
-
 	public DtoQna(int qna_write_seq, String qna_write_category, String qna_write_title, String qna_write_content,
 			String qna_write_initdate, String qna_write_comment_content, String qna_write_comment_initdate) {
 		super();
@@ -53,26 +51,22 @@ public class DtoQna {
 		this.qna_write_comment_initdate = qna_write_comment_initdate;
 	}
 
-
-
-	public DtoQna(int qna_write_seq, String user_id, String qna_write_category, String qna_write_title,
-			String qna_write_content, String qna_write_initdate, String qna_write_comment_content,
-			String qna_write_comment_initdate, String qna_write_comment_updatedate,
-			String qna_write_comment_deletedate) {
+	public DtoQna(String user_id, String qna_write_category, String qna_write_title, int qna_write_seq, String qna_write_content,
+			String qna_write_initdate, String qna_write_updatedate, int qna_write_comment_seq,
+			String qna_write_comment_content, String qna_write_comment_initdate, String qna_write_comment_updatedate) {
 		super();
-		this.qna_write_seq = qna_write_seq;
 		this.user_id = user_id;
 		this.qna_write_category = qna_write_category;
 		this.qna_write_title = qna_write_title;
+		this.qna_write_seq = qna_write_seq;
 		this.qna_write_content = qna_write_content;
 		this.qna_write_initdate = qna_write_initdate;
+		this.qna_write_updatedate = qna_write_updatedate;
+		this.qna_write_comment_seq = qna_write_comment_seq;
 		this.qna_write_comment_content = qna_write_comment_content;
 		this.qna_write_comment_initdate = qna_write_comment_initdate;
 		this.qna_write_comment_updatedate = qna_write_comment_updatedate;
-		this.qna_write_comment_deletedate = qna_write_comment_deletedate;
 	}
-
-
 
 	public int getQna_write_seq() {
 		return qna_write_seq;

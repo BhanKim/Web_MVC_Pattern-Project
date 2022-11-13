@@ -72,7 +72,7 @@
     
 	<section class="inner-page">
 		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;1:1 QnA</h3>
+				<h3>&nbsp;&nbsp;1:1 QnA</h3>
 				<br>
 				<div>
 					<span style="text-align: left;">
@@ -123,11 +123,13 @@
 							<tr align="left" valign="top">
 								<td align="left" style="width: 20%;">문의내용</td>
 								<td style="width: 80%;">
-									<textarea name="qna_write_content" rows="10" cols="90%"></textarea>
+									<textarea name="qna_write_content" rows="6" cols="80%"></textarea>
 								</td>
 							</tr>
 						</table>
-						<div align="right"><input type="submit" value="작성하기"></div>
+						<div align="right">
+						<button class="btn" style="background-color: #F2BCBB" onclick="location.href='mypage_qna_list.do'">내 질문 목록 보러가기</button>
+						<input type="submit" value="작성하기" class="btn" style="background-color: #F2BCBB"></div>
 						</form>
 					</div>
 					<div class="col-2"></div>

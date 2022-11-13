@@ -117,24 +117,7 @@
 				</div>
 				</div>
 				</div>
-
-				
-
-				
-				
-</section>      
- 
-
-
-    <section class="inner-page">
-      <div class="container">
-        <p>
-          Example inner page template
-        </p>
-      </div>
-    </section>
----------------------------------- 정보 쓰기란 종료 ----------------------------------
-
+	</section>      
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
