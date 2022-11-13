@@ -48,9 +48,51 @@
 	color: red;
 	pointer-events: none;
 }
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+}
+.pagination a.active {
+    padding-bottom: 6px;
+    border-bottom: 3px solid #111;
+}
 </style>
 </head>
 <body>
+<script type="text/javascript">
+	function buySubmit() {
+		var buyFrom = document.cartForm
+		if(${ID == null}) {
+			buyFrom.action = 'login.jsp'
+			alert('로그인을 먼저 해주세요.')
+			buyFrom.submit()
+		} else {
+			if(${productDetail.product_stock} < parseInt(document.getElementById('cQty').value)){
+				alert('재고가 없습니다.')
+			} else {
+				buyFrom.action = 'cartOrderInsert.do'
+				buyFrom.submit()
+			}
+		}
+	}
+	function buyCart() {
+		var buyFrom = document.cartForm
+		if(${ID == null}) {
+			buyFrom.action = 'login.jsp'
+			alert('로그인을 먼저 해주세요.')
+			buyFrom.submit()
+		} else {
+			if(${productDetail.product_stock} < parseInt(document.getElementById('cQty').value)){
+				alert('재고가 없습니다.')
+			} else {
+				alert('장바구니에 추가되었습니다.')
+				buyFrom.action = 'insertCart.do?product_id=<%=request.getParameter("product_id")%>'
+				buyFrom.submit()
+			}
+		}
+	}
+</script>
 	
 	<!-- ======= Header ======= -->
 	<%@include file = "header_innerpage.jsp" %>
@@ -82,7 +124,7 @@
 						</div>
 					</div>
 					<div class="col-lg-7 mt-5">
-						<form action="insertCart.do" method="post">
+						<form action="cartOrderInsert.do" method="post" name="cartForm">
 							<div class="">
 								<div class="card-body">
 									<h1 class="h2">${productDetail.product_name}</h1>
@@ -168,14 +210,14 @@
 										<div class="col d-grid">
 											<button
 												style="background: #F2BCBB; border: 0; padding: 10px 24px; color: #fff; transition: 0.4s; border-radius: 50px;"
-												type="submit" name="insertbuy" value="buy"
-												onclick="javascript: form.action='cartOrderInsert.do'">구매</button>
+												type="button" name="insertbuy" value="buy"
+												onclick="buySubmit()">구매</button>
 										</div>
 										<div class="col d-grid">
 											<button
 												style="background: #F2BCBB; border: 0; padding: 10px 24px; color: #fff; transition: 0.4s; border-radius: 50px;"
-												type="submit" name="insertcart" value="addtocart"
-												onclick="javascript: form.action='insertCart.do?product_id=<%=request.getParameter("product_id")%>'">장바구니
+												type="button" name="insertcart" value="addtocart"
+												onclick="buyCart()">장바구니
 												담기</button>
 										</div>
 									</div>
@@ -204,7 +246,7 @@
 							<td>${dto.rownum}</td>
 							<td>${dto.review_content}</td>
 							<td>${dto.user_nick}</td>
-							<td>${dto.review_date}</td>
+							<td><fmt:formatDate value="${dto.review_date}" pattern="yyyy-MM-dd KK:mm"/></td>
 							<td>
 								<c:forEach begin="1" end="${dto.review_star}">
 									<span class="star">★</span>
@@ -217,61 +259,74 @@
 					</c:forEach>
 				</table>
 				<div class="container" align="center">
-				<table>
-					<tr>
-						<td align="center" colspan="6">
-						<c:choose>
-							<c:when test="${(page.curPage - 1) < 1 }">
-								[ 처음 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productDetail.do?page=1&product_id=${productDetail.product_id}">[ 처음 ]</a>
-							</c:otherwise>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+							<c:choose>
+								<c:when test="${(page.curPage - 1) < 1 }">
+									<li class="page-item disabled"><a class="page-link">처음</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li class="page-item"><a class="page-link"
+										href="productDetail.do?page=1&product_id=${productDetail.product_id}">처음</a>
+									</li>
+								</c:otherwise>
 							</c:choose>
 							<!-- 이전 -->
 							<c:choose>
-							<c:when test="${(page.curPage - 1) < 1 }">
-								[ 이전 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productDetail.do?page=${page.curPage - 1 }&product_id=${productDetail.product_id}">[ 이전 ]</a>
-							</c:otherwise>
-							</c:choose>
-							
-							<!-- 개별 페이지 -->
-							<c:forEach var="fEach" begin="${page.startPage }" end="${page.endPage }" step="1">
-								<c:choose>
-								<c:when test="${page.curPage == fEach}">
-									&nbsp; [ ${fEach } ] &nbsp;
+								<c:when test="${(page.curPage - 1) < 1 }">
+									<li class="page-item disabled"><a class="page-link">이전</a>
+									</li>
 								</c:when>
 								<c:otherwise>
-									<a href="productDetail.do?page=${fEach }&product_id=${productDetail.product_id}">[ ${fEach } ]</a>&nbsp;
+									<li class="page-item"><a class="page-link"
+										href="productDetail.do?page=${page.curPage - 1 }&product_id=${productDetail.product_id}">이전</a>
+									</li>
 								</c:otherwise>
+							</c:choose>
+							<!-- 개별 페이지 -->
+							<c:forEach var="fEach" begin="${page.startPage }"
+								end="${page.endPage }" step="1">
+								<c:choose>
+									<c:when test="${page.curPage == fEach}">
+										<li class="page-item disabled"><a class="page-link active">&nbsp;${fEach }&nbsp;</a>
+										</li>
+									</c:when>
+									<c:otherwise>
+										<li class="page-item"><a class="page-link"
+											href="productDetail.do?page=${fEach }&product_id=${productDetail.product_id}">&nbsp;${fEach }&nbsp;</a>
+										</li>
+									</c:otherwise>
 								</c:choose>
 							</c:forEach>
-							
+
 							<!-- 다음 -->
 							<c:choose>
-							<c:when test="${(page.curPage + 1) > page.totalPage }">
-								[ 다음 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productDetail.do?page=${page.curPage + 1 }&product_id=${productDetail.product_id}">[ 다음 ]</a>
-							</c:otherwise>
+								<c:when test="${(page.curPage + 1) > page.totalPage }">
+									<li class="page-item disabled"><a class="page-link">다음</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li class="page-item"><a class="page-link"
+										href="productDetail.do?page=${page.curPage + 1 }&product_id=${productDetail.product_id}">다음</a>
+									</li>
+								</c:otherwise>
 							</c:choose>
 							<!-- 끝 -->
 							<c:choose>
-							<c:when test="${page.curPage == page.totalPage }">
-								[ 마지막 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productDetail.do?page=${page.totalPage }&product_id=${productDetail.product_id}">[ 마지막 ]</a>
-							</c:otherwise>
+								<c:when test="${page.curPage == page.totalPage }">
+									<li class="page-item disabled"><a class="page-link">마지막</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li class="page-item"><a class="page-link"
+										href="productDetail.do?page=${page.totalPage }&product_id=${productDetail.product_id}">마지막</a>
+									</li>
+								</c:otherwise>
 							</c:choose>
-							</td>
-						</tr>
-					</table>
-					</div>
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</section>
 	</main>

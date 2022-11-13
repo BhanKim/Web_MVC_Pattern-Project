@@ -161,17 +161,17 @@
 					<table class="table" style="vertical-align:middle;">
 						<tr>
 							<td align="center" style="background: #FBFAFA" width="150">주문하시는 분</td>
-							<td align="left"><input type="text" size="20" name="order_name"></td>
+							<td align="left"><input type="text" size="20" name="order_name" value="${cartUserInfo.user_name}"></td>
 						</tr>
 						<tr>
 							<td align="center" style="background: #FBFAFA" >주소</td>
 							<td align="left">
-								<input name="order_zipcode" class="mb-1" size="20" id="sample4_postcode" readonly="true" placeholder="우편번호" type="text"> - 
+								<input value="${cartUserInfo.user_addresszipcode}" name="order_zipcode" class="mb-1" size="20" id="sample4_postcode" readonly="true" placeholder="우편번호" type="text" value=""> - 
 								<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호" style="background: #F2BCBB; border: 0; padding: 3px 20px; color: #fff; transition: 0.4s; border-radius: 50px;"><br>
-								<input name="order_address1" class="mb-1" size="50" id="sample4_roadAddress" readonly="true" placeholder="도로명주소" type="text"><br>
-								<input name="order_address2" class="mb-1" size="50" id="sample4_jibunAddress" readonly="true" placeholder="지번주소" type="text"><br>
+								<input value="${cartUserInfo.user_address1}" name="order_address1" class="mb-1" size="50" id="sample4_roadAddress" readonly="true" placeholder="도로명주소" type="text"><br>
+								<input value="${cartUserInfo.user_address2}" name="order_address2" class="mb-1" size="50" id="sample4_jibunAddress" readonly="true" placeholder="지번주소" type="text"><br>
 								<span id="guide" style="color:#999;display:none"></span>
-								<input name="order_address3"  size="50" type="text" id="sample4_detailAddress" placeholder="상세주소">
+								<input value="${cartUserInfo.user_address3}" name="order_address3"  size="50" type="text" id="sample4_detailAddress" placeholder="상세주소">
 							</td>
 						</tr>
 						<tr>
@@ -185,14 +185,14 @@
 									<option value="018">018</option>
 									<option value="019">019</option>
 								</select> - 
-								<input name="order_telno2" type="text" size="5" maxlength='4'> - 
-								<input name="order_telno3" type="text" size="5" maxlength='4'>
+								<input value="${cartUserInfo.user_telno2}" name="order_telno2" type="text" size="5" maxlength='4'> - 
+								<input value="${cartUserInfo.user_telno3}" name="order_telno3" type="text" size="5" maxlength='4'>
 							</td>
 						</tr>
 						<tr>
 							<td align="center" style="background: #FBFAFA">이메일</td>
-							<td align="left"><input type="text" name="order_email1"> @ 
-								<input name="order_email2" value="" type="text" id="email2" readonly="true">
+							<td align="left"><input type="text" name="order_email1" value="${cartUserInfo.user_email1}"> @ 
+								<input name="order_email2" value="" type="text" id="email2" readonly="true" value="${cartUserInfo.user_email2}">
 							<select id="email3" onChange="mailcheck()">
 								<option value="" selected="selected">- 이메일 선택 -</option>
 								<option value="naver.com">naver.com</option>

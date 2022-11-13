@@ -8,6 +8,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.rb.dto.DtoUser;
 import com.rb.dto.DtoUserLogin;
 
 public class DaoUserLogin {
@@ -141,5 +142,42 @@ public class DaoUserLogin {
 		}
 		return check;
 	} // login
+	
+	public DtoUser cartCount(String uuser_id) {
+		DtoUser dtos = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query1 = "select sum(cart_qty) as cartCount from cart where user_id = '" + uuser_id + "'";
+
+			preparedStatement = connection.prepareStatement(query1);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				int cartCount = resultSet.getInt("cartCount");
+
+				dtos = new DtoUser(cartCount);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+	}
 
 } // End

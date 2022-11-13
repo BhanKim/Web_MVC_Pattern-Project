@@ -36,7 +36,18 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
-
+<style type="text/css">
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+}
+.pagination a.active {
+    padding-bottom: 6px;
+    border-bottom: 3px solid #111;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
 </head>
 <body>
 	<!-- ======= Header ======= -->
@@ -96,60 +107,75 @@
 				 </div>
 				</div>
 				</c:forEach>
-				<table>
-					<tr>
-						<td align="center" colspan="6">
-						<c:choose>
-							<c:when test="${(page.curPage - 1) < 1 }">
-								[ 처음 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productList.do?page=1">[ 처음 ]</a>
-							</c:otherwise>
+				<div class="container" align="center">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+							<c:choose>
+								<c:when test="${(page.curPage - 1) < 1 }">
+									<li class="page-item disabled"><a class="page-link">처음</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li class="page-item"><a class="page-link"
+										href="productList.do?page=1">처음</a>
+									</li>
+								</c:otherwise>
 							</c:choose>
 							<!-- 이전 -->
 							<c:choose>
-							<c:when test="${(page.curPage - 1) < 1 }">
-								[ 이전 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productList.do?page=${page.curPage - 1 }">[ 이전 ]</a>
-							</c:otherwise>
-							</c:choose>
-							
-							<!-- 개별 페이지 -->
-							<c:forEach var="fEach" begin="${page.startPage }" end="${page.endPage }" step="1">
-								<c:choose>
-								<c:when test="${page.curPage == fEach}">
-									&nbsp;[ ${fEach } ] &nbsp;
+								<c:when test="${(page.curPage - 1) < 1 }">
+									<li class="page-item disabled"><a class="page-link">이전</a>
+									</li>
 								</c:when>
 								<c:otherwise>
-									<a href="productList.do?page=${fEach }">[ ${fEach } ]</a>&nbsp;
+									<li class="page-item"><a class="page-link"
+										href="productList.do?page=${page.curPage - 1 }">이전</a>
+									</li>
 								</c:otherwise>
+							</c:choose>
+							<!-- 개별 페이지 -->
+							<c:forEach var="fEach" begin="${page.startPage }"
+								end="${page.endPage }" step="1">
+								<c:choose>
+									<c:when test="${page.curPage == fEach}">
+										<li class="page-item disabled"><a class="page-link active">&nbsp;${fEach }&nbsp;</a>
+										</li>
+									</c:when>
+									<c:otherwise>
+										<li class="page-item"><a class="page-link"
+											href="productList.do?page=${fEach }">&nbsp;${fEach }&nbsp;</a>
+										</li>
+									</c:otherwise>
 								</c:choose>
 							</c:forEach>
-							
+
 							<!-- 다음 -->
 							<c:choose>
-							<c:when test="${(page.curPage + 1) > page.totalPage }">
-								[ 다음 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productList.do?page=${page.curPage + 1 }">[ 다음 ]</a>
-							</c:otherwise>
+								<c:when test="${(page.curPage + 1) > page.totalPage }">
+									<li class="page-item disabled"><a class="page-link">다음</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li class="page-item"><a class="page-link"
+										href="productList.do?page=${page.curPage + 1 }">다음</a>
+									</li>
+								</c:otherwise>
 							</c:choose>
 							<!-- 끝 -->
 							<c:choose>
-							<c:when test="${page.curPage == page.totalPage }">
-								[ 마지막 ]
-							</c:when>
-							<c:otherwise>
-								<a href="productList.do?page=${page.totalPage }">[ 마지막 ]</a>
-							</c:otherwise>
+								<c:when test="${page.curPage == page.totalPage }">
+									<li class="page-item disabled"><a class="page-link">마지막</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li class="page-item"><a class="page-link"
+										href="productList.do?page=${page.totalPage }">마지막</a>
+									</li>
+								</c:otherwise>
 							</c:choose>
-							</td>
-						</tr>
-					</table>
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</div>
 	</section>

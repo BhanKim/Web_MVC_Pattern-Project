@@ -43,6 +43,7 @@ import com.rb.command.CommandManageUserOrderSum;
 import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
 import com.rb.command.CommandOrder;
+import com.rb.command.CommandOrderInsert;
 import com.rb.command.CommandProductDetail;
 import com.rb.command.CommandProductList;
 import com.rb.command.CommandUserCheckId;
@@ -291,6 +292,11 @@ public class FrontController extends HttpServlet {
 			viewPage = "cartOrder.do";
 			break;
 		case ("/order.do"):
+			command = new CommandOrderInsert();
+			command.execute(request, response);
+			viewPage = "orderUpdate.do";
+			break;
+		case ("/orderUpdate.do"):
 			command = new CommandOrder();
 			command.execute(request, response);
 			viewPage = "index.jsp";

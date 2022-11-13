@@ -18,6 +18,7 @@ public class DtoUser {
 	String user_initdate;
 	String user_updatedate;
 	String user_deletedate;
+	int cartCount;
 	
 	public DtoUser() {
 		// TODO Auto-generated constructor stub
@@ -67,7 +68,10 @@ public class DtoUser {
 		this.user_initdate = user_initdate;
 	}
 
-
+	public DtoUser(int cartCount) {
+		super();
+		this.cartCount = cartCount;
+	}
 
 	public String getUser_id() {
 		return user_id;
@@ -195,6 +199,18 @@ public class DtoUser {
 
 	public void setUser_deletedate(String user_deletedate) {
 		this.user_deletedate = user_deletedate;
+	}
+
+
+
+	public int getCartCount() {
+		return cartCount;
+	}
+
+
+
+	public void setCartCount(int cartCount) {
+		this.cartCount = cartCount;
 	}
 	
 	

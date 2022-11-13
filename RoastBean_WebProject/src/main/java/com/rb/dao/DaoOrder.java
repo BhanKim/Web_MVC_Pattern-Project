@@ -1,8 +1,8 @@
 package com.rb.dao;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -21,6 +21,33 @@ public class DaoOrder {
 			e.printStackTrace();
 		}
 	}
+	
+	public void subtractionQty(String user_id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query1 = "update product as p, (select cart_qty, product_id, user_id from cart) as c ";
+			String query2 =	"set p.product_stock = (p.product_stock - c.cart_qty) ";
+			String query3 =	"where p.product_id = c.product_id and c.user_id = ?";
+			
+			preparedStatement = connection.prepareStatement(query1 + query2 + query3);
+			preparedStatement.setString(1, user_id);
+			preparedStatement.executeUpdate();
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} 
 
 	public void insertOrder(String user_id) {
 
