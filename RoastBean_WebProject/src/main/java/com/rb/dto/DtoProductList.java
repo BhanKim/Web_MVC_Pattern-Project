@@ -19,6 +19,8 @@ public class DtoProductList {
 	int order_seq;
 	int order_qty;
 	int order_price;
+	double avgStar;
+	int sumReview;
 	
 	public DtoProductList(int product_id, String product_name, int product_weight, String product_info,
 			int product_price, int product_stock, String product_image, String category_type, String category_acidity, String category_aroma, String category_body, String category_sweet) {
@@ -60,6 +62,12 @@ public class DtoProductList {
 		this.order_seq = order_seq;
 		this.order_qty = order_qty;
 		this.order_price = order_price;
+	}
+	
+	public DtoProductList(double avgStar, int sumReview) {
+		super();
+		this.avgStar = avgStar;
+		this.sumReview = sumReview;
 	}
 
 	public int getProduct_id() {
@@ -180,6 +188,22 @@ public class DtoProductList {
 
 	public void setOrder_price(int order_price) {
 		this.order_price = order_price;
+	}
+
+	public double getAvgStar() {
+		return avgStar;
+	}
+
+	public void setAvgStar(double avgStar) {
+		this.avgStar = avgStar;
+	}
+
+	public int getSumReview() {
+		return sumReview;
+	}
+
+	public void setSumReview(int sumReview) {
+		this.sumReview = sumReview;
 	}
 	
 	

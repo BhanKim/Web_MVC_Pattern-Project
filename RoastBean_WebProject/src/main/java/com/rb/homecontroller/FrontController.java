@@ -30,8 +30,6 @@ import com.rb.command.CommandCartList;
 import com.rb.command.CommandCommentdelete;
 import com.rb.command.CommandCommentupdate;
 import com.rb.command.CommandCommentwrite;
-import com.rb.command.CommandCsQnaAdminAction;
-import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
@@ -234,18 +232,18 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "cs_qna.jsp";
 			break;
-		// QnA:관리자:전체리스트 불러오기 Select / 완료 22.11.13_21:50_SangwonKim
-		case ("/qna_list_by_admin.do"):
-			command = new CommandCsQnaList();
-			command.execute(request, response);
-			viewPage = "cs_qna_admin.jsp";
-			break;
-		// QnA:관리자:질문에 답변하기,수정하기 Insert&Update / 완료 22.11.13_11:00_SangwonKim
-		case ("/qna_answer_by_admin.do"):
-			command = new CommandCsQnaAdminAction();
-			command.execute(request, response);
-			viewPage = "qna_list_by_admin.do";
-			break;
+//		// QnA:관리자:전체리스트 불러오기 Select / 완료 22.11.13_21:50_SangwonKim
+//		case ("/qna_list_by_admin.do"):
+//			command = new CommandCsQnaList();
+//			command.execute(request, response);
+//			viewPage = "cs_qna_admin.jsp";
+//			break;
+//		// QnA:관리자:질문에 답변하기,수정하기 Insert&Update / 완료 22.11.13_11:00_SangwonKim
+//		case ("/qna_answer_by_admin.do"):
+//			command = new CommandCsQnaAdminAction();
+//			command.execute(request, response);
+//			viewPage = "qna_list_by_admin.do";
+//			break;
 		// --------------------- 상원 Controller End -----------------------
 
 		// --------------------- 성진 Controller Start -----------------------

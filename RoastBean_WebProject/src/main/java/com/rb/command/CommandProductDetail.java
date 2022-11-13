@@ -40,8 +40,9 @@ public class CommandProductDetail implements Command {
         request.setAttribute("reviewList", dto);
         PageInfo pinfo = dao.articlePageReview(nPage, product_id);
 		request.setAttribute("page", pinfo);
-        
 		
+		DtoProductList dtoss = dao.avgCountStar(product_id);
+		request.setAttribute("reviewAvg", dtoss);
 
 	}
 
