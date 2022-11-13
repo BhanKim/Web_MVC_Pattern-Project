@@ -68,19 +68,16 @@
 		 <table>
 		 <tr>
 		    <td>금일 매출</td>
-		    <td><input type="text" readonly="readonly" size="40" value="${order_date_sum }"></td>
+		    <td><input type="text" readonly="readonly" size="30" value="${order_date_sum }"></td>
 		 </tr>
 		 </table>
 		</form>
 		
 	  </div>
+	  
 	</section>
 	
-<h3>jsp 파일 새로 복사해서 작업해주세요!</h3><br>
-정보는 이 공간에 넣어서 실험해보시면 됩니다!<br>
-자유롭게 작성해주세요.<br>
-cf. 기존의 부트스트랩을 사용하여 디자인 하실 분은 해당 부트스트랩 링크 위에 추가 하시면 되겠습니다.
-    
+   
     <section class="inner-page">
       <div class="container">
         <p>

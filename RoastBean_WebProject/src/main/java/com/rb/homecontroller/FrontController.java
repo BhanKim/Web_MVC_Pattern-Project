@@ -381,6 +381,9 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_main.jsp";
 			break;
+		case ("/ManageMain.do"):
+			viewPage = "ManageUserOrderSum.do";
+			break;
 		// --------------------- 수빈 Controller End -----------------------
 			
 		// --------------------- 혁&티뱃 Controller Start ---------------------

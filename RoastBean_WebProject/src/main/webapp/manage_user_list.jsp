@@ -49,7 +49,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
+          <h2>User List</h2>
           <ol>
             <li><a href="manage_main.jsp">Home</a></li>
             <li>Inner Page</li>
@@ -57,14 +57,15 @@
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
+    </section> 
+    <!--End Breadcrumbs Section -->
 
 <!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
 	<div style="text-align: center;">
 	   <br>
 	   <br> 
-	      &nbsp;&nbsp;&nbsp;<h2>회원정보 리스트</h2>&nbsp;&nbsp;&nbsp;
-	      
+<!-- 	      &nbsp;&nbsp;&nbsp;<h2>회원정보 리스트</h2>&nbsp;&nbsp;&nbsp;
+ -->	      
 	      <table style="margin-left: auto; margin-right: auto;" border="1">
 	         <tr>
 		        <td>아이디</td>
@@ -80,7 +81,7 @@
 		         <td>${dto.user_id }</td>
 		         <td>${dto.user_pw }</td>
 		         <td>${dto.user_name }</td>
-		         <td>${dto.user_birthdate }</td>
+		         <td>${dto.user_birthday }</td>
 		         <td>${dto.user_gender }</td>
 		         <td>${dto.user_email }</td>
 		         <td>${dto.user_telno }</td>		      
