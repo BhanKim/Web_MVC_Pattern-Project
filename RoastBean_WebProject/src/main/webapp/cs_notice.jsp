@@ -7,29 +7,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Roast Bean : My QnA List</title>
+  <title>Roast Bean : Notice</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <style type="text/css">
-  .form-control3 {
-	  padding: 0.375rem 0.75rem;
-	  font-size: 1rem;
-	  font-weight: 400;
-  	  line-height: 1em;
-  	  text-align-center;
-	  color: #212529;
-	  background-color: #CFD4D9;
-	  background-clip: padding-box;
-	  border: 1px solid #ced4da;
-	  -webkit-appearance: none;
-	  -moz-appearance: none;
-	  appearance: none;
-	  border-radius: 0.375rem;
-	  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-	  height: 32px; 
-	}
-  </style>
-
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -48,101 +28,60 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+
 </head>
+
 <body>
   <!-- ======= Header ======= -->
 	<%@include file = "header_innerpage.jsp" %>
-  <!-- End Header -->
+
   <main id="main">
     <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-			<a class="nav-link scrollto" href="mypage_info.do">My Information</a>
-			<a class="nav-link scrollto" href="mypage_order_list.do">My Order List</a>
-			<a class="nav-link scrollto" href="myboardlist.do?page=1">My Write</a>
-			<a class="nav-link scrollto" href="mypage_qna_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">My QnA</font></a>
+			<a class="nav-link scrollto" href="notice_list_by_user.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">Notice</font></a>
+			<a class="nav-link scrollto" href="faq_list_by_user.do">FAQ</a>
+			<a class="nav-link scrollto" href="qna_question_by_user.do">QnA</a>
 			&emsp;&emsp;&emsp;
 			<ol>
 				<li><a href="index.jsp">Home</a></li>
-				<li>My page</li>
+				<li>Customer Service</li>
 			</ol>
         </div>
       </div>
     </section><!-- End Breadcrumbs Section -->
-    
 	<section class="inner-page">
-		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;My QnA List</h3>
-				<hr style="border: solid 2px red;">
-				<br>
-				<table class="table table-hover" style="vertical-align: middle;">
-					<thead>
-						<tr align="center">
-							<th style="width: 15%;">문의유형</th>
-							<th style="width: 45%;">제목 / 내용</th>
-							<th style="width: 10%;">문의번호</th>
-							<th style="width: 20%;">작성일 / 수정일</th>
-							<th style="width: 10%;">처리상태</th>
-						</tr>
-					</thead>
-					<c:forEach items="${myQnaList}" var="dto">
-					<form action="qna_update_by_user.do" method="post">
-						<tr style="background-color: #A3A7AB;"><td colspan="6"></td></tr>
-						<tr align="center">
-							<td>${dto.qna_write_category}</td>
-							<c:choose>
-								<c:when test="${dto.qna_write_comment_content == null }">
-									<td align="left" valign="top">
-										<input type="text" name="qna_write_title" value="${dto.qna_write_title}" size="50%"><br>
-										<textarea rows="3" cols="70%" name="qna_write_content" style="background-color: #F2F1EF">${dto.qna_write_content}</textarea> 
-									</td>
-								</c:when><c:otherwise>
-									<td align="left">
-									제목 : ${dto.qna_write_title}<br>
-									내용 : ${dto.qna_write_content}
-									</td>
-								</c:otherwise>
-							</c:choose>
-							<td>${dto.qna_write_seq}<input type="hidden" name="qna_write_seq" value="${dto.qna_write_seq}"></td>
-							<td align="left">
-								작성일 : ${dto.qna_write_initdate}<br>
-								<c:if test="${dto.qna_write_updatedate != null}">
-								수정일 : ${dto.qna_write_updatedate}
-								</c:if>
-							</td>
-							<c:choose>
-								<c:when test="${dto.qna_write_comment_content == null }">
-								<td valign="middle">답변예정<br><br><input type="submit" value="수정하기" class="btn" style="background-color: #F2BCBB"></td>
-								</c:when><c:otherwise>
-								<td></td>
-								</c:otherwise>
-							</c:choose>
-						</tr>
-						
-						<c:if test="${dto.qna_write_comment_content != null}">
-						<tr align="center" style="background-color: #F2F1EF;">
-							<td>관리자</td>
-							<td align="left">${dto.qna_write_comment_content}</td>
-							<td></td>
-							<td align="left">
-								작성일 : ${dto.qna_write_comment_initdate}<br>
-								<c:if test="${dto.qna_write_comment_updatedate != null}">
-								수정일 : ${dto.qna_write_comment_updatedate}
-								</c:if>
-							</td>
-							<c:choose>
-							<c:when test="${dto.qna_write_comment_content == null }">
-							<td>답변예정</td>
-							</c:when><c:otherwise>
-							<td>답변완료</td>
-							</c:otherwise>
-							</c:choose>
-						</tr>
-						</c:if>
-					</form>
-					</c:forEach>
-				</table>
+	  <div class="container">
+		<h2>&nbsp;&nbsp;Notice</h2><br>
+		<hr style="border: solid 2px red;">
+		<br>
+		<div class="col">
+				<div>
+					<table class="table table-hover" style="vertical-align: middle;">
+						<thead>
+							<tr align="center">
+								<th style="width: 20%;">번호</th>
+								<th style="width: 50%;">제목 / 내용</th>
+								<th style="width: 30%;">작성일</th>
+							</tr>
+						</thead>
+						<c:forEach items="${userNoticeList}" var="dto">
+					 	<form action="qna_answer_by_admin.do" method="post">
+							<tr style="background-color: #A3A7AB;"><td colspan="6"></td></tr>
+							<tr align="center" valign="top">
+								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
+								<td>${dto.notice_write_seq}</td>
+								<td align="left">
+									제목 : ${dto.notice_write_title}<br>
+									내용 : ${dto.notice_write_content}
+								</td>
+								<td>${dto.notice_write_initdate}<br></td>
+							</tr>
+						</form>
+						</c:forEach>
+					</table>
+				</div>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
 			 	<%-- <div class="container" align="center">
 				<table>
@@ -202,25 +141,21 @@
 				</div> --%>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
 			</div>
+		</div>
 	</section>
-  </main><!-- End #main -->
-
+ </main><!-- End #main -->
   <!-- ======= Footer ======= -->
 	<%@include file = "footer.jsp" %>
   <!-- End Footer -->
-
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

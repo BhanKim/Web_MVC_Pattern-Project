@@ -30,7 +30,11 @@ import com.rb.command.CommandCartList;
 import com.rb.command.CommandCommentdelete;
 import com.rb.command.CommandCommentupdate;
 import com.rb.command.CommandCommentwrite;
+import com.rb.command.CommandCsNoticeListUser;
+import com.rb.command.CommandCsQnaAdminAction;
+import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
+import com.rb.command.CommandCsQnaUserUpdate;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -230,20 +234,32 @@ public class FrontController extends HttpServlet {
 		case ("/qna_question_by_user.do"):
 			command = new CommandCsQnaQuestion();
 			command.execute(request, response);
-			viewPage = "cs_qna.jsp";
+			viewPage = "mypage_qna_list.do";
 			break;
-//		// QnA:관리자:전체리스트 불러오기 Select / 완료 22.11.13_21:50_SangwonKim
-//		case ("/qna_list_by_admin.do"):
-//			command = new CommandCsQnaList();
-//			command.execute(request, response);
-//			viewPage = "cs_qna_admin.jsp";
-//			break;
-//		// QnA:관리자:질문에 답변하기,수정하기 Insert&Update / 완료 22.11.13_11:00_SangwonKim
-//		case ("/qna_answer_by_admin.do"):
-//			command = new CommandCsQnaAdminAction();
-//			command.execute(request, response);
-//			viewPage = "qna_list_by_admin.do";
-//			break;
+		// QnA:유저:질문하기 Update / 완료 22.11.14_SangwonKim
+		case ("/qna_update_by_user.do"):
+			command = new CommandCsQnaUserUpdate();
+			command.execute(request, response);
+			viewPage = "mypage_qna_list.do";
+			break;
+		// QnA:관리자:전체리스트 불러오기 Select / 완료 22.11.13_21:50_SangwonKim
+		case ("/qna_list_by_admin.do"):
+			command = new CommandCsQnaList();
+			command.execute(request, response);
+			viewPage = "cs_qna_admin.jsp";
+			break;
+		// QnA:관리자:질문에 답변하기,수정하기 Insert&Update / 완료 22.11.13_11:00_SangwonKim
+		case ("/qna_answer_by_admin.do"):
+			command = new CommandCsQnaAdminAction();
+			command.execute(request, response);
+			viewPage = "qna_list_by_admin.do";
+			break;
+		// Notice 불러오기 Select / 완료 22.11.14_11:00_SangwonKim
+		case ("/notice_list_by_user.do"):
+			command = new CommandCsNoticeListUser();
+			command.execute(request, response);
+			viewPage = "cs_notice.jsp";
+			break;
 		// --------------------- 상원 Controller End -----------------------
 
 		// --------------------- 성진 Controller Start -----------------------

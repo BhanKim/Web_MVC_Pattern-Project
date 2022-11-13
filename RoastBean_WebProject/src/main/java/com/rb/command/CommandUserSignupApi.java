@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.rb.dao.DaoUserLogin;
 import com.rb.dao.DaoUserSignup;
+import com.rb.dto.DtoUser;
 
 public class CommandUserSignupApi implements Command {
 
@@ -32,6 +34,11 @@ public class CommandUserSignupApi implements Command {
 		session.setAttribute("ID", user_email);
 		session.setAttribute("NICK", user_nick);
 		session.setAttribute("API", "1");
+		
+		String uuser_id = (String) session.getAttribute("ID");
+        DaoUserLogin daos = new DaoUserLogin();
+        DtoUser dtos = daos.cartCount(uuser_id);
+		session.setAttribute("CARTCOUNT", dtos);
 
 	}
 
