@@ -48,7 +48,7 @@
 					<li class="dropdown"><a href="notice_list_by_user.do"><span>CUSTOMER SERVICE</span></a>
 						<ul>
 							<li><a href="notice_list_by_user.do">NOTICE</a></li>
-							<li><a href="faq_list_by_user.do">FAQ</a></li>
+							<li><a href="cs_faq.jsp">FAQ</a></li>
 							<li><a href="qna_question_by_user.do">QnA</a></li>
 						</ul>
 					<li>&emsp;&emsp;</li>
@@ -72,7 +72,7 @@
 						<li class="dropdown"><a href="notice_list_by_user.do"><span>CUSTOMER SERVICE</span></a>
 							<ul>
 								<li><a href="notice_list_by_user.do">NOTICE</a></li>
-								<li><a href="faq_list_by_user.do">FAQ</a></li>
+								<li><a href="cs_faq.jsp">FAQ</a></li>
 								<li><a href="qna_question_by_user.do">QnA</a></li>
 							</ul>
 						</li>
@@ -84,7 +84,7 @@
 						<li class="dropdown"><a href="notice_list_by_admin.do"><span>CUSTOMER SERVICE</span></a>
 							<ul>
 								<li><a href="notice_list_by_admin.do">NOTICE</a></li>
-								<li><a href="faq_list_by_admin.do">FAQ</a></li>
+								<li><a href="cs_faq.jsp">FAQ</a></li>
 								<li><a href="qna_list_by_admin.do">QnA</a></li>
 							</ul>
 						</li>

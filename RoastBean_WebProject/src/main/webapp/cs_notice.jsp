@@ -68,7 +68,7 @@
 						</thead>
 						<c:forEach items="${userNoticeList}" var="dto">
 					 	<form action="qna_answer_by_admin.do" method="post">
-							<tr style="background-color: #A3A7AB;"><td colspan="6"></td></tr>
+							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>${dto.notice_write_seq}</td>
