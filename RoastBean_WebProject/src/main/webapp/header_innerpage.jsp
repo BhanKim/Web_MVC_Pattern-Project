@@ -30,11 +30,11 @@
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do">COFFEE SHOP</a></li>
-					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
+					<li class="dropdown"><a href="cs_notice.jsp"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="cs_notice_list.do">NOTICE</a></li>
-							<li><a href="cs_faq_list.do">FAQ</a></li>
-							<li><a href="cs_qna_list.do">QnA</a></li>
+							<li><a href="cs_notice.jsp">NOTICE</a></li>
+							<li><a href="cs_faq.jsp">FAQ</a></li>
+							<li><a href="cs_qna.jsp">QnA</a></li>
 						</ul>
 					<li>&emsp;&emsp;&emsp;</li>
 					<li></li>
@@ -45,15 +45,19 @@
 			<!-- success login -->
 			<c:if test="${ID != null }">
 				<ul>
-					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
+					<li class="dropdown"><a href="#about"><span>ABOUT</span></a>
+						<ul>
+							<li><a href="companyinfo.jsp">Information</a></li>
+							<li><a href="companylocation.jsp">Location</a></li>
+						</ul>
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do">COFFEE SHOP</a></li>
-					<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
+					<li class="dropdown"><a href="cs_notice.jsp"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="cs_notice_list.do">NOTICE</a></li>
-							<li><a href="cs_faq_list.do">FAQ</a></li>
-							<li><a href="cs_qna_list.do">QnA</a></li>
+							<li><a href="cs_notice.jsp">NOTICE</a></li>
+							<li><a href="cs_faq.jsp">FAQ</a></li>
+							<li><a href="cs_qna.jsp">QnA</a></li>
 						</ul>
 					</li>
 					<li>&emsp;&emsp;&emsp;</li>

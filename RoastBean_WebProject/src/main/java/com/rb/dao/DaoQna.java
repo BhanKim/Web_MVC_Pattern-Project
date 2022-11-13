@@ -70,5 +70,33 @@ public class DaoQna {
 		return dtos;
 	} // list
 	
+	// customer service > QnA Insert
+	public void userQuestionInsert(String user_id, String qna_write_category, String qna_write_title, String qna_write_content) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into qna_write (user_id, qna_write_category, qna_write_title, qna_write_content, qna_write_initdate) values (?,?,?,?,now()) ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, user_id);
+			preparedStatement.setString(2, qna_write_category);
+			preparedStatement.setString(3, qna_write_title);
+			preparedStatement.setString(4, qna_write_content);
+			
+			preparedStatement.executeUpdate();
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // customer service > QnA Insert
 
 }
