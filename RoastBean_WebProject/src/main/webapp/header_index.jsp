@@ -47,7 +47,11 @@
 			<!-- success login -->
 			<c:if test="${ID != null }">
 				<ul>
-					<li><a class="nav-link scrollto" href="#about">ABOUT</a></li>
+					<li class="dropdown"><a href="#about"><span>ABOUT</span></a>
+						<ul>
+							<li><a href="companyinfo.jsp">Information</a></li>
+							<li><a href="companylocation.jsp">Location</a></li>
+						</ul>
 					<li><a class="nav-link scrollto" href="list.do?page=1">COMMUNITY</a></li>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>

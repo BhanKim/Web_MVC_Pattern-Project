@@ -74,7 +74,7 @@
         <div class="d-flex justify-content-between align-items-center">
 			<a class="nav-link scrollto" href="mypage_info.do"><font color="8784D6" style="font-size: 1.4em; font-weight: bold;">내 정보</font></a>
 			<a class="nav-link scrollto" href="mypage_order_list.do">내 구매 목록</a>
-			<a class="nav-link scrollto" href="mypage_write_list.do">내가 쓴 글</a>
+			<a class="nav-link scrollto" href="myboardlist.do?page=1">내가 쓴 글</a>
 			<a class="nav-link scrollto" href="mypage_qna_list.do">내 질문</a>
 			&emsp;&emsp;&emsp;
 			<ol>
