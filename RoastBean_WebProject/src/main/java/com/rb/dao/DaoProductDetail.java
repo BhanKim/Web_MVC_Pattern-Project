@@ -216,6 +216,45 @@ public class DaoProductDetail {
 
     		return pinfo;
     	}
+    	
+    	public DtoProductList avgCountStar(int pproduct_id) {
+            DtoProductList dtos = null;
+            Connection connection = null;
+            PreparedStatement preparedStatement = null;
+            ResultSet resultSet = null;
+
+            try {
+                
+                connection = dataSource.getConnection();
+
+                String query = "select (sum(review_star) / count(review_star)) as avgStar, count(review_star) as sumReview from review where product_id = " + pproduct_id;
+                
+                preparedStatement = connection.prepareStatement(query);
+                resultSet = preparedStatement.executeQuery();
+
+                if (resultSet.next()) {
+                	double avgStar = resultSet.getInt("avgStar");
+                    int sumReview = resultSet.getInt("sumReview");
+
+                    dtos = new DtoProductList(avgStar, sumReview);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (resultSet != null)
+                        resultSet.close();
+                    if (preparedStatement != null)
+                        preparedStatement.close();
+                    if (connection != null)
+                        connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return dtos;
+        } 
 
 }
 

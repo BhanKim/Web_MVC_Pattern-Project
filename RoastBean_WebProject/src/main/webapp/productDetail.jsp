@@ -42,6 +42,11 @@
 	color: red;
 }
 
+.star2 {
+	font-size: 2rem;
+	color: red;
+}
+
 .star span {
 	width: 0;
 	left: 0;
@@ -228,7 +233,12 @@
 				</div>
 			</div>
 			<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;Review</h3>
+				<table class="table">
+				<tr>
+					<td align="left"><h2 style="display:inline;">&nbsp;&nbsp;&nbsp;${reviewAvg.sumReview}</h2><h5 style="display:inline; color: rgb(123, 132, 141);">&nbsp;&nbsp;reviews</h5></td>
+					<td align="right"><h2><span class="star2">★</span>&nbsp;&nbsp;${reviewAvg.avgStar}</h2><td>
+				</tr>
+				</table>
 				<hr style="border: solid 2px red;">
 				<br>
 				<table class="table table-hover">
