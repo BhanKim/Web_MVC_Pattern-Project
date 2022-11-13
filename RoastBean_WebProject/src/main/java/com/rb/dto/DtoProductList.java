@@ -16,6 +16,9 @@ public class DtoProductList {
 	String category_aroma;
 	String category_body;
 	String category_sweet;
+	int order_seq;
+	int order_qty;
+	int order_price;
 	
 	public DtoProductList(int product_id, String product_name, int product_weight, String product_info,
 			int product_price, int product_stock, String product_image, String category_type, String category_acidity, String category_aroma, String category_body, String category_sweet) {
@@ -44,6 +47,19 @@ public class DtoProductList {
 		this.product_price = product_price;
 		this.product_stock = product_stock;
 		this.product_image = product_image;
+	}
+	
+
+	public DtoProductList(int product_id, String product_name, int product_weight, String product_image, int order_seq,
+			int order_qty, int order_price) {
+		super();
+		this.product_id = product_id;
+		this.product_name = product_name;
+		this.product_weight = product_weight;
+		this.product_image = product_image;
+		this.order_seq = order_seq;
+		this.order_qty = order_qty;
+		this.order_price = order_price;
 	}
 
 	public int getProduct_id() {
@@ -141,5 +157,31 @@ public class DtoProductList {
 	public void setCategory_sweet(String category_sweet) {
 		this.category_sweet = category_sweet;
 	}
+
+	public int getOrder_seq() {
+		return order_seq;
+	}
+
+	public void setOrder_seq(int order_seq) {
+		this.order_seq = order_seq;
+	}
+
+	public int getOrder_qty() {
+		return order_qty;
+	}
+
+	public void setOrder_qty(int order_qty) {
+		this.order_qty = order_qty;
+	}
+
+	public int getOrder_price() {
+		return order_price;
+	}
+
+	public void setOrder_price(int order_price) {
+		this.order_price = order_price;
+	}
+	
+	
 	
 }

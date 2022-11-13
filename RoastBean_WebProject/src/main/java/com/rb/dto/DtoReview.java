@@ -5,14 +5,16 @@ import java.sql.Timestamp;
 public class DtoReview {
 	
 	int rownum;
+	int review_seq;
 	Timestamp review_date;
 	String review_content;
 	int review_star;
 	String user_nick;
 	
-	public DtoReview(int rownum, Timestamp review_date, String review_content, int review_star, String user_nick) {
+	public DtoReview(int rownum, int review_seq, Timestamp review_date, String review_content, int review_star, String user_nick) {
 		super();
 		this.rownum = rownum;
+		this.review_seq = review_seq;
 		this.review_date = review_date;
 		this.review_content = review_content;
 		this.review_star = review_star;
@@ -58,5 +60,15 @@ public class DtoReview {
 	public void setUser_nick(String user_nick) {
 		this.user_nick = user_nick;
 	}
+
+	public int getReview_seq() {
+		return review_seq;
+	}
+
+	public void setReview_seq(int review_seq) {
+		this.review_seq = review_seq;
+	}
+	
+	
 	
 }

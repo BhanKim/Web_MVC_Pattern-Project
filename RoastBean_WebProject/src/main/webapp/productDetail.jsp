@@ -255,6 +255,11 @@
 									☆
 								</c:forEach>
 							</td>
+							<c:if test="${ID == 'admin'}">
+								<td>
+									<a href="deleteReview.do?review_seq=${dto.review_seq}&product_id=<%=request.getParameter("product_id")%>" class="text-decoration-none"><span class="material-symbols-outlined">삭제</span></a>
+								</td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</table>
