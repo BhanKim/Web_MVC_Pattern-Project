@@ -174,7 +174,7 @@ public class DaoQna {
 		}
 	} // Customer Service Admin의 QnA Answer Insert
 	
-	// Customer Service Admin의 QnA Answer Update
+	// Customer Service Admin의 QnA Answer Update / 22.11.13.SangwonKim
 	public void adminAnswerUpdate(String qna_write_seq, String qna_write_comment_content) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
