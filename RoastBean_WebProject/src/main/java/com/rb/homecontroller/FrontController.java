@@ -46,6 +46,9 @@ import com.rb.command.CommandOrder;
 import com.rb.command.CommandOrderInsert;
 import com.rb.command.CommandProductDetail;
 import com.rb.command.CommandProductList;
+import com.rb.command.CommandReview;
+import com.rb.command.CommandReviewDelete;
+import com.rb.command.CommandReviewList;
 import com.rb.command.CommandUserCheckId;
 import com.rb.command.CommandUserCheckNick;
 import com.rb.command.CommandUserInfoPwcheck;
@@ -300,6 +303,21 @@ public class FrontController extends HttpServlet {
 			command = new CommandOrder();
 			command.execute(request, response);
 			viewPage = "index.jsp";
+			break;
+		case ("/productReview.do"):
+			command = new CommandReviewList();
+			command.execute(request, response);
+			viewPage = "productReview.jsp";
+			break;
+		case ("/reviewInsert.do"):
+			command = new CommandReview();
+			command.execute(request, response);
+			viewPage = "mypage_order_list.do";
+			break;
+		case ("/deleteReview.do"):
+			command = new CommandReviewDelete();
+			command.execute(request, response);
+			viewPage = "productDetail.do?product_id="+request.getParameter("product_id");
 			break;
 		// --------------------- 윤현 Controller End -----------------------
 			

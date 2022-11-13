@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.rb.dao.DaoOrder;
+import com.rb.dao.DaoUserLogin;
+import com.rb.dto.DtoUser;
 
 public class CommandOrder implements Command {
 
@@ -24,6 +26,10 @@ public class CommandOrder implements Command {
 		DaoOrder dao = new DaoOrder();
 		dao.insertOrderUserInfo(order_telno, order_zipcode, order_address1, order_address2, order_address3, order_email, order_name, user_id);
 		dao.deleteCart(user_id);
+		
+		DaoUserLogin daos = new DaoUserLogin();
+        DtoUser dtos = daos.cartCount(user_id);
+		session.setAttribute("CARTCOUNT", dtos);
 
 	}
 

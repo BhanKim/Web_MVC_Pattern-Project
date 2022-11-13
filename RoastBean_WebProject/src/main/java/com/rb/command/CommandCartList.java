@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.rb.dao.DaoCart;
+import com.rb.dao.DaoUserLogin;
 import com.rb.dto.DtoCartList;
 import com.rb.dto.DtoCartUserInfo;
+import com.rb.dto.DtoUser;
 
 public class CommandCartList implements Command {
 
@@ -24,6 +26,10 @@ public class CommandCartList implements Command {
         
         DtoCartUserInfo dto = dao.userInfo(user_id);
         request.setAttribute("cartUserInfo", dto);
+        
+        DaoUserLogin daos = new DaoUserLogin();
+        DtoUser dtoss = daos.cartCount(user_id);
+		session.setAttribute("CARTCOUNT", dtoss);
 	}
 
 }
