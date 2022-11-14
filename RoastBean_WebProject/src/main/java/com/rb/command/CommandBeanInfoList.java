@@ -19,16 +19,20 @@ public class CommandBeanInfoList implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		System.out.println("beaninfo boardlist enter");
 		int nPage = 1;
+		
+		String sPage = null;
 		try {
-			String sPage = request.getParameter("page");
+			if(request.getParameter("page") == null) {
+				sPage = "1";
+			} else {
+				sPage = request.getParameter("page");
+			}
 			nPage = Integer.parseInt(sPage);
-			System.out.println(sPage + "spage");
-
-		} catch (Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 		DaoBeanInfo dao = new DaoBeanInfo();
 		dao = DaoBeanInfo.getInstance();
 		BeanInfo binfo = dao.articlePage(nPage);

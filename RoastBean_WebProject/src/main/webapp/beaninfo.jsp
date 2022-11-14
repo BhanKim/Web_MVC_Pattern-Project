@@ -88,7 +88,6 @@
 
 			</div>
 		</section>
-
 		<div align="center">
 			<c:choose>
 				<c:when test="${(page.curPage - 1) < 1 }">
