@@ -55,7 +55,7 @@
 						<tr>
 							<td id="left" style="font-size: 14px; padding: 10px;">
 								<form action="boardlike.do" method="post">
-									<span style="font-size: 17px; font-weight: bold;">${NICK }</span>&nbsp;&nbsp;
+									<span style="font-size: 17px; font-weight: bold;">${content_view.community_name }</span>&nbsp;&nbsp;
 									${content_view.community_initdate }<br>
 									조회&nbsp;${content_view.community_hit }&nbsp;&nbsp; 
 									<input type="hidden" name="community_id" value="${content_view.community_id }"> 
@@ -77,7 +77,7 @@
 										<a href="login.jsp" class="btn btn-success"
 											style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px; ">로그인하고 글쓰기</a>
 									</c:otherwise>
-								</c:choose> <c:if test="${ID == content_view.community_name }">
+								</c:choose> <c:if test="${NICK == content_view.community_name }">
 									<a
 										href="modify_view.do?community_id=${content_view.community_id }"
 										class="btn" style="background: #A3A7AB; border: 0; padding:2px 10px; color: #fff;"> 수정</a>
