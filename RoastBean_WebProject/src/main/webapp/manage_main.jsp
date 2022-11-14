@@ -101,7 +101,10 @@
 		   <td><font size="5"><input type="text" readonly="readonly" size="5" value=" ${order_date_ranking_max }" style="border:none"></font></td>
 		   <td><font size="5"><input type="text" readonly="readonly" size="30" value=" ${order_date_ranking_max_name }" style="border:none"></font></td>
 		</tr>
-	
+		<tr>
+		
+	       <td><img src="assets/img/product/${order_date_ranking_max_img }" width="180px" height="200px"></td>
+		</tr>
 
 		</table>
 		

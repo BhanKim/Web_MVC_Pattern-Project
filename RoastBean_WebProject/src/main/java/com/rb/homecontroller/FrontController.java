@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.rb.command.Command;
 import com.rb.command.CommandAdminLogin;
 import com.rb.command.CommandBeanInfo;
+import com.rb.command.CommandManageMainUserOrder;
 import com.rb.command.CommandManageOrdersList;
 import com.rb.command.CommandManageOrdersSearch;
 import com.rb.command.CommandManageProductDelete;
@@ -23,8 +24,7 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
-import com.rb.command.CommandManageUserOrderRanking;
-import com.rb.command.CommandManageUserOrderSum;
+
 import com.rb.command.CommandUserLogin;
 import com.rb.command.CommandUserLoginApi;
 
@@ -174,23 +174,25 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
-			System.out.println("ManageUserOrderSum.controller");
-			command = new CommandManageUserOrderSum();
+//		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
+//			System.out.println("ManageUserOrderSum.controller");
+//			command = new CommandManageUserOrderSum();
+//			command.execute(request, response);
+//			viewPage = "manage_main.jsp";
+//			break;
+//		case ("/ManageUserOrderRanking.do"): // 관리자 메인에서 상품 순위
+//			System.out.println("ManageUserOrderRanking.controller");
+//			command = new CommandManageUserOrderRanking();
+//			command.execute(request, response);
+//			viewPage = "manage_main.jsp";
+//			break;
+		case ("/ManageMain.do"): // main페이지에 보여주기
+			System.out.println("ManageMain.controller");
+			command = new CommandManageMainUserOrder();
 			command.execute(request, response);
 			viewPage = "manage_main.jsp";
 			break;
-		case ("/ManageUserOrderRanking.do"): // 관리자 메인에서 상품 순위
-			System.out.println("ManageUserOrderRanking.controller");
-			command = new CommandManageUserOrderRanking();
-			command.execute(request, response);
-			viewPage = "manage_main.jsp";
-			break;
-		case ("/ManageMain.do"): //main페이지에 보여주기
-			viewPage = "ManageUserOrderSum.do";
-			viewPage = "ManageUserOrderRanking.do";
-			break;
-		case ("/ManageOrdersList.do"): //product orders list
+		case ("/ManageOrdersList.do"): // product orders list
 			System.out.println("ManageOrdersList.do");
 			command = new CommandManageOrdersList();
 			command.execute(request, response);

@@ -663,5 +663,44 @@ public class DaoManageProductList {
 		System.out.println(result);
 		return result;
 	}
+	public String manageuserprderrankingselect_max_img() {
+		DtoManageProductList dto = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		String result = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select p.product_name from product as p where p.product_id = (\n"
+					+ "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1);";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			System.out.println(resultSet);
+			
+			if (resultSet.next()) {
+				result = resultSet.getString("product_name");
+				
+				System.out.println(result);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		System.out.println(result);
+		return result;
+	}
 	
 }
