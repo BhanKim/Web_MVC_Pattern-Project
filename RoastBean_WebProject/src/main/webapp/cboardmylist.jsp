@@ -71,12 +71,16 @@
     <section class="breadcrumbs">
       <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>My Boardlist</h2>
-          <ol>
-            <li><a href="index.jsp">Home</a></li>
-            <li>My Boardlist</li>
-          </ol>
+         <div class="d-flex justify-content-between align-items-center">
+			<a class="nav-link scrollto" href="mypage_order_list.do">My information</a>
+			<a class="nav-link scrollto" href="myboardlist.do?page=1">My Order List</a>
+			<a class="nav-link scrollto" href="mypage_info.do"><font color="8784D6" style="font-size: 1.4em; font-weight: bold;">My Write</font></a>
+			<a class="nav-link scrollto" href="mypage_qna_list.do">My QnA</a>
+			&emsp;&emsp;&emsp;
+			<ol>
+				<li><a href="index.jsp">Home</a></li>
+				<li>My page</li>
+			</ol>
         </div>
 
       </div>
