@@ -99,12 +99,12 @@
 							 	<form action="notice_update_by_admin.do" method="post">
 									<tr style="background-color: #F2F1EF;"><td colspan="4"></td></tr>
 									<tr align="center" valign="top">
-										<td>${dto.notice_write_seq}<input type="hidden" name="notice_write_seq" value="${dto.notice_write_seq}"></td>
+										<td valign="middle">${dto.notice_write_seq}<input type="hidden" name="notice_write_seq" value="${dto.notice_write_seq}"></td>
 										<td align="left">
-											제목 : <input type="text" name="notice_write_title" value="${dto.notice_write_title}" size="60%">
+											제목 : <input type="text" name="notice_write_title" value="${dto.notice_write_title}" size="75%">
 											<textarea rows="2" cols="80%" name="notice_write_content" style="background-color: #F2F1EF">${dto.notice_write_content}</textarea>
 										</td>
-										<td>
+										<td valign="middle">
 											<c:if test="${dto.notice_write_updatedate == null}">
 												${dto.notice_write_initdate}
 											</c:if>
@@ -119,9 +119,9 @@
 								<form action="notice_insert_by_admin.do" method="post">
 									<tr style="background-color: #F2F1EF;"><td colspan="4"></td></tr>
 									<tr>
-										<td align="center">추가 등록</td>
+										<td align="center" valign="middle">+</td>
 										<td align="left">
-											제목 : <input type="text" name="notice_write_title" size="60%">
+											제목 : <input type="text" name="notice_write_title" size="75%">
 											<textarea rows="2" cols="80%" name="notice_write_comment" style="background-color: #F2F1EF"></textarea>
 										</td>
 										<td></td>

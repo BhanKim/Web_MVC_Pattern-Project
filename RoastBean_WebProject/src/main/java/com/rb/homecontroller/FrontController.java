@@ -45,7 +45,6 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
-import com.rb.command.CommandManageUserOrderSum;
 import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
 import com.rb.command.CommandOrder;
@@ -257,13 +256,13 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "cs_notice.jsp";
 			break;
-		// Notice 불러오기 Update / 완료 22.11.14_15:00_SangwonKim
+		// Notice Update / 완료 22.11.14_16:00_SangwonKim
 		case ("/notice_update_by_admin.do"): // Update, Delete
 			command = new CommandCsNoticeUpdateAdmin();
 			command.execute(request, response);
 			viewPage = "notice_list_by_user.do";
 			break;
-		// Notice 불러오기 Select / 완료 22.11.14_15:00_SangwonKim
+		// Notice Insert / 완료 22.11.14_21:00_SangwonKim
 		case ("/notice_insert_by_admin.do"): // Update, Delete
 			command = new CommandCsNoticeInsertAdmin();
 			command.execute(request, response);
@@ -350,49 +349,50 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_user_list.jsp";
 			break;
-		case ("/ManageProductList.do"): // 상품 리스트 select
+			case ("/ManageProductList.do"): // 상품 리스트 select
 			command = new CommandManageProductList();
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-		case ("/ManageProductInsert.do"):
+			case ("/ManageProductInsert.do"):
 			viewPage = "manage_product_insert.jsp";
 			break;
-		case ("/ManageProductListInsert.do"): // 관리자 상품 등록 글 작성
+			case ("/ManageProductListInsert.do"): // 관리자 상품 등록 글 작성
 			command = new CommandManageProductInsert();
 			command.execute(request, response);
 			viewPage = "manage_product_insert1.jsp";
 			break;
-		case ("/ManageProductListInsert1.do"): // 관리자 상품 등록 글 작성
+			case ("/ManageProductListInsert1.do"): // 관리자 상품 등록 글 작성
 			command = new CommandManageProductInsert1();
 			command.execute(request, response);
 			viewPage = "ManageProductList.do";
 			break;
-		case ("/ManageProductDelete.do"): // 관리자 상품 삭제
+			case ("/ManageProductDelete.do"): // 관리자 상품 삭제
 			command = new CommandManageProductDelete();
 			command.execute(request, response);// 넣음
 			viewPage = "ManageProductList.do";
 			break;
-		case ("/ManageProductUpdateSelete.do"): // 수정하기
+			case ("/ManageProductUpdateSelete.do"): // 수정하기
 			command = new CommandManageProductSeen();
 			command.execute(request, response);// 넣음
 			viewPage = "manage_product_update.jsp";
 			break;
-		case ("/ManageProductUpdate.do"):// 관리자 상품 수정
+			case ("/ManageProductUpdate.do"):// 관리자 상품 수정
 			command = new CommandManageProductUpdate();
 			command.execute(request, response);// 넣음
 			viewPage = "ManageProductList.do";
 			break;
-		case ("/ManageProductSearch.do"):// 입력으로 검색
+			case ("/ManageProductSearch.do"):// 입력으로 검색
 			command = new CommandManageProductSearch();
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
-			command = new CommandManageUserOrderSum();
-			command.execute(request, response);
-			viewPage = "manage_main.jsp";
-			break;
+//			case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
+//			command = new CommandManageUserOrderSum();
+//			command.execute(request, response);
+//			viewPage = "manage_main.jsp";
+//			break;
+
 		// --------------------- 수빈 Controller End -----------------------
 			
 			// --------------------- 혁&티뱃 Controller Start ---------------------
