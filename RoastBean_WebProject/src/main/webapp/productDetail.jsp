@@ -227,7 +227,7 @@
 										</div>
 									</div>
 								</div>
-							</div>q
+							</div>
 						</form>
 					</div>
 				</div>
@@ -235,7 +235,7 @@
 			<div class="container">
 				<table class="table">
 				<tr>
-					<td align="left"><h2 style="display:inline;">&nbsp;&nbsp;&nbsp;w${reviewAvg.sumReview}</h2><h5 style="display:inline; color: rgb(123, 132, 141);">&nbsp;&nbsp;reviews</h5></td>
+					<td align="left"><h2 style="display:inline;">&nbsp;&nbsp;&nbsp;${reviewAvg.sumReview}</h2><h5 style="display:inline; color: rgb(123, 132, 141);">&nbsp;&nbsp;reviews</h5></td>
 					<td align="right"><h2><span class="star2">★</span>&nbsp;&nbsp;${reviewAvg.avgStar}</h2><td>
 				</tr>
 				</table>
