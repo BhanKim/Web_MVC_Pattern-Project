@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>manege_main</title>
+  <title>manege_product_insert</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -49,10 +49,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
+          <h2>product insert</h2>
           <ol>
             <li><a href="manage_main.jsp">Home</a></li>
-            <li>Inner Page</li>
+            <li>product insert</li>
           </ol>
         </div>
 
@@ -71,7 +71,7 @@
 	   <table style="margin-left: auto; margin-right: auto;">
 	      <tr>
 	         <td align=center>제품명</td>
-	         <td><input type="text" name="product_name" size="40"></td>
+	         <td><input type="text" name="product_name" size="30"></td>
 	      </tr>
 	      <tr>
 	         <td align=center>원산지</td>
@@ -94,16 +94,16 @@
 	         <td><textarea rows="10" cols="32" name="product_info"></textarea></td>
 	      </tr>
 	      <tr>
-	         <td align=center>제품 수량</td>
-	         <td><input type="text" name="product_stock" size="40"></td>
+	         <td align=center>제품 수량<br> (숫자만 입력 하세요.)</td>
+	         <td><input type="text" name="product_stock" size="30"></td>
 	      </tr>
 	      <tr>
-	         <td align=center>제품 중량</td>
-	         <td><input type="text" name="product_weight" size="40"></td>
+	         <td align=center>제품 중량<br> (숫자만 입력 하세요.)</td>
+	         <td><input type="text" name="product_weight" size="30"></td>
 	      </tr>
 	      <tr>
-	         <td align=center>제품 가격</td>
-	         <td><input type="text" name="product_price" size="40"></td>
+	         <td align=center>제품 가격<br> (숫자만 입력 하세요.)</td>
+	         <td><input type="text" name="product_price" size="30"></td>
 	      </tr>
 	      <tr>
 	         <td></td>

@@ -4,17 +4,17 @@ public class DtoManageUserList {
 	String user_id;
 	String user_pw;
 	String user_name;
-	String user_birthdate;
+	String user_birthday;
 	String user_gender;
 	String user_email;
 	String user_telno;
-	public DtoManageUserList(String user_id, String user_pw, String user_name, String user_birthdate,
+	public DtoManageUserList(String user_id, String user_pw, String user_name, String user_birthday,
 			String user_gender, String user_email, String user_telno) {
 		super();
 		this.user_id = user_id;
 		this.user_pw = user_pw;
 		this.user_name = user_name;
-		this.user_birthdate = user_birthdate;
+		this.user_birthday = user_birthday;
 		this.user_gender = user_gender;
 		this.user_email = user_email;
 		this.user_telno = user_telno;
@@ -37,11 +37,11 @@ public class DtoManageUserList {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	public String getUser_birthdate() {
-		return user_birthdate;
+	public String getUser_birthday() {
+		return user_birthday;
 	}
-	public void setUser_birthdate(String user_birthdate) {
-		this.user_birthdate = user_birthdate;
+	public void setUser_birthday(String user_birthday) {
+		this.user_birthday = user_birthday;
 	}
 	public String getUser_gender() {
 		return user_gender;

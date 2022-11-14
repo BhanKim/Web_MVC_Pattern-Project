@@ -4,6 +4,7 @@ import java.security.KeyStore.ProtectionParameter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -84,83 +85,65 @@ public class DaoManageProductList {
 		return dtos;
 
 	} // ManageProductList
-//	public ArrayList<DtoManageProductList> manageproductlist() {
-//		ArrayList<DtoManageProductList> dtos = new ArrayList<DtoManageProductList>();
-//		Connection connection = null;
-//		PreparedStatement preparedStatement = null;
-//		ResultSet resultSet = null;// 검색
-//		
-//		try {
-//			
-//			connection = dataSource.getConnection();
-//			String query = "select product_id, product_name, product_nation, product_image, product_info, product_stock, product_weight, product_price from product where product_deletedate is null";
-//			preparedStatement = connection.prepareStatement(query);
-//			resultSet = preparedStatement.executeQuery();
-//			
-//			while (resultSet.next()) {
-//				int product_id = resultSet.getInt("product_id");
-//				String product_name = resultSet.getString("product_name");
-//				String product_nation = resultSet.getString("product_nation");
-//				String product_image = resultSet.getString("product_image");
-//				String product_info = resultSet.getString("product_info");
-//				int product_stock = resultSet.getInt("product_stock");
-//				int product_weight = resultSet.getInt("product_weight");
-//				int product_price = resultSet.getInt("product_price");
-//				
-//				DtoManageProductList dto = new DtoManageProductList(product_id, product_name, product_nation,
-//						product_image, product_info, product_stock, product_weight, product_price);
-//				dtos.add(dto);
-//			}
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				if (resultSet != null)
-//					resultSet.close();
-//				if (preparedStatement != null)
-//					preparedStatement.close();
-//				if (connection != null)
-//					connection.close();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return dtos;
-//		
-//	} // ManageProductList
-//	public ArrayList<DtoManageProductList> manageproductlist1(){
-//		ArrayList<DtoManageProductList> dtos1 = new ArrayList<DtoManageProductList>();
-//		Connection connection = null;
-//		PreparedStatement preparedStatement = null;
-//		ResultSet resultSet = null;// 검색
-//		
-//		try {
-//			connection = dataSource.getConnection();
-//			String query = "select category_type, category_acidity, category_body, category_sweet, category_aroma from category";
-//			String query1 = "select product_id from product where product_deletedate is null";
-//			preparedStatement = connection.prepareStatement(query+query1);
-//			resultSet = preparedStatement.executeQuery();
-//			
-//			while(resultSet.next()) {
-//				
-//			}
-//		}catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				if (resultSet != null)
-//					resultSet.close();
-//				if (preparedStatement != null)
-//					preparedStatement.close();
-//				if (connection != null)
-//					connection.close();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return dtos1;
-//	} //manageproductlist1
+
+	public ArrayList<DtoManageProductList> manageorderslistselete() {
+		ArrayList<DtoManageProductList> dtos = new ArrayList<DtoManageProductList>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+		System.out.println("ManageOrdersList.dao");
+		try {
+
+			connection = dataSource.getConnection();
+			String query = "select order_seq, user_id, product_id, order_name, order_address, "
+					+ "order_email, order_telno, order_qty, order_price, order_date from orders";
+			preparedStatement = connection.prepareStatement(query);
+
+			System.out.println("query");
+
+			resultSet = preparedStatement.executeQuery();
+
+			System.out.println("ManageOrdersList.dao.try");
+
+			while (resultSet.next()) {
+
+				int order_seq = resultSet.getInt("order_seq");
+				String user_id = resultSet.getString("user_id");
+				int product_id = resultSet.getInt("product_id");
+				String order_name = resultSet.getString("order_name");
+				String order_address = resultSet.getString("order_address");
+				String order_email = resultSet.getString("order_email");
+				String order_telno = resultSet.getString("order_telno");
+				int order_qty = resultSet.getInt("order_qty");
+				int order_price = resultSet.getInt("order_price");
+				Timestamp order_date = resultSet.getTimestamp("order_date");
+
+				DtoManageProductList dto = new DtoManageProductList(order_seq, product_id, user_id, order_name,
+						order_address, order_email, order_telno, order_qty, order_price, order_date);
+				dtos.add(dto);
+
+				System.out.println("ManageOrdersList.dao.try.while");
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+
+	}// manageorderslistselete
+
 
 	public void manageproductinsert(String first_product_name, String first_product_nation, String first_product_image,
 			String first_product_info, String first_product_stock, String first_product_weight,
@@ -511,6 +494,59 @@ public class DaoManageProductList {
 		return dtos;
 	}
 
+	public ArrayList<DtoManageProductList> manageorderssearch(String queryname, String querycontent) {
+		ArrayList<DtoManageProductList> dtos = new ArrayList<DtoManageProductList>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		System.out.println("ManageProductSearch.dao");
+
+		try {
+			connection = dataSource.getConnection();
+			String query = "select order_seq, user_id, product_id, order_name, order_address, order_email, "
+					+ "order_telno, order_qty, order_price, order_date " + "from orders where " + queryname + " like '%" + querycontent + "%'";
+
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int order_seq = resultSet.getInt("order_seq");
+				String user_id = resultSet.getString("user_id");
+				int product_id = resultSet.getInt("product_id");
+				
+				String order_name = resultSet.getString("order_name");
+				String order_address = resultSet.getString("order_address");
+				String order_email = resultSet.getString("order_email");
+				String order_telno = resultSet.getString("order_telno");
+				
+				int order_qty = resultSet.getInt("order_qty");
+				int order_price = resultSet.getInt("order_price");
+				Timestamp order_date = resultSet.getTimestamp("order_date");
+
+				DtoManageProductList dto = new DtoManageProductList(order_seq, product_id, user_id, order_name, order_address, order_email, order_telno, order_qty, order_price, order_date);
+				dtos.add(dto);
+
+				System.out.println("ManageProductSearch.dao_try");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return dtos;
+	}
+
 	public int manageuserorderselect() {
 		DtoManageProductList dto = null;
 		Connection connection = null;
@@ -521,7 +557,8 @@ public class DaoManageProductList {
 		try {
 			connection = dataSource.getConnection();
 			String query = "select sum(order_price) as order_date_sum from orders WHERE DATE_FORMAT (order_date, '%Y-%m-%d') = curdate()";
-			//String query = "select sum(order_price) as order_date_sum from orders WHERE DATE_FORMAT (order_date, '%Y-%m-%d') = '2022-11-13';";
+			// String query = "select sum(order_price) as order_date_sum from orders WHERE
+			// DATE_FORMAT (order_date, '%Y-%m-%d') = '2022-11-13';";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
@@ -546,4 +583,124 @@ public class DaoManageProductList {
 		}
 		return result;
 	}
+	//-----------------------------------------------
+	public int manageuserprderrankingselect_max() {
+		DtoManageProductList dto = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		int result = 0 ;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1;";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			System.out.println(resultSet);
+
+			if (resultSet.next()) {
+				result = resultSet.getInt("product_id");
+				
+				System.out.println(result);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		System.out.println(result);
+		return result;
+	}
+	//-----------------------------------------------
+	//-----------------------------------------------
+	public String manageuserprderrankingselect_max_name() {
+		DtoManageProductList dto = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		String result = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select p.product_name from product as p where p.product_id = (\n"
+					+ "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1);";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			System.out.println(resultSet);
+
+			if (resultSet.next()) {
+				result = resultSet.getString("product_name");
+			
+				System.out.println(result);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		System.out.println(result);
+		return result;
+	}
+	public String manageuserprderrankingselect_max_img() {
+		DtoManageProductList dto = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		String result = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select p.product_name from product as p where p.product_id = (\n"
+					+ "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1);";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			System.out.println(resultSet);
+			
+			if (resultSet.next()) {
+				result = resultSet.getString("product_name");
+				
+				System.out.println(result);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		System.out.println(result);
+		return result;
+	}
+	
 }
