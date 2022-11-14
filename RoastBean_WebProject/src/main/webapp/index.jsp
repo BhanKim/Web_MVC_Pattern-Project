@@ -77,7 +77,7 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>Roast Bean</span> Shop</h2>
-                <p class="animate__animated animate__fadeInUp"> 100% 프리미엄 아라비카<br>원두를 로스팅하여, 깊고 <br>부드러운 커피와<br>빅 사이즈로 <br>구성된 다양한 음료를 <br>합리적인 가격으로 <br>제공합니다.</p>
+                <p class="animate__animated animate__fadeInUp"> 100% 프리미엄 아라비카<br>원두를 <br>합리적인 가격으로 <br>제공합니다.</p>
                 <div>
                   <a href="productList.do?page=1" class="btn-book animate__animated animate__fadeInUp scrollto">Shop</a>
                 </div>
