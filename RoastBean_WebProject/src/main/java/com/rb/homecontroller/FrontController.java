@@ -223,7 +223,6 @@ public class FrontController extends HttpServlet {
 
 		// 원두 정보 페이지
 		case ("/beaninfo.do"):
-			System.out.println("beaninfo");
 			request.setAttribute("nav_beaninfo", "#f2bcbb");
 			command = new CommandBeanInfo();
 			command.execute(request, response);
