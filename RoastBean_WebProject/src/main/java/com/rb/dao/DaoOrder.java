@@ -88,8 +88,8 @@ public class DaoOrder {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query1 = "update orders set order_telno = ?, order_zipcode = ?, order_address1 = ?, order_address2 = ?, order_address3 = ?, order_email = ?, order_name = ? ";
-			String query2 = "where user_id = ? and order_zipcode is null";
+			String query1 = "update orders set order_telno = ?, order_addresszipcode = ?, order_address1 = ?, order_address2 = ?, order_address3 = ?, order_email = ?, order_name = ? ";
+			String query2 = "where user_id = ? and order_addresszipcode is null";
 			
 			preparedStatement = connection.prepareStatement(query1 + query2);
 			preparedStatement.setString(1, order_telno);
