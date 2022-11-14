@@ -18,7 +18,6 @@ import com.rb.command.CommandBoardcontent;
 import com.rb.command.CommandBoarddelete;
 import com.rb.command.CommandBoardlikeboard;
 import com.rb.command.CommandBoardlist;
-import com.rb.command.CommandBoardmylist;
 import com.rb.command.CommandBoardnoticelist;
 import com.rb.command.CommandBoardreply;
 import com.rb.command.CommandBoardsearch;

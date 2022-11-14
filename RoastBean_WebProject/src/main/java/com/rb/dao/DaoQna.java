@@ -215,9 +215,7 @@ public class DaoQna {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, qna_write_comment_content);
 			preparedStatement.setString(2, qna_write_seq);
-			
 			preparedStatement.executeUpdate();
-			System.out.println(">>>>>");
 					
 		}catch(Exception e) {
 			e.printStackTrace();

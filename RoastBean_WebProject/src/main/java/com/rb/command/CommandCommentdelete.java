@@ -12,9 +12,7 @@ public class CommandCommentdelete implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		System.out.println("delete command enter");
 		String community_comment_cono = request.getParameter("community_comment_cono");		
-		System.out.println(community_comment_cono);
 		DaoComment dao = DaoComment.getInstance();
 		dao.coDelete(community_comment_cono);
 
