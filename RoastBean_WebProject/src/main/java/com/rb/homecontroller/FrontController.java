@@ -37,6 +37,7 @@ import com.rb.command.CommandCsNoticeUpdateAdmin;
 import com.rb.command.CommandCsQnaAdminAction;
 import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
+import com.rb.command.CommandCsQnaUserUpdate;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -234,6 +235,12 @@ public class FrontController extends HttpServlet {
 			command = new CommandMyQnaList();
 			command.execute(request, response);
 			viewPage = "mypage_qna_list.jsp";
+			break;
+		// 마이페이지:My QnA List 가져오기 / 완료 22.11.13_6:20_SangwonKim
+		case ("/qna_update_by_user.do"): // 클릭시 질문내용 바꿔주고, 다시 클릭시 내용숨기기 추가하기
+			command = new CommandCsQnaUserUpdate();
+			command.execute(request, response);
+			viewPage = "mypage_qna_list.do";
 			break;
 		// QnA:유저:질문하기 Insert / 완료 22.11.13_18:00_SangwonKim
 		case ("/qna_question_by_user.do"):
