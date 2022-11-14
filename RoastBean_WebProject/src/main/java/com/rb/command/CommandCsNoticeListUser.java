@@ -17,7 +17,7 @@ public class CommandCsNoticeListUser implements Command {
 		// TODO Auto-generated method stub
 		
 		DaoNotice dao = new DaoNotice();
-		ArrayList<DtoNotice> dtos = dao.list();
+		ArrayList<DtoNotice> dtos = dao.noticeList();
 		request.setAttribute("userNoticeList", dtos);
 
 	}

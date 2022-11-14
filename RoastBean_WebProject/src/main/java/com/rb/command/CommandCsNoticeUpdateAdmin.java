@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.rb.dao.DaoNotice;
 
@@ -23,10 +22,10 @@ public class CommandCsNoticeUpdateAdmin implements Command {
 		DaoNotice dao = new DaoNotice();
 
 		if(btnType.equals("수정")) {
-			dao.modify(notice_write_title, notice_write_content, notice_write_seq);
+			dao.updateAction(notice_write_title, notice_write_content, notice_write_seq);
 			System.out.println("update");
 		}else {
-			dao.modifyDelete(notice_write_seq);
+			dao.updateActionDelete(notice_write_seq);
 			System.out.println("delete");
 		}
 		

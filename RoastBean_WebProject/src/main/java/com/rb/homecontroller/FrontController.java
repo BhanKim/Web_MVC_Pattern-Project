@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.rb.command.Command;
 import com.rb.command.CommandAdminLogin;
-import com.rb.command.CommandBeanInfo;
+import com.rb.command.CommandBeanInfoList;
 import com.rb.command.CommandBoardcommentlist;
 import com.rb.command.CommandBoardcontent;
 import com.rb.command.CommandBoarddelete;
@@ -30,6 +30,7 @@ import com.rb.command.CommandCartList;
 import com.rb.command.CommandCommentdelete;
 import com.rb.command.CommandCommentupdate;
 import com.rb.command.CommandCommentwrite;
+import com.rb.command.CommandCsNoticeInsertAdmin;
 import com.rb.command.CommandCsNoticeListUser;
 import com.rb.command.CommandCsNoticeUpdateAdmin;
 import com.rb.command.CommandCsQnaAdminAction;
@@ -261,9 +262,15 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "cs_notice.jsp";
 			break;
-		// Notice 불러오기 Select / 완료 22.11.14_15:00_SangwonKim
+		// Notice 불러오기 Update / 완료 22.11.14_15:00_SangwonKim
 		case ("/notice_update_by_admin.do"): // Update, Delete
 			command = new CommandCsNoticeUpdateAdmin();
+			command.execute(request, response);
+			viewPage = "notice_list_by_user.do";
+			break;
+		// Notice 불러오기 Select / 완료 22.11.14_15:00_SangwonKim
+		case ("/notice_insert_by_admin.do"): // Update, Delete
+			command = new CommandCsNoticeInsertAdmin();
 			command.execute(request, response);
 			viewPage = "notice_list_by_user.do";
 			break;
@@ -272,9 +279,8 @@ public class FrontController extends HttpServlet {
 		// --------------------- 성진 Controller Start -----------------------
 		// 원두 정보 페이지
 		case ("/beaninfo.do"):
-			System.out.println("beaninfo");
 			request.setAttribute("nav_beaninfo", "#f2bcbb");
-			command = new CommandBeanInfo();
+			command = new CommandBeanInfoList();
 			command.execute(request, response);
 			viewPage = "beaninfo.jsp";
 			break;
@@ -383,7 +389,6 @@ public class FrontController extends HttpServlet {
 			viewPage = "manage_product_list.jsp";
 			break;
 		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
-			System.out.println("ManageUserOrderSum.controller");
 			command = new CommandManageUserOrderSum();
 			command.execute(request, response);
 			viewPage = "manage_main.jsp";

@@ -29,7 +29,7 @@ public class DaoNotice {
 	
 	// Method
 	// 전체 검색
-	public ArrayList<DtoNotice> list(){
+	public ArrayList<DtoNotice> noticeList(){
 		ArrayList<DtoNotice> dtos = new ArrayList<DtoNotice>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -38,7 +38,7 @@ public class DaoNotice {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select notice_write_seq, notice_write_title, notice_write_content, notice_write_initdate, notice_write_updatedate from notice_write ";
+			String query = "select notice_write_seq, notice_write_title, notice_write_content, notice_write_initdate, notice_write_updatedate from notice_write where notice_write_deletedate is null ";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -67,7 +67,7 @@ public class DaoNotice {
 		return dtos;
 	} // list
 
-	public void write(String admin_id, String notice_write_title, String notice_write_content) {
+	public void insertAction(String admin_id, String notice_write_title, String notice_write_content) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -95,7 +95,7 @@ public class DaoNotice {
 	} // write
 	
 	
-	public void modify(String notice_write_title, String notice_write_content, String notice_write_seq) {
+	public void updateAction(String notice_write_title, String notice_write_content, String notice_write_seq) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -107,7 +107,7 @@ public class DaoNotice {
 			preparedStatement.setString(1, notice_write_title);
 			preparedStatement.setString(2, notice_write_content);
 			preparedStatement.setString(3, notice_write_seq);
-			
+			System.out.println("modify<<<<<");
 			preparedStatement.executeUpdate();
 					
 		}catch(Exception e) {
@@ -123,7 +123,7 @@ public class DaoNotice {
 		
 	} // modify
 	
-	public void modifyDelete(String notice_write_seq) {
+	public void updateActionDelete(String notice_write_seq) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -133,7 +133,8 @@ public class DaoNotice {
 			String query = "update notice_write set notice_write_deletedate = now() where notice_write_seq = ? ";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, notice_write_seq);
-			
+			System.out.println("modify<<<<<");
+
 			preparedStatement.executeUpdate();
 					
 		}catch(Exception e) {
