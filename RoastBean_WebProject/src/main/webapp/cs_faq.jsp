@@ -66,7 +66,6 @@
 								<th style="width: 60%;">내용</th>
 							</tr>
 						</thead>
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>1</td>
@@ -74,7 +73,6 @@
 								<td align="left">내용 : 1번 내용</td>
 							</tr>
 							
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>2</td>
@@ -82,7 +80,6 @@
 								<td align="left">내용 : 2번 내용</td>
 							</tr>
 							
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>3</td>
@@ -90,7 +87,6 @@
 								<td align="left">내용 : 3번 내용</td>
 							</tr>
 							
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>4</td>
@@ -98,7 +94,6 @@
 								<td align="left">내용 : 4번 내용</td>
 							</tr>
 							
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>5</td>
@@ -106,7 +101,6 @@
 								<td align="left">내용 : 5번 내용</td>
 							</tr>
 							
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>6</td>
@@ -114,7 +108,6 @@
 								<td align="left">내용 : 6번 내용</td>
 							</tr>
 							
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
 							<tr align="center" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>7</td>

@@ -58,29 +58,81 @@
 		<br>
 		<div class="col">
 				<div>
-					<table class="table table-hover" style="vertical-align: middle;">
-						<thead>
-							<tr align="center">
-								<th style="width: 20%;">번호</th>
-								<th style="width: 50%;">제목 / 내용</th>
-								<th style="width: 30%;">작성일</th>
-							</tr>
-						</thead>
-						<c:forEach items="${userNoticeList}" var="dto">
-					 	<form action="qna_answer_by_admin.do" method="post">
-							<tr style="background-color: #A3A7AB;"><td colspan="3"></td></tr>
-							<tr align="center" valign="top">
-								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
-								<td>${dto.notice_write_seq}</td>
-								<td align="left">
-									제목 : ${dto.notice_write_title}<br>
-									내용 : ${dto.notice_write_content}
-								</td>
-								<td>${dto.notice_write_initdate}<br></td>
-							</tr>
-						</form>
-						</c:forEach>
-					</table>
+					<c:choose>
+						<c:when test="${ADMIN == null}">
+							<table class="table table-hover" style="vertical-align: middle;">
+								<thead>
+									<tr align="center">
+										<th style="width: 20%;">번호</th>
+										<th style="width: 50%;">제목 / 내용</th>
+										<th style="width: 30%;">작성일</th>
+									</tr>
+								</thead>
+								<c:forEach items="${userNoticeList}" var="dto">
+							 	<form action="qna_answer_by_admin.do" method="post">
+									<tr style="background-color: #A3A7AB;"><td colspan="4"></td></tr>
+									<tr align="center" valign="top">
+										<td>${dto.notice_write_seq}</td>
+										<td align="left">
+											제목 : ${dto.notice_write_title}<br>
+											${dto.notice_write_content}
+										</td>
+										<td>
+											${dto.notice_write_initdate}${dto.notice_write_updatedate}
+										</td>
+									</tr>
+								</form>
+								</c:forEach>
+							</table>
+						</c:when>
+						<c:otherwise>
+							<table class="table table-hover" style="vertical-align: middle;">
+								<thead>
+									<tr align="center">
+										<th style="width: 20%;">번호</th>
+										<th style="width: 50%;">제목 / 내용</th>
+										<th style="width: 30%;">작성일</th>
+										<th></th>
+									</tr>
+								</thead>
+								<c:forEach items="${userNoticeList}" var="dto">
+							 	<form action="notice_update_by_admin.do" method="post">
+									<tr style="background-color: #F2F1EF;"><td colspan="4"></td></tr>
+									<tr align="center" valign="top">
+										<td>${dto.notice_write_seq}<input type="hidden" name="notice_write_seq" value="${dto.notice_write_seq}"></td>
+										<td align="left">
+											제목 : <input type="text" name="notice_write_title" value="${dto.notice_write_title}" size="60%">
+											<textarea rows="2" cols="80%" name="notice_write_content" style="background-color: #F2F1EF">${dto.notice_write_content}</textarea>
+										</td>
+										<td>
+											<c:if test="${dto.notice_write_updatedate == null}">
+												${dto.notice_write_initdate}
+											</c:if>
+											${dto.notice_write_updatedate}</td>
+										<td valign="middle">
+										<input type="submit" name="btnType" value="수정" class="btn mb-1" style="background-color: #A3A7AB">
+										<input type="submit" name="btnType" value="삭제" class="btn" style="background-color: #A3A7AB">
+										</td>
+									</tr>
+								</form>
+								</c:forEach>
+								<form action="notice_insert_by_admin.do" method="post">
+									<tr style="background-color: #F2F1EF;"><td colspan="4"></td></tr>
+									<tr>
+										<td align="center">추가 등록</td>
+										<td align="left">
+											제목 : <input type="text" name="notice_write_title" size="60%">
+											<textarea rows="2" cols="80%" name="notice_write_content" style="background-color: #F2F1EF"></textarea>
+										</td>
+										<td></td>
+										<td><input type="submit" value="등록" class="btn" style="background-color: #F2BCBB"></td>
+									</tr>
+								</form>
+							</table>
+						</c:otherwise>
+					</c:choose>
+					
+					
 				</div>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
 			 	<%-- <div class="container" align="center">
