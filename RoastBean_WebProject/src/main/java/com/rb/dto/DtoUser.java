@@ -67,12 +67,17 @@ public class DtoUser {
 		this.user_telno = user_telno;
 		this.user_initdate = user_initdate;
 	}
+	
+	public DtoUser(String user_pw) {
+		super();
+		this.user_pw = user_pw;
+	}
 
 	public DtoUser(int cartCount) {
 		super();
 		this.cartCount = cartCount;
 	}
-
+	
 	public String getUser_id() {
 		return user_id;
 	}
