@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>manege_main</title>
+  <title>manege_user_list</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -66,7 +66,7 @@
 	   <br> 
 <!-- 	      &nbsp;&nbsp;&nbsp;<h2>회원정보 리스트</h2>&nbsp;&nbsp;&nbsp;
  -->	      
-	      <table style="margin-left: auto; margin-right: auto;" border="1">
+	      <table style="margin-left: auto; margin-right: auto;" border="1" class="table table-hover table-bordered border-secondary">
 	         <tr>
 		        <td>아이디</td>
 		        <td>비밀번호</td>
@@ -88,6 +88,7 @@
 		      </tr>
 		      </c:forEach>
 	      </table>
+	      <br>
 	      <br>
 	      <br>
 	      

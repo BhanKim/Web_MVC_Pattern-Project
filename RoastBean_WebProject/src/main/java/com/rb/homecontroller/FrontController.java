@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.rb.command.Command;
 import com.rb.command.CommandAdminLogin;
 import com.rb.command.CommandBeanInfo;
+import com.rb.command.CommandManageOrdersList;
+import com.rb.command.CommandManageOrdersSearch;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -21,6 +23,7 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
+import com.rb.command.CommandManageUserOrderRanking;
 import com.rb.command.CommandManageUserOrderSum;
 import com.rb.command.CommandUserLogin;
 import com.rb.command.CommandUserLoginApi;
@@ -177,9 +180,28 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_main.jsp";
 			break;
-		case ("/ManageMain.do"):
-			viewPage = "ManageUserOrderSum.do";
+		case ("/ManageUserOrderRanking.do"): // 관리자 메인에서 상품 순위
+			System.out.println("ManageUserOrderRanking.controller");
+			command = new CommandManageUserOrderRanking();
+			command.execute(request, response);
+			viewPage = "manage_main.jsp";
 			break;
+		case ("/ManageMain.do"): //main페이지에 보여주기
+			viewPage = "ManageUserOrderSum.do";
+			viewPage = "ManageUserOrderRanking.do";
+			break;
+		case ("/ManageOrdersList.do"): //product orders list
+			System.out.println("ManageOrdersList.do");
+			command = new CommandManageOrdersList();
+			command.execute(request, response);
+			viewPage = "manage_orders_list.jsp";
+			break;
+		case ("/ManageOrdersListSearch.do"):// orders list입력으로 검색
+			command = new CommandManageOrdersSearch();
+			command.execute(request, response);
+			viewPage = "manage_orders_list.jsp";
+			break;
+
 		// --------------------- 수빈 Controller End -----------------------
 
 		} // switch

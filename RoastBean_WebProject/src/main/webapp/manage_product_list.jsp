@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>manege_main</title>
+  <title>manege_product_list</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,10 +48,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
+          <h2>porduct list</h2>
           <ol>
             <li><a href="manage_main.jsp">Home</a></li>
-            <li>Inner Page</li>
+            <li>porduct list</li>
           </ol>
         </div>
 
@@ -71,14 +71,14 @@
 		   <select name="query">
 		      <option value="product_name">브랜드명</option>
 		      <option value="product_nation">국가명</option>
-		   </select>&nbsp;&nbsp;&nbsp;
+		   </select>
 		   <input type="text" name="content">
 		   <input type="submit" value="검색">
 		</form>
 		<br>
 		<br>
 		
-		<table style="margin-left: auto; margin-right: auto;" border="1">
+		<table style="margin-left: auto; margin-right: auto;" border="1" class="table table-hover table-bordered border-secondary">
 		<tr>
 		   <!-- product -->
 		   <th>numder</th>
@@ -121,7 +121,12 @@
 	       </tr>
 		</c:forEach>
 		</table>
+		<br>
+		<br>
 		<a href="ManageProductInsert.do" style="text-decoration:none">상품등록하기</a><br>
+			<br>
+		<br>
+		
 	   
 </div>
 <!--  ---------------------------------- 정보 쓰기란 종료 ----------------------------------  -->

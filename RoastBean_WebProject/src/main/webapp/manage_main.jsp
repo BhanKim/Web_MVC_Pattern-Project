@@ -45,7 +45,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
+   <!-- <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
@@ -57,34 +57,70 @@
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
+    </section> End Breadcrumbs Section -->
 
 <!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
 	<section class="inner-page">
 	  <div class="container">
 	  	
-		 test
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		
+		
+		
+		 <table  width="1200" height="500" style="margin-left: auto; margin-right: auto;" border="1" >
+		<tr>
+		<td>
 		 <form action="ManageUserOrderSum.do" method="post">
-		 <table>
+		 <table style="margin-left: auto; margin-right: auto;">
 		 <tr>
-		    <td>금일 매출</td>
-		    <td><input type="text" readonly="readonly" size="30" value="${order_date_sum }"></td>
+		    <td width="100" height="50"><font size="5">금일 매출</font></td>
+		    <td><font size="5"><input type="text" readonly="readonly" size="10" value="${order_date_sum }" style="border:none"></font></td>
+		 </tr>
+		 <tr>
+		 <!-- 차트 -->
 		 </tr>
 		 </table>
+		 
 		</form>
+		</td>
+	
+		<!-- --------------------------------------------------------------- -->
+		
+		<td>
+		<!-- 상품 순위 -->
+		<table style="margin-left: auto; margin-right: auto;">
+		<tr>
+		<td colspan="2"><font size="5">고객들이 가장 많이 선택한 상품</font></td>
+		</tr>
+		<tr> 
+		   <td><font size="5"><input type="text" readonly="readonly" size="5" value=" ${order_date_ranking_max }" style="border:none"></font></td>
+		   <td><font size="5"><input type="text" readonly="readonly" size="30" value=" ${order_date_ranking_max_name }" style="border:none"></font></td>
+		</tr>
+	
+
+		</table>
+		
+		</td>
+		</tr>
+		 </table>
 		
 	  </div>
 	  
 	</section>
 	
-   
+  <!--  
     <section class="inner-page">
       <div class="container">
         <p>
           Example inner page template
         </p>
       </div>
-    </section>
+    </section> -->
 <!--  ---------------------------------- 정보 쓰기란 종료 ----------------------------------  -->
 
 
