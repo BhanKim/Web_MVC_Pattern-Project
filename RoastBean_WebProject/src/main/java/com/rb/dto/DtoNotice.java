@@ -36,6 +36,20 @@ public class DtoNotice {
 		this.notice_write_updatedate = notice_write_updatedate;
 	}
 
+	// modify(updateBtn)
+	public DtoNotice(int notice_write_seq, String notice_write_title, String notice_write_content) {
+		super();
+		this.notice_write_seq = notice_write_seq;
+		this.notice_write_title = notice_write_title;
+		this.notice_write_content = notice_write_content;
+	}
+	
+	// modify(deleteBtn)
+	public DtoNotice(int notice_write_seq) {
+		super();
+		this.notice_write_seq = notice_write_seq;
+	}
+
 	public int getNotice_write_seq() {
 		return notice_write_seq;
 	}

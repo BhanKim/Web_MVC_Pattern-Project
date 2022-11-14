@@ -67,4 +67,86 @@ public class DaoNotice {
 		return dtos;
 	} // list
 
+	public void write(String admin_id, String notice_write_title, String notice_write_content) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into notice_write (admin_id, notice_write_title, notice_write_content, notice_write_initdate) values (?,?,?,now())";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, admin_id);
+			preparedStatement.setString(2, notice_write_title);
+			preparedStatement.setString(3, notice_write_content);
+			
+			preparedStatement.executeUpdate();
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // write
+	
+	
+	public void modify(String notice_write_title, String notice_write_content, String notice_write_seq) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "update notice_write set notice_write_title = ?, notice_write_content = ?, notice_write_updatedate = now() where notice_write_seq = ? ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, notice_write_title);
+			preparedStatement.setString(2, notice_write_content);
+			preparedStatement.setString(3, notice_write_seq);
+			
+			preparedStatement.executeUpdate();
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	} // modify
+	
+	public void modifyDelete(String notice_write_seq) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "update notice_write set notice_write_deletedate = now() where notice_write_seq = ? ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, notice_write_seq);
+			
+			preparedStatement.executeUpdate();
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	} // modify
+	
 }

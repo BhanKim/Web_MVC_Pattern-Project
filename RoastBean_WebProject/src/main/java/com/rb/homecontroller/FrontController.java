@@ -31,6 +31,7 @@ import com.rb.command.CommandCommentdelete;
 import com.rb.command.CommandCommentupdate;
 import com.rb.command.CommandCommentwrite;
 import com.rb.command.CommandCsNoticeListUser;
+import com.rb.command.CommandCsNoticeUpdateAdmin;
 import com.rb.command.CommandCsQnaAdminAction;
 import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
@@ -254,11 +255,17 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "qna_list_by_admin.do";
 			break;
-		// Notice 불러오기 Select / 완료 22.11.14_11:00_SangwonKim
-		case ("/notice_list_by_user.do"):
+		// Notice 불러오기 Select / 완료 22.11.14_06:00_SangwonKim
+		case ("/notice_list_by_user.do"): //user,admin list
 			command = new CommandCsNoticeListUser();
 			command.execute(request, response);
 			viewPage = "cs_notice.jsp";
+			break;
+		// Notice 불러오기 Select / 완료 22.11.14_15:00_SangwonKim
+		case ("/notice_update_by_admin.do"): // Update, Delete
+			command = new CommandCsNoticeUpdateAdmin();
+			command.execute(request, response);
+			viewPage = "notice_list_by_user.do";
 			break;
 		// --------------------- 상원 Controller End -----------------------
 
