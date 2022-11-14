@@ -50,11 +50,10 @@
           <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown"><span>Roast Bean</span> Community</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <h2 class="animate__animated animate__fadeInDown"><span>Roast Bean</span> Information</h2>
+                <p class="animate__animated animate__fadeInUp"> 평상시 얻기 힘들었던 원두 정보를 저희 Roast Bean에서 <br>얻어가세요!!</p>
                 <div>
-                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                  <a href="beaninfo.do" class="btn-book animate__animated animate__fadeInUp scrollto">Information</a>
                 </div>
               </div>
             </div>
@@ -64,11 +63,10 @@
           <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Roast Bean2</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <h2 class="animate__animated animate__fadeInDown"><span>Roast Bean</span> Community</h2>
+                <p class="animate__animated animate__fadeInUp"> 회원들과 소통하면서 원두에 대한 이야기를 나눠보세요!!</p>
                 <div>
-                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                  <a href="list.do?page=1" class="btn-book animate__animated animate__fadeInUp scrollto">Community</a>
                 </div>
               </div>
             </div>
@@ -78,11 +76,10 @@
           <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Roast Bean3</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <h2 class="animate__animated animate__fadeInDown"><span>Roast Bean</span> Shop</h2>
+                <p class="animate__animated animate__fadeInUp"> 100% 프리미엄 아라비카<br>원두를 로스팅하여, 깊고 <br>부드러운 커피와<br>빅 사이즈로 <br>구성된 다양한 음료를 <br>합리적인 가격으로 <br>제공합니다.</p>
                 <div>
-                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                  <a href="productList.do?page=1" class="btn-book animate__animated animate__fadeInUp scrollto">Shop</a>
                 </div>
               </div>
             </div>
@@ -262,7 +259,7 @@
               <div class="testimonial-item">
                 <img src="assets/img/indeximg/smcprofile.png" class="testimonial-img" alt="">
                 <h3>Myungchul Song</h3>
-                <h4>Coummunity Board &amp; Recommand Bean</h4>
+                <h4>Coummunity Board &amp; Recommand Bean &amp; Mainpage</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>

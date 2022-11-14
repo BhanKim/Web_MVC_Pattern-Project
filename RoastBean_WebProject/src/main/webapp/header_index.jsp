@@ -41,18 +41,20 @@
 						<ul>
 							<li><a href="companyinfo.jsp">Information</a></li>
 							<li><a href="companylocation.jsp">Location</a></li>
+							<li><a href="beans_that_fit_me.jsp">Coffee That Suits Me</a></li>
 						</ul>
-					<li class="dropdown"><a  href="list.do?page=1"><span>COMMUNITY</span></a>
+					<li class="dropdown"><a href="#COMMUNITY"><span>COMMUNITY</span></a>
 						<ul>
-							<li><a href="csNotice.do">Community Notice</a></li>
+							<li><a href="list.do?page=1">COMMUNITY</a></li>
+							<li><a href="cboardnotice.do">Community Notice</a></li>
 						</ul>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
-					<li class="dropdown"><a href="cs_notice.jsp"><span>CUSTOMER SERVICE</span></a>
+					<li class="dropdown"><a href="notice_list_by_user.do"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="cs_notice.jsp">NOTICE</a></li>
+							<li><a href="notice_list_by_user.do">NOTICE</a></li>
 							<li><a href="cs_faq.jsp">FAQ</a></li>
-							<li><a href="cs_qna.jsp">QnA</a></li>
+							<li><a href="qna_question_by_user.do">QnA</a></li>
 						</ul>
 					<li>&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="login.jsp"><font color="#F2BCBB" style="font-size: 1.1em">Get Started</font></a></li>
@@ -66,20 +68,22 @@
 						<ul>
 							<li><a href="companyinfo.jsp">Information</a></li>
 							<li><a href="companylocation.jsp">Location</a></li>
+							<li><a href="beans_that_fit_me.jsp">Coffee That Suits Me</a></li>
 						</ul>
-					<li class="dropdown"><a  href="list.do?page=1"><span>COMMUNITY</span></a>
+					<li class="dropdown"><a href="#COMMUNITY"><span>COMMUNITY</span></a>
 						<ul>
-							<li><a href="csNotice.do">Community Notice</a></li>
+							<li><a href="list.do?page=1">COMMUNITY</a></li>
+							<li><a href="cboardnotice.do">Community Notice</a></li>
 						</ul>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
 					
 					<c:if test="${ID != 'admin'}">
-						<li class="dropdown"><a href="cs_notice.jsp"><span>CUSTOMER SERVICE</span></a>
+						<li class="dropdown"><a href="notice_list_by_user.do"><span>CUSTOMER SERVICE</span></a>
 							<ul>
-								<li><a href="cs_notice.jsp">NOTICE</a></li>
+								<li><a href="notice_list_by_user.do">NOTICE</a></li>
 								<li><a href="cs_faq.jsp">FAQ</a></li>
-								<li><a href="cs_qna.jsp">QnA</a></li>
+								<li><a href="qna_question_by_user.do">QnA</a></li>
 							</ul>
 						</li>
 						<li>&emsp;&emsp;</li>
@@ -87,16 +91,16 @@
 						<li><a href="cartOrder.do"><i class="fa badge2 fa-lg" value="${CARTCOUNT.cartCount}" style="font-size: 1.5em">&#xf07a;</i></a></li>
 					</c:if>
 					<c:if test="${ID == 'admin'}">
-						<li class="dropdown"><a href="cs_notice.jsp?page=1"><span>CUSTOMER SERVICE</span></a>
+						<li class="dropdown"><a href="notice_list_by_admin.do"><span>CUSTOMER SERVICE</span></a>
 							<ul>
-								<li><a href="cs_notice.jsp">NOTICE</a></li>
+								<li><a href="notice_list_by_admin.do">NOTICE</a></li>
 								<li><a href="cs_faq.jsp">FAQ</a></li>
 								<li><a href="qna_list_by_admin.do">QnA</a></li>
 							</ul>
 						</li>
 						<li>&emsp;&emsp;</li>
 						<li><a class="nav-link scrollto" href="mypage_info.do"><font color="#F2BCBB" style="font-size: 0.9em">${NICK}님</font></a></li>
-						<li><a class="nav-link scrollto" href="UserListSelect.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
+						<li><a class="nav-link scrollto" href="ManageMain.do"><font color="#F2BCBB" style="font-size: 0.9em">Manage</font></a></li>
 					</c:if>
 					
 					<c:choose>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.rb.command.Command;
 import com.rb.command.CommandAdminLogin;
-import com.rb.command.CommandBeanInfo;
+//import com.rb.command.CommandBeanInfo;
 import com.rb.command.CommandBoardcommentlist;
 import com.rb.command.CommandBoardcontent;
 import com.rb.command.CommandBoarddelete;
@@ -46,7 +46,7 @@ import com.rb.command.CommandManageUserList;
 import com.rb.command.CommandManageUserOrderSum;
 import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
-import com.rb.command.CommandNoticelist;
+//import com.rb.command.CommandNoticelist;
 import com.rb.command.CommandOrder;
 import com.rb.command.CommandOrderInsert;
 import com.rb.command.CommandProductDetail;
@@ -265,13 +265,13 @@ public class FrontController extends HttpServlet {
 
 		// --------------------- 성진 Controller Start -----------------------
 		// 원두 정보 페이지
-		case ("/beaninfo.do"):
-			System.out.println("beaninfo");
-			request.setAttribute("nav_beaninfo", "#f2bcbb");
-			command = new CommandBeanInfo();
-			command.execute(request, response);
-			viewPage = "beaninfo.jsp";
-			break;
+//		case ("/beaninfo.do"):
+//			System.out.println("beaninfo");
+//			request.setAttribute("nav_beaninfo", "#f2bcbb");
+//			command = new CommandBeanInfo();
+//			command.execute(request, response);
+//			viewPage = "beaninfo.jsp";
+//			break;
 		// --------------------- 성진 Controller End -----------------------
   
 		// --------------------- 윤현 Controller Start ---------------------
@@ -463,12 +463,12 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "list.do?page=" + curPage;
 			break;
-		case ("/csNotice.do"):{
+		//Community Notice 자유게시판 공지사항
+		case ("/cboardnotice.do"):
 			command=new CommandBoardnoticelist();
 			command.execute(request, response);
-			viewPage="cs_notice.jsp";
+			viewPage="cboardnotice.jsp";
 			break;
-		}
 		// ----------- Comment ------------
 		// 댓글달기
 		case ("/coWrite.do"):
