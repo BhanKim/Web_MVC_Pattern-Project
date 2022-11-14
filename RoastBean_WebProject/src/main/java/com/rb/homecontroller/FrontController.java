@@ -45,7 +45,6 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
-import com.rb.command.CommandManageUserOrderSum;
 import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
 import com.rb.command.CommandOrder;
@@ -416,16 +415,16 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
-			command = new CommandManageUserOrderSum();
-			command.execute(request, response);
-			viewPage = "manage_main.jsp";
-			break;
+//		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
+//			command = new CommandManageUserOrderSum();
+//			command.execute(request, response);
+//			viewPage = "manage_main.jsp";
+//			break;
 		// --------------------- 수빈 Controller End -----------------------
 			
-			// --------------------- 혁&티뱃 Controller Start ---------------------
-			// 자유게시판 게시글 list 불러오기
-			case("/list.do"):
+		// --------------------- 혁&티뱃 Controller Start ---------------------
+		// 자유게시판 게시글 list 불러오기
+		case("/list.do"):
 			command = new CommandBoardlist();
 			command.execute(request, response);
 			command = new CommandBoardnoticelist();
@@ -437,94 +436,94 @@ public class FrontController extends HttpServlet {
 			// command.execute(request, response);
 			// viewPage = "cboardlist.jsp";
 			// break;
-			// 글쓰기 페이지로 이동
-			case("/boardwrite_view.do"):
+		// 글쓰기 페이지로 이동
+		case("/boardwrite_view.do"):
 			viewPage = "cboardwrite_view.jsp";
 			break;
-			// 글쓰기
-			case("/boardwrite.do"):
+		// 글쓰기
+		case("/boardwrite.do"):
 			command = new CommandBoardwrite();
 			command.execute(request, response);
 			viewPage = "list.do?page=" + curPage;
 			break;
-			// 검색기능
-			case ("/bSearch.do"):
+		// 검색기능
+		case ("/bSearch.do"):
 			command = new CommandBoardsearch();
 			command.execute(request, response);
 			viewPage = "cboardsearch.jsp";
 			break;
-			// Detail Page & comment list
-			case ("/content_view.do"):
+		// Detail Page & comment list
+		case ("/content_view.do"):
 			command = new CommandBoardcontent();
 			command.execute(request, response);
 			command = new CommandBoardcommentlist();
 			command.execute(request, response);
 			viewPage = "cboardcontent_view.jsp";
 			break;
-			// 수정하기 page
-			case ("/modify_view.do"):
+		// 수정하기 page
+		case ("/modify_view.do"):
 			command = new CommandBoardcontent();
 			command.execute(request, response);
 			viewPage = "cboardupdate.jsp";
 			break;
-			// 수정하기
-			case ("/modify.do"):
+		// 수정하기
+		case ("/modify.do"):
 			command = new CommandBoardupdate();
 			command.execute(request, response);
 			command = new CommandBoardcontent();
 			command.execute(request, response);
 			viewPage = "cboardcontent_view.jsp";
 			break;
-			// 삭제 page
-			case ("/communitydelete.do"):
+		// 삭제 page
+		case ("/communitydelete.do"):
 			command = new CommandBoarddelete();
 			command.execute(request, response);
 			viewPage = "list.do?page=" + curPage;
 			break;
-			// 좋아요기능
-			case ("/boardlike.do"):
+		// 좋아요기능
+		case ("/boardlike.do"):
 			command = new CommandBoardlikeboard();
 			command.execute(request, response);
 			viewPage = "content_view.do";
 			break;
-			// view reply[답글페이지보기] Page
-			case ("/reply_view.do"):
+		// view reply[답글페이지보기] Page
+		case ("/reply_view.do"):
 			command = new CommandBoardviewreply();
 			command.execute(request, response);
 			viewPage = "cboardreply_view.jsp";
 			break;
-			// 답글달기
-			case ("/reply.do"):
+		// 답글달기
+		case ("/reply.do"):
 			command = new CommandBoardreply();
 			command.execute(request, response);
 			viewPage = "list.do?page=" + curPage;
 			break;
-			// ----------- Comment ------------
-			// 댓글달기
-			case ("/coWrite.do"):
+		//Community Notice 자유게시판 공지사항
+		case ("/cboardnotice.do"):
+			command=new CommandBoardnoticelist();
+			command.execute(request, response);
+			viewPage="cboardnotice.jsp";
+			break;
+		// ----------- Comment ------------
+		// 댓글달기
+		case ("/coWrite.do"):
 			command = new CommandCommentwrite();
 			command.execute(request, response);
 			viewPage = "content_view.do";
 			break;
-			// 댓글삭제
-			case ("/coDelete.do"):
+		// 댓글삭제
+		case ("/coDelete.do"):
 			command = new CommandCommentdelete();
 			command.execute(request, response);
 			viewPage = "content_view.do";
 			break;
-			// 댓글수정
-			case ("/coModify.do"):
+		// 댓글수정
+		case ("/coModify.do"):
 			command = new CommandCommentupdate();
 			command.execute(request, response);
 			viewPage = "content_view.do";
 			break;
-			// 내가 쓴 게시글 리스트
-			case ("/myboardlist.do"):
-			command = new CommandBoardmylist();
-			command.execute(request, response);
-			viewPage = "myboardreviewlist.do";
-			break;
-			// --------------------- 혁&티뱃 Controller End -----------------------
+		// --------------------- 혁&티뱃 Controller End -----------------------
 
       } // switch
 
