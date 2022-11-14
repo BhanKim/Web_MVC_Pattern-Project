@@ -77,7 +77,7 @@ public class DtoUser {
 		super();
 		this.cartCount = cartCount;
 	}
-	
+
 	public String getUser_id() {
 		return user_id;
 	}
@@ -206,18 +206,13 @@ public class DtoUser {
 		this.user_deletedate = user_deletedate;
 	}
 
-
-
 	public int getCartCount() {
 		return cartCount;
 	}
 
-
-
 	public void setCartCount(int cartCount) {
 		this.cartCount = cartCount;
 	}
-	
-	
+
 
 }
