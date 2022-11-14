@@ -16,6 +16,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.rb.dto.DtoProductList;
 import com.rb.dto.DtoUser;
 
 public class DaoEmailFindPw {
@@ -30,6 +31,42 @@ public class DaoEmailFindPw {
 			e.printStackTrace();
 		}
 	}
+	
+	public int checkUser(String user_id, String user_name, String user_email) {
+		int checkUser = 0;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            
+            connection = dataSource.getConnection();
+
+            String query = "select count(*) as checkUser from user where user_id = '" + user_id + "'" + " and user_email = '" + user_email + "'" + " and user_name = '" + user_name + "'";
+            
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+            	checkUser = resultSet.getInt("checkUser");
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null)
+                    resultSet.close();
+                if (preparedStatement != null)
+                    preparedStatement.close();
+                if (connection != null)
+                    connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return checkUser;
+    } 
 	
 	public String findPw(String user_id, String user_name, String user_email) {
             Connection connection = null;

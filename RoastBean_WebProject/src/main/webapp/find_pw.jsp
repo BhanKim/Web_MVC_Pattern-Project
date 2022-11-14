@@ -53,33 +53,55 @@
 <script type="text/javascript">
 $(document).ready(function() {
 		$('#findPw').click(function(){
-		   
-		       var user_id = $('#user_id').val();
-		       var user_name = $('#user_name').val();
-		       var user_email = $('#user_email').val();
-		        
-		       if(user_email=="") {
+			var user_id = $('#user_id').val();
+		    var user_name = $('#user_name').val();
+		    var user_email = $('#user_email').val();
+		    var userCheck = "0";
+			
+			if(user_email=="") {
 				   alert("이메일을 입력해주세요");
 		       } else if(user_name=="") {
 		    	   alert("이름을 입력해주세요");
 		       } else if(user_id=="") {
 		    	   alert("아이디를 입력해주세요");
 		       } else {
-		    	   alert("이메일 전송이 완료되었습니다.\n이메일을 확인해 주세요.");
-		           $.ajax({
-		              url:'http://localhost:8080/RoastBean_WebProject/FindPw',
-		              type:'POST',
-		              data:{user_id : user_id, 
-		            	  	user_name : user_name,
-		            	  	user_email : user_email},
-		              success:function(response)
-		              {
-		            	  document.findPw.submit();
-		              }
-		           })
-		       }
+		    	   $.ajax({
+			              url:'http://localhost:8080/RoastBean_WebProject/findPwUserCheck.do',
+			              type:'POST',
+			              async: false,
+			              data:{user_id : user_id, 
+			            	  	user_name : user_name,
+			            	  	user_email : user_email},
+			              success:function(response) {
+							if(response != null) {
+								userCheck = '<%=session.getAttribute("CHECKUSER")%>'
+								if(userCheck=="0") {
+									alert("입력하신 정보를 다시 확인해 주세요.");
+									document.findPwform.action = 'find_pw.jsp';
+									document.findPwform.submit();
+								} else if (userCheck=="1"){
+							    	   alert("이메일 전송이 완료되었습니다.\n이메일을 확인해 주세요.");
+							           $.ajax({
+							              url:'http://localhost:8080/RoastBean_WebProject/FindPw',
+							              type:'POST',
+							              async: false,
+							              data:{user_id : user_id, 
+							            	  	user_name : user_name,
+							            	  	user_email : user_email},
+							              success:function(response)
+							              {
+							            	  document.findPwform.submit();
+							              }
+							           })
+							      	 }
+						       } else {
+						    	   checkFlag = false;
+							   } 
+			   }
+		    })
 		        
-			})
+			}
+		})
 })
 </script>
 
@@ -107,7 +129,7 @@ $(document).ready(function() {
 	<section id="why-us" class="why-us">
 		<div class="container">
 			<div class="row" align="center">
-				<form action="login.jsp" method="post" name="findPw">
+				<form action="login.jsp" method="post" name="findPwform" id="findPwform">
 							<div class="col" style="width: 380px;">
 							<div class="mb-3">
 									<input type="text" class="form-control" id="user_id"
@@ -133,7 +155,6 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</section>
-	
 	</main>
 	
 	<%@include file="footer.jsp"%>

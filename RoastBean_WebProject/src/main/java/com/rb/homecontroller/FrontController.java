@@ -52,6 +52,7 @@ import com.rb.command.CommandProductList;
 import com.rb.command.CommandReview;
 import com.rb.command.CommandReviewDelete;
 import com.rb.command.CommandReviewList;
+import com.rb.command.CommandUserCheck;
 import com.rb.command.CommandUserCheckId;
 import com.rb.command.CommandUserCheckNick;
 import com.rb.command.CommandUserInfoPwcheck;
@@ -315,6 +316,11 @@ public class FrontController extends HttpServlet {
 			command = new CommandReviewDelete();
 			command.execute(request, response);
 			viewPage = "productDetail.do?product_id="+request.getParameter("product_id");
+			break;
+		case ("/findPwUserCheck.do"):
+			command = new CommandUserCheck();
+			command.execute(request, response);
+			viewPage = "find_pw.jsp";
 			break;
 		// --------------------- 윤현 Controller End -----------------------
 			
