@@ -20,7 +20,7 @@ public class CommandUserSignup implements Command {
 		String user_name = request.getParameter("user_name");
 		String user_nick = request.getParameter("user_nick");
 		String user_pw = request.getParameter("user_pw");
-		String user_telno = request.getParameter("user_telno1")+"-"+request.getParameter("user_telno2")+"-"+request.getParameter("user_telno3");
+		String user_telno = request.getParameter("user_telno1") + request.getParameter("user_telno2") + request.getParameter("user_telno3");
 		String user_email = request.getParameter("user_email");
 		String user_birthday = request.getParameter("user_birthday1")+"-"+request.getParameter("user_birthday2")+"-"+request.getParameter("user_birthday3");
 		String user_gender = request.getParameter("user_gender");

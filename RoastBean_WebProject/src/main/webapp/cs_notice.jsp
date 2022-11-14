@@ -122,7 +122,7 @@
 										<td align="center">추가 등록</td>
 										<td align="left">
 											제목 : <input type="text" name="notice_write_title" size="60%">
-											<textarea rows="2" cols="80%" name="notice_write_content" style="background-color: #F2F1EF"></textarea>
+											<textarea rows="2" cols="80%" name="notice_write_comment" style="background-color: #F2F1EF"></textarea>
 										</td>
 										<td></td>
 										<td><input type="submit" value="등록" class="btn" style="background-color: #F2BCBB"></td>
