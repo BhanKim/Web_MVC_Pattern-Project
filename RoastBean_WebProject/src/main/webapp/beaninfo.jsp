@@ -58,7 +58,8 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<h2>Bean Information</h2>
 					<ol>
-						<li></li>
+			            <li><a href="index.jsp">Home</a></li>
+			            <li>Bean Information</li>
 					</ol>
 				</div>
 
