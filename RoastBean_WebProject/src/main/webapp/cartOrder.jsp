@@ -93,6 +93,12 @@
 				$("#email2").attr("readonly",true)
 			}
 		}
+		
+		function submitBuy() {
+			form = document.join
+			alert("구매가 완료되었습니다.")
+			form.submit
+		}
 	</script>
 	<!-- ======= Header ======= -->
 	<%@include file = "header_innerpage.jsp" %>
@@ -214,7 +220,7 @@
 				</div>
 				<div align="center">
 				<button type="button" style="background: #F2BCBB; border: 0; padding: 10px 24px; color: #fff; transition: 0.4s; border-radius: 50px;" onclick="location.href='productList.do'">취소</button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="submit" style="background: #F2BCBB; border: 0; padding: 10px 24px; color: #fff; transition: 0.4s; border-radius: 50px;" onclick="location.href='order.do'">구매</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="submit" style="background: #F2BCBB; border: 0; padding: 10px 24px; color: #fff; transition: 0.4s; border-radius: 50px;" onclick="submitBuy()">구매</button>&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				</form>
 			</div>
