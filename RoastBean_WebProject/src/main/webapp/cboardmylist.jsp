@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +35,28 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<style type="text/css">
+.star {
+	font-size: 1rem;
+	color: red;
+}
+
+.star span {
+	width: 0;
+	left: 0;
+	color: red;
+	pointer-events: none;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+}
+.pagination a.active {
+    padding-bottom: 6px;
+    border-bottom: 3px solid #111;
+}
+</style>
 </head>
 
 <body>
@@ -106,7 +129,7 @@
 								[ 처음 ]
 							</c:when>
 							<c:otherwise>
-								<a href="myboardlist.do?page=1">[ 처음 ]</a>
+								<a href="myboardlist.do?page=1&pages=<%=request.getParameter("pages") %>">[ 처음 ]</a>
 							</c:otherwise>
 							</c:choose>
 							<!-- 이전 -->
@@ -115,7 +138,7 @@
 								[ 이전 ]
 							</c:when>
 							<c:otherwise>
-								<a href="myboardlist.do?page=${page.curPage - 1 }">[ 이전 ]</a>
+								<a href="myboardlist.do?page=${page.curPage - 1 }&pages=<%=request.getParameter("pages") %>">[ 이전 ]</a>
 							</c:otherwise>
 							</c:choose>
 							
@@ -126,7 +149,7 @@
 									[ ${fEach } ] &nbsp;
 								</c:when>
 								<c:otherwise>
-									<a href="myboardlist.do?page=${fEach }">[ ${fEach } ]</a>&nbsp;
+									<a href="myboardlist.do?page=${fEach }&pages=<%=request.getParameter("pages") %>">[ ${fEach } ]</a>&nbsp;
 								</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -137,7 +160,7 @@
 								[ 다음 ]
 							</c:when>
 							<c:otherwise>
-								<a href="myboardlist.do?page=${page.curPage + 1 }">[ 다음 ]</a>
+								<a href="myboardlist.do?page=${page.curPage + 1 }&pages=<%=request.getParameter("pages") %>">[ 다음 ]</a>
 							</c:otherwise>
 							</c:choose>
 							<!-- 끝 -->
@@ -146,7 +169,103 @@
 								[ 마지막 ]
 							</c:when>
 							<c:otherwise>
-								<a href="myboardlist.do?page=${page.totalPage }">[ 마지막 ]</a>
+								<a href="myboardlist.do?page=${page.totalPage }&pages=<%=request.getParameter("pages") %>">[ 마지막 ]</a>
+							</c:otherwise>
+							</c:choose>
+							</td>
+						</tr>
+					</tbody>	
+				</table><br>
+				</div>
+			</div>
+	  
+	  </div>
+	  <div class="container">
+	  		<div class="row">
+		    <div class="col">
+		    	<h2>&nbsp;&nbsp;${NICK } Review List</h2><br>
+		    	<table class="table table-sm table-hover">
+					<thead>
+						<tr>
+							<th width=15 style="text-align: center;">번호</th>
+							<th width=15 style="text-align: center;">주문번호</th>
+							<th width=150 style="text-align: center;">내용</th>
+							<th width=70 style="text-align: center;">작성일</th>
+							<th width=70 style="text-align: center;">평점</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<c:forEach items="${mylist}" var="dtos">				
+						<tr>
+								<td width=70 style="text-align: center;">${dtos.rownum}</td>		
+								<td width=70 style="text-align: center;">${dtos.order_seq}</td>					
+								<td id="left" style="text-align: center;">
+									<a href="reviewEdit.do?order_seq=${dtos.order_seq}&review_seq=${dtos.review_seq}" style="color: #000000;">${dtos.review_content }</a></td>
+								<td style="text-align: center;">
+										<fmt:formatDate value="${dtos.review_date}" pattern="yyyy-MM-dd KK:mm"/>
+								</td>
+								
+								<td style="text-align: center;">
+								<c:forEach begin="1" end="${dtos.review_star}">
+									<span class="star">★</span>
+								</c:forEach>
+								<c:forEach begin="${dtos.review_star}" end="4">
+									☆
+								</c:forEach></td>
+							
+						</tr>
+						</c:forEach>
+						<tr></tr>
+						
+						<tr>
+						<td align="center" colspan="6">
+						<c:choose>
+							<c:when test="${(pages.curPage - 1) < 1 }">
+								[ 처음 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=<%=request.getParameter("page") %>&pages=1">[ 처음 ]</a>
+							</c:otherwise>
+							</c:choose>
+							<!-- 이전 -->
+							<c:choose>
+							<c:when test="${(pages.curPage - 1) < 1 }">
+								[ 이전 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=<%=request.getParameter("page") %>&pages=${pages.curPage - 1 }">[ 이전 ]</a>
+							</c:otherwise>
+							</c:choose>
+							
+							<!-- 개별 페이지 -->
+							<c:forEach var="fEach" begin="${pages.startPage }" end="${pages.endPage }" step="1">
+								<c:choose>
+								<c:when test="${pages.curPage == fEach}">
+									[ ${fEach } ] &nbsp;
+								</c:when>
+								<c:otherwise>
+									<a href="myboardlist.do?page=<%=request.getParameter("page") %>&pages=${fEach }">[ ${fEach } ]</a>&nbsp;
+								</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							
+							<!-- 다음 -->
+							<c:choose>
+							<c:when test="${(pages.curPage + 1) > pages.totalPage }">
+								[ 다음 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=<%=request.getParameter("page") %>&pages=${pages.curPage + 1 }">[ 다음 ]</a>
+							</c:otherwise>
+							</c:choose>
+							<!-- 끝 -->
+							<c:choose>
+							<c:when test="${pages.curPage == pages.totalPage }">
+								[ 마지막 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=<%=request.getParameter("page") %>&pages=${pages.totalPage }">[ 마지막 ]</a>
 							</c:otherwise>
 							</c:choose>
 							</td>

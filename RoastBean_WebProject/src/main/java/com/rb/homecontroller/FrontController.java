@@ -52,6 +52,9 @@ import com.rb.command.CommandProductList;
 import com.rb.command.CommandReview;
 import com.rb.command.CommandReviewDelete;
 import com.rb.command.CommandReviewList;
+import com.rb.command.CommandReviewMyList;
+import com.rb.command.CommandReviewMyListEdit;
+import com.rb.command.CommandReviewUpdate;
 import com.rb.command.CommandUserCheck;
 import com.rb.command.CommandUserCheckId;
 import com.rb.command.CommandUserCheckNick;
@@ -322,6 +325,31 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "find_pw.jsp";
 			break;
+		case ("/myboardreviewlist.do"):
+			command = new CommandReviewMyList();
+			command.execute(request, response);
+			viewPage = "cboardmylist.jsp";
+			break;
+		case ("/reviewEdit.do"):
+			command = new CommandReviewList();
+			command.execute(request, response);
+			viewPage = "reviewUpdateEdit.do";
+			break;
+		case ("/reviewUpdateEdit.do"):
+			command = new CommandReviewMyListEdit();
+			command.execute(request, response);
+			viewPage = "productReviewUpdate.jsp";
+			break;
+		case ("/reviewDelete.do"):
+			command = new CommandReviewDelete();
+			command.execute(request, response);
+			viewPage = "myboardlist.do";
+			break;
+		case ("/reviewUpdate.do"):
+			command = new CommandReviewUpdate();
+			command.execute(request, response);
+			viewPage = "myboardlist.do";
+			break;
 		// --------------------- 윤현 Controller End -----------------------
 			
 		// --------------------- 수빈 Controller Start ---------------------
@@ -475,7 +503,7 @@ public class FrontController extends HttpServlet {
 			case ("/myboardlist.do"):
 			command = new CommandBoardmylist();
 			command.execute(request, response);
-			viewPage = "cboardmylist.jsp";
+			viewPage = "myboardreviewlist.do";
 			break;
 			// --------------------- 혁&티뱃 Controller End -----------------------
 

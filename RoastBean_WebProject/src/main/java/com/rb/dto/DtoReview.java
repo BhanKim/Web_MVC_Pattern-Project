@@ -10,6 +10,7 @@ public class DtoReview {
 	String review_content;
 	int review_star;
 	String user_nick;
+	int order_seq;
 	
 	public DtoReview(int rownum, int review_seq, Timestamp review_date, String review_content, int review_star, String user_nick) {
 		super();
@@ -20,6 +21,28 @@ public class DtoReview {
 		this.review_star = review_star;
 		this.user_nick = user_nick;
 	}
+
+	
+	public DtoReview(int rownum, int review_seq, Timestamp review_date, String review_content, int review_star,
+			String user_nick, int order_seq) {
+		super();
+		this.rownum = rownum;
+		this.review_seq = review_seq;
+		this.review_date = review_date;
+		this.review_content = review_content;
+		this.review_star = review_star;
+		this.user_nick = user_nick;
+		this.order_seq = order_seq;
+	}
+	
+	public DtoReview(int review_seq, String review_content, int review_star, int order_seq) {
+		super();
+		this.review_seq = review_seq;
+		this.review_content = review_content;
+		this.review_star = review_star;
+		this.order_seq = order_seq;
+	}
+
 
 	public int getRownum() {
 		return rownum;
@@ -67,6 +90,14 @@ public class DtoReview {
 
 	public void setReview_seq(int review_seq) {
 		this.review_seq = review_seq;
+	}
+
+	public int getOrder_seq() {
+		return order_seq;
+	}
+
+	public void setOrder_seq(int order_seq) {
+		this.order_seq = order_seq;
 	}
 	
 	
