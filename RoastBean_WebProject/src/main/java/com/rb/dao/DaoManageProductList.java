@@ -36,10 +36,11 @@ public class DaoManageProductList {
 		try {
 
 			connection = dataSource.getConnection();
-			String query = "select p.product_id, p.product_name, p.product_nation, p.product_image, p.product_info, p.product_stock, p.product_weight, p.product_price, "
-					+ "c.category_type, c.category_acidity, c.category_aroma, c.category_body, c.category_sweet from product as p, category as c "
-					+ "where p.product_deletedate is null";
-			preparedStatement = connection.prepareStatement(query);
+			String query = "select p.product_id, p.product_name, p.product_nation, p.product_image, p.product_info, p.product_stock, p.product_weight, p.product_price, ";
+			String query1 = "c.category_type, c.category_acidity, c.category_aroma, c.category_body, c.category_sweet ";
+			String query2 = "from product as p, category as c ";
+			String query3 = "where p.product_deletedate is null and p.product_id = c.product_id";
+			preparedStatement = connection.prepareStatement(query + query1 + query2 + query3);
 			resultSet = preparedStatement.executeQuery();
 
 			System.out.println("ManageProductList.dao.try");
@@ -143,7 +144,6 @@ public class DaoManageProductList {
 		return dtos;
 
 	}// manageorderslistselete
-
 
 	public void manageproductinsert(String first_product_name, String first_product_nation, String first_product_image,
 			String first_product_info, String first_product_stock, String first_product_weight,
@@ -504,7 +504,8 @@ public class DaoManageProductList {
 		try {
 			connection = dataSource.getConnection();
 			String query = "select order_seq, user_id, product_id, order_name, order_address, order_email, "
-					+ "order_telno, order_qty, order_price, order_date " + "from orders where " + queryname + " like '%" + querycontent + "%'";
+					+ "order_telno, order_qty, order_price, order_date " + "from orders where " + queryname + " like '%"
+					+ querycontent + "%'";
 
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
@@ -513,17 +514,18 @@ public class DaoManageProductList {
 				int order_seq = resultSet.getInt("order_seq");
 				String user_id = resultSet.getString("user_id");
 				int product_id = resultSet.getInt("product_id");
-				
+
 				String order_name = resultSet.getString("order_name");
 				String order_address = resultSet.getString("order_address");
 				String order_email = resultSet.getString("order_email");
 				String order_telno = resultSet.getString("order_telno");
-				
+
 				int order_qty = resultSet.getInt("order_qty");
 				int order_price = resultSet.getInt("order_price");
 				Timestamp order_date = resultSet.getTimestamp("order_date");
 
-				DtoManageProductList dto = new DtoManageProductList(order_seq, product_id, user_id, order_name, order_address, order_email, order_telno, order_qty, order_price, order_date);
+				DtoManageProductList dto = new DtoManageProductList(order_seq, product_id, user_id, order_name,
+						order_address, order_email, order_telno, order_qty, order_price, order_date);
 				dtos.add(dto);
 
 				System.out.println("ManageProductSearch.dao_try");
@@ -583,14 +585,15 @@ public class DaoManageProductList {
 		}
 		return result;
 	}
-	//-----------------------------------------------
+
+	// -----------------------------------------------
 	public int manageuserprderrankingselect_max() {
 		DtoManageProductList dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		int result = 0 ;
-		
+		int result = 0;
+
 		try {
 			connection = dataSource.getConnection();
 			String query = "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1;";
@@ -600,7 +603,7 @@ public class DaoManageProductList {
 
 			if (resultSet.next()) {
 				result = resultSet.getInt("product_id");
-				
+
 				System.out.println(result);
 			}
 
@@ -622,15 +625,16 @@ public class DaoManageProductList {
 		System.out.println(result);
 		return result;
 	}
-	//-----------------------------------------------
-	//-----------------------------------------------
+
+	// -----------------------------------------------
+	// -----------------------------------------------
 	public String manageuserprderrankingselect_max_name() {
 		DtoManageProductList dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		String result = null;
-		
+
 		try {
 			connection = dataSource.getConnection();
 			String query = "select p.product_name from product as p where p.product_id = (\n"
@@ -641,7 +645,7 @@ public class DaoManageProductList {
 
 			if (resultSet.next()) {
 				result = resultSet.getString("product_name");
-			
+
 				System.out.println(result);
 			}
 
@@ -663,27 +667,28 @@ public class DaoManageProductList {
 		System.out.println(result);
 		return result;
 	}
+
 	public String manageuserprderrankingselect_max_img() {
 		DtoManageProductList dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		String result = null;
-		
+
 		try {
 			connection = dataSource.getConnection();
-			String query = "select p.product_name from product as p where p.product_id = (\n"
+			String query = "select p.product_image from product as p where p.product_id = (\n"
 					+ "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1);";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			System.out.println(resultSet);
-			
+
 			if (resultSet.next()) {
-				result = resultSet.getString("product_name");
-				
+				result = resultSet.getString("product_image");
+
 				System.out.println(result);
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -697,10 +702,10 @@ public class DaoManageProductList {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 		}
 		System.out.println(result);
 		return result;
 	}
-	
+
 }
