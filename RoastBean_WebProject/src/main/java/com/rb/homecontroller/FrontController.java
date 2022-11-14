@@ -46,6 +46,7 @@ import com.rb.command.CommandManageUserList;
 import com.rb.command.CommandManageUserOrderSum;
 import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
+import com.rb.command.CommandNoticelist;
 import com.rb.command.CommandOrder;
 import com.rb.command.CommandOrderInsert;
 import com.rb.command.CommandProductDetail;
@@ -462,6 +463,12 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "list.do?page=" + curPage;
 			break;
+		case ("/csNotice.do"):{
+			command=new CommandBoardnoticelist();
+			command.execute(request, response);
+			viewPage="cs_notice.jsp";
+			break;
+		}
 		// ----------- Comment ------------
 		// 댓글달기
 		case ("/coWrite.do"):
