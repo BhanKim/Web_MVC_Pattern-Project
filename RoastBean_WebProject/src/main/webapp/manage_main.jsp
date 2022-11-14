@@ -72,11 +72,11 @@
 		
 		
 		
-		 <table  width="1200" height="500" style="margin-left: auto; margin-right: auto;" border="1" >
+		 <table  width="1200" height="500" style="margin-left: auto; margin-right: auto;" border="1" class="table table-hover table-bordered border-secondary">
 		<tr>
 		<td>
 		 <form action="ManageUserOrderSum.do" method="post">
-		 <table style="margin-left: auto; margin-right: auto;">
+		 <table style="margin-left: auto; margin-right: auto;" width="600px">
 		 <tr>
 		    <td width="100" height="50"><font size="5">금일 매출</font></td>
 		    <td><font size="5"><input type="text" readonly="readonly" size="10" value="${order_date_sum }" style="border:none"></font></td>
@@ -93,7 +93,7 @@
 		
 		<td>
 		<!-- 상품 순위 -->
-		<table style="margin-left: auto; margin-right: auto;">
+		<table style="margin-left: auto; margin-right: auto;" width="600px">
 		<tr>
 		<td colspan="2"><font size="5">고객들이 가장 많이 선택한 상품</font></td>
 		</tr>
