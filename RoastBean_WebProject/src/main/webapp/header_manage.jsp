@@ -17,27 +17,29 @@
 		class="container-fluid container-xl d-flex align-items-center justify-content-between">
 		<div class="col-lg-4">
 			<h1>
-				<a href="ManageMain.do"><img src="assets/img/logo.png" alt=""
+				<a href="index.jsp"><img src="assets/img/logo.png" alt=""
 					class="img-fluid" width="320" height="72"></a>
 			</h1>
 		</div>
 		<nav id="navbar" class="navbar order-last order-lg-0">
 			<ul>
-				<li><a class="nav-link scrollto" href="UserListSelect.do">User List</a></li>
+				<li><a class="nav-link scrollto" href="ManageMain.do">MANAGE MAIN</a></li>
 				
-				<li class="dropdown"><a href="ManageProductList.do"><span>Product List</span></a>
+				<li><a class="nav-link scrollto" href="UserListSelect.do">USER LIST</a></li>
+				
+				<li class="dropdown"><a href="ManageProductList.do"><span>PRODUCT LIST</span></a>
 				   <ul>
-				      <li><a href="manage_product_insert.jsp">Product Insert</a></li>
+				      <li><a href="manage_product_insert.jsp">PRODUCT INSERT</a></li>
 				   </ul>
 				
-				<li><a class="nav-link2 scrollto" href="#coffee_information">Order List</a></li>
+				<li><a class="nav-link2 scrollto" href="ManageOrdersList.do">ODERS LIST</a></li>
 				<!-- order list.do 입력 -->
 				
-				<li><a class="nav-link2 scrollto" href="#coffee_shop">COFFEE SHOP</a></li>
+				<!-- <li><a class="nav-link2 scrollto" href="#coffee_shop">통계</a></li> -->
 				
 				<li class="dropdown"><a href="#customer_service"><span>CUSTOMER SERVICE</span></a>
 					<ul>
-						<li><a href="#notice">NOTICE</a></li>
+						<li><a href="cs_notice.jsp">NOTICE</a></li>
 						<li><a href="#faq">FAQ</a></li>
 						<li><a href="#qna">QnA</a></li>
 					</ul> 

@@ -22,6 +22,17 @@ public class DtoManageProductList {
 	String category_body;
 	String category_sweet;
 	//-----------------------------
+	int order_seq ;
+	String user_id ;
+	String order_name ;
+	String order_address ;
+
+	String order_email ;
+	String order_telno ;
+	int order_qty ;
+	int order_price ;
+	Timestamp order_date ;
+	//------------------------------
 	public DtoManageProductList(int product_id, String product_name, String product_nation, String product_image,
 			String product_info, int product_stock, int product_weight, int product_price,
 			Timestamp product_initdate) {
@@ -92,11 +103,30 @@ public class DtoManageProductList {
 		this.category_body = category_body;
 		this.category_sweet = category_sweet;
 	}
+	
+
+
+	public DtoManageProductList(int product_id, int order_seq, String user_id, String order_name, String order_address,
+			String order_email, String order_telno, int order_qty, int order_price, Timestamp order_date) {
+		super();
+		this.product_id = product_id;
+		this.order_seq = order_seq;
+		this.user_id = user_id;
+		this.order_name = order_name;
+		this.order_address = order_address;
+		this.order_email = order_email;
+		this.order_telno = order_telno;
+		this.order_qty = order_qty;
+		this.order_price = order_price;
+		this.order_date = order_date;
+	}
 	public DtoManageProductList(int product_id) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.product_id = product_id;
 	}
+	
+	
 	public int getProduct_id() {
 		return product_id;
 	}
@@ -199,6 +229,62 @@ public class DtoManageProductList {
 	public void setCategory_sweet(String category_sweet) {
 		this.category_sweet = category_sweet;
 	}
+	public int getOrder_seq() {
+		return order_seq;
+	}
+	public void setOrder_seq(int order_seq) {
+		this.order_seq = order_seq;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getOrder_name() {
+		return order_name;
+	}
+	public void setOrder_name(String order_name) {
+		this.order_name = order_name;
+	}
+	public String getOrder_address() {
+		return order_address;
+	}
+	public void setOrder_address(String order_address) {
+		this.order_address = order_address;
+	}
+	public String getOrder_email() {
+		return order_email;
+	}
+	public void setOrder_email(String order_email) {
+		this.order_email = order_email;
+	}
+	public String getOrder_telno() {
+		return order_telno;
+	}
+	public void setOrder_telno(String order_telno) {
+		this.order_telno = order_telno;
+	}
+	public int getOrder_qty() {
+		return order_qty;
+	}
+	public void setOrder_qty(int order_qty) {
+		this.order_qty = order_qty;
+	}
+	public int getOrder_price() {
+		return order_price;
+	}
+	public void setOrder_price(int order_price) {
+		this.order_price = order_price;
+	}
+	public Timestamp getOrder_date() {
+		return order_date;
+	}
+	public void setOrder_date(Timestamp order_date) {
+		this.order_date = order_date;
+	}
+	
+	
 	
 	
 }

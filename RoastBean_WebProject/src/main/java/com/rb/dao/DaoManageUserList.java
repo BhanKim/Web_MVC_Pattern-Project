@@ -31,7 +31,7 @@ public class DaoManageUserList {
 		try {
 			
 			connection = dataSource.getConnection();
-			String query = "select user_id, user_pw, user_name, user_birthdate, user_gender, user_email, user_telno from user";
+			String query = "select user_id, user_pw, user_name, user_birthday, user_gender, user_email, user_telno from user";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
@@ -39,7 +39,7 @@ public class DaoManageUserList {
 				String user_id = resultSet.getString("user_id");
 				String user_pw = resultSet.getString("user_pw");
 				String user_name = resultSet.getString("user_name");
-				String user_birthdate = resultSet.getString("user_birthdate");
+				String user_birthday = resultSet.getString("user_birthday");
 				String user_gender = resultSet.getString("user_gender");
 				String user_email = resultSet.getString("user_email");
 				String user_telno = resultSet.getString("user_telno");
@@ -48,7 +48,7 @@ public class DaoManageUserList {
 				System.out.println(user_telno);
 				System.out.println("query");
 				
-				DtoManageUserList dto = new DtoManageUserList(user_id, user_pw, user_name, user_birthdate, user_gender, user_email,
+				DtoManageUserList dto = new DtoManageUserList(user_id, user_pw, user_name, user_birthday, user_gender, user_email,
 						user_telno);
 				dtos.add(dto);
 			}
