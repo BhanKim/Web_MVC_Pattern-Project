@@ -70,12 +70,14 @@ $(document).ready(function() {
 		       if(uemail=="") {
 					alert("이메일을 입력해주세요");
 		       } else {
+		    	   alert("이메일 전송중입니다.");
 		           $.ajax({
 		              url:'http://localhost:8080/RoastBean_WebProject/Email',
 		              type:'POST',
 		              data:{uemail : uemail},
 		              success:function(response)
 		              {
+		            	alert("이메일 전송이 완료되었습니다.\n이메일을 확인해 주세요.");
 		                $('#email_certify_num').attr('value',response);
 		              }
 		           })

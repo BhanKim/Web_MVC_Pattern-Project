@@ -61,7 +61,7 @@ public class DaoEmail {
 				+ "		<p"
 				+ "			style=\"font-size: 16px; line-height: 26px; margin-top: 50px; padding: 0 5px;\">"
 				+ "			안녕하세요.<br /> RoastBean 입니다.<br /> 이메일 인증을 위한 코드를 발송드립니다. <br> <b"
-				+ "				style=\"color: {$point_color\">'메일 인증 번호'</b>를 입력하여 회원가입을 완료해 주세요.<br />"
+				+ "				style=\"color: {$point_color\">'인증 번호'</b>를 입력하여 회원가입을 완료해 주세요.<br />"
 				+ "			<br />"
 				+ "			인증번호 : "
 				+ "			<br />"
