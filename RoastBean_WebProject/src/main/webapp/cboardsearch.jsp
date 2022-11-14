@@ -89,10 +89,10 @@
 					<tr>
 						<td id="left" colspan="6">&nbsp;
 						<c:if test="${ID != null }">
-							<a href="boardwrite_view.do" class="btn btn-success" style="padding:2px 10px">글쓰기</a>
+							<a href="boardwrite_view.do" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff;">글쓰기</a>
 						</c:if>
 						<c:if test="${ID == null }">
-							<a href="login.jsp" class="btn btn-success" style="padding:2px 10px">로그인하고 글쓰기</a>
+							<a href="login.jsp" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff;">로그인하고 글쓰기</a>
 						</c:if>
 						</td>
 					</tr>				

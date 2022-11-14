@@ -62,7 +62,7 @@
 					</tr>
 					<tr>
 						<th width="100" height="40">작성자</th>
-						<td> &nbsp;&nbsp;${ID } </td>
+						<td> &nbsp;&nbsp;${NICK } </td>
 					</tr>
 					<tr>
 						<th width="100" height="320">내용</th>
@@ -73,9 +73,9 @@
 					</tr>
 					<tr>
 						<td colspan="2" height="40">
-							&nbsp;&nbsp;<input type="submit" class="btn btn-success" style="padding:2px 10px" value="수정">&nbsp;
-							<a href="cboardcontent_view.do?community_id=${content_view.community_id }" class="btn btn-secondary" style="padding:2px 10px">취소</a>&nbsp;
-							<a href="list.do?page=<%= session.getAttribute("cpage") %>" class="btn btn-secondary" style="padding:2px 10px">목록</a>&nbsp;
+							&nbsp;&nbsp;<input type="submit" class="btn btn-success" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff;" value="수정">&nbsp;
+							<a href="cboardcontent_view.do?community_id=${content_view.community_id }" class="btn" style="background: #F04949; border: 0; padding:2px 10px; color: #fff;">취소</a>&nbsp;
+							<a href="list.do?page=<%= session.getAttribute("cpage") %>" class="btn" style="background: #A3A7AB; border: 0; padding:2px 10px; color: #fff;">목록</a>&nbsp;
 						</td>
 					</tr>
 				</form>	
@@ -87,32 +87,6 @@
       </div>
     </section><!-- End Breadcrumbs Section -->
 
----------------------------------- 정보 쓰기란 시작 ----------------------------------
-	<section class="inner-page">
-	  <div class="container">
-	  	<p>
-		  이너 페이지 샘플입니다.<br>
-		  이너 페이지 샘플입니다.
-		  이너 페이지 샘플입니다.<br>
-		  위의 class="inner=page" / class="container" 지워도 상관없습니다.<br>
-		  자유롭게 작성해주세요.
-		</p>
-	  </div>
-	</section>
-	
-<h3>jsp 파일 새로 복사해서 작업해주세요!</h3><br>
-정보는 이 공간에 넣어서 실험해보시면 됩니다!<br>
-자유롭게 작성해주세요.<br>
-cf. 기존의 부트스트랩을 사용하여 디자인 하실 분은 해당 부트스트랩 링크 위에 추가 하시면 되겠습니다.
-    
-    <section class="inner-page">
-      <div class="container">
-        <p>
-          Example inner page template
-        </p>
-      </div>
-    </section>
----------------------------------- 정보 쓰기란 종료 ----------------------------------
 
   </main><!-- End #main -->
 

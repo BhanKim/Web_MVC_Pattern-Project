@@ -124,7 +124,7 @@ public class DaoBoard {
     	try {
     		con = dataSource.getConnection();
     		
-    		String query = "select * from community where community_name = 'admin' " +
+    		String query = "select * from community as c, `user` as u where community_name = 'admin' and c.community_name = u.user_id and community_deletedate is null " +
     					   " order by community_initdate desc ";
     		pstmt = con.prepareStatement(query);
     		resultSet = pstmt.executeQuery();
@@ -132,7 +132,7 @@ public class DaoBoard {
     		while(resultSet.next()) {
     			
     			int community_id = resultSet.getInt("community_id");
-    			String community_name = resultSet.getString("community_name");
+    			String community_name = resultSet.getString("user_nick");
     			String community_title = resultSet.getString("community_title");
     			String community_content = resultSet.getString("community_content");
     			String community_initdate = resultSet.getString("community_initdate");
@@ -342,7 +342,7 @@ public class DaoBoard {
   		 			dtos.add(dto);
   		 		}
       		} else if(b_opt.equals("4")) {
-    			String query = "select * from community where community_name like '%"+ keyword +"%' ";
+    			String query = "select * from community as c, `user` as u where c.community_name = u.user_id and u.user_nick like '%"+ keyword +"%' ";
   		 		pstmt = con.prepareStatement(query);
 //  		 		pstmt.setInt(2, nEnd);
 //  		 		pstmt.setInt(3, nStart);
@@ -351,7 +351,7 @@ public class DaoBoard {
   		 		while(resultSet.next()) {
   		 			
   		 			int community_id = resultSet.getInt("community_id");
-  		 			String community_name = resultSet.getString("community_name");
+  		 			String community_name = resultSet.getString("user_nick");
   		 			String community_title = resultSet.getString("community_title");
   		 			String community_content = resultSet.getString("community_content");
   		 			String community_initdate = resultSet.getString("community_initdate");
@@ -397,14 +397,14 @@ public class DaoBoard {
 		try {
 			con = dataSource.getConnection();
 
-			String query = "select * from community where community_id = ?";
+			String query = "select * from community as c, `user` as u where c.community_name = u.user_id and community_id = ?";
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, Integer.parseInt(strID));
 			resultSet = pstmt.executeQuery();
 			if (resultSet.next()) {
 
 	             int community_id = resultSet.getInt("community_id");
-	             String community_name = resultSet.getString("community_name");
+	             String community_name = resultSet.getString("user_nick");
 	             String community_title = resultSet.getString("community_title");
 	             String community_content = resultSet.getString("community_content");
 	             String community_initdate = resultSet.getString("community_initdate");
