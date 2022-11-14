@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.rb.command.Command;
 import com.rb.command.CommandAdminLogin;
-import com.rb.command.CommandBeanInfo;
+import com.rb.command.CommandBeanInfoList;
 import com.rb.command.CommandBoardcommentlist;
 import com.rb.command.CommandBoardcontent;
 import com.rb.command.CommandBoarddelete;
@@ -274,7 +274,7 @@ public class FrontController extends HttpServlet {
 		case ("/beaninfo.do"):
 			System.out.println("beaninfo");
 			request.setAttribute("nav_beaninfo", "#f2bcbb");
-			command = new CommandBeanInfo();
+			command = new CommandBeanInfoList();
 			command.execute(request, response);
 			viewPage = "beaninfo.jsp";
 			break;
