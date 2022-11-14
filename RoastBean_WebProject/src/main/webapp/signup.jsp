@@ -167,8 +167,8 @@ $(document).ready(function() {
 											<label for="exampleFormControlInput1" class="form-label">Certify</label>
 										</td>
 										<td> 
-											<input type="text" class="form-control" name="ucertify_num" id="exampleFormControlInput1" placeholder="인증번호를 입력해 주세요">
-											<input type="hidden" id="email_certify_num">
+											<input type="text" class="form-control" name="ucertify_num" id="exampleFormControlInput1" placeholder="인증번호를 입력해 주세요" value="${ucertify_num}">
+											<input type="hidden" id="email_certify_num" name="user_certifycheck" value="${user_certifycheck}">
 										</td>
 									</tr>
 									<tr height="10"></tr>
