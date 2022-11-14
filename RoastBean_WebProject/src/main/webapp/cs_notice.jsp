@@ -40,8 +40,8 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-			<a class="nav-link scrollto" href="notice_list_by_user.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">Notice</font></a>
-			<a class="nav-link scrollto" href="faq_list_by_user.do">FAQ</a>
+			<a class="nav-link scrollto" href="notice_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">Notice</font></a>
+			<a class="nav-link scrollto" href="cs_faq.jsp">FAQ</a>
 			<a class="nav-link scrollto" href="qna_question_by_user.do">QnA</a>
 			&emsp;&emsp;&emsp;
 			<ol>

@@ -50,9 +50,9 @@
 						</ul>
 					<li><a class="nav-link scrollto" href="beaninfo.do">BEAN INFORMATION</a></li>
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
-					<li class="dropdown"><a href="notice_list_by_user.do"><span>CUSTOMER SERVICE</span></a>
+					<li class="dropdown"><a href="notice_list.do"><span>CUSTOMER SERVICE</span></a>
 						<ul>
-							<li><a href="notice_list_by_user.do">NOTICE</a></li>
+							<li><a href="notice_list.do">NOTICE</a></li>
 							<li><a href="cs_faq.jsp">FAQ</a></li>
 							<li><a href="qna_question_by_user.do">QnA</a></li>
 						</ul>
@@ -79,9 +79,9 @@
 					<li><a class="nav-link scrollto" href="productList.do?page=1">COFFEE SHOP</a></li>
 					
 					<c:if test="${ID != 'admin'}">
-						<li class="dropdown"><a href="notice_list_by_user.do"><span>CUSTOMER SERVICE</span></a>
+						<li class="dropdown"><a href="notice_list.do"><span>CUSTOMER SERVICE</span></a>
 							<ul>
-								<li><a href="notice_list_by_user.do">NOTICE</a></li>
+								<li><a href="notice_list.do">NOTICE</a></li>
 								<li><a href="cs_faq.jsp">FAQ</a></li>
 								<li><a href="qna_question_by_user.do">QnA</a></li>
 							</ul>
@@ -91,9 +91,9 @@
 						<li><a href="cartOrder.do"><i class="fa badge2 fa-lg" value="${CARTCOUNT.cartCount}" style="font-size: 1.5em">&#xf07a;</i></a></li>
 					</c:if>
 					<c:if test="${ID == 'admin'}">
-						<li class="dropdown"><a href="notice_list_by_user.do"><span>CUSTOMER SERVICE</span></a>
+						<li class="dropdown"><a href="notice_list.do"><span>CUSTOMER SERVICE</span></a>
 							<ul>
-								<li><a href="notice_list_by_user.do">NOTICE</a></li>
+								<li><a href="notice_list.do">NOTICE</a></li>
 								<li><a href="cs_faq.jsp">FAQ</a></li>
 								<li><a href="qna_list_by_admin.do">QnA</a></li>
 							</ul>
