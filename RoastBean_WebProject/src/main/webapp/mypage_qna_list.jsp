@@ -87,60 +87,63 @@
 						</tr>
 					</thead>
 					<c:forEach items="${myQnaList}" var="dto">
-					<form action="qna_update_by_user.do" method="post">
-						<tr style="background-color: #A3A7AB;"><td colspan="6"></td></tr>
-						<tr align="center">
-							<td>${dto.qna_write_category}</td>
-							<c:choose>
-								<c:when test="${dto.qna_write_comment_content == null }">
-									<td align="left" valign="top">
-										<input type="text" name="qna_write_title" value="${dto.qna_write_title}" size="50%"><br>
-										<textarea rows="3" cols="70%" name="qna_write_content" style="background-color: #F2F1EF">${dto.qna_write_content}</textarea> 
-									</td>
-								</c:when><c:otherwise>
+						<c:if test="${dto.qna_write_title != null }">
+							<form action="qna_update_by_user.do" method="post">
+								<tr style="background-color: #A3A7AB;"><td colspan="6"></td></tr>
+								<tr align="center">
+									<td>${dto.qna_write_category}</td>
+									<c:choose>
+										<c:when test="${dto.qna_write_comment_content == null }">
+											<td align="left" valign="top">
+												<input type="text" name="qna_write_title" value="${dto.qna_write_title}" size="50%"><br>
+												<textarea rows="3" cols="70%" name="qna_write_content" style="background-color: #F2F1EF">${dto.qna_write_content}</textarea> 
+											</td>
+										</c:when><c:otherwise>
+											<td align="left">
+											제목 : ${dto.qna_write_title}<br>
+											내용 : ${dto.qna_write_content}
+											</td>
+										</c:otherwise>
+									</c:choose>
+									
+									<td>${dto.qna_write_seq}<input type="hidden" name="qna_write_seq" value="${dto.qna_write_seq}"></td>
 									<td align="left">
-									제목 : ${dto.qna_write_title}<br>
-									내용 : ${dto.qna_write_content}
+										작성일 : ${dto.qna_write_initdate}<br>
+										<c:if test="${dto.qna_write_updatedate != null}">
+										수정일 : ${dto.qna_write_updatedate}
+										</c:if>
 									</td>
-								</c:otherwise>
-							</c:choose>
-							<td>${dto.qna_write_seq}<input type="hidden" name="qna_write_seq" value="${dto.qna_write_seq}"></td>
-							<td align="left">
-								작성일 : ${dto.qna_write_initdate}<br>
-								<c:if test="${dto.qna_write_updatedate != null}">
-								수정일 : ${dto.qna_write_updatedate}
+									<c:choose>
+										<c:when test="${dto.qna_write_comment_content == null }">
+										<td valign="middle">답변예정<br><br><input type="submit" value="수정하기" class="btn" style="background-color: #F2BCBB"></td>
+										</c:when><c:otherwise>
+										<td></td>
+										</c:otherwise>
+									</c:choose>
+								</tr>
+								
+								<c:if test="${dto.qna_write_comment_content != null}">
+								<tr align="center" style="background-color: #F2F1EF;">
+									<td>관리자</td>
+									<td align="left">${dto.qna_write_comment_content}</td>
+									<td></td>
+									<td align="left">
+										작성일 : ${dto.qna_write_comment_initdate}<br>
+										<c:if test="${dto.qna_write_comment_updatedate != null}">
+										수정일 : ${dto.qna_write_comment_updatedate}
+										</c:if>
+									</td>
+									<c:choose>
+									<c:when test="${dto.qna_write_comment_content == null }">
+									<td>답변예정</td>
+									</c:when><c:otherwise>
+									<td>답변완료</td>
+									</c:otherwise>
+									</c:choose>
+								</tr>
 								</c:if>
-							</td>
-							<c:choose>
-								<c:when test="${dto.qna_write_comment_content == null }">
-								<td valign="middle">답변예정<br><br><input type="submit" value="수정하기" class="btn" style="background-color: #F2BCBB"></td>
-								</c:when><c:otherwise>
-								<td></td>
-								</c:otherwise>
-							</c:choose>
-						</tr>
-						
-						<c:if test="${dto.qna_write_comment_content != null}">
-						<tr align="center" style="background-color: #F2F1EF;">
-							<td>관리자</td>
-							<td align="left">${dto.qna_write_comment_content}</td>
-							<td></td>
-							<td align="left">
-								작성일 : ${dto.qna_write_comment_initdate}<br>
-								<c:if test="${dto.qna_write_comment_updatedate != null}">
-								수정일 : ${dto.qna_write_comment_updatedate}
-								</c:if>
-							</td>
-							<c:choose>
-							<c:when test="${dto.qna_write_comment_content == null }">
-							<td>답변예정</td>
-							</c:when><c:otherwise>
-							<td>답변완료</td>
-							</c:otherwise>
-							</c:choose>
-						</tr>
+							</form>
 						</c:if>
-					</form>
 					</c:forEach>
 				</table>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
