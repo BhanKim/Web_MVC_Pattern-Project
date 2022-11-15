@@ -90,7 +90,7 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<h2>product insert</h2>
 					<ol>
-						<li><a href="manage_main.jsp">Home</a></li>
+						<li><a href="ManageMain.do">Home</a></li>
 						<li>product insert</li>
 					</ol>
 				</div>
@@ -103,7 +103,7 @@
 
 		<div style="text-align: center;">
 			
-
+&nbsp;&nbsp;&nbsp;
 								<h2>제품 등록하기</h2>
 								&nbsp;&nbsp;&nbsp;
 							</div>
@@ -153,15 +153,10 @@
 										<td><input type="submit" value="다음으로" class="btn"
 											style="color: #fff; transition: 0.4s; border-radius: 50px; background: #F2BCBB; border: 0; WIDTH: 210pt; HEIGHT: 25pt"></td>
 									</tr>
-									<tr></tr>
-									<tr>
-										<td></td>
-										<td align=center><br>
-										<a href="ManageProductList.do" style="text-decoration: none">상품리스트로 돌아가기</a><br> 
-											<a href="manage_main.jsp" style="text-decoration: none;">관리자 홈으로 돌아가기</a></td>
-									</tr>
+								
+									
 								</table>
-								<br>
+								&nbsp;&nbsp;&nbsp;<br>
 								
 							</form>
 		

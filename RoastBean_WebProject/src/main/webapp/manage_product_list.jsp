@@ -55,7 +55,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>porduct list</h2>
           <ol>
-            <li><a href="manage_main.jsp">Home</a></li>
+            <li><a href="ManageMain.do">Home</a></li>
             <li>porduct list</li>
           </ol>
         </div>
