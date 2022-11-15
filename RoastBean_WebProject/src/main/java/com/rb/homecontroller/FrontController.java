@@ -37,6 +37,7 @@ import com.rb.command.CommandCsNoticeUpdateAdmin;
 import com.rb.command.CommandCsQnaAdminAction;
 import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
+import com.rb.command.CommandCsQnaUserUpdate;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -235,6 +236,12 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_qna_list.jsp";
 			break;
+		// 마이페이지:My QnA List 가져오기 / 완료 22.11.13_6:20_SangwonKim
+		case ("/qna_update_by_user.do"): // 클릭시 질문내용 바꿔주고, 다시 클릭시 내용숨기기 추가하기
+			command = new CommandCsQnaUserUpdate();
+			command.execute(request, response);
+			viewPage = "mypage_qna_list.do";
+			break;
 		// QnA:유저:질문하기 Insert / 완료 22.11.13_18:00_SangwonKim
 		case ("/qna_question_by_user.do"):
 			command = new CommandCsQnaQuestion();
@@ -254,22 +261,22 @@ public class FrontController extends HttpServlet {
 			viewPage = "qna_list_by_admin.do";
 			break;
 		// Notice 불러오기 Select / 완료 22.11.14_06:00_SangwonKim
-		case ("/notice_list_by_user.do"): //user,admin list
+		case ("/notice_list.do"): //user,admin list
 			command = new CommandCsNoticeListUser();
 			command.execute(request, response);
 			viewPage = "cs_notice.jsp";
 			break;
-		// Notice 불러오기 Update / 완료 22.11.14_15:00_SangwonKim
+		// Notice Update / 완료 22.11.14_16:00_SangwonKim
 		case ("/notice_update_by_admin.do"): // Update, Delete
 			command = new CommandCsNoticeUpdateAdmin();
 			command.execute(request, response);
-			viewPage = "notice_list_by_user.do";
+			viewPage = "notice_list.do";
 			break;
-		// Notice 불러오기 Select / 완료 22.11.14_15:00_SangwonKim
+		// Notice Insert / 완료 22.11.14_21:00_SangwonKim
 		case ("/notice_insert_by_admin.do"): // Update, Delete
 			command = new CommandCsNoticeInsertAdmin();
 			command.execute(request, response);
-			viewPage = "notice_list_by_user.do";
+			viewPage = "notice_list.do";
 			break;
 		// --------------------- 상원 Controller End -----------------------
 
@@ -377,40 +384,40 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_user_list.jsp";
 			break;
-		case ("/ManageProductList.do"): // 상품 리스트 select
+			case ("/ManageProductList.do"): // 상품 리스트 select
 			command = new CommandManageProductList();
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-		case ("/ManageProductInsert.do"):
+			case ("/ManageProductInsert.do"):
 			viewPage = "manage_product_insert.jsp";
 			break;
-		case ("/ManageProductListInsert.do"): // 관리자 상품 등록 글 작성
+			case ("/ManageProductListInsert.do"): // 관리자 상품 등록 글 작성
 			command = new CommandManageProductInsert();
 			command.execute(request, response);
 			viewPage = "manage_product_insert1.jsp";
 			break;
-		case ("/ManageProductListInsert1.do"): // 관리자 상품 등록 글 작성
+			case ("/ManageProductListInsert1.do"): // 관리자 상품 등록 글 작성
 			command = new CommandManageProductInsert1();
 			command.execute(request, response);
 			viewPage = "ManageProductList.do";
 			break;
-		case ("/ManageProductDelete.do"): // 관리자 상품 삭제
+			case ("/ManageProductDelete.do"): // 관리자 상품 삭제
 			command = new CommandManageProductDelete();
 			command.execute(request, response);// 넣음
 			viewPage = "ManageProductList.do";
 			break;
-		case ("/ManageProductUpdateSelete.do"): // 수정하기
+			case ("/ManageProductUpdateSelete.do"): // 수정하기
 			command = new CommandManageProductSeen();
 			command.execute(request, response);// 넣음
 			viewPage = "manage_product_update.jsp";
 			break;
-		case ("/ManageProductUpdate.do"):// 관리자 상품 수정
+			case ("/ManageProductUpdate.do"):// 관리자 상품 수정
 			command = new CommandManageProductUpdate();
 			command.execute(request, response);// 넣음
 			viewPage = "ManageProductList.do";
 			break;
-		case ("/ManageProductSearch.do"):// 입력으로 검색
+			case ("/ManageProductSearch.do"):// 입력으로 검색
 			command = new CommandManageProductSearch();
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
@@ -522,6 +529,12 @@ public class FrontController extends HttpServlet {
 			command = new CommandCommentupdate();
 			command.execute(request, response);
 			viewPage = "content_view.do";
+			break;
+		// 내가 쓴 게시글 리스트
+			case ("/myboardlist.do"):
+			command = new CommandBoardmylist();
+			command.execute(request, response);
+			viewPage = "myboardreviewlist.do";
 			break;
 		// --------------------- 혁&티뱃 Controller End -----------------------
 

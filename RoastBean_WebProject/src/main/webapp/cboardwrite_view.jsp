@@ -71,7 +71,7 @@
 					</tr>
 					<tr>
 						<th width="100" height="40">작성자</th>
-						<td> &nbsp;&nbsp;${ID} </td>
+						<td> &nbsp;&nbsp;${NICK} </td>
 					</tr>
 					<tr>
 						<th width="100" height="320">내용</th>

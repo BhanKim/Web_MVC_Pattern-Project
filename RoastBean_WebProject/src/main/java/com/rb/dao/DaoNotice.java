@@ -107,7 +107,6 @@ public class DaoNotice {
 			preparedStatement.setString(1, notice_write_title);
 			preparedStatement.setString(2, notice_write_content);
 			preparedStatement.setString(3, notice_write_seq);
-			System.out.println("modify<<<<<");
 			preparedStatement.executeUpdate();
 					
 		}catch(Exception e) {
@@ -133,8 +132,6 @@ public class DaoNotice {
 			String query = "update notice_write set notice_write_deletedate = now() where notice_write_seq = ? ";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, notice_write_seq);
-			System.out.println("modify<<<<<");
-
 			preparedStatement.executeUpdate();
 					
 		}catch(Exception e) {

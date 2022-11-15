@@ -23,7 +23,10 @@
 		</div>
 		<nav id="navbar" class="navbar order-last order-lg-0">
 			<ul>
-				<li><a class="nav-link scrollto" href="ManageMain.do">MANAGE MAIN</a></li>
+				<li class="dropdown"><a class="nav-link scrollto" href="ManageMain.do">MANAGE MAIN</a>
+					<ul>
+						<li><a href="manage_chart.jsp">CHART</a></li>
+					</ul> 
 				
 				<li><a class="nav-link scrollto" href="UserListSelect.do">USER LIST</a></li>
 				

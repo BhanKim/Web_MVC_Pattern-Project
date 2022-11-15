@@ -35,7 +35,6 @@ public class DaoProductList {
 		if(category_type == null) {
 			category_type = "%";
 		}
-		System.out.println(category_type);
 		int totalCount = 0;
 		try {
 			connection = dataSource.getConnection();
@@ -58,7 +57,6 @@ public class DaoProductList {
 				e2.printStackTrace();
 			}
 		}
-		System.out.println(totalCount);
 		int nEnd = (totalCount-(curPage-1)*9);
 	    int nStart = (nEnd-8);
 		try {

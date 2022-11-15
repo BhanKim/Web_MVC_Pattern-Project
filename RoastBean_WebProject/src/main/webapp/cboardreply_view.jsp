@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>글 수정하기</title>
+  <title>글 답글쓰기</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -51,7 +51,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-		    	<h2>&nbsp;&nbsp;글쓰기</h2><br>
+		    	<h2>&nbsp;&nbsp;답글 작성</h2><br>
 				<table width="1100" border="1">
 					<form action="reply.do" method="post">
 						<input type="hidden" name="community_id" value="${cboardreply_view.community_id}">
@@ -64,7 +64,7 @@
 						</tr>
 						<tr>
 							<th width="100" height="40">작성자</th>
-							<td> &nbsp;&nbsp;${ID } </td>
+							<td> &nbsp;&nbsp;${NICK } </td>
 						</tr>
 						<tr>
 							<th>내용</th>

@@ -26,10 +26,8 @@ public class CommandCsQnaAdminAction implements Command {
 		
 		if(submit_type.equals("insert")) {
 			dao.adminAnswerInsert(admin_id, qna_write_seq, qna_write_comment_content);
-			System.out.println(submit_type);
 		}else {
 			dao.adminAnswerUpdate(qna_write_seq, qna_write_comment_content);
-			System.out.println(submit_type);
 		}
 	}
 

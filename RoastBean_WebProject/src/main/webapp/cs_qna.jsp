@@ -58,9 +58,9 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-			<a class="nav-link scrollto" href="cs_notice_list.do">Notice</a>
-			<a class="nav-link scrollto" href="cs_faq_list.do">FAQ</a>
-			<a class="nav-link scrollto" href="cs_qna_list.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">QnA</font></a>
+			<a class="nav-link scrollto" href="notice_list.do">Notice</a>
+			<a class="nav-link scrollto" href="cs_faq.jsp">FAQ</a>
+			<a class="nav-link scrollto" href="qna_list_by_user.do"><font color="8784D6" style="font-size: 1.2em; font-weight: bold;">QnA</font></a>
 			&emsp;&emsp;&emsp;
 			<ol>
 				<li><a href="index.jsp">Home</a></li>
@@ -128,7 +128,7 @@
 							</tr>
 						</table>
 						<div align="right">
-						<button class="btn" style="background-color: #F2BCBB" onclick="location.href='mypage_qna_list.do'">내 질문 목록 보러가기</button>
+						<button class="btn" type="button" style="background-color: #F2BCBB" onclick="location.href='mypage_qna_list.do'">내 질문 목록 보러가기</button>
 						<input type="submit" value="작성하기" class="btn" style="background-color: #F2BCBB"></div>
 						</form>
 					</div>
