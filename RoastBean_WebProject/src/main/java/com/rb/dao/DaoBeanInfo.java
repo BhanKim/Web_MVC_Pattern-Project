@@ -179,7 +179,7 @@ public class DaoBeanInfo {
 
 		try {
 			con = dataSource.getConnection();
-			
+
 			String query = "select * from (select row_number() over(order by beaninfo_id desc)"
 					+ "as rownum, beaninfo_id, beaninfo_name, beaninfo_content, beaninfo_url "
 					+ "from beaninfo order by beaninfo_id desc)A where rownum <= ? and rownum >= ?";
