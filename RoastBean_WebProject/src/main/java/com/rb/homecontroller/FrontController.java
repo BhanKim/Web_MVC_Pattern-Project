@@ -205,7 +205,7 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_info.jsp";
 			break;
-		// 마이페이지/내 정보 보기
+		// 마이페이지/ 비밀번호체크하기
 		case ("/mypage_info_pwcheck.do"):
 			command = new CommandUserInfoPwcheck();
 			command.execute(request, response);

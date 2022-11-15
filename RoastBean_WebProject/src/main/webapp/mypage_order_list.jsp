@@ -91,7 +91,7 @@
 							<td align="left"><a href="productDetail.do?product_id=${dto.product_id}"><img width="100" height="100" alt="" src="assets/img/product/${dto.product_image}">${dto.product_name}</a></td>
 							<td>${dto.order_date}</td>
 							<td>${dto.order_seq}</td>
-							<td><fmt:formatNumber value="${dto.order_price * dto.order_qty}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
+							<td><fmt:formatNumber value="${dto.order_price}" groupingUsed="true" />원<br>${dto.order_qty}개</td>
 							<td><a href="productReview.do?order_seq=${dto.order_seq}">후기작성</a></td>
 							<%--****************** 11/12 상원 to 윤현 : 링크 변경 요****************** --%>
 						</tr>
