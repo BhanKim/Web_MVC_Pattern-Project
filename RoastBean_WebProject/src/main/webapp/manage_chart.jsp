@@ -3,53 +3,6 @@
 <%@ page import="java.util.*,java.sql.*"%>
 <%@ page import="com.google.gson.Gson"%>
 <%@ page import="com.google.gson.JsonObject"%>
-<%
-Gson gsonObj = new Gson();
-Map<Object, Object> map = null;
-List<Map<Object, Object>> list = new ArrayList<Map<Object, Object>>();
-List<Map<Object, Object>> list1 = new ArrayList<Map<Object, Object>>();
-String dataPoints = null;
-String second = null;
-
-try {
-	Class.forName("com.mysql.cj.jdbc.Driver");
-	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/roastbeanswkim", "root",
-	"qwer1234");
-	Statement statement = connection.createStatement();
-	int xVal, yVal;
-
-	ResultSet resultSet = statement.executeQuery("select visit_date, visit_number from visit");
-
-	while (resultSet.next()) {
-		xVal = resultSet.getInt("visit_date");
-		yVal = resultSet.getInt("visit_number");
-		map = new HashMap<Object, Object>();
-		map.put("x", xVal);
-		map.put("y", yVal);
-		list.add(map);
-		dataPoints = gsonObj.toJson(list);
-	}
-
-	resultSet = statement.executeQuery("select profit_date, profit_amount from profit");
-
-	while (resultSet.next()) {
-		xVal = resultSet.getInt("profit_date");
-		yVal = resultSet.getInt("profit_amount");
-		map = new HashMap<Object, Object>();
-		map.put("x", xVal);
-		map.put("y", yVal);
-		list1.add(map);
-		second = gsonObj.toJson(list1);
-	}
-
-	connection.close();
-} catch (SQLException e) {
-	out.println(
-	"<div  style='width: 50%; margin-left: auto; margin-right: auto; margin-top: 200px;'>Could not connect to the database. Please check if you have mySQL Connector installed on the machine - if not, try installing the same.</div>");
-	dataPoints = null;
-}
-%>
-
 
 <!DOCTYPE HTML>
 <html>
@@ -79,7 +32,15 @@ try {
 <link href="assets/css/style.css" rel="stylesheet">
 <script type="text/javascript">
 	window.onload = function() {
-<%if (dataPoints != null) {%>
+<%String dataPoints = null;
+  String dataPoints2 = null;
+	dataPoints = String.valueOf((request.getAttribute("chartList")));
+	dataPoints2 = String.valueOf((request.getAttribute("chartList2")));
+	out.print(dataPoints);
+	out.print(dataPoints2);
+	
+
+if (dataPoints != null) {%>
 	var chart = new CanvasJS.Chart("chartContainer", {
 			animationEnabled : true,
 			exportEnabled : true,
@@ -116,8 +77,10 @@ try {
 				axisXIndex : 1, //defaults to 0
 				color : "#8684d0",
 				dataPoints :
-<%out.print(second);%>
+<%out.print(dataPoints2);%>
 	}
+
+			
 
 			]
 		});

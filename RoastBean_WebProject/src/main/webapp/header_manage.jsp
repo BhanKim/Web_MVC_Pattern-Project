@@ -25,7 +25,7 @@
 			<ul>
 				<li class="dropdown"><a class="nav-link scrollto" href="ManageMain.do">MANAGE MAIN</a>
 					<ul>
-						<li><a href="manage_chart.jsp">CHART</a></li>
+						<li><a href="manage_chart.do">CHART</a></li>
 					</ul> 
 				
 				<li><a class="nav-link scrollto" href="UserListSelect.do">USER LIST</a></li>

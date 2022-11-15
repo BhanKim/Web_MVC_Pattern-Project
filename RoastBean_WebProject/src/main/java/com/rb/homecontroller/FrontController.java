@@ -38,6 +38,8 @@ import com.rb.command.CommandCsQnaAdminAction;
 import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
 import com.rb.command.CommandCsQnaUserUpdate;
+import com.rb.command.CommandManageChartList;
+import com.rb.command.CommandManageChartList2;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -55,9 +57,9 @@ import com.rb.command.CommandProductList;
 import com.rb.command.CommandReview;
 import com.rb.command.CommandReviewDelete;
 import com.rb.command.CommandReviewList;
-import com.rb.command.CommandReviewMyList;
-import com.rb.command.CommandReviewMyListEdit;
-import com.rb.command.CommandReviewUpdate;
+//import com.rb.command.CommandReviewMyList;
+//import com.rb.command.CommandReviewMyListEdit;
+//import com.rb.command.CommandReviewUpdate;
 import com.rb.command.CommandUserCheck;
 import com.rb.command.CommandUserCheckId;
 import com.rb.command.CommandUserCheckNick;
@@ -283,11 +285,18 @@ public class FrontController extends HttpServlet {
 		// --------------------- 성진 Controller Start -----------------------
 		// 원두 정보 페이지
 		case ("/beaninfo.do"):
-			request.setAttribute("nav_beaninfo", "#f2bcbb");
 			command = new CommandBeanInfoList();
 			command.execute(request, response);
 			viewPage = "beaninfo.jsp";
 			break;
+			
+		case ("/manage_chart.do"):
+			command = new CommandManageChartList();
+			command.execute(request, response);
+			command = new CommandManageChartList2();
+			command.execute(request, response);
+			viewPage = "manage_chart.jsp";
+			break;			
 		// --------------------- 성진 Controller End -----------------------
   
 		// --------------------- 윤현 Controller Start ---------------------
@@ -352,7 +361,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "find_pw.jsp";
 			break;
 		case ("/myboardreviewlist.do"):
-			command = new CommandReviewMyList();
+	//		command = new CommandReviewMyList();
 			command.execute(request, response);
 			viewPage = "cboardmylist.jsp";
 			break;
@@ -362,7 +371,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "reviewUpdateEdit.do";
 			break;
 		case ("/reviewUpdateEdit.do"):
-			command = new CommandReviewMyListEdit();
+	//		command = new CommandReviewMyListEdit();
 			command.execute(request, response);
 			viewPage = "productReviewUpdate.jsp";
 			break;
@@ -372,7 +381,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "myboardlist.do";
 			break;
 		case ("/reviewUpdate.do"):
-			command = new CommandReviewUpdate();
+	//		command = new CommandReviewUpdate();
 			command.execute(request, response);
 			viewPage = "myboardlist.do";
 			break;
@@ -422,11 +431,9 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-//		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
-//			command = new CommandManageUserOrderSum();
-//			command.execute(request, response);
-//			viewPage = "manage_main.jsp";
-//			break;
+		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
+			viewPage = "manage_main.jsp";
+			break;
 		// --------------------- 수빈 Controller End -----------------------
 			
 		// --------------------- 혁&티뱃 Controller Start ---------------------
