@@ -1,39 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>manege_main</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- test -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<!-- Favicons -->
-<link href="assets/img/favicon.png" rel="icon">
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <title>Manage_orders_list</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
-	rel="stylesheet">
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-<!-- Vendor CSS Files -->
-<link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
-<link href="assets/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link href="assets/vendor/glightbox/css/glightbox.min.css"
-	rel="stylesheet">
-<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
-<!-- Template Main CSS File -->
-<link href="assets/css/style.css" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Delicious - v4.9.1
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
 
 </head>
 
@@ -44,7 +48,7 @@
 	<!-- End Header -->
 
 	<main id="main">
-	
+
 		<!-- ======= Breadcrumbs Section ======= -->
 		<!-- <section class="breadcrumbs">
       <div class="container">
@@ -63,108 +67,61 @@
 		<!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
 		<section class="inner-page">
 			<div class="container">
-<!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
-	<section class="inner-page">
-	  <div class="container">
-	  	
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		
-		
-		
-		
-		 <table  width="1200" height="500" style="margin-left: auto; margin-right: auto;" border="1" class="table table-hover table-bordered border-secondary">
-		<tr>
-		<td>
-		 <form action="ManageUserOrderSum.do" method="post">
-		 <table style="margin-left: auto; margin-right: auto;" width="600px">
-		 <tr>
-		    <td width="100" height="50"><font size="5">금일 매출</font></td>
-		    <td><font size="5"><input type="text" readonly="readonly" size="10" value="${order_date_sum }" style="border:none"></font></td>
-		 </tr>
-		 <tr>
-		 <!-- 차트 -->
-		 </tr>
-		 </table>
-		 
-		</form>
-		</td>
-	
-		<!-- --------------------------------------------------------------- -->
-		
-		<td>
-		<!-- 상품 순위 -->
-		<table style="margin-left: auto; margin-right: auto;" width="600px">
-		<tr>
-		<td colspan="2"><font size="5">고객들이 가장 많이 선택한 상품</font></td>
-		</tr>
-		<tr> 
-		   <td><font size="5"><input type="text" readonly="readonly" size="5" value=" ${order_date_ranking_max }" style="border:none"></font></td>
-		   <td><font size="5"><input type="text" readonly="readonly" size="30" value=" ${order_date_ranking_max_name }" style="border:none"></font></td>
-		</tr>
-		<tr>
-		
-	       <td><img src="assets/img/product/${order_date_ranking_max_img }" width="180px" height="200px"></td>
-		</tr>
+<div align="center">
 
+	  <div class="container">
+	  		<div class="row">
+		    <div class="col">
 				<br> <br> <br> <br> <br>
 
 
-				<table width="1200" height="500"
-					style="margin-left: auto; margin-right: auto;" border="1">
-					<tr>
-						<td>
-							<form action="ManageUserOrderSum.do" method="post">
-								<table style="margin-left: auto; margin-right: auto;">
-									<tr>
-										<td width="100" height="50"><font size="5">금일 매출</font></td>
-										<td><font size="5"><input type="text"
-												readonly="readonly" size="10" value="${order_date_sum }"
-												style="border: none"></font></td>
-									</tr>
-									<tr>
-										<!-- 차트 -->
-									</tr>
-								</table>
 
-							</form>
-						</td>
 
-						<!-- --------------------------------------------------------------- -->
+				<table width="1200" 
+					style="margin-left: auto; margin-right: auto; border:none;" border="0"
+					class="table table-sm table-hover">
 
-						<td>
-							<!-- 상품 순위 -->
-							<table style="margin-left: auto; margin-right: auto;">
-								<tr>
-									<td colspan="2"><font size="5">고객들이 가장 많이 선택한 상품</font></td>
-								</tr>
-								<tr>
-									<td><font size="5"><input type="text"
-											readonly="readonly" size="5"
-											value=" ${order_date_ranking_max }" style="border: none"></font></td>
-									<td><font size="5"><input type="text"
-											readonly="readonly" size="30"
-											value=" ${order_date_ranking_max_name }" style="border: none"></font></td>
-								</tr>
-								<tr>
 
-									<td><img
-										src="assets/img/product/${order_date_ranking_max_img }"
-										width="180px" height="200px"></td>
-								</tr>
-
-							</table>
-
-						</td>
+					<tr style="border:none;">
+						
+						<td width="500" height="50" style="text-align: center;" rowspan='2'><font size="4"><br>금일 매출</font>
+						<font size="4"><input type="text" readonly="readonly" size="10" value="${order_date_sum }" style="border: none"></font></td>
+						<td width="500" height="50" style="text-align: center;"><font size="4"><br>고객들이 가장 많이 선택한 상품</font></td>
+					
 					</tr>
+					<tr style="border:none;">
+						
+						<td style="text-align: center;"><font size="4"><input type="text" readonly="readonly" size="3" value=" ${order_date_ranking_max }" style="border: none"></font> 
+						<font size="4"><input type="text" readonly="readonly" size="40" value=" ${order_date_ranking_max_name }" style="border: none"></font></td>
+
+					</tr>
+
+					<tr style="border:none;">
+						<td>
+						<table style="margin-left: auto; margin-right: auto; border:none;" border="1"
+					class="table table-sm table-hover">
+						<thead style="color: #fff" bgcolor="#F2BCBB">
+						<tr>
+						<td width="600" height="100" style="text-align: center;" onClick="location.href='ManageProductInsert.do'"><br>PRODUCT INSERT</td>
+						<td width="600" height="100" style="text-align: center;" onClick="location.href='manage_chart.jsp'"><br>CHART</td>
+						</tr>
+						<tr>
+						<td width="600" height="100" style="text-align: center;" onClick="location.href='cs_notice.jsp'"><br>NOTICE</td>
+						<td width="600" height="100" style="text-align: center;" onClick="location.href='ManageOrdersList.do'"><br>ORDERS LIST</td>
+						</tr>
+						</thead>
+						</table>
+						</td>
+						<td style="text-align: center;"><img
+							src="assets/img/product/${order_date_ranking_max_img }"
+							width="180px" height="200px"></td>
+					</tr>
+
 				</table>
+</div></div></div></div>
+
 
 			</div>
-						<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 		</section>
 

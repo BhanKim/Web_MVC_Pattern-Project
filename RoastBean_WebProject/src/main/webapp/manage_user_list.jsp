@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*"%>
+<%-- <%@ page import="java.sql.*"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- test -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-  <title>manege_user_list</title>
+  <title>Manage_user_list</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,6 +39,8 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+
 </head>
 <body link="black" vlink="black" alink="navy">
 <!-- ======= Header ======= -->
@@ -51,8 +56,8 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>User List</h2>
           <ol>
-            <li><a href="manage_main.jsp">Home</a></li>
-            <li>Inner Page</li>
+            <li><a href="ManageMain.do">Home</a></li>
+            <li>User List</li>
           </ol>
         </div>
 
@@ -62,35 +67,113 @@
 
 <!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
 	<div style="text-align: center;">
-	   <br>
-	   <br> 
+	<div align="center">
+	<section class="inner-page">
+	  <div class="container">
+	  		<div class="row">
+		    <div class="col">
+	  <h2>고객 리스트</h2>
+		&nbsp;&nbsp;&nbsp; 
 <!-- 	      &nbsp;&nbsp;&nbsp;<h2>회원정보 리스트</h2>&nbsp;&nbsp;&nbsp;
  -->	      
-	      <table style="margin-left: auto; margin-right: auto;" border="1" class="table table-hover table-bordered border-secondary">
-	         <tr>
-		        <td>아이디</td>
-		        <td>비밀번호</td>
-		        <td>이름</td>
-		        <td>생년월일</td>
-		        <td>성별</td>
-		        <td>이메일</td>
-		        <td>전화번호</td>
+ 	<form action="ManageUserListSearch.do">
+		   <br>
+		   검색
+		   <select name="query">
+		      <option value="user_id">아이디</option>
+		      <option value="user_name">이름</option>
+		      <option value="user_birthday">생년원일</option>
+		      <option value="user_gender">성별</option>
+		      <option value="user_email">이메일</option>
+		      <option value="user_telno">전화번호</option>
+		   </select>&nbsp;&nbsp;&nbsp;
+		   <input type="text" name="content">
+		   <input type="submit" value="검색" class="btn" style="background: #F2BCBB; border: 0; padding:3px 12px; color: #fff; transition: 0.4s; border-radius: 50px;">
+		</form>
+		<br>
+		<br>
+	      <table style="margin-left: auto; margin-right: auto; border:none;" border="1" class="table table-sm table-hover">
+	        <thead style="color: #fff" bgcolor="#F2BCBB">
+		<tr style="border:none;">
+		        <td style="text-align: center;">아이디</td>
+		        <td style="text-align: center;">비밀번호</td>
+		        <td style="text-align: center;">이름</td>
+		        <td style="text-align: center;">생년월일</td>
+		        <td style="text-align: center;">성별</td>
+		        <td style="text-align: center;">이메일</td>
+		        <td style="text-align: center;">전화번호</td>
 		     </tr>
+		</thead>
+		<tbody>
 		     <c:forEach items="${manageuserlist}" var="dto">
-		      <tr>
-		         <td>${dto.user_id }</td>
-		         <td>${dto.user_pw }</td>
-		         <td>${dto.user_name }</td>
-		         <td>${dto.user_birthday }</td>
-		         <td>${dto.user_gender }</td>
-		         <td>${dto.user_email }</td>
-		         <td>${dto.user_telno }</td>		      
+		      <tr style="border:none;"> 
+		         <td style="text-align: center;">${dto.user_id }</td>
+		         <td style="text-align: center;">${dto.user_pw }</td>
+		         <td style="text-align: center;">${dto.user_name }</td>
+		         <td style="text-align: center;">${dto.user_birthday }</td>
+		         <td style="text-align: center;">${dto.user_gender }</td>
+		         <td style="text-align: center;">${dto.user_email }</td>
+		         <td style="text-align: center;">${dto.user_telno }</td>		      
 		      </tr>
 		      </c:forEach>
-	      </table>
+		      <tr></tr>
+						
+						<%-- <tr>
+						<td align="center" colspan="7">
+						<c:choose>
+							<c:when test="${(page.curPage - 1) < 1 }">
+								[ 처음 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=1">[ 처음 ]</a>
+							</c:otherwise>
+							</c:choose>
+							<!-- 이전 -->
+							<c:choose>
+							<c:when test="${(page.curPage - 1) < 1 }">
+								[ 이전 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=${page.curPage - 1 }">[ 이전 ]</a>
+							</c:otherwise>
+							</c:choose>
+							
+							<!-- 개별 페이지 -->
+							<c:forEach var="fEach" begin="${page.startPage }" end="${page.endPage }" step="1">
+								<c:choose>
+								<c:when test="${page.curPage == fEach}">
+									[ ${fEach } ] &nbsp;
+								</c:when>
+								<c:otherwise>
+									<a href="myboardlist.do?page=${fEach }">[ ${fEach } ]</a>&nbsp;
+								</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							
+							<!-- 다음 -->
+							<c:choose>
+							<c:when test="${(page.curPage + 1) > page.totalPage }">
+								[ 다음 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=${page.curPage + 1 }">[ 다음 ]</a>
+							</c:otherwise>
+							</c:choose>
+							<!-- 끝 -->
+							<c:choose>
+							<c:when test="${page.curPage == page.totalPage }">
+								[ 마지막 ]
+							</c:when>
+							<c:otherwise>
+								<a href="myboardlist.do?page=${page.totalPage }">[ 마지막 ]</a>
+							</c:otherwise>
+							</c:choose>
+							</td>
+						</tr> --%>
+					</tbody>	
+	      </table></div></div></div></section></div>
 	      <br>
-	      <br>
-	      <br>
+	     
 	      
 	</div>
 	<!--  ---------------------------------- 정보 쓰기란 종료 ----------------------------------  -->

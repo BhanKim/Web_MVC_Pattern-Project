@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class DtoManageProductList {
 	int product_id;
 	String product_name;
-	String product_nation;
+//	String product_nation;
 	String product_image;
 	String product_info;
 	int product_stock;
@@ -25,7 +25,10 @@ public class DtoManageProductList {
 	int order_seq ;
 	String user_id ;
 	String order_name ;
-	String order_address ;
+	String order_addresszipcode ;
+	String order_address1 ;
+	String order_address2 ;
+	String order_address3 ;
 
 	String order_email ;
 	String order_telno ;
@@ -33,13 +36,13 @@ public class DtoManageProductList {
 	int order_price ;
 	Timestamp order_date ;
 	//------------------------------
-	public DtoManageProductList(int product_id, String product_name, String product_nation, String product_image,
+	public DtoManageProductList(int product_id, String product_name, String product_image,
 			String product_info, int product_stock, int product_weight, int product_price,
 			Timestamp product_initdate) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
-		this.product_nation = product_nation;
+//		this.product_nation = product_nation;
 		this.product_image = product_image;
 		this.product_info = product_info;
 		this.product_stock = product_stock;
@@ -47,12 +50,12 @@ public class DtoManageProductList {
 		this.product_price = product_price;
 		this.product_initdate = product_initdate;
 	}
-	public DtoManageProductList(int product_id, String product_name, String product_nation, String product_image,
+	public DtoManageProductList(int product_id, String product_name, String product_image,
 			String product_info, int product_stock, int product_weight, int product_price) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
-		this.product_nation = product_nation;
+//		this.product_nation = product_nation;
 		this.product_image = product_image;
 		this.product_info = product_info;
 		this.product_stock = product_stock;
@@ -85,13 +88,13 @@ public class DtoManageProductList {
 	
 	
 
-	public DtoManageProductList(int product_id, String product_name, String product_nation, String product_image,
+	public DtoManageProductList(int product_id, String product_name, String product_image,
 			String product_info, int product_stock, int product_weight, int product_price, String category_type,
 			String category_acidity, String category_aroma, String category_body, String category_sweet) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
-		this.product_nation = product_nation;
+//		this.product_nation = product_nation;
 		this.product_image = product_image;
 		this.product_info = product_info;
 		this.product_stock = product_stock;
@@ -106,14 +109,19 @@ public class DtoManageProductList {
 	
 
 
-	public DtoManageProductList(int product_id, int order_seq, String user_id, String order_name, String order_address,
+	
+	public DtoManageProductList(int product_id, int order_seq, String user_id, String order_name,
+			String order_addresszipcode, String order_address1, String order_address2, String order_address3,
 			String order_email, String order_telno, int order_qty, int order_price, Timestamp order_date) {
 		super();
 		this.product_id = product_id;
 		this.order_seq = order_seq;
 		this.user_id = user_id;
 		this.order_name = order_name;
-		this.order_address = order_address;
+		this.order_addresszipcode = order_addresszipcode;
+		this.order_address1 = order_address1;
+		this.order_address2 = order_address2;
+		this.order_address3 = order_address3;
 		this.order_email = order_email;
 		this.order_telno = order_telno;
 		this.order_qty = order_qty;
@@ -125,8 +133,6 @@ public class DtoManageProductList {
 		super();
 		this.product_id = product_id;
 	}
-	
-	
 	public int getProduct_id() {
 		return product_id;
 	}
@@ -138,12 +144,6 @@ public class DtoManageProductList {
 	}
 	public void setProduct_name(String product_name) {
 		this.product_name = product_name;
-	}
-	public String getProduct_nation() {
-		return product_nation;
-	}
-	public void setProduct_nation(String product_nation) {
-		this.product_nation = product_nation;
 	}
 	public String getProduct_image() {
 		return product_image;
@@ -247,11 +247,29 @@ public class DtoManageProductList {
 	public void setOrder_name(String order_name) {
 		this.order_name = order_name;
 	}
-	public String getOrder_address() {
-		return order_address;
+	public String getOrder_addresszipcode() {
+		return order_addresszipcode;
 	}
-	public void setOrder_address(String order_address) {
-		this.order_address = order_address;
+	public void setOrder_addresszipcode(String order_addresszipcode) {
+		this.order_addresszipcode = order_addresszipcode;
+	}
+	public String getOrder_address1() {
+		return order_address1;
+	}
+	public void setOrder_address1(String order_address1) {
+		this.order_address1 = order_address1;
+	}
+	public String getOrder_address2() {
+		return order_address2;
+	}
+	public void setOrder_address2(String order_address2) {
+		this.order_address2 = order_address2;
+	}
+	public String getOrder_address3() {
+		return order_address3;
+	}
+	public void setOrder_address3(String order_address3) {
+		this.order_address3 = order_address3;
 	}
 	public String getOrder_email() {
 		return order_email;
@@ -283,6 +301,8 @@ public class DtoManageProductList {
 	public void setOrder_date(Timestamp order_date) {
 		this.order_date = order_date;
 	}
+
+	
 	
 	
 	

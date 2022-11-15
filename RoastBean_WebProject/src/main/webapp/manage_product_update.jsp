@@ -49,7 +49,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>product update</h2>
           <ol>
-            <li><a href="manage_main.jsp">Home</a></li>
+            <li><a href="ManageMain.do">Home</a></li>
             <li>product update</li>
           </ol>
         </div>
@@ -77,7 +77,7 @@
 	         <td>제품명</td>
 	         <td><input type="text" name="product_name" size="40" value="${product_select.product_name }"></td>
 	      </tr>
-	      <tr>
+	     <%--  <tr>
 	         <td>원산지</td>
 	         <td>
 	           <select name="product_nation" style="WIDTH: 240pt; HEIGHT: 24pt">
@@ -88,7 +88,7 @@
 	               <option value="콜롬비아">콜롬비아</option>
 	            </select>
 	         </td>
-	      </tr> 
+	      </tr>  --%>
 	      <tr>
 	         <td>제품 이미지</td>
 	         <td><img src="assets/img/product/${product_select.product_image }" width="320px" height="150px"></td>
@@ -99,7 +99,7 @@
 	      </tr>
 	      <tr>
 	         <td>제품 설명</td>
-	         <td><textarea style="WIDTH: 240pt; HEIGHT: 50pt" name="product_info" value = "${product_select.product_info}"></textarea></td>
+	         <td><textarea style="WIDTH: 240pt; HEIGHT: 50pt" name="product_info" value = "${product_select.product_info}">${product_select.product_info}</textarea></td>
 	      </tr>
 	      <tr>
 	         <td>제품 수량</td>
