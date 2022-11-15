@@ -31,7 +31,7 @@ public class DaoManageUserList {
 		try {
 			
 			connection = dataSource.getConnection();
-			String query = "select user_id, user_pw, user_name, user_birthday, user_gender, user_email, user_telno from user";
+			String query = "select user_id, user_pw, user_name, user_birthday, user_gender, user_email, user_telno from user where user_deletedate is null";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
@@ -69,5 +69,54 @@ public class DaoManageUserList {
 		}
 		return dtos;
 	}//manageuserlist
+	public ArrayList<DtoManageUserList> manageusersearch(String queryname, String querycontent) {
+		ArrayList<DtoManageUserList> dtos = new ArrayList<DtoManageUserList>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		System.out.println("ManageUserListSearch.dao");
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select user_id, user_pw, user_name, user_birthday, user_gender, user_email, "
+					+ "user_telno " + "from user where " + queryname + " like '%"
+					+ querycontent + "%' and user_deletedate is null";
+			
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				String user_id = resultSet.getString("user_id");
+				String user_pw = resultSet.getString("user_pw");
+				String user_name = resultSet.getString("user_name");
+				String user_birthday = resultSet.getString("user_birthday");
+				String user_gender = resultSet.getString("user_gender");
+				String user_email = resultSet.getString("user_email");
+				String user_telno = resultSet.getString("user_telno");
+				
+				DtoManageUserList dto = new DtoManageUserList(user_id, user_pw, user_name, user_birthday, user_gender, user_email, user_telno);
+				dtos.add(dto);
+				
+				System.out.println("ManageUserListSearch.dao_try");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return dtos;
+	}
+	
 	
 }

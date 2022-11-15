@@ -13,7 +13,7 @@ public class CommandManageProductInsert implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String product_name = request.getParameter("product_name");
-		String product_nation = request.getParameter("product_nation");
+//		String product_nation = request.getParameter("product_nation");
 		String product_image = request.getParameter("product_image");
 		String product_info = request.getParameter("product_info");
 		int product_stock = Integer.parseInt(request.getParameter("product_stock"));
@@ -25,7 +25,7 @@ public class CommandManageProductInsert implements Command {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("product_name", product_name);
-		session.setAttribute("product_nation", product_nation);
+//		session.setAttribute("product_nation", product_nation);
 		session.setAttribute("product_image", product_image);
 		session.setAttribute("product_info", product_info);
 		session.setAttribute("product_stock", product_stock);

@@ -11,7 +11,7 @@ public class CommandManageProductUpdate implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String product_name = request.getParameter("product_name");
-		String product_nation = request.getParameter("product_nation");
+//		String product_nation = request.getParameter("product_nation");
 		String product_image = request.getParameter("product_image");
 		String product_info = request.getParameter("product_info");
 		int product_stock = Integer.parseInt(request.getParameter("product_stock"));
@@ -26,7 +26,7 @@ public class CommandManageProductUpdate implements Command {
 
 		DaoManageProductList dao = new DaoManageProductList();
 		System.out.println(sproduct_id + "commandproductupdate");
-		dao.manageptoductupdate(product_name, product_nation, product_image, product_info, product_stock,
+		dao.manageptoductupdate(product_name, product_image, product_info, product_stock,
 				product_weight, product_price, category_type, category_acidity, category_body, category_sweet, category_aroma, sproduct_id);
 	}
 

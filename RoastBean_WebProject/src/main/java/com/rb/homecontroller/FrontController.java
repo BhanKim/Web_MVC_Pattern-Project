@@ -37,6 +37,9 @@ import com.rb.command.CommandCsNoticeUpdateAdmin;
 import com.rb.command.CommandCsQnaAdminAction;
 import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
+import com.rb.command.CommandManageMainUserOrder;
+import com.rb.command.CommandManageOrdersList;
+import com.rb.command.CommandManageOrdersSearch;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -45,7 +48,7 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
-import com.rb.command.CommandManageUserOrderSum;
+import com.rb.command.CommandManageUserSearch;
 import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
 import com.rb.command.CommandOrder;
@@ -345,19 +348,23 @@ public class FrontController extends HttpServlet {
 		// --------------------- 윤현 Controller End -----------------------
 			
 		// --------------------- 수빈 Controller Start ---------------------
+		
 		case ("/UserListSelect.do"): // 홈에서 관리자가 고객리스트 보기 버튼을 클릭시 do가 실행
 			command = new CommandManageUserList();
 			command.execute(request, response);
 			viewPage = "manage_user_list.jsp";
 			break;
+
 		case ("/ManageProductList.do"): // 상품 리스트 select
 			command = new CommandManageProductList();
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
+
 		case ("/ManageProductInsert.do"):
 			viewPage = "manage_product_insert.jsp";
 			break;
+
 		case ("/ManageProductListInsert.do"): // 관리자 상품 등록 글 작성
 			command = new CommandManageProductInsert();
 			command.execute(request, response);
@@ -368,11 +375,13 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "ManageProductList.do";
 			break;
+
 		case ("/ManageProductDelete.do"): // 관리자 상품 삭제
 			command = new CommandManageProductDelete();
 			command.execute(request, response);// 넣음
 			viewPage = "ManageProductList.do";
 			break;
+
 		case ("/ManageProductUpdateSelete.do"): // 수정하기
 			command = new CommandManageProductSeen();
 			command.execute(request, response);// 넣음
@@ -388,11 +397,40 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
-			command = new CommandManageUserOrderSum();
+//		case ("/ManageUserOrderSum.do"): // 관리자 메인에서 일일매출
+//			System.out.println("ManageUserOrderSum.controller");
+//			command = new CommandManageUserOrderSum();
+//			command.execute(request, response);
+//			viewPage = "manage_main.jsp";
+//			break;
+//		case ("/ManageUserOrderRanking.do"): // 관리자 메인에서 상품 순위
+//			System.out.println("ManageUserOrderRanking.controller");
+//			command = new CommandManageUserOrderRanking();
+//			command.execute(request, response);
+//			viewPage = "manage_main.jsp";
+//			break;
+		case ("/ManageMain.do"): // main페이지에 보여주기
+			
+			command = new CommandManageMainUserOrder();
 			command.execute(request, response);
 			viewPage = "manage_main.jsp";
 			break;
+		case ("/ManageOrdersList.do"): // product orders list
+			command = new CommandManageOrdersList();
+			command.execute(request, response);
+			viewPage = "manage_orders_list.jsp";
+			break;
+		case ("/ManageOrdersListSearch.do"):
+			command = new CommandManageOrdersSearch();
+			command.execute(request, response);
+			viewPage = "manage_orders_list.jsp";
+			break;
+		case ("/ManageUserListSearch.do"):
+			
+			command = new CommandManageUserSearch();
+		command.execute(request, response);
+		viewPage = "manage_user_list.jsp";
+		break;
 		// --------------------- 수빈 Controller End -----------------------
 			
 			// --------------------- 혁&티뱃 Controller Start ---------------------

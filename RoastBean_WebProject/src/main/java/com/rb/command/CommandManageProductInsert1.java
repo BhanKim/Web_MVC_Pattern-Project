@@ -24,7 +24,7 @@ public class CommandManageProductInsert1 implements Command {
 		System.out.println("CommandManageProductInsert1.command");
 		System.out.println(session.getAttribute("product_name"));
 		String first_pruduct_name = session.getAttribute("product_name").toString();
-		String first_product_nation = session.getAttribute("product_nation").toString();
+//		String first_product_nation = session.getAttribute("product_nation").toString();
 		String first_product_image = session.getAttribute("product_image").toString();
 		String first_product_info = session.getAttribute("product_info").toString();
 		String first_product_stock = session.getAttribute("product_stock").toString();
@@ -36,7 +36,7 @@ public class CommandManageProductInsert1 implements Command {
 		DaoManageProductList dao = new DaoManageProductList();
 		
 		
-		dao.manageproductinsert(first_pruduct_name,first_product_nation,first_product_image,first_product_info, first_product_stock,first_product_weight,first_product_price);
+		dao.manageproductinsert(first_pruduct_name,first_product_image,first_product_info, first_product_stock,first_product_weight,first_product_price);
 		//DtoManageProductList dtos = dao.manageproductinsertselect();
 		int product_id = dao.manageproductinsertselect();
 		//String product_id = request.getParameter("product_id");
