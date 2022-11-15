@@ -40,6 +40,9 @@ import com.rb.command.CommandCsQnaQuestion;
 import com.rb.command.CommandCsQnaUserUpdate;
 import com.rb.command.CommandManageChartList;
 import com.rb.command.CommandManageChartList2;
+import com.rb.command.CommandManageMainUserOrder;
+import com.rb.command.CommandManageOrdersList;
+import com.rb.command.CommandManageOrdersSearch;
 import com.rb.command.CommandManageProductDelete;
 import com.rb.command.CommandManageProductInsert;
 import com.rb.command.CommandManageProductInsert1;
@@ -48,6 +51,7 @@ import com.rb.command.CommandManageProductSearch;
 import com.rb.command.CommandManageProductSeen;
 import com.rb.command.CommandManageProductUpdate;
 import com.rb.command.CommandManageUserList;
+import com.rb.command.CommandManageUserSearch;
 import com.rb.command.CommandMyQnaList;
 import com.rb.command.CommandMyorderlist;
 import com.rb.command.CommandOrder;
@@ -391,7 +395,7 @@ public class FrontController extends HttpServlet {
 		// --------------------- 윤현 Controller End -----------------------
 			
 		// --------------------- 수빈 Controller Start ---------------------
-			case ("/UserListSelect.do"): // 홈에서 관리자가 고객리스트 보기 버튼을 클릭시 do가 실행
+		case ("/UserListSelect.do"): // 홈에서 관리자가 고객리스트 보기 버튼을 클릭시 do가 실행
 			command = new CommandManageUserList();
 			command.execute(request, response);
 			viewPage = "manage_user_list.jsp";
@@ -434,7 +438,26 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-			case ("/ManageMain.do"): // main페이지에 보여주기 command = new CommandManageMainUserOrder(); command.execute(request, response); viewPage = "manage_main.jsp"; break; case ("/ManageOrdersList.do"): // product orders list command = new CommandManageOrdersList(); command.execute(request, response); viewPage = "manage_orders_list.jsp"; break; case ("/ManageOrdersListSearch.do"): command = new CommandManageOrdersSearch(); command.execute(request, response); viewPage = "manage_orders_list.jsp"; break; case ("/ManageUserListSearch.do"): command = new CommandManageUserSearch(); command.execute(request, response); viewPage = "manage_user_list.jsp"; break;
+			case ("/ManageMain.do"): // main페이지에 보여주기
+			command = new CommandManageMainUserOrder();
+			command.execute(request, response);
+			viewPage = "manage_main.jsp";
+			break;
+			case ("/ManageOrdersList.do"): // product orders list
+			command = new CommandManageOrdersList();
+			command.execute(request, response);
+			viewPage = "manage_orders_list.jsp";
+			break;
+			case ("/ManageOrdersListSearch.do"):
+			command = new CommandManageOrdersSearch();
+			command.execute(request, response);
+			viewPage = "manage_orders_list.jsp";
+			break;
+			case ("/ManageUserListSearch.do"):
+			command = new CommandManageUserSearch();
+			command.execute(request, response);
+			viewPage = "manage_user_list.jsp";
+			break;
 		// --------------------- 수빈 Controller End -----------------------
 			
 		// --------------------- 혁&티뱃 Controller Start ---------------------
