@@ -110,7 +110,7 @@
 								<td width="150">${dto.community_comment_name }</td>
 								<td style="text-align: left">&nbsp;${dto.community_comment_content }</td>
 								<td width="100"><c:if
-										test="${ID == dto.community_comment_name }">
+										test="${NICK == dto.community_comment_name }">
 										<form id="coModifySet" style="display: block;">
 											<input type="button" class="btn btn-primary mb-1" value="수정" onclick="coModifyOn()" class="btn" style="background: #F2BCBB; border: 0; padding:2px 10px; color: #fff; transition: 0.4s; border-radius: 50px;">
 										</form>

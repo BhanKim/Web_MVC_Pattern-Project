@@ -45,7 +45,7 @@ public class DaoComment {
     	try {
     		con = dataSource.getConnection();
     		
-    		String query = "select * from community_comment where community_id = ? order by community_comment_cono";
+    		String query = "select co.community_comment_cono, co.community_id, u.user_nick, co.community_comment_content, co.community_comment_codate from community_comment as co, community as c, `user` as u where co.community_comment_name = c.community_name and c.community_name = u.user_id and co.community_id = ? group by co.community_comment_cono order by co.community_comment_cono";
     		pstmt = con.prepareStatement(query);
     		pstmt.setInt(1, Integer.parseInt(strID));
     		resultSet = pstmt.executeQuery();
@@ -54,7 +54,7 @@ public class DaoComment {
     			
     			int community_comment_cono = resultSet.getInt("community_comment_cono");
     			int community_id = resultSet.getInt("community_id");
-    			String community_comment_name = resultSet.getString("community_comment_name");
+    			String community_comment_name = resultSet.getString("user_nick");
     			String community_comment_content = resultSet.getString("community_comment_content");
     			String community_comment_codate = resultSet.getString("community_comment_codate");
     			

@@ -66,53 +66,39 @@
 								<th style="width: 60%;">내용</th>
 							</tr>
 						</thead>
-							<tr align="center" valign="top">
+							<tr align="left" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>1</td>
-								<td>제목 : 1번 제목</td>
-								<td align="left">내용 : 1번 내용</td>
+								<td>제목 : 원두를 구매하려고 하면 어떻게 해야하나요?</td>
+								<td align="left">내용 : 상단에 COFFEE SHOP 을 클릭하면 저희가 판매하는 원두 종류를 볼 수 있고, 구매버튼 및 장바구니로 구매가 가능합니다^^.</td>
 							</tr>
 							
-							<tr align="center" valign="top">
+							<tr align="left" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>2</td>
-								<td>제목 : 2번 제목</td>
-								<td align="left">내용 : 2번 내용</td>
+								<td>제목 : 제가 무슨 원두를 좋아하는지 모르는데 어떡해야하나요?</td>
+								<td align="left">내용 : 상단에 ABOUT 버튼에 Coffee That Suits Me 란을 클릭하시면 나와 맞는 원두찾기를 하실 수 있습니다. </td>
 							</tr>
 							
-							<tr align="center" valign="top">
+							<tr align="left" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>3</td>
-								<td>제목 : 3번 제목</td>
-								<td align="left">내용 : 3번 내용</td>
+								<td>제목 : 주문한 내역을 어디서 볼 수 있나요?</td>
+								<td align="left">내용 : 우측 상단에 위치한 본인의 닉네임을 클릭하시면 마이페이지로 이동됩니다. 마이페이지에서 오더리스트를 누르면 보실 수 있습니다.</td>
 							</tr>
 							
-							<tr align="center" valign="top">
+							<tr align="left" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>4</td>
-								<td>제목 : 4번 제목</td>
-								<td align="left">내용 : 4번 내용</td>
+								<td>제목 : 문의를 하려면 어떻게 해야하나요?</td>
+								<td align="left">내용 : Customer Service QnA에서 질문하기를 양식에 맞춰 작성해주시면 됩니다.</td>
 							</tr>
 							
-							<tr align="center" valign="top">
+							<tr align="left" valign="top">
 								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
 								<td>5</td>
-								<td>제목 : 5번 제목</td>
-								<td align="left">내용 : 5번 내용</td>
-							</tr>
-							
-							<tr align="center" valign="top">
-								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
-								<td>6</td>
-								<td>제목 : 6번 제목</td>
-								<td align="left">내용 : 6번 내용</td>
-							</tr>
-							
-							<tr align="center" valign="top">
-								<%-- <td>${dto.rownum}<input type="hidden" name="qna_write_seq" value="${dto.notice_write_seq}"></td> --%>
-								<td>7</td>
-								<td>제목 : 7번 제목</td>
-								<td align="left">내용 : 7번 내용</td>
+								<td>제목 : 본사의 위치를 알고 싶어요! 원두도 직접구매가 가능한가요?</td>
+								<td align="left">내용 : 본사의 위치는 ABOUT 에서 Location란에 들어가시면 안내되어있습니다.</td>
 							</tr>
 							
 					</table>
