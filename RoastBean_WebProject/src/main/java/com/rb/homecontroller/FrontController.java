@@ -160,7 +160,7 @@ public class FrontController extends HttpServlet {
 			if(checkLoginAdmin == 1) {
 				viewPage = "index.jsp";
 			}else {
-				viewPage = "login.jsp";
+				viewPage = "login_api.jsp";
 			}
 			break;
 		// 아이디 중복 체크
