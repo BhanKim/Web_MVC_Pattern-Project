@@ -38,8 +38,6 @@ import com.rb.command.CommandCsQnaAdminAction;
 import com.rb.command.CommandCsQnaList;
 import com.rb.command.CommandCsQnaQuestion;
 import com.rb.command.CommandCsQnaUserUpdate;
-import com.rb.command.CommandManageChartList;
-import com.rb.command.CommandManageChartList2;
 import com.rb.command.CommandManageMainUserOrder;
 import com.rb.command.CommandManageOrdersList;
 import com.rb.command.CommandManageOrdersSearch;
@@ -296,14 +294,6 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "beaninfo.jsp";
 			break;
-			
-		case ("/manage_chart.do"):
-			command = new CommandManageChartList();
-			command.execute(request, response);
-			command = new CommandManageChartList2();
-			command.execute(request, response);
-			viewPage = "manage_chart.jsp";
-			break;			
 		// --------------------- 성진 Controller End -----------------------
   
 		// --------------------- 윤현 Controller Start ---------------------
