@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import com.rb.dto.DtoManageProductList;
 import com.rb.dto.DtoManageUserList;
+import com.rb.dto.hosik_test_dto;
 
 public class DaoManageProductList {
 	DataSource dataSource;
@@ -560,8 +561,11 @@ public class DaoManageProductList {
 		return dtos;
 	}
 
-	public int manageuserorderselect() {
-		DtoManageProductList dto = null;
+	
+	
+	/* ------------------------- ------------------------- 1 Day ------------------------- ------------------------- */ 
+	// --22-11-19 호식 curdate 하루매출  ------------------------- 
+	public int order_date_price_sum() {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -570,13 +574,10 @@ public class DaoManageProductList {
 		try {
 			connection = dataSource.getConnection();
 			String query = "select sum(order_price) as order_date_sum from orders WHERE DATE_FORMAT (order_date, '%Y-%m-%d') = curdate()";
-			// String query = "select sum(order_price) as order_date_sum from orders WHERE
-			// DATE_FORMAT (order_date, '%Y-%m-%d') = '2022-11-13';";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
 				result = resultSet.getInt("order_date_sum");
-				System.out.println(result);
 			}
 
 		} catch (Exception e) {
@@ -595,11 +596,188 @@ public class DaoManageProductList {
 
 		}
 		return result;
-	}
+	}// order_date_price_sum END
+	
+	
+	 //  --22-11-19 호식오늘 많이 팔린 상품이름, 가격, 갯수 
+		public hosik_test_dto todate_order_product_info() { 
+			hosik_test_dto testdto = new hosik_test_dto();		
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			ResultSet resultSet = null;
 
-	// -----------------------------------------------
+			try {
+				connection = dataSource.getConnection();
+				String query = "select p.product_name, sum(o.order_qty) as sum_quantity, sum(o.order_price) as sum_price from orders o, product p ";
+				String query2 = "where p.product_id = o.product_id and order_date=curdate() group by product_name limit 1;";
+				preparedStatement = connection.prepareStatement(query+query2);
+				resultSet = preparedStatement.executeQuery();
+				System.out.println(resultSet);
+
+				if (resultSet.next()) {
+					String product_name = resultSet.getString("product_name");
+					int sum_quantity = resultSet.getInt("sum_quantity");
+					int sum_price= resultSet.getInt("sum_price");
+							
+					testdto.setProduct_name(product_name);
+					testdto.setOrder_price(sum_price);
+					testdto.setOrder_qty(sum_quantity);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+			return testdto;
+		}// todate_order_product_info END 
+		
+	
+	
+///* ------------------------- ------------------------- 1 Week ------------------------- ------------------------- */ 
+///--22-11-19 호식 최근 1주일간 총 판매금액  -----------------------------------------------------------------------------------------
+	
+	
+	public int order_week_sum() {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+			String query = "select sum(order_price) as order_week_sum from orders WHERE order_date BETWEEN DATE_ADD(curdate(),INTERVAL -1 WEEK ) AND curdate();";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt("order_week_sum");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return result;
+	}//order_week_sum
+	
+	
+//  --22-11-19 호식 오늘부터 7일전까지 많은 매출을 낸  상품이름, 가격, 갯수 
+		public hosik_test_dto week_order_product_info_price() { 
+			hosik_test_dto testdto = new hosik_test_dto();		
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			ResultSet resultSet = null;
+			try {
+				connection = dataSource.getConnection();
+				String query = "select p.product_name ,sum(o.order_qty) as sum_quantity , sum(o.order_price) as sum_price from orders o, product p ";
+				String query2 = "where p.product_id=o.product_id and o.order_date BETWEEN DATE_ADD(curdate(),INTERVAL -1 WEEK ) AND curdate() group by p.product_name order by sum_price desc limit 1;";
+				preparedStatement = connection.prepareStatement(query+query2);
+				resultSet = preparedStatement.executeQuery();
+				System.out.println(resultSet);
+
+				if (resultSet.next()) {
+					String product_name = resultSet.getString("product_name");
+					int sum_quantity = resultSet.getInt("sum_quantity");
+					int sum_price= resultSet.getInt("sum_price");
+							
+					testdto.setProduct_name(product_name);
+					testdto.setOrder_price(sum_price);
+					testdto.setOrder_qty(sum_quantity);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+			return testdto;
+		}// week_order_product_info END 
+	
+	//  --22-11-19 호식 오늘부터 7일전까지 많이 팔린 상품이름, 가격, 갯수 
+			public hosik_test_dto week_order_product_info_qty() { 
+				hosik_test_dto testdto = new hosik_test_dto();		
+				Connection connection = null;
+				PreparedStatement preparedStatement = null;
+				ResultSet resultSet = null;
+				try {
+					connection = dataSource.getConnection();
+					String query = "select p.product_name ,sum(o.order_qty) as sum_quantity , sum(o.order_price) as sum_price from orders o, product p ";
+					String query2 = "where p.product_id=o.product_id and o.order_date BETWEEN DATE_ADD(curdate(),INTERVAL -1 WEEK ) AND curdate() group by p.product_name order by sum_quantity desc limit 1;";
+					preparedStatement = connection.prepareStatement(query+query2);
+					resultSet = preparedStatement.executeQuery();
+					System.out.println(resultSet);
+
+					if (resultSet.next()) {
+						String product_name = resultSet.getString("product_name");
+						int sum_quantity = resultSet.getInt("sum_quantity");
+						int sum_price= resultSet.getInt("sum_price");
+								
+						testdto.setProduct_name(product_name);
+						testdto.setOrder_price(sum_price);
+						testdto.setOrder_qty(sum_quantity);
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (preparedStatement != null) {
+							preparedStatement.close();
+						}
+						if (connection != null) {
+							connection.close();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+				}
+				return testdto;
+			}// week_order_product_info END 
+	
+	
+			///* ------------------------- ------------------------- 1 Week  End ------------------------- ------------------------- */
+	
+	
+	
+
+	/* -----------------------------------------------
+	 22-11-19 호식. 아마 가장 많이 팔린 상품 ..? 을 만들려고 한거 같음
+	 			    이 밑에 전부 다 주석 추가 및 쿼리문 수정 
+	 			    	
+	 			    manageuserprderrankingselect 붙은건 기간조건 없이 카운트 
+	*/
 	public int manageuserprderrankingselect_max() {
-		DtoManageProductList dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -607,7 +785,7 @@ public class DaoManageProductList {
 
 		try {
 			connection = dataSource.getConnection();
-			String query = "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1;";
+			String query = "select o.product_id from orders as o group by o.product_id order by count(o.order_qty) desc limit 1;";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			System.out.println(resultSet);
@@ -635,12 +813,12 @@ public class DaoManageProductList {
 		}
 		System.out.println(result);
 		return result;
-	}
+	} 
 
-	// -----------------------------------------------
-	// -----------------------------------------------
+	 /*--22-11-19 hosik
+					- 가장 많이 팔은 제품의 이름을 검색하려고 만든거 같음.
+					  내가 만든걸로 쓰려고 없앰
 	public String manageuserprderrankingselect_max_name() {
-		DtoManageProductList dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -649,7 +827,7 @@ public class DaoManageProductList {
 		try {
 			connection = dataSource.getConnection();
 			String query = "select p.product_name from product as p where p.product_id = (\n"
-					+ "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1);";
+					+ "select o.product_id from orders as o group by o.product_id order by count(o.order_qty) desc  limit 1);";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			System.out.println(resultSet);
@@ -677,10 +855,9 @@ public class DaoManageProductList {
 		}
 		System.out.println(result);
 		return result;
-	}
+	} */ 
 
 	public String manageuserprderrankingselect_max_img() {
-		DtoManageProductList dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -689,7 +866,7 @@ public class DaoManageProductList {
 		try {
 			connection = dataSource.getConnection();
 			String query = "select p.product_image from product as p where p.product_id = (\n"
-					+ "select o.product_id from orders as o group by o.product_id order by count(o.product_id) desc  limit 1);";
+					+ "select o.product_id from orders as o group by o.product_id order by count(o.order_qty) desc  limit 1);";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			System.out.println(resultSet);

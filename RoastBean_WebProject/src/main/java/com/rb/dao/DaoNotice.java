@@ -150,4 +150,49 @@ public class DaoNotice {
 		
 	} // modify
 	
-}
+	//
+	
+	
+	///-------------------------------------------------------Hosik-----------------------------------------------------------------------------//
+	
+	
+	public int sum_today_community() {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+			String query = "select count(community_initdate) as count_community from community WHERE DATE_FORMAT (community_initdate, '%Y-%m-%d') = curdate();";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt("count_community");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return result;
+	}//order_week_sum
+	
+	
+	
+	
+	
+	
+	
+	
+}//class end 

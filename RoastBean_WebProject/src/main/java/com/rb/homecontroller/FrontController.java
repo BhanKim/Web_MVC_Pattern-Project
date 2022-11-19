@@ -390,7 +390,12 @@ public class FrontController extends HttpServlet {
 			break;
 		// --------------------- 윤현 Controller End -----------------------
 			
-		// --------------------- 수빈 Controller Start ---------------------
+		// --------------------- 호식 수정 Controller Start ---------------------
+		case ("/ManageMain.do"): // main페이지에 보여주기
+			command = new CommandManageMainUserOrder();
+			command.execute(request, response);
+			viewPage = "manage_main.jsp";
+			break;
 		case ("/UserListSelect.do"): // 홈에서 관리자가 고객리스트 보기 버튼을 클릭시 do가 실행
 			command = new CommandManageUserList();
 			command.execute(request, response);
@@ -434,11 +439,7 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_product_list.jsp";
 			break;
-			case ("/ManageMain.do"): // main페이지에 보여주기
-			command = new CommandManageMainUserOrder();
-			command.execute(request, response);
-			viewPage = "manage_main.jsp";
-			break;
+		
 			case ("/ManageOrdersList.do"): // product orders list
 			command = new CommandManageOrdersList();
 			command.execute(request, response);
@@ -454,7 +455,7 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "manage_user_list.jsp";
 			break;
-		// --------------------- 수빈 Controller End -----------------------
+		// --------------------- 호식 수정 Controller End -----------------------
 			
 		// --------------------- 혁&티뱃 Controller Start ---------------------
 		// 자유게시판 게시글 list 불러오기
