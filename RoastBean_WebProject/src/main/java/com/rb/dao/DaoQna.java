@@ -230,4 +230,104 @@ public class DaoQna {
 	} // Customer Service Admin의 QnA Answer Update
 	
 
-}
+	// 22-11-19 호식 - 당일 들어온 Qna 문의수량 구하기
+	public int qna_date_sum() {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+			String query = "select count(qna_write_initdate) as qna_date_sum from qna_write where DATE_FORMAT(qna_write_initdate, '%Y-%m-%d') = curdate();";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt("qna_date_sum");
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}//---qna_date_sum END
+	
+	// 22-11-19 호식 - 당일 들어온 Qna 문의수량 구하기
+		public int qna_total_sum() {
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			ResultSet resultSet = null;
+
+			int result = 0;
+			try {
+				connection = dataSource.getConnection();
+				String query = "select count(*) as totalcount from qna_write;";
+				preparedStatement = connection.prepareStatement(query);
+				resultSet = preparedStatement.executeQuery();
+				if (resultSet.next()) {
+					result = resultSet.getInt("totalcount");
+					
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null)
+						resultSet.close();
+					if (preparedStatement != null)
+						preparedStatement.close();
+					if (connection != null)
+						connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return result;
+		}//---qna_date_sum END
+	
+	public int qna_anwer_sum() {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+			String query = "select count(*) as count from qna_write_comment";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt("count");
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}//---qna_date_sum END
+	
+	
+	
+}//class end 

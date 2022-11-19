@@ -23,6 +23,10 @@ public class DaoManageUserList {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	
 	public ArrayList<DtoManageUserList>manageuserlist(){
 		ArrayList<DtoManageUserList> dtos = new ArrayList<DtoManageUserList>();
 		Connection connection = null;
@@ -69,6 +73,10 @@ public class DaoManageUserList {
 		}
 		return dtos;
 	}//manageuserlist
+	
+	
+	
+	
 	public ArrayList<DtoManageUserList> manageusersearch(String queryname, String querycontent) {
 		ArrayList<DtoManageUserList> dtos = new ArrayList<DtoManageUserList>();
 		Connection connection = null;
@@ -119,4 +127,42 @@ public class DaoManageUserList {
 	}
 	
 	
-}
+	/* 22-11-19 Hosik 
+	 금일 신규 가입한 회원 수 count 
+	*/
+	
+	public int count_new_users() {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+			String query = "select count(user_initdate) as count_new_users from user where user_initdate=curdate();";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt("count_new_users");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return result;
+	}
+	
+	
+	
+}//class end 

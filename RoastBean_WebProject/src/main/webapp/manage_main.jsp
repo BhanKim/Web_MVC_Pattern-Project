@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,17 +46,24 @@
 <body>
 
 	<!-- ======= Header ======= -->
-	<%@include file="header_manage.jsp"%>
+	<c:if test="${ADMIN != 'admin'}">
+		<%@include file = "header_innerpage.jsp" %>
+	</c:if>	
+	
+	<!-- 22.11.19 Hosik - Can view manage_main.jsp just got Admin session -->
+	<c:if test="${ADMIN == 'admin'}">
+	<%@include file="header_manage2.jsp"%>
+	
 	<!-- End Header -->
 
 	<main id="main">
 
 		<!-- ======= Breadcrumbs Section ======= -->
-		<!-- <section class="breadcrumbs">
+		 <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
+          <h2>Manage Mode</h2>
           <ol>
             <li><a href="manage_main.jsp">Home</a></li>
             <li>Inner Page</li>
@@ -62,82 +71,118 @@
         </div>
 
       </div>
-    </section> End Breadcrumbs Section -->
+    </section><!-- End Breadcrumbs Section -->
 
 		<!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
 		<section class="inner-page">
 			<div class="container">
-<div align="center">
-
-	  <div class="container">
-	  		<div class="row">
-		    <div class="col">
-				<br> <br> <br> <br> <br>
-
-
-
-
-				<table width="1200" 
-					style="margin-left: auto; margin-right: auto; border:none;" border="0"
-					class="table table-sm table-hover">
-
-
-					<tr style="border:none;">
-						
-						<td width="500" height="50" style="text-align: center;" rowspan='2'><font size="4"><br>금일 매출</font>
-						<font size="4"><input type="text" readonly="readonly" size="10" value="${order_date_sum }" style="border: none"></font></td>
-						<td width="500" height="50" style="text-align: center;"><font size="4"><br>고객들이 가장 많이 선택한 상품</font></td>
-					
-					</tr>
-					<tr style="border:none;">
-						
-						<td style="text-align: center;"><font size="4"><input type="text" readonly="readonly" size="3" value=" ${order_date_ranking_max }" style="border: none"></font> 
-						<font size="4"><input type="text" readonly="readonly" size="40" value=" ${order_date_ranking_max_name }" style="border: none"></font></td>
-
-					</tr>
-
-					<tr style="border:none;">
-						<td>
-						<table style="margin-left: auto; margin-right: auto; border:none;" border="1"
-					class="table table-sm table-hover">
-						<thead style="color: #fff" bgcolor="#F2BCBB">
-						<tr>
-						<td width="600" height="100" style="text-align: center;" onClick="location.href='ManageProductInsert.do'"><br>PRODUCT INSERT</td>
-						<td width="600" height="100" style="text-align: center;" onClick="location.href='manage_chart.jsp'"><br>CHART</td>
-						</tr>
-						<tr>
-						<td width="600" height="100" style="text-align: center;" onClick="location.href='cs_notice.jsp'"><br>NOTICE</td>
-						<td width="600" height="100" style="text-align: center;" onClick="location.href='ManageOrdersList.do'"><br>ORDERS LIST</td>
-						</tr>
-						</thead>
-						</table>
-						</td>
-						<td style="text-align: center;"><img
-							src="assets/img/product/${order_date_ranking_max_img }"
-							width="180px" height="200px"></td>
-					</tr>
-
-				</table>
-</div></div></div></div>
-
-
+			<div align="center">
+			
+				  <div class="container">
+				  		<div class="row">
+					    <div class="col">
+			
+				
+							<table style="margin-left: auto; margin-right: auto; border:none;" border="1"
+									class="table table-sm table-hover">
+									<thead >
+									<tr>
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; ">
+											금일 많이 팔린 상품 : ${order_todate_best_name }<br>
+											금일 총 판매금액  : <fmt:formatNumber value="${order_todate_price_sum }" pattern="#,###"/>원<br>
+											팔린 갯수 : ${order_todate_quantity_sum }<br>
+										</td>	
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; ">
+											지난 1주일간 총  판매금액 : <fmt:formatNumber value="${order_week_sum }" pattern="#,###"/>원
+										
+											
+										</td>
+									</tr>
+									<tr>
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; ">
+											금일 신규 회원 수 : ${count_new_users }
+											<br>금일 신규 Qna : ${qna_date_sum }
+											<br>답장을 기다리고 있는 Qna : ${qna_total_sum - finish_count}
+											<br>금일 신규 게시글 : ${today_sum_community }
+										</td>
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; "> 
+											 지난 1주일간 매출량 대비 상승률 , 가장 많은 매출상품  /<!--  /  1:1 QNA신규 확인   -->
+											 <!--  신규 회원ㄱ입 수 --> <!--   / 신규 문의 수 -->  <!--  가장 많이 팔린 상품 --> <!-- 주간매출/ -->
+										</td>
+									</tr>
+									<tr>
+										<td>
+											1주일간 가장 높은 매출 상픔 
+											<br>${order_week_bestprice_name }
+											<br>${order_week_price_quantity_sum }
+											<br>${order_week_price_price_sum }
+										</td>
+										<td>
+											1주일간 가장 많이 팔린 상픔 
+											<br>${order_week_bestqty_name }
+											<br>${order_week_qty_quantity_sum }
+											<br>${order_week_qty_price_sum }
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											chart 예정<br>
+										</td>
+									</tr>
+								</thead>
+							</table>
+								
+							<table style="margin-left: auto; margin-right: auto; border:none;" border="1"
+									class="table table-sm table-hover">
+									<thead >
+									<tr>
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; color: #fff; background-color:#5f5f5f;" onClick="location.href='ManageProductInsert.do'">PRODUCT INSERT</td>	
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; color: #fff; background-color:#F2BCBB;" onClick="location.href='manage_chart.jsp'">CHART</td>
+									</tr>
+									<tr>	
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; color: #fff; background-color:#F2BCBB;" onClick="location.href='cs_notice.jsp'">NOTICE</td>
+										<td width="400" height="100" style="text-align: center; vertical-align:middle; color: #fff; background-color:#5f5f5f;" onClick="location.href='ManageOrdersList.do'">ORDERS LIST</td>
+									</tr>
+								</thead>
+							</table>
+				
+					</div></div></div></div>
 			</div>
-
 		</section>
 
-		<!--  
-    <section class="inner-page">
-      <div class="container">
-        <p>
-          Example inner page template
-        </p>
-      </div>
-    </section> -->
 		<!--  ---------------------------------- 정보 쓰기란 종료 ----------------------------------  -->
-
-
 	</main>
+</c:if>		
+
+	<!-- 22.11.19 Hosik - Can view manage_main.jsp just got Admin session End  -->
 	<!-- End #main -->
+	<c:if test="${ADMIN != 'admin'}">
+		<%@include file = "header_innerpage.jsp" %>
+		<main id="main">
+
+		<!-- ======= Breadcrumbs Section ======= -->
+		 <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Error</h2>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+		<!--  ---------------------------------- 정보 쓰기란 시작 ---------------------------------- -->
+		<section class="inner-page">
+			<div class="container">
+
+					<h2> 잘못된 접근 입니다.</h2>
+					<a href="index.jsp">메인 화면으로 돌아가기</a>
+
+			</div> 
+		</section>
+	</c:if>	
+	
+	
 
 	<!-- ======= Footer ======= -->
 	<%@include file="footer.jsp"%>
