@@ -2,6 +2,7 @@ package com.rb.dto;
 
 public class DtoNotice {
 
+	int rownumber;
 	int notice_write_seq;
 	String admin_id;
 	String notice_write_title;
@@ -26,9 +27,10 @@ public class DtoNotice {
 		this.notice_write_deletedate = notice_write_deletedate;
 	}
 
-	public DtoNotice(int notice_write_seq, String notice_write_title, String notice_write_content,
+	public DtoNotice(int rownumber, int notice_write_seq, String notice_write_title, String notice_write_content,
 			String notice_write_initdate, String notice_write_updatedate) {
 		super();
+		this.rownumber = rownumber;
 		this.notice_write_seq = notice_write_seq;
 		this.notice_write_title = notice_write_title;
 		this.notice_write_content = notice_write_content;
@@ -48,6 +50,14 @@ public class DtoNotice {
 	public DtoNotice(int notice_write_seq) {
 		super();
 		this.notice_write_seq = notice_write_seq;
+	}
+
+	public int getRownumber() {
+		return rownumber;
+	}
+	
+	public void setRownumber(int Rownumber) {
+		this.rownumber = Rownumber;
 	}
 
 	public int getNotice_write_seq() {

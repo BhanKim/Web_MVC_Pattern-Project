@@ -39,7 +39,7 @@ public class DaoQna {
 			
 			String query1 = "select qw.qna_write_category, qw.qna_write_title, qw.qna_write_seq, qw.qna_write_initdate, qw.qna_write_updatedate, qw.qna_write_content, ";
 			String query2 = "qwc.qna_write_comment_content, qwc.qna_write_comment_initdate, qwc.qna_write_comment_updatedate from qna_write qw left join qna_write_comment qwc ";
-			String query3 = "on qw.qna_write_seq = qwc.qna_write_comment_seq and qw.user_id = '"+user_id+"' order by qw.qna_write_seq desc ";
+			String query3 = "on qw.qna_write_seq = qwc.qna_write_comment_seq where qw.user_id = '"+user_id+"' order by qw.qna_write_seq desc ";
 			preparedStatement = connection.prepareStatement(query1+query2+query3);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -84,7 +84,8 @@ public class DaoQna {
 			
 			String query1 = "select qw.user_id, qw.qna_write_category, qw.qna_write_title, qw.qna_write_seq, qw.qna_write_initdate, qw.qna_write_updatedate, qw.qna_write_content, ";
 			String query2 = "qwc.qna_write_comment_seq, qwc.qna_write_comment_content, qwc.qna_write_comment_initdate, qwc.qna_write_comment_updatedate ";
-			String query3 = "from qna_write qw left join qna_write_comment qwc on qw.qna_write_seq = qwc.qna_write_seq order by qw.qna_write_seq desc ";
+			String query3 = "from qna_write qw left join qna_write_comment qwc on qw.qna_write_seq = qwc.qna_write_seq "
+						  + "order by qw.qna_write_seq desc, qwc.qna_write_comment_seq asc ";
 			preparedStatement = connection.prepareStatement(query1+query2+query3);
 			resultSet = preparedStatement.executeQuery();
 			

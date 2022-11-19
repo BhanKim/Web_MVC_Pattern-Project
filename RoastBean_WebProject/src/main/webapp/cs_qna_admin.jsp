@@ -60,10 +60,10 @@
 					<table class="table table-hover" style="vertical-align: middle;">
 						<thead>
 							<tr align="center">
-								<th style="width: 10%;">아이디</th>
+								<th style="width: 8%;">아이디</th>
 								<th style="width: 15%;">문의유형</th>
-								<th style="width: 35%;">제목 / 내용</th>
-								<th style="width: 10%;">주문번호</th>
+								<th style="width: 40%;">제목 / 내용</th>
+								<th style="width: 7%;">문의번호</th>
 								<th style="width: 20%;">작성일 / 수정일</th>
 								<th style="width: 10%;">처리상태</th>
 							</tr>
@@ -71,12 +71,12 @@
 						<c:forEach items="${adminQnaList}" var="dto">
 					 	<form action="qna_answer_by_admin.do" method="post">
 							<tr style="background-color: #A3A7AB;"><td colspan="6"></td></tr>
-							<tr align="center" valign="top">
+							<tr align="center" >
 								<td>${dto.user_id}</td>
 								<td>${dto.qna_write_category}</td>
 								<td align="left">
-									제목 : ${dto.qna_write_title}<br>
-									내용 : ${dto.qna_write_content}
+									- 제목 : ${dto.qna_write_title}<br>
+									- 내용 : ${dto.qna_write_content}
 								</td>
 								<td>${dto.qna_write_seq}<input type="hidden" name="qna_write_seq" value="${dto.qna_write_seq}"></td>
 								<td align="left">
@@ -100,7 +100,7 @@
 									<td></td>
 									<td align="right">ㄴ</td>
 									<td align="left" colspan="2">
-										<textarea name="qna_write_comment_content" rows="3" cols="60%" style="background-color: #F2F1EF"></textarea>
+										<textarea name="qna_write_comment_content" rows="5" cols="60%" style="background-color: #F2F1EF"></textarea>
 									</td>
 									<td><input type="hidden" name="submit_type" value="insert"></td>
 									<td valign="middle"><input type="submit" value="답변하기" class="btn" style="background-color: #F2BCBB"></td>
@@ -112,7 +112,7 @@
 									<td></td>
 									<td align="right" valign="top">ㄴ</td>
 									<td align="left" colspan="2">
-										<textarea name="qna_write_comment_content" rows="3" cols="60%" style="background-color: #F2F1EF">${dto.qna_write_comment_content}</textarea>
+										<textarea name="qna_write_comment_content" rows="5" cols="60%" style="background-color: #F2F1EF">${dto.qna_write_comment_content}</textarea>
 									</td>
 									<td align="left">
 										<input type="hidden" name="submit_type" value="update">

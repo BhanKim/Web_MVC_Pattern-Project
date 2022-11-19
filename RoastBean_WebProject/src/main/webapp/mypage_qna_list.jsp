@@ -96,7 +96,7 @@
 										<c:when test="${dto.qna_write_comment_content == null }">
 											<td align="left" valign="top">
 												<input type="text" name="qna_write_title" value="${dto.qna_write_title}" size="50%"><br>
-												<textarea rows="3" cols="70%" name="qna_write_content" style="background-color: #F2F1EF">${dto.qna_write_content}</textarea> 
+												<textarea rows="4" cols="70%" name="qna_write_content" style="background-color: #F2F1EF">${dto.qna_write_content}</textarea> 
 											</td>
 										</c:when><c:otherwise>
 											<td align="left">
@@ -124,7 +124,7 @@
 								
 								<c:if test="${dto.qna_write_comment_content != null}">
 								<tr align="center" style="background-color: #F2F1EF;">
-									<td>관리자</td>
+									<td align="right" valign="top">ㄴ</td>
 									<td align="left">${dto.qna_write_comment_content}</td>
 									<td></td>
 									<td align="left">

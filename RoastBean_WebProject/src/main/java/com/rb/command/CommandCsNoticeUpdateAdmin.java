@@ -23,10 +23,8 @@ public class CommandCsNoticeUpdateAdmin implements Command {
 
 		if(btnType.equals("수정")) {
 			dao.updateAction(notice_write_title, notice_write_content, notice_write_seq);
-			System.out.println("update");
 		}else {
 			dao.updateActionDelete(notice_write_seq);
-			System.out.println("delete");
 		}
 		
 	}

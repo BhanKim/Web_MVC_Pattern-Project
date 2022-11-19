@@ -240,7 +240,7 @@ CREATE TABLE `notice_write` (
   PRIMARY KEY (`notice_write_seq`,`admin_id`),
   KEY `fk_notice_write_admin1_idx` (`admin_id`),
   CONSTRAINT `fk_notice_write_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,7 +249,7 @@ CREATE TABLE `notice_write` (
 
 LOCK TABLES `notice_write` WRITE;
 /*!40000 ALTER TABLE `notice_write` DISABLE KEYS */;
-INSERT INTO `notice_write` VALUES (1,'admin','원두를 구매하려고 하면 어떻게 해야하나요?','상단에 COFFEE SHOP 을 클릭하면 저희가 판매하는 원두 종류를 볼 수 있고, 구매버튼 및 장바구니로 구매가 가능합니다^^.','2022-11-15',NULL,'2022-11-15'),(2,'admin','제가 무슨 원두를 좋아하는지 모르는데 어떡해야하나요?','상단에 ABOUT 버튼에 Coffee That Suits Me 란을 클릭하시면 나와 맞는 원두찾기를 하실 수 있습니다. ','2022-11-15',NULL,'2022-11-15'),(3,'admin','이벤트 행사 진행하려고합니다.','지금 이벤트로 커피할인 행사를 진행하려고 합니다. 추후 공지 날짜에 맞춰 내방하시는 고객님께 커피원두를 무료로 드리려고합니다.','2022-11-15',NULL,NULL),(4,'admin','커피를 좋아하는 사람들을 위해','커피를 좋아하는 사람들을 위해 소박한 선물을 준비했습니다. 상품구매후 리뷰를 선발하여 소정의 선물을 드리려고 합니다. 많은 참여 부탁드립니다.','2022-11-15',NULL,NULL);
+INSERT INTO `notice_write` VALUES (1,'admin','이벤트 행사 진행하려고합니다.','지금 이벤트로 커피할인 행사를 진행하려고 합니다. 추후 공지 날짜에 맞춰 내방하시는 고객님께 커피원두를 무료로 드리려고합니다.','2022-11-15',NULL,NULL),(2,'admin','커피를 좋아하는 사람들을 위해','커피를 좋아하는 사람들을 위해 소박한 선물을 준비했습니다. 상품구매후 리뷰를 선발하여 소정의 선물을 드리려고 합니다. 많은 참여 부탁드립니다.','2022-11-15',NULL,NULL);
 /*!40000 ALTER TABLE `notice_write` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,7 +344,7 @@ CREATE TABLE `qna_write` (
   KEY `fk_qna_write_user1_idx` (`user_id`),
   KEY `fk_qna_write_user1_idx1` (`user_id`),
   CONSTRAINT `fk_qna_write_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +353,7 @@ CREATE TABLE `qna_write` (
 
 LOCK TABLES `qna_write` WRITE;
 /*!40000 ALTER TABLE `qna_write` DISABLE KEYS */;
-INSERT INTO `qna_write` VALUES (1,'test1',NULL,NULL,NULL,'2022-11-15 12:39:49',NULL,NULL),(2,'test1',NULL,NULL,NULL,'2022-11-15 12:39:53',NULL,NULL),(3,'test1',NULL,NULL,NULL,'2022-11-15 13:54:18',NULL,NULL);
+INSERT INTO `qna_write` VALUES (1,'kimsin','상품문의','여긴 어떤 사이트인가요','이번에 처음 가입해서 활동하려는데 사용방법이 궁금합니다^^!','2022-11-19 21:26:48',NULL,NULL),(2,'nara7','상품문의','상품문의드려요~','블루마운틴 재고 얼마나 남았나요??','2022-11-19 21:27:41',NULL,NULL),(3,'nara7','신고문의','사용자 신고합니다.','다른 사람 비방하고 욕하는 글을 쓰는 거 같아요ᅲᅲ','2022-11-19 21:27:50',NULL,NULL),(4,'kimsin','이용문의','빈 인포?','안녕하세요~ 사이트 이용 잘 하고 있습니다^^\n\n다름이 아니라 이번에 지인에게 커피 정보를 공유하려고 하는데요~\n\n혹시 bean information에 있는 정보들 공유해도 될까요?\n\n내용 정확한지도 궁금합니다~^^','2022-11-19 21:27:52',NULL,NULL),(5,'nara7',NULL,NULL,NULL,'2022-11-19 22:33:45',NULL,NULL),(6,'nara7',NULL,NULL,NULL,'2022-11-19 22:34:00',NULL,NULL),(7,'nara7',NULL,NULL,NULL,'2022-11-19 22:34:09',NULL,NULL);
 /*!40000 ALTER TABLE `qna_write` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -377,7 +377,7 @@ CREATE TABLE `qna_write_comment` (
   KEY `fk_qna_write_comment_qna_write1_idx` (`qna_write_seq`),
   CONSTRAINT `fk_qna_write_comment_admin1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`admin_id`),
   CONSTRAINT `fk_qna_write_comment_qna_write1` FOREIGN KEY (`qna_write_seq`) REFERENCES `qna_write` (`qna_write_seq`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -386,6 +386,7 @@ CREATE TABLE `qna_write_comment` (
 
 LOCK TABLES `qna_write_comment` WRITE;
 /*!40000 ALTER TABLE `qna_write_comment` DISABLE KEYS */;
+INSERT INTO `qna_write_comment` VALUES (1,'admin',1,'안녕하세요 kimsin님^^ 저희 Roast Bean에 방문해주셔서 진심으로 감사드립니다. 저희 사이트는 커피를 사랑하는 사람들이 모일 수 있는 커뮤니티 형성을 목로 하고 있습니다. 우선 커뮤니티로 접속하시어 다른 분들과 커피에 관한 좋은 정보 공유를 해보시는 것을 추천드립니다. 감사합니다^^','2022-11-19 22:27:35',NULL,NULL),(2,'admin',2,'안녕하세요 nara7님^^ 저희 Roast Bean에 방문해주셔서 진심으로 감사드립니다. 문의하신 상품은 현재 재고가 25개 가량 남았습니다. 인기있는 상품이어서 조기소진 될 수 있는 점 양해 부탁드립니다. 감사합니다^^','2022-11-19 22:27:37',NULL,NULL);
 /*!40000 ALTER TABLE `qna_write_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -466,4 +467,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-15 14:01:48
+-- Dump completed on 2022-11-19 22:41:39
