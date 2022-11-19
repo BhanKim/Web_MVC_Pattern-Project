@@ -81,19 +81,19 @@ function checkMember(){
 	}
 	if(!regExpUser_name.test(user_name)){
 		alert("이름은 한글만으로 입력해주세요.(2글자 이상, 20글자 이하)")
-		form.user_nick.select()
+		form.user_name.select()
 		return
 	}
 
 	// Nick
-	if(form.user_name.value.length == 0) {
+	if(form.user_nick.value.length == 0) {
 	    alert("닉네임은 필수사항입니다.");
 	    form.focus();
 	    return;
 	}
-	if(!regExpUser_name.test(user_name)){
+	if(!regExpUser_nick.test(user_nick)){
 		alert("닉네임은 문자, 한글, 숫자로 입력해주세요.(2글자 이상, 10글자 이하)")
-		form.user_name.select()
+		form.user_nick.select()
 		return
 	}
 	if(form.nickDuplication.value != 0){ /**************************/
@@ -109,7 +109,7 @@ function checkMember(){
 	    return;
 	}
 	if(!regExpUser_pw.test(user_pw)){
-		alert("비밀번호는 숫자만으로 입력해주세요.(6글자 이상, 20글자 이하)")
+		alert("비밀번호는 문자, 숫자만으로 입력해주세요.(6글자 이상, 20글자 이하)")
 		form.user_pw.select()
 		return
 	}

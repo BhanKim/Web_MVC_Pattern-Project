@@ -73,7 +73,7 @@
     
 	<section class="inner-page">
 		<div class="container">
-				<h3>&nbsp;&nbsp;&nbsp;&nbsp;My QnA List</h3>
+				<h3>&nbsp;&nbsp;&nbsp;&nbsp;QnA List</h3>
 				<hr style="border: solid 2px red;">
 				<br>
 				<table class="table table-hover" style="vertical-align: middle;">
@@ -89,7 +89,7 @@
 					<c:forEach items="${myQnaList}" var="dto">
 						<c:if test="${dto.qna_write_title != null }">
 							<form action="qna_update_by_user.do" method="post">
-								<tr style="background-color: #A3A7AB;"><td colspan="6"></td></tr>
+								<tr style="background-color: #A3A7AB; height: 2"><td colspan="6"></td></tr>
 								<tr align="center">
 									<td>${dto.qna_write_category}</td>
 									<c:choose>
@@ -143,9 +143,13 @@
 								</tr>
 								</c:if>
 							</form>
+							
 						</c:if>
 					</c:forEach>
 				</table>
+					<div align="right">
+						<button class="btn mr-3" type="button" style="background-color: #D0D4D8" onclick="location.href='cs_qna.jsp'">질문하러 가기</button>
+					</div>
 				<%-- ******** 페이징부분 아직 적용안됐음 ******** --%>
 			 	<%-- <div class="container" align="center">
 				<table>

@@ -37,9 +37,9 @@ public class DaoQna {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query1 = "select qw.qna_write_category, qw.qna_write_title, qw.qna_write_seq, qw.qna_write_initdate, qw.qna_write_content, ";
-			String query2 = "qwc.qna_write_comment_content, qwc.qna_write_comment_initdate from qna_write qw left join qna_write_comment qwc ";
-			String query3 = "on qw.qna_write_seq = qwc.qna_write_comment_seq and qw.user_id = '"+user_id+"' order by qw.qna_write_initdate desc ";
+			String query1 = "select qw.qna_write_category, qw.qna_write_title, qw.qna_write_seq, qw.qna_write_initdate, qw.qna_write_updatedate, qw.qna_write_content, ";
+			String query2 = "qwc.qna_write_comment_content, qwc.qna_write_comment_initdate, qwc.qna_write_comment_updatedate from qna_write qw left join qna_write_comment qwc ";
+			String query3 = "on qw.qna_write_seq = qwc.qna_write_comment_seq and qw.user_id = '"+user_id+"' order by qw.qna_write_seq desc ";
 			preparedStatement = connection.prepareStatement(query1+query2+query3);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -48,11 +48,13 @@ public class DaoQna {
 				String qna_write_title = resultSet.getString("qw.qna_write_title");
 				int qna_write_seq = resultSet.getInt("qw.qna_write_seq");
 				String qna_write_initdate = resultSet.getString("qw.qna_write_initdate");
+				String qna_write_updatedate = resultSet.getString("qw.qna_write_updatedate");
 				String qna_write_content = resultSet.getString("qw.qna_write_content");
 				String qna_write_comment_content = resultSet.getString("qwc.qna_write_comment_content");
 				String qna_write_comment_initdate = resultSet.getString("qwc.qna_write_comment_initdate");
+				String qna_write_comment_updatedate = resultSet.getString("qwc.qna_write_comment_updatedate");
 				
-				DtoQna dto = new DtoQna(qna_write_seq, qna_write_category, qna_write_title, qna_write_content, qna_write_initdate, qna_write_comment_content, qna_write_comment_initdate);
+				DtoQna dto = new DtoQna(qna_write_seq, qna_write_category, qna_write_title, qna_write_content, qna_write_initdate, qna_write_updatedate, qna_write_comment_content, qna_write_comment_initdate, qna_write_comment_updatedate);
 				dtos.add(dto);
 			}
 					

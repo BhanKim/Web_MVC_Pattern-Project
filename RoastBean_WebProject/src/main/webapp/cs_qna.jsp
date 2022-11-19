@@ -72,10 +72,11 @@
     
 	<section class="inner-page">
 		<div class="container">
-				<h3>&nbsp;&nbsp;1:1 QnA</h3>
+				<!--
+ 				<h3>&nbsp;&nbsp;1:1 QnA</h3>
 				<br>
 				<div>
-					<span style="text-align: left;">
+					<span >
 					제품 사용, 오염, 전용 박스 손상, 라벨 제거, 사은품 및 부속 사용/분실 시, 교환/환불이 불가능 합니다.<br>
 					교환을 원하시는 상품(사이즈)의 재고가 부족 시, 교환이 불가합니다.<br>
 					문의유형을 선택하시면 1:1상담이 가능합니다.<br>
@@ -86,12 +87,12 @@
 				</div>
 				<br>
 				<br>
+				 -->
 				<br>
-
 				<div class="row">
 					<div class="col-2"></div>
 					<div class="col-8">
-						<h6>문의 작성</h6>
+						<h3>문의 작성</h3>
 						<hr style="border: solid 2px red;">
 						<br>
 						<form action="qna_question_by_user.do" method="post">
@@ -127,10 +128,13 @@
 								</td>
 							</tr>
 						</table>
-						<div align="right">
-						<button class="btn" type="button" style="background-color: #F2BCBB" onclick="location.href='mypage_qna_list.do'">내 질문 목록 보러가기</button>
-						<input type="submit" value="작성하기" class="btn" style="background-color: #F2BCBB"></div>
+							<div align="right">
+								<input type="submit" value="작성하기" onclick="alert('질문등록이 완료되었습니다.');return true;" class="btn mb-2" style="background-color: #F2BCBB">
+							</div>
 						</form>
+							<div align="right">
+								<button class="btn" type="button" style="background-color: #D0D4D8" onclick="location.href='mypage_qna_list.do'">질문목록</button>
+							</div>
 					</div>
 					<div class="col-2"></div>
 				</div>

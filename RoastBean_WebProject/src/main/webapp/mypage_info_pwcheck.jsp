@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,6 +66,7 @@
 
 </head>
 <body>
+  <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- ======= Header ======= -->
 	<%@include file = "header_innerpage.jsp" %>
   <!-- End Header -->
@@ -84,7 +87,6 @@
         </div>
       </div>
     </section><!-- End Breadcrumbs Section -->
-
 	<section class="inner-page">
 		<div class="row align-items-center">
 			<div class="col"></div>
@@ -98,6 +100,13 @@
 						  		</tr>
 						  	</table>
 					  	<div align="right"><button class="form-control3" type="submit">확인하기</button></div>
+					  	<c:if test="${userPwCheck == 0}">
+						    <script>
+						        $(".form-control3").click(function() {
+						            alert("<%="암호를 확인해주세요."%>");
+						        });
+						    </script>
+					  	</c:if>
 				  	</form>
 				</div>
 			<div class="col"></div>
@@ -125,6 +134,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
 
 </body>
 

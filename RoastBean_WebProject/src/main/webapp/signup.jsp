@@ -140,14 +140,15 @@ $(document).ready(function() {
 									<tr class="mb-3">
 										<td align="left">Tel</td>
 										<td align="left">
-											<select class="form-control2" name="user_telno1" style="height: 32px; line-height: 1em; text-align-center; ">
+<!-- 											<select class="form-control2" name="user_telno1" style="height: 32px; line-height: 1em; text-align-center; ">
 												<option>선택</option>
 												<option value="010">010</option>
 												<option value="011">011</option>
 												<option value="016">016</option>
 												<option value="017">017</option>
 												<option value="019">019</option>
-											</select>
+											</select> -->
+											<input class="form-control2" size="4" type="tel" name="user_telno1" value="${user_telno1}" style="height: 32px;">
 											-
 											<input class="form-control2" size="8" type="tel" name="user_telno2" value="${user_telno2}" style="height: 32px;">
 											-
@@ -158,16 +159,17 @@ $(document).ready(function() {
 									<tr class="mb-3">
 										<td align="left">Email</td>
 										<td class="col" align="left">
-										<input type="email" id="uemail" class="form-control2" name="user_email" value="${user_email}" placeholder="We'll never share your email." aria-describedby="emailHelp"
+										<input type="email" id="uemail" class="form-control2" name="user_email" value="${user_email}" size="28" placeholder="필수사항입니다."
 											style="height: 32px;">
 										<button class="form-control3" type="button" id="email_check">인증</button></td>
 									</tr>
+									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td class="col" align="left">
-											<label for="exampleFormControlInput1" class="form-label">Certify</label>
+											<label for="exampleFormControlInput1" class="form-label" >Certify</label>
 										</td>
 										<td> 
-											<input type="text" class="form-control" name="ucertify_num" id="exampleFormControlInput1" placeholder="인증번호를 입력해 주세요" value="${ucertify_num}">
+											<input type="text" class="form-control" name="ucertify_num" id="exampleFormControlInput1" placeholder="인증번호를 입력해 주세요." value="${ucertify_num}" style="height: 32px;">
 											<input type="hidden" id="email_certify_num" name="user_certifycheck" value="${user_certifycheck}">
 										</td>
 									</tr>
@@ -175,7 +177,13 @@ $(document).ready(function() {
 									<tr class="mb-3">
 										<td align="left">Birthday</td>
 										<td align="left">
-											<select class="form-control2" name="user_birthday1" style="height: 32px;line-height: 1em; text-align-center; ">
+											<input class="form-control2" size="4" type="text" name="user_birthday1" value="${user_birthday1}" style="height: 32px;">
+											년
+											<input class="form-control2" size="4" type="text" name="user_birthday2" value="${user_birthday2}" style="height: 32px;">
+											월
+											<input class="form-control2" size="4" type="text" name="user_birthday3" value="${user_birthday3}" style="height: 32px;">
+											일
+<%-- 											<select class="form-control2" name="user_birthday1" style="height: 32px;line-height: 1em; text-align-center; ">
 												<option selected="selected">선택</option>
 												<c:forEach var="cnt" begin="1950" end="2022">
 												<option value="${cnt}">${cnt}</option>
@@ -191,7 +199,8 @@ $(document).ready(function() {
 												<option value="${cnt}">${cnt}</option>
 												</c:forEach>
 											</select> 일
-									</tr>
+ --%>
+ 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Gender</td>
@@ -250,8 +259,8 @@ $(document).ready(function() {
 							<div class="mb-3">
 								<span style="font-size: small;">By clicking "Create account", I agree to
 									Roast Bean's <a target="_blank" rel="noopener" tabindex="-1"
-									href="/summary-of-policy" style="color: #5464F9;">TOS</a> and <a target="_blank"
-									rel="noopener" tabindex="-1" href="/privacy" style="color: #5464F9;">Privacy Policy</a>.
+									href="policy_tos.jsp" style="color: #5464F9;">TOS</a> and <a target="_blank"
+									rel="noopener" tabindex="-1" href="policy_privacy.jsp" style="color: #5464F9;">Privacy Policy</a>.
 								</span>
 							</div>
 						</form>

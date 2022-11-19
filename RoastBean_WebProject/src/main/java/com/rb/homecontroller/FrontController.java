@@ -212,12 +212,18 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "mypage_info.jsp";
 			break;
-		// 마이페이지/ 비밀번호체크하기
+		// 마이페이지/ 비밀번호체크하기 // 수정 22.11.19_SanwonKim
 		case ("/mypage_info_pwcheck.do"):
 			command = new CommandUserInfoPwcheck();
 			command.execute(request, response);
-			String page = (String) request.getAttribute("page");
-			viewPage = page;
+//			String page = (String) request.getAttribute("page");
+			int userPwCheck = (int) request.getAttribute("userPwCheck");
+			if(userPwCheck == 1) {
+				viewPage = "mypage_info_update_list.do";
+			}else {
+				viewPage = "mypage_info_pwcheck.jsp";
+			}
+//			viewPage = page;
 			break;
 		// 마이페이지/수정화면에서 내 정보 보기
 		case ("/mypage_info_update_list.do"):
@@ -238,12 +244,12 @@ public class FrontController extends HttpServlet {
 			viewPage = "mypage_order_list.jsp";
 			break;
 		// 마이페이지:My QnA List 가져오기 / 완료 22.11.13_2:20_SangwonKim
-		case ("/mypage_qna_list.do"): // 클릭시 질문내용 바꿔주고, 다시 클릭시 내용숨기기 추가하기
+		case ("/mypage_qna_list.do"): 
 			command = new CommandMyQnaList();
 			command.execute(request, response);
 			viewPage = "mypage_qna_list.jsp";
 			break;
-		// 마이페이지:My QnA List 가져오기 / 완료 22.11.13_6:20_SangwonKim
+		// 마이페이지:My QnA 수정 / 완료 22.11.13_6:20_SangwonKim
 		case ("/qna_update_by_user.do"): // 클릭시 질문내용 바꿔주고, 다시 클릭시 내용숨기기 추가하기
 			command = new CommandCsQnaUserUpdate();
 			command.execute(request, response);

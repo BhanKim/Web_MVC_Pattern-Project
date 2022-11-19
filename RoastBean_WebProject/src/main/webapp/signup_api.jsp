@@ -14,7 +14,7 @@
 	  padding: 0.375rem 0.75rem;
 	  font-size: 1rem;
 	  font-weight: 400;
-	  line-height: 1.5;
+	  line-height: 1em;
 	  color: #212529;
 	  background-color: #fff;
 	  background-clip: padding-box;
@@ -29,7 +29,7 @@
 	  padding: 0.375rem 0.75rem;
 	  font-size: 1rem;
 	  font-weight: 400;
-	  line-height: 1.5;
+	  line-height: 1em;
 	  color: #212529;
 	  background-color: #CFD4D9;
 	  background-clip: padding-box;
@@ -93,30 +93,38 @@
 									<tr class="mb-3">
 										<td align="left">Tel</td>
 										<td align="left">
-											<select class="form-control2" name="user_telno1" style="height: 32px; vertical-align: middle;">
+<!-- 											<select class="form-control2" name="user_telno1" style="height: 32px; vertical-align: middle;">
 												<option value="010">010</option>
 												<option value="011">011</option>
 												<option value="016">016</option>
 												<option value="017">017</option>
 												<option value="019">019</option>
 											</select>
+ -->										
+											<input class="form-control2" size="4" type="tel" name="user_telno1" value="${user_telno1}" style="height: 32px;">
 											-
-											<input class="form-control2" size="10" type="tel" name="user_telno2" style="height: 32px;">
+											<input class="form-control2" size="8" type="tel" name="user_telno2" value="${user_telno2}" style="height: 32px;">
 											-
-											<input class="form-control2" size="10" type="tel" name="user_telno3" style="height: 32px;">
+											<input class="form-control2" size="8" type="tel" name="user_telno3" value="${user_telno3}" style="height: 32px;">
 										</td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Email</td>
 										<td><input type="email" class="form-control" name="user_email" value="${api_email }${user_email}" readonly="readonly"
-											placeholder="We'll never share your email."	style="height: 32px;"></td>
+											placeholder="필수사항입니다." style="height: 32px;"></td>
 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Birthday</td>
 										<td align="left">
-											<select class="form-control2" name="user_birthday1" style="height: 32px;">
+											<input class="form-control2" size="4" type="text" name="user_birthday1" value="${user_birthday1}" style="height: 32px;">
+											년
+											<input class="form-control2" size="4" type="text" name="user_birthday2" value="${user_birthday2}" style="height: 32px;">
+											월
+											<input class="form-control2" size="4" type="text" name="user_birthday3" value="${user_birthday3}" style="height: 32px;">
+											일
+<%-- 											<select class="form-control2" name="user_birthday1" style="height: 32px;">
 												<option selected="selected">선택</option>
 												<c:forEach var="cnt" begin="1950" end="2022">
 												<option value="${cnt}" selected="selected">${cnt}</option>
@@ -132,7 +140,8 @@
 												<option value="${cnt}">${cnt}</option>
 												</c:forEach>
 											</select> 일
-									</tr>
+ --%>
+ 									</tr>
 									<tr height="10"></tr>
 									<tr class="mb-3">
 										<td align="left">Gender</td>
@@ -165,8 +174,8 @@
 							<div class="mb-3">
 								<span style="font-size: small;">By clicking "Create account", I agree to
 									Roast Bean's <a target="_blank" rel="noopener" tabindex="-1"
-									href="/summary-of-policy" style="color: #5464F9;">TOS</a> and <a target="_blank"
-									rel="noopener" tabindex="-1" href="/privacy" style="color: #5464F9;">Privacy Policy</a>.
+									href="policy_tos.jsp" style="color: #5464F9;">TOS</a> and <a target="_blank"
+									rel="noopener" tabindex="-1" href="policy_privacy.jsp" style="color: #5464F9;">Privacy Policy</a>.
 								</span>
 							</div>
 						</form>

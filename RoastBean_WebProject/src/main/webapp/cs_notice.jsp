@@ -78,7 +78,10 @@
 											${dto.notice_write_content}
 										</td>
 										<td>
-											${dto.notice_write_initdate}${dto.notice_write_updatedate}
+											<c:if test="${dto.notice_write_updatedate == null}">
+												${dto.notice_write_initdate}
+											</c:if>
+												${dto.notice_write_updatedate}
 										</td>
 									</tr>
 								</form>
@@ -105,10 +108,10 @@
 											<textarea rows="2" cols="80%" name="notice_write_content" style="background-color: #F2F1EF">${dto.notice_write_content}</textarea>
 										</td>
 										<td valign="middle">
-											<c:if test="${dto.notice_write_updatedate == null}">
+											<c:if test="${dto.notice_write_updatedate eq null}">
 												${dto.notice_write_initdate}
 											</c:if>
-											${dto.notice_write_updatedate}</td>
+												${dto.notice_write_updatedate}</td>
 										<td valign="middle">
 										<input type="submit" name="btnType" value="수정" class="btn mb-1" style="background-color: #A3A7AB">
 										<input type="submit" name="btnType" value="삭제" class="btn" style="background-color: #A3A7AB">

@@ -37,19 +37,21 @@ public class DaoNotice {
 		
 		try {
 			connection = dataSource.getConnection();
-			
-			String query = "select notice_write_seq, notice_write_title, notice_write_content, notice_write_initdate, notice_write_updatedate from notice_write where notice_write_deletedate is null ";
+			String query = "select @rownum := @rownum + 1 rownumber, notice_write_title, notice_write_content, notice_write_initdate, notice_write_updatedate "
+						 + "from notice_write where(@rownum := 0) = 0 and notice_write_deletedate is null ";
+//			String query = "select notice_write_seq, notice_write_title, notice_write_content, notice_write_initdate, notice_write_updatedate from notice_write where notice_write_deletedate is null ";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				int notice_write_seq = resultSet.getInt("notice_write_seq");
+//				int notice_write_seq = resultSet.getInt("notice_write_seq");
+				int rownumber = resultSet.getInt("rownumber");
 				String notice_write_title = resultSet.getString("notice_write_title");
 				String notice_write_content = resultSet.getString("notice_write_content");
 				String notice_write_initdate = resultSet.getString("notice_write_initdate");
 				String notice_write_updatedate = resultSet.getString("notice_write_updatedate");
 				
-				DtoNotice dto = new DtoNotice(notice_write_seq, notice_write_title, notice_write_content, notice_write_initdate, notice_write_updatedate);
+				DtoNotice dto = new DtoNotice(rownumber, notice_write_title, notice_write_content, notice_write_initdate, notice_write_updatedate);
 				dtos.add(dto);
 			}
 					

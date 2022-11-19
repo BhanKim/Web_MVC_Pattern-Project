@@ -19,16 +19,19 @@ public class CommandUserInfoPwcheck implements Command {
 
 		String user_id = (String) session.getAttribute("ID");
 		String user_pw = request.getParameter("user_pw");
-		String page = null;
+//		String page = null;
 		
 		DaoUserInfo dao = new DaoUserInfo();
+		int userPwCheck = dao.userPwCheck(user_id, user_pw);
 		
-		if(dao.userPwCheck(user_id, user_pw) == 1) {
-			page = "mypage_info_update_list.do";
-		}else {
-			page = "mypage_info.do";
-		}
-		request.setAttribute("page", page);
+		request.setAttribute("userPwCheck", userPwCheck);
+		
+//		if(dao.userPwCheck(user_id, user_pw) == 1) {
+//			page = "mypage_info_update_list.do";
+//		}else {
+//			page = "mypage_info_pwcheck.jsp";
+//		}
+//		request.setAttribute("page", page);
 	}
 
 }
