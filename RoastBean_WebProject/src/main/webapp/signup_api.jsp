@@ -162,7 +162,21 @@
 											<input class="form-control2" size="36" type="text" name="user_address3" placeholder="상세주소">
 										</td>
 									</tr>
-								</table>	
+								</table>
+								<div class="my-2">
+									<!-- Nick Name -->
+									<c:if test="${checkNickDuplication == null}">
+										<input type="hidden" name="nickDuplication" value="${checkNickDuplication}">
+									</c:if>
+									<c:if test="${checkNickDuplication == 0}">
+										<span style="color: blue;">사용 가능한 Nick Name입니다.</span>
+										<input type="hidden" name="nickDuplication" value="${checkNickDuplication}">
+									</c:if>
+									<c:if test="${checkNickDuplication == 1}">
+										<span style="color: red;">사용 불가능한 Nick Name입니다.</span>
+										<input type="hidden" name="nickDuplication" value="${checkNickDuplication}">
+									</c:if>
+								</div>
 								<div class="my-3">
 									<button type="button" class="btn " onclick="checkMember()"
 										style="width: 380px; color: #fff; background-color: #F2BCBB; height: 48px; font-weight: normal; font-size: large;">Sign up</button>
