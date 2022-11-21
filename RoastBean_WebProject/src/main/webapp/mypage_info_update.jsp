@@ -141,15 +141,15 @@
 		  	<div class="my-2" style="text-align: center;">
 				<!-- Nick Name -->
 				<c:if test="${checkNickDuplication == null}">
+					<input type="hidden" name="nickDuplication" value="-1">
+				</c:if>
+				<c:if test="${checkNickDuplication == 0 || NICK == user_nick}">
+					<span style="color: blue;">사용 가능한 Nick Name입니다.</span>
 					<input type="hidden" name="nickDuplication" value="0">
 				</c:if>
-				<c:if test="${checkNickDuplication == 0}">
-					<span style="color: blue;">사용 가능한 Nick Name입니다.</span>
-					<input type="hidden" name="nickDuplication" value="1">
-				</c:if>
-				<c:if test="${checkNickDuplication == 1}">
+				<c:if test="${checkNickDuplication == 1 && NICK != user_nick}">
 					<span style="color: red;">사용 불가능한 Nick Name입니다.</span>
-					<input type="hidden" name="nickDuplication" value="2">
+					<input type="hidden" name="nickDuplication" value="1">
 				</c:if>
 			</div>
 		  	<div align="right"><button class="form-control3" type="button" onclick="location='mypage_info.do'">뒤로가기</button>  <button class="form-control3" type="button" onclick="checkMember()">저장하기</button></div>

@@ -76,7 +76,7 @@ function checkMember(){
 		form.user_nick.select()
 		return
 	}
-	if(form.nickDuplication.value != 1){ /**************************/
+	if(form.nickDuplication.value != 0){ /**************************/
 		alert("닉네임 중복체크를 해주세요.")
 	    form.focus();
 		return
