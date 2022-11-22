@@ -54,7 +54,7 @@
 						<ul>
 							<li><a href="notice_list.do">NOTICE</a></li>
 							<li><a href="cs_faq.jsp">FAQ</a></li>
-							<li><a href="qna_question_by_user.do">QnA</a></li>
+							<li><a href="cs_qna.jsp">QnA</a></li>
 						</ul>
 					<li>&emsp;&emsp;</li>
 					<li><a class="nav-link scrollto" href="login.jsp"><font color="#F2BCBB" style="font-size: 1.1em">Get Started</font></a></li>
@@ -83,7 +83,7 @@
 							<ul>
 								<li><a href="notice_list.do">NOTICE</a></li>
 								<li><a href="cs_faq.jsp">FAQ</a></li>
-								<li><a href="qna_question_by_user.do">QnA</a></li>
+								<li><a href="cs_qna.jsp">QnA</a></li>
 							</ul>
 						</li>
 						<li>&emsp;&emsp;</li>

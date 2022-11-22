@@ -85,7 +85,7 @@ public class DaoQna {
 			String query1 = "select qw.user_id, qw.qna_write_category, qw.qna_write_title, qw.qna_write_seq, qw.qna_write_initdate, qw.qna_write_updatedate, qw.qna_write_content, ";
 			String query2 = "qwc.qna_write_comment_seq, qwc.qna_write_comment_content, qwc.qna_write_comment_initdate, qwc.qna_write_comment_updatedate ";
 			String query3 = "from qna_write qw left join qna_write_comment qwc on qw.qna_write_seq = qwc.qna_write_seq "
-						  + "order by qw.qna_write_seq desc, qwc.qna_write_comment_seq asc ";
+						  + "ORDER BY qwc.qna_write_comment_seq is null desc, qw.qna_write_seq desc; ";
 			preparedStatement = connection.prepareStatement(query1+query2+query3);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -121,7 +121,7 @@ public class DaoQna {
 	} // 관리자의 QnA 전체 리스트 검색
 	
 	
-	// Mypage User의 QnA Question Insert / 22.11.13.SangwonKim
+	// Cs/ User의 QnA Question Insert / 22.11.13.SangwonKim
 	public void userQuestionInsert(String user_id, String qna_write_category, String qna_write_title, String qna_write_content) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
